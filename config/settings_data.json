@@ -13,7 +13,7 @@
     "shop_author": "Camillo Store",
     "rtl": false,
     "show_button_rtl": false,
-    "show_load_page": false,
+    "show_load_page": true,
     "loader_video_url": "https://cdn.shopify.com/videos/c/o/v/be0c6e647cc74730a928529a3e8f1a7e.mp4",
     "cusotm_width": 1730,
     "gap": 10,
@@ -30,10 +30,8 @@
     "show_all_categories": false,
     "show_key_word": true,
     "key_word": "Vegetables,Meat,Drink Juice",
-    "logo": "shopify://shop_images/logo.png",
-    "logo_page": "shopify://shop_images/logo.png",
     "logo_page_mobile": "shopify://shop_images/logo.png",
-    "logo_max_width": 150,
+    "logo_max_width": 50,
     "ajaxcart_enabled": true,
     "ajaxcart_after": "sidebar_cart",
     "product_gift": "gift-wrap",
@@ -732,7 +730,7 @@
       "promotion-product-popup": {
         "type": "promotion-product-popup",
         "settings": {
-          "use_promotion": true,
+          "use_promotion": false,
           "title": "top picks for you",
           "text_size": "small",
           "text_transform": "capitalize",
@@ -2154,7 +2152,7 @@
       "promotion-newsletter-popup": {
         "type": "promotion-newsletter-popup",
         "settings": {
-          "use_newsletter_popup": true,
+          "use_newsletter_popup": false,
           "bg_color": "#ffffff",
           "title_newslette": "Our Newsletter",
           "subtitle_newslette": "SIGN UP FOR OUR NEWSLETTER & PROMOTIONS !",
