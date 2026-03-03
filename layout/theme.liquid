@@ -264,7 +264,7 @@
 
   {%- if settings.enable_footer_badges -%}
     <div id="footer-badges-container" style="display: none;">
-      <div class="footer-badges-wrapper" style="display: inline-flex; align-items: center; gap: 15px; margin-left: 15px; vertical-align: middle;">
+      <div class="footer-badges" style="display: flex; justify-content: center; align-items: center; gap: 15px; width: 100%; margin-bottom: 15px;">
         {%- if settings.enable_google_badge -%}
           <a href="{{ settings.google_badge_link | default: 'https://transparencyreport.google.com/safe-browsing/search' }}" target="_blank" style="display: block; line-height: 0;">
             <img src="{{ 'google-site-seguro-pt.svg' | asset_url }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Google Site Seguro" loading="lazy">
@@ -290,10 +290,10 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         var badges = document.getElementById('footer-badges-container');
-        // Tenta encontrar o local do copyright para inserir os ícones
-        var target = document.querySelector('.footer-note .coppy-right p') || document.querySelector('.footer-bottom .copyright p') || document.querySelector('.coppy-right');
+        // Tenta encontrar o container do copyright para inserir os ícones no topo
+        var target = document.querySelector('.footer-note .coppy-right') || document.querySelector('.footer-bottom .copyright') || document.querySelector('.coppy-right');
         if(target && badges && badges.innerHTML.trim() !== "") {
-           target.insertAdjacentHTML('beforeend', badges.innerHTML);
+           target.insertAdjacentHTML('afterbegin', badges.innerHTML);
         }
       });
     </script>
