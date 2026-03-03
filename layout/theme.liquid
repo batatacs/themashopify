@@ -121,6 +121,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       const locationBanner = document.getElementById('jc-location-banner');
       const locationText = document.getElementById('jc-location-text');
+      const storageKey = 'jc_user_location_cache'; // Chave para salvar no navegador
 
       function showLocationBanner(htmlContent) {
           if (locationBanner && locationText) {
@@ -133,17 +134,30 @@
           }
       }
 
-      fetch('https://get.geojs.io/v1/ip/geo.json')
-        .then(response => response.json())
-        .then(data => {
-            const city = data.city;
-            const region = data.region_code || data.region;
-            const text = `Enviamos para <strong>${city} - ${region}</strong> e todo o Brasil! &nbsp;🚚`;
-            showLocationBanner(text);
-        })
-        .catch(() => {
-            showLocationBanner("Enviamos para <strong>todo o Brasil!</strong> &nbsp;🚚");
-        });
+      // 1. Verifica se já temos a localização salva na sessão
+      const cachedLocation = sessionStorage.getItem(storageKey);
+
+      if (cachedLocation) {
+          // Se já existe, usa o cache (Instantâneo)
+          showLocationBanner(cachedLocation);
+      } else {
+          // 2. Se não existe, consulta a API
+          fetch('https://get.geojs.io/v1/ip/geo.json')
+            .then(response => response.json())
+            .then(data => {
+                const city = data.city;
+                const region = data.region_code || data.region;
+                const text = `Enviamos para <strong>${city} - ${region}</strong> e todo o Brasil! &nbsp;🚚`;
+                
+                // Salva no cache para as próximas páginas
+                sessionStorage.setItem(storageKey, text);
+                
+                showLocationBanner(text);
+            })
+            .catch(() => {
+                showLocationBanner("Enviamos para <strong>todo o Brasil!</strong> &nbsp;🚚");
+            });
+      }
     });
   </script>
   {% endif %}
