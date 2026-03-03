@@ -340,6 +340,50 @@
         "step": 5,
         "unit": "px",
         "default": 115
+      },
+      {
+        "type": "header",
+        "content": "Ajustes de Posição e Mobile"
+      },
+      {
+        "type": "range",
+        "id": "logo_padding_left",
+        "label": "Margem Esquerda (Desktop)",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "logo_padding_top",
+        "label": "Margem Superior (Desktop)",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "logo_width_mobile",
+        "label": "Largura do Logo (Mobile)",
+        "min": 30,
+        "max": 150,
+        "step": 2,
+        "unit": "px",
+        "default": 90
+      },
+      {
+        "type": "range",
+        "id": "logo_padding_left_mobile",
+        "label": "Margem Esquerda (Mobile)",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 0
       }
     ]
   },

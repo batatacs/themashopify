@@ -143,6 +143,33 @@
       }
     </style>
   {% endif %}
+  <style>
+    /* Ajustes de Logo Personalizados */
+    .header .header-logo img, 
+    .header .logo img,
+    .header .header-nav .header-logo a img {
+        max-width: {{ settings.logo_max_width | default: 115 }}px !important;
+        width: 100% !important; 
+    }
+    .header .header-logo, 
+    .header .logo {
+        margin-left: {{ settings.logo_padding_left | default: 0 }}px !important;
+        margin-top: {{ settings.logo_padding_top | default: 0 }}px !important;
+    }
+
+    @media (max-width: 767px) {
+        .header .header-logo img, 
+        .header .logo img,
+        .header .header-nav .header-logo a img {
+            max-width: {{ settings.logo_width_mobile | default: 90 }}px !important;
+        }
+        .header .header-logo, 
+        .header .logo {
+            margin-left: {{ settings.logo_padding_left_mobile | default: 0 }}px !important;
+            margin-top: 0 !important;
+        }
+    }
+  </style>
 	{{ content_for_header }}
 </head>
 {%- assign admin_sp = request.design_mode -%}
