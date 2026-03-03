@@ -50,6 +50,16 @@
           var hasVideo = {% if settings.loader_video_url != blank or settings.loader_video_mobile_url != blank %}true{% else %}false{% endif %};
           var pageLoadEl = document.querySelector('.page-load');
 
+          // Cache do Preloader: Verifica se já foi visto nesta sessão
+          if (sessionStorage.getItem('jc_preloader_viewed')) {
+              if(pageLoadEl) {
+                  pageLoadEl.style.display = "none";
+                  document.body.classList.remove('skeleton-page');
+              }
+              return; // Interrompe o script para não mostrar o preloader novamente
+          }
+          sessionStorage.setItem('jc_preloader_viewed', 'true'); // Marca como visto
+
           function finishLoader() {
             if(!pageLoadEl) return;
             pageLoadEl.style.transition = "opacity 0.5s ease";
