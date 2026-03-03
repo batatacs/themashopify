@@ -184,6 +184,8 @@
     "mobile_css": ".custom-css{padding: 10px;}",
     "favicon": "shopify://shop_images/favicon.png",
     "favicon_apple": "shopify://shop_images/favicon.png",
+    "enable_google_badge": true,
+    "enable_reclameaqui_badge": true,
     "checkout_header_image": "shopify://shop_images/bg_breadcrum_blog.jpg",
     "checkout_logo_image": "shopify://shop_images/Logo_fb7c7c58-1b8f-455e-8b97-56d607743b37.png",
     "checkout_logo_position": "left",
