@@ -184,7 +184,7 @@
     "footer_social_tiktok_enable": true,
     "social_tiktok_link": "#",
     "custom_css": true,
-    "global_css": ".custom-css{\n    margin-right: auto;\n    margin-left: auto;\n    width: 630px;\n    height: 217px;\n    background: #F1F5F6;\n    border: 1px solid #E5E8EC;\n    border-radius: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n    padding: 40px;\n    font-weight: 500;\n    font-size: 20px;\n    line-height: 30px;\n}",
+    "global_css": ".custom-css{\n    margin-right: auto;\n    margin-left: auto;\n    width: 630px;\n    height: 217px;\n    background: #F1F5F6;\n    border: 1px solid #E5E8EC;\n    border-radius: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n    padding: 40px;\n    font-weight: 500;\n    font-size: 20px;\n    line-height: 30px;\n}\n\n/* Menu Animado com Borda */\n.header .menu > li > a {\n    position: relative;\n    padding: 8px 15px;\n    margin: 0 2px;\n    text-decoration: none;\n    transition: all 0.3s ease;\n    border: 1px solid transparent;\n    border-radius: 4px;\n}\n\n.header .menu > li > a:hover {\n    border-color: var(--color-link-hover);\n    color: var(--color-link-hover);\n    background-color: rgba(0,0,0,0.02);\n}",
     "tablet_mobile_css": ".custom-css{padding: 10px;}",
     "mobile_css": ".custom-css{padding: 10px;}",
     "favicon": "shopify://shop_images/favicon.png",
@@ -3351,6 +3351,5 @@
     }
   },
   "platform_customizations": {
-    "custom_css": []
   }
 }
