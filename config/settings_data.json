@@ -1309,7 +1309,7 @@
           "2edb69f1-946f-44fb-9516-b508ad1dbadc": {
             "type": "mega",
             "settings": {
-              "title": "Shop",
+              "title": "Loja",
               "url": "shopify://collections",
               "open_link": "_self",
               "icon": "",
@@ -1365,7 +1365,7 @@
           "9ea37089-1ecc-414b-a84c-1aff6ea43af5": {
             "type": "mega",
             "settings": {
-              "title": "Product",
+              "title": "Produtos",
               "url": "/collections/all",
               "open_link": "_self",
               "icon": "",
@@ -1422,7 +1422,7 @@
           "3681d0ce-afc6-4344-b966-cfda71fb5b43": {
             "type": "dropdown",
             "settings": {
-              "title": "Pages",
+              "title": "Página",
               "url": "shopify://pages/page-demo",
               "open_link": "_self",
               "menu": "",
@@ -1450,7 +1450,7 @@
           "407f6f92-2819-4cb0-a735-a3caec3c4cd2": {
             "type": "simple",
             "settings": {
-              "title": "Contact Us",
+              "title": "Entre em contato",
               "url": "shopify://pages/contact",
               "open_link": "_self",
               "icon": "",
