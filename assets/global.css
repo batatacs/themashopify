@@ -776,12 +776,16 @@ a.btn,
   font-weight: 500;
   font-size: 13px;
   text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0.5px;
 }
 a.btn:hover,
 .btn:hover {
   background-color: var(--color-btn-hover);
   border-color: var(--color-border-btn-hover);
   color: var(--color-btn-text_hover);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 .wrap_title {
   margin-bottom: 25px;
