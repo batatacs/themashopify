@@ -14,8 +14,7 @@
       class="product-store-lists"
       data-js-product
       data-product-handle="{{ product.handle }}"
-      data-product-variant-id="{{ id }}"
-    >
+      data-product-variant-id="{{ id }}">
       <div class="product-store-lists__image ">
         <a href="{{ url }}" class="d-block"><img alt="{{ product.title }}"></a>
       </div>
@@ -28,10 +27,7 @@
         <div class="product-store-lists__price">
           {% render 'product-get-price' with price: price compare_at_price: compare_at_price %}
         </div>
-        <span
-          class="product-store-lists__remove btn-link js-store-lists-remove-{{ namespace }}"
-          title="{{ 'products.product.remove' | t }}"
-        >
+        <span class="product-store-lists__remove btn-link js-store-lists-remove-{{ namespace }}" title="{{ 'products.product.remove' | t }}">
           <i class="icon-x"></i>
         </span>
       </div>
@@ -43,11 +39,10 @@
   <div
     id="login_pupop"
     class="hero_canvas"
-    data-include="{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}/search/?view=login"
-  >
+    data-include="{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}/search/?view=login">
     <div class="loading_bg"></div>
   </div>
-  {% include 'modal-quickview' %}
+{% include 'modal-quickview' %}
   {% comment %}
     {% include 'modal-compare' %}
   {% endcomment %}
@@ -55,8 +50,7 @@
   <div
     id="search_pupop"
     class="hero_canvas"
-    data-include="{{ routes.search_url }}?q={{search_pr_type}}&view=ajax-product"
-  ></div>
+    data-include="{{ routes.search_url }}?q={{search_pr_type}}&view=ajax-product"></div>
   <div class="js_lz_slpr dn" data-include="{{ routes.search_url }}?q={{t_name}}&view=cr_s_pp"></div>
   <div class="popup__bg" data-js-popup-bg></div>
   {%- if wishlist_enable -%}
@@ -65,13 +59,16 @@
       data-js-popup-name="wishlist"
       data-effect="mfp-move-horizontal"
       data-popup-right
-      data-js-popup-ajax
-    >
+      data-js-popup-ajax>
       {% include 'popup-wishlist' %}
     </div>
   {%- endif -%}
   {%- if compare_enable -%}
-    <div class="popup__body" data-js-popup-name="compare-full" data-effect="mfp-move-horizontal" data-popup-center>
+    <div
+      class="popup__body"
+      data-js-popup-name="compare-full"
+      data-effect="mfp-move-horizontal"
+      data-popup-center>
       {% include 'popup-compare-full' %}
     </div>
   {%- endif -%}
@@ -81,5 +78,3 @@
     {% include 'minicart' %}
   </div>
 {% endif %}
-{%- section 'mobile_menu' -%}
-{%- section 'text-runs-popup' -%}

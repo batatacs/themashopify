@@ -214,22 +214,24 @@
       <span class="ltr-text">{{ 'homepage.onboarding.ltr' | t }}</span>
     </a>
     {% endif %}
-    {% liquid 
-        if  type_name=="product" or type_name == "index" or type_name == 'cart'
-          section 'cross-sell-popup'  
-        endif 
-        if type_name == 'product' and settings.sticky_atc and product.available
-          section 'sticky_add_to_cart'
-        endif
-        if type_name != 'blog' and type_name !='article' and type_name !='page'
-          section 'promotion-product-popup'  
-        endif
-         if type_name == "index"               
-            section 'promotion-newsletter-popup'
-        endif
-        include 'popups'
-        section 'custom-colors'
-    %}   
+    {% if type_name == "product" or type_name == "index" or type_name == 'cart' %}
+      {% section 'cross-sell-popup' %}
+    {% endif %}
+    {% if type_name == 'product' and settings.sticky_atc and product.available %}
+      {% section 'sticky_add_to_cart' %}
+    {% endif %}
+    {% if type_name != 'blog' and type_name != 'article' and type_name != 'page' %}
+      {% section 'promotion-product-popup' %}
+    {% endif %}
+    {% if type_name == "index" %}
+      {% section 'promotion-newsletter-popup' %}
+    {% endif %}
+    
+    {% render 'popups' %}
+    {% section 'custom-colors' %}
+    {% section 'mobile_menu' %}
+    {% section 'text-runs-popup' %}
+    
     <div class="js-mobile_bkg_show mobile_bkg_show"></div>
   </div>
   <script>

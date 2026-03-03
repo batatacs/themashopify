@@ -7412,7 +7412,7 @@ a.btn:hover,
   100% { background-position: -100% 50%; }
 }
 .location-banner.show {
-  max-height: 50px;
+  max-height: 120px;
   padding: 8px 0;
   opacity: 1;
 }
@@ -7421,6 +7421,7 @@ a.btn:hover,
   align-items: center;
   justify-content: center;
   gap: 10px;
+  padding: 0 15px;
 }
 .location-icon-wrapper {
   position: relative;
@@ -7429,6 +7430,7 @@ a.btn:hover,
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .location-icon {
   width: 100%;
@@ -7520,4 +7522,12 @@ a.btn:hover,
 @keyframes btn-shine-anim {
   0% { left: -150%; }
   100% { left: 150%; }
+}
+
+/* Ajuste posicao WhatsApp Mobile */
+@media only screen and (max-width: 767px) {
+  a[href*="wa.me"],
+  a[href*="api.whatsapp.com"] {
+    bottom: 90px !important;
+  }
 }
