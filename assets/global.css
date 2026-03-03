@@ -7575,3 +7575,24 @@ a.btn:hover,
     bottom: 90px !important;
   }
 }
+
+/* --- Premium Product Card Hover Effect --- */
+.product-item .product-inner {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: var(--alo-border-radius);
+  background: #fff; /* Garante fundo branco para a sombra destacar */
+}
+
+.product-item:hover .product-inner {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+
+/* --- Typography Refinement --- */
+h1, h2, h3, .h1, .h2, .h3, .section-title {
+  letter-spacing: -0.02em; /* Títulos mais compactos e modernos */
+}
+.section-title {
+  letter-spacing: 0.05em; /* Títulos de seção em caixa alta mais espaçados */
+}
