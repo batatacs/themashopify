@@ -149,16 +149,21 @@
   {% endif %}
 
   {%if settings.show_load_page%}
-  <div class="page-load {% unless settings.loader_image != blank %}circle-loadding{% endunless %}" style="background-color: {{ settings.loader_bg | default: '#ffffff' }}; display: flex; align-items: center; justify-content: center;">
-    {%- if settings.loader_image != blank -%}
-      <img src="{{ settings.loader_image | image_url: width: settings.loader_width }}" 
-           width="{{ settings.loader_width }}"
-           height="{{ settings.loader_width | divided_by: settings.loader_image.aspect_ratio | round }}"
-           alt="{{ shop.name }}"
-           style="max-width: 100%; height: auto;"
-           class="loader-logo">
+  <div class="page-load {% if settings.loader_video_url == blank and settings.loader_image == blank %}circle-loadding{% endif %}" style="background-color: {{ settings.loader_bg | default: '#ffffff' }};">
+    {%- if settings.loader_video_url != blank -%}
+      <video class="preloader-video" src="{{ settings.loader_video_url }}" autoplay muted loop playsinline></video>
     {%- else -%}
-      <span></span>
+      <div class="preloader-content">
+        {%- if settings.loader_image != blank -%}
+          <img src="{{ settings.loader_image | image_url: width: settings.loader_width }}"
+               width="{{ settings.loader_width }}"
+               height="{{ settings.loader_width | divided_by: settings.loader_image.aspect_ratio | round }}"
+               alt="{{ shop.name }}"
+               class="loader-logo">
+        {%- else -%}
+          <span></span>
+        {%- endif -%}
+      </div>
     {%- endif -%}
   </div>
   {%endif%}

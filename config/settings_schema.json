@@ -114,6 +114,12 @@
         "default": 100
       },
       {
+        "type": "text",
+        "id": "loader_video_url",
+        "label": "URL do Vídeo do Preloader (MP4)",
+        "info": "Cole a URL de um vídeo .mp4. Suba o vídeo em 'Conteúdo > Arquivos' no seu admin Shopify e cole o link aqui. Isso substituirá a imagem/animação do preloader."
+      },
+      {
         "type": "color",
         "id": "loader_bg",
         "label": "Cor de Fundo do Preloader",
