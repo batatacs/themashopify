@@ -1830,11 +1830,11 @@
           "cdf00ca1-1c7e-4be1-b44f-59f861f0d1ed"
         ],
         "settings": {
-          "show_title": false,
+          "show_title": true,
           "show_style": "2",
           "item_numb": 12,
-          "item_title": "More Categories",
-          "close_title": "Close",
+          "item_title": "Mais categorias",
+          "close_title": "Fechar",
           "cl_border": "#ebebeb"
         }
       },
