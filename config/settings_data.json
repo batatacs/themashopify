@@ -36,7 +36,7 @@
     "logo_max_width": 250,
     "logo_padding_left": 30,
     "logo_padding_top": 7,
-    "logo_width_mobile": 150,
+    "logo_width_mobile": 190,
     "ajaxcart_enabled": true,
     "ajaxcart_after": "sidebar_cart",
     "product_gift": "gift-wrap",
