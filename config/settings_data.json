@@ -33,7 +33,7 @@
     "key_word": "Vegetables,Meat,Drink Juice",
     "logo": "shopify://shop_images/Design_sem_nome_3.png",
     "logo_page_mobile": "shopify://shop_images/Design_sem_nome_3.png",
-    "logo_max_width": 250,
+    "logo_max_width": 200,
     "ajaxcart_enabled": true,
     "ajaxcart_after": "sidebar_cart",
     "product_gift": "gift-wrap",
