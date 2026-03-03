@@ -1515,7 +1515,7 @@
           "enable_icon_menu": false,
           "cl_bg_menu": "#263c97",
           "cl_border_menu": "#3b50a3",
-          "custom_html": "<p>Promoção: $20 de desconto no seu primeiro pedido.</p>"
+          "custom_html": "<p><a href=\"#\" title=\"promo\">Promoção: $20 de desconto no seu primeiro pedido.</a></p>"
         }
       },
       "vertical_menu": {
