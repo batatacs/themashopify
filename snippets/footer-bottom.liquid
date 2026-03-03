@@ -1,0 +1,114 @@
+<!--Footer-->
+{%- if section.settings.hidden %}{% break %}{% endif -%}
+{%  assign sid = section.id  %}
+{%- assign full_width = section.settings.full_width -%}
+<section id="laber_{{sid}}" style="--color-border:{{ section.settings.cl_border }};">
+        <div class="{% if full_width %}full-width{% else %}container{% endif %}">
+        	<div class="row">
+          {%- for block in section.blocks -%}
+                  {% case block.settings.col %}
+                        {% when '16%' %}
+                            {%- assign block_width = 'col-lg-2 col-md-2 col-12' -%}
+                        {% when '25%' %}
+                            {%- assign block_width = 'col-lg-3 col-md-3 col-12' -%}
+                        {% when '33%' %}
+                            {%- assign block_width = 'col-lg-4 col-md-4 col-12' -%}
+                        {% when '42%' %}
+                            {%- assign block_width = 'col-lg-5 col-md-5 col-12' -%}
+                        {% when '50%' %}
+                            {%- assign block_width = 'col-lg-6 col-md-6 col-12' -%}
+                        {% when '58%' %}
+                            {%- assign block_width = 'col-lg-7 col-md-7 col-12' -%}
+                        {% when '66%' %}
+                            {%- assign block_width = 'col-lg-8 col-md-8 col-12' -%}
+                        {% when '75%' %}
+                            {%- assign block_width = 'col-lg-9 col-md-9 col-12' -%}
+                        {% when '100%' %}
+                            {%- assign block_width = 'col-12' -%}
+                    {% endcase %}
+                  {%- case block.type -%}
+                  {%- when 'policy' -%} 
+                  <div class="footer-iteam {{ block_width }} mb-{{ block.settings.mb }}" style="--alo-position:{{ block.settings.pos_block }};" {{ block.shopify_attributes }}> 
+                   <div class="policies"> 
+                    <ul class="list-unstyled" style="--color-link:{{ block.settings.cl_link }};--color-link-hover:{{ block.settings.cl_link_hover }};">
+                      {%- for policy in shop.policies -%}
+                        {%- if policy != blank -%}
+                          <li>
+                            <small class="policies_content"
+                              ><a href="{{ policy.url }}">{{ policy.title }}</a></small
+                            >
+                          </li>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </ul>
+                   </div>
+                  </div>
+                  {%- when 'copyright' -%} 
+                  <div class="footer-iteam {{ block_width }} mb-{{ block.settings.mb }}" style="--alo-position:{{ block.settings.pos_block }};" {{ block.shopify_attributes }}> 
+                      {% if block.settings.copyright != blank %}
+                      <div class="copyright alo-color" style="--alo-color:{{ block.settings.cl_text }};--color-link-footer:{{ block.settings.cl_link }};"> {{ block.settings.copyright }}</div>
+                    {% endif %}
+                  </div>
+				  {%- when 'payment_svg' -%}
+                    <div class="footer-iteam {{ block_width }} mb-{{ block.settings.mb }}" style="--alo-position:{{ block.settings.pos_block }};" {{ block.shopify_attributes }}>
+                    <div class="payment">
+                      {% if block.settings.title != blank %}<span class="alo-color" style="--alo-color:{{ block.settings.cl_text }};">{{ block.settings.title }}</span>{% endif %} 
+                      {% if block.settings.svg_custom %}
+                        <div class="payment_type_svg">
+                        {%- assign svg_custom = block.settings.svg_custom | remove: ' ' | split:"," -%}
+                        {%- for img in svg_custom -%}
+                              <img loading="lazy"  width="45px"   height="30px" class="img_tr_svg" 
+                                src="{{ img | payment_type_img_url }}" 
+                                data-src="{{ img | payment_type_img_url }}" 
+                                alt="{{img | replace:'_',' '}}" />
+                        {%- endfor -%}
+                        </div>
+                      <style>
+                           .payment_type_svg{display: flex;flex-wrap: wrap;gap: 5px;} 
+                          .payment_type_svg img {border-radius: 3px;}
+                      </style>
+                      {%- endif -%}
+                    </div>
+                    
+                    </div>
+                   {%- when 'payment_img' -%}
+                        <div class="footer-iteam  {{ block_width }} mb-{{ block.settings.mb }}" {{ block.shopify_attributes }}>
+                              <div class="payment" style="--alo-width:{{ block.settings.width_img }}px;--alo-position:{{ block.settings.pos_block }}"> 
+                                {% if block.settings.title != blank %}<span class="alo-color" style="--alo-color:{{ block.settings.cl_text }};">{{ block.settings.title }}</span>{% endif %} 
+                                {% if block.settings.img_payment %}  
+                                  {% render 'responsive-image', image: block.settings.img_payment, image_class: 'w-auto h-full' %}
+                                {%- endif -%}
+                              </div>
+						</div>
+                   {%- when 'socia' -%}
+                      <div class="footer-iteam {{ block_width }} mb-{{ block.settings.mb }}" {{ block.shopify_attributes }} style="--alo-position:{{ block.settings.pos_block }}">
+                        {%if block.settings.f_social == "2"%}
+                          {% render 'social_link' %}
+                        {% else %}
+                           {% render 'social-sharing' %} 
+                        {% endif %}
+                      </div>
+                  {%- when 'menu' -%}
+                    <div class="footer-iteam {{ block_width }} mb-{{ block.settings.mb }}" {{ block.shopify_attributes }} style="--alo-position:{{ block.settings.pos_block }}">
+                       <div class="menu_footer">
+                        {%- assign menu = block.settings.menu -%}
+                        {%- if menu != blank -%}
+                          <ul class="menu">
+                            {%- for link in linklists[menu].links -%}
+                             <li class="menu-item{% if link.active %}active{% endif %}">
+                               <a class="alo-color alo-color-hover" style="--alo-color:{{ block.settings.cl_link }};--alo-color-hover:{{ block.settings.cl_link_hover }};" href="{{ link.url }}">{{ link.title | split: '[' | first }}
+                               </a>
+                              </li>
+                             {%- endfor -%}
+                          </ul>
+                          {%- else -%}
+                            You have not selected the footer menu
+                          {%- endif -%}
+                       </div>
+                      </div>
+                  {%- endcase -%}
+              {%- endfor -%}
+        </div>
+        </div>
+</section>
+<!--/Footer-->

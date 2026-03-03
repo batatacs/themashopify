@@ -1,0 +1,303 @@
+{%- capture htmlContent -%}
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
+<head>
+  <meta charset="utf-8">   
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="{{ settings.color_button }}">
+  <meta name="format-detection" content="telephone=no">
+  {%- assign maximum = false -%}
+  <meta name="viewport" content="width=device-width, initial-scale=1{% if maximum %},user-scalable=0, maximum-scale=1{% endif %}" />
+  {%- if canonical_url != blank  -%}
+  <link rel="canonical" href="{{ canonical_url }}">
+  {%- endif -%}
+  <link rel="prefetch" as="document" href="https://{{shop.domain}}">
+  <link rel="preconnect" href="//{{shop.permanent_domain}}" crossorigin>
+  <link rel="preconnect" href="//cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="//fonts.shopifycdn.com" crossorigin>
+  <link rel="preconnect" href="//cdn.shopifycloud.com" crossorigin>
+  <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+  {% capture seo_title %}
+    {{ page_title }}
+    {% if current_tags %}{%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}{% endif %}
+    {% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
+    {% unless page_title contains shop.name %}&ndash; {{ shop.name }}{% endunless %}
+  {% endcapture %}
+  <title>{{ seo_title | strip_newlines | remove:"  " }}</title>
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% else %}
+      <meta name="description" content="{{ settings.home_keywords | escape }}">
+    {% endif %}
+  {% render 'meta-tags' %}
+  {%- if settings.favicon != blank %}<link rel="shortcut icon" type="image/png" href="{{ settings.favicon | image_url: width: 32 }}">{% endif -%}
+  {%- if settings.favicon_apple != blank %}<link rel="apple-touch-icon-precomposed" type="image/png" sizes="152x152" href="{{ settings.favicon_apple | image_url: width: 152 }}">{% endif -%}
+  {% comment %}{% include 'social-meta-tags' %} {% endcomment %}
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+  {% include 'language-rtl' %}
+  {% include 'google-fonts' %}
+  {% include 'header-stylesheets' %}
+  {% include 'header-scripts' %}  
+  <script>
+    var theme = { currency :'{{ shop.currency }}', moneyFormat: {{ shop.money_format | json }},moneyFormatWithCurrency: {{ shop.money_with_currency_format | json }}, {% if customer %}customer: {id : {{customer.id}}, name: '{{customer.name}}'}{% endif %}},
+        shopCurrency = '{{ shop.currency }}';
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    const type_name = "{{request.page_type}}", t_cartCount = {{ cart.item_count }}, t_shop_currency = "{{ shop.currency }}", t_moneyFormat = {{ shop.money_format | json }}, t_cart_url = "{{ routes.cart_url }}", pr_re_url = "{{ routes.product_recommendations_url }}"; 
+    document.addEventListener("DOMContentLoaded", function() {
+          function fadeOut(el){if(!el) return; el.style.opacity=1;(function fade(){if((el.style.opacity-=.1)<0){el.style.display="none";}else{requestAnimationFrame(fade);}})();}
+          setTimeout(function() {
+            fadeOut(document.querySelector('.page-load'));
+            document.body.classList.remove('skeleton-page');
+          }, 2000);
+    });   
+  </script>
+  {% if settings.hide_shopify_add_to_cart %}
+    <style>
+      .js_add_to_cart_button, 
+      [name="add"],
+      .product-form__cart-submit,
+      .sticky_atc_btn { display: none !important; }
+    </style>
+  {% endif %}
+  {% if settings.hide_shopify_buy_now %}
+    <style>
+      .shopify-payment-button, 
+      .group-button-buyitnow { 
+        display: none !important; 
+      }
+    </style>
+  {% endif %}
+  {% if settings.banner_clickable %}
+    <style>
+      /* Torna o container do banner relativo para posicionar o link */
+      .type_banner .banner-card,
+      .type_banner .images-card,
+      .type_banner .content-item {
+          position: relative !important;
+          cursor: pointer;
+      }
+      /* Link Overlay que cobre tudo */
+      .banner-link-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+      }
+      /* Oculta os botões de texto padrão pois a imagem já tem o botão desenhado */
+      .type_banner .banner_text .buttons,
+      .type_banner .banner_text .btn {
+          display: none !important;
+      }
+      /* Garante que textos não atrapalhem o clique */
+      .type_banner .banner_text h3, 
+      .type_banner .banner_text h4, 
+      .type_banner .banner_text p {
+          pointer-events: none;
+      }
+    </style>
+  {% endif %}
+	{{ content_for_header }}
+</head>
+{%- assign admin_sp = request.design_mode -%}
+{%- assign type_name = request.page_type -%}
+<body id="{{ page_title | handle }}" class="skeleton-page {% if template contains 'index' %} home {%else%} subpage {% endif %} {% if customer %}customer-logged-in {% endif %}template-{{ request.page_type | handle }} {{ rtlClasses }} {% if settings.enable_sticky_header %}enable-sticky-header{% endif %}" data-header="{{settings.select_header}}">
+  
+  <!-- Banner de Localização Inteligente -->
+  {% if settings.show_location_topbar %}
+  <div id="jc-location-banner" class="location-banner">
+    <div class="location-content">
+      <div class="location-icon-wrapper">
+        <svg class="location-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+      </div>
+      <span id="jc-location-text" class="loading">Detectando localização...</span>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const locationBanner = document.getElementById('jc-location-banner');
+      const locationText = document.getElementById('jc-location-text');
+
+      function showLocationBanner(htmlContent) {
+          if (locationBanner && locationText) {
+            locationText.classList.add('location-text-change');
+            locationText.innerHTML = htmlContent;
+            locationText.classList.remove('loading');
+            setTimeout(() => {
+              locationBanner.classList.add('show');
+            }, 500); // Pequeno delay para garantir carregamento suave
+          }
+      }
+
+      fetch('https://get.geojs.io/v1/ip/geo.json')
+        .then(response => response.json())
+        .then(data => {
+            const city = data.city;
+            const region = data.region_code || data.region;
+            const text = `Enviamos para <strong>${city} - ${region}</strong> e todo o Brasil! &nbsp;🚚`;
+            showLocationBanner(text);
+        })
+        .catch(() => {
+            showLocationBanner("Enviamos para <strong>todo o Brasil!</strong> &nbsp;🚚");
+        });
+    });
+  </script>
+  {% endif %}
+
+  {%if settings.show_load_page%}
+  <div class="page-load {% unless settings.loader_image != blank %}circle-loadding{% endunless %}" style="background-color: {{ settings.loader_bg | default: '#ffffff' }}; display: flex; align-items: center; justify-content: center;">
+    {%- if settings.loader_image != blank -%}
+      <img src="{{ settings.loader_image | image_url: width: settings.loader_width }}" 
+           width="{{ settings.loader_width }}"
+           height="{{ settings.loader_width | divided_by: settings.loader_image.aspect_ratio | round }}"
+           alt="{{ shop.name }}"
+           style="max-width: 100%; height: auto;"
+           class="loader-logo">
+    {%- else -%}
+      <span></span>
+    {%- endif -%}
+  </div>
+  {%endif%}
+  <div class="main {{class_sidebar}}" style="transform: none;">
+  <header id="header">
+        {% assign import_header = settings.select_header | plus: 0%}
+        {% case import_header %}     
+          {% when 1 %}
+              {% section 'top-bar' %}
+    		  {% section 'top-header' %}
+              {% section 'header1' %} 
+              {%- if settings.use_vertical_menu -%}
+                {% section 'vertical_menu' %}
+              {% endif %}
+        {% endcase %}
+    </header>
+    {% if template contains 'product' %} 
+    	{% section 'breadcrumb' %}
+        <div class="page-container clearfix {%if settings.show_product_sidebar%}sidebar-product{%endif%}" id="PageContainer">
+          <div class="container {%if settings.product_page_layout == 'full-width' %}{{settings.product_page_layout}}{%endif%}">
+          <div class="row row-15">
+            {%if settings.show_product_sidebar%}
+            <div class="hide-mobile col-lg-auto col-xs-12  col-sm-4 col-md-3 col-lg-3 sidebar sidebar-{{settings.product_info_layout}}">
+              {% section 'product_sidebar' %}
+            </div>
+            {%endif%}
+            <main id="MainContent " class="col">
+              {{ content_for_layout }}
+            </main>
+          </div>
+          </div>
+        </div>
+
+    	{% section 'related-product-carousel' %}
+    	{% section 'products-recently-viewed' %}
+
+   	{%else%}
+      <div class="page-container clearfix" id="PageContainer">
+        <main id="MainContent">
+          {{ content_for_layout }}
+        </main>
+      </div>
+    {%endif%}
+
+	{%- render 'footer'-%}
+    {%- section 'menu-mobile-bottom'-%}
+    <a class="back-to-top" href="#" aria-label="link">
+      <i class="icon-chevrons-up"></i>
+    </a>
+    {% if settings.show_button_rtl %}
+    <a class="switch-rtl-ltr" href="#">
+      <span class="rtl-text">{{ 'homepage.onboarding.rtl' | t }}</span>
+      <span class="ltr-text">{{ 'homepage.onboarding.ltr' | t }}</span>
+    </a>
+    {% endif %}
+    {% liquid 
+        if  type_name=="product" or type_name == "index" or type_name == 'cart'
+          section 'cross-sell-popup'  
+        endif 
+        if type_name == 'product' and settings.sticky_atc and product.available
+          section 'sticky_add_to_cart'
+        endif
+        if type_name != 'blog' and type_name !='article' and type_name !='page'
+          section 'promotion-product-popup'  
+        endif
+         if type_name == "index"               
+            section 'promotion-newsletter-popup'
+        endif
+        include 'popups'
+        section 'custom-colors'
+    %}   
+    <div class="js-mobile_bkg_show mobile_bkg_show"></div>
+  </div>
+  <script>
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}'
+      };
+      window.products = {
+        pre_order: "{{ 'products.product.pre_order' |t }}",
+        add_to_cart: "{{ 'products.product.add_to_cart' |t }}",
+        out_of_stock: "{{ 'products.product.out_stock' |t }}",
+        label: {
+          "hot": "{{ 'products.product.label.hot' |t }}",
+          "new": "{{ 'products.product.label.new' |t }}",
+          "sale": "{{ 'products.product.label.sale' |t }}"
+        },
+        stock_countdown_html: "{{ 'products.product.stock_countdown_html' | t }}",
+        value_in_stock_html: "{{ 'products.product.value_in_stock_html' | t }}",
+        variant_auto_match: "{{ settings.product_variant_auto_match_disable }}"
+      };
+  </script>
+
+  {%- if settings.predictive_search_enabled -%}
+    <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {%- if settings.enable_footer_badges -%}
+    <div id="footer-badges-container" style="display: none;">
+      <div class="footer-badges-wrapper" style="display: inline-flex; align-items: center; gap: 15px; margin-left: 15px; vertical-align: middle;">
+        {%- if settings.enable_google_badge -%}
+          <a href="{{ settings.google_badge_link | default: 'https://transparencyreport.google.com/safe-browsing/search' }}" target="_blank" style="display: block; line-height: 0;">
+            <img src="{{ 'google-site-seguro-pt.svg' | asset_url }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Google Site Seguro" loading="lazy">
+          </a>
+        {%- endif -%}
+        {%- if settings.enable_reclameaqui_badge -%}
+          <a href="{{ settings.reclameaqui_badge_link | default: 'https://www.reclameaqui.com.br/detector-site-confiavel/' }}" target="_blank" style="display: block; line-height: 0;">
+            <img src="{{ 'Reclameaqui.svg' | asset_url }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Reclame Aqui" loading="lazy">
+          </a>
+        {%- endif -%}
+        {%- if settings.footer_badge_1 != blank -%}
+          <a href="{{ settings.footer_badge_1_link | default: '#' }}" target="_blank" style="display: block; line-height: 0;">
+            <img src="{{ settings.footer_badge_1 | image_url: width: settings.footer_badge_width }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Selo 1" loading="lazy">
+          </a>
+        {%- endif -%}
+        {%- if settings.footer_badge_2 != blank -%}
+          <a href="{{ settings.footer_badge_2_link | default: '#' }}" target="_blank" style="display: block; line-height: 0;">
+            <img src="{{ settings.footer_badge_2 | image_url: width: settings.footer_badge_width }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Selo 2" loading="lazy">
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var badges = document.getElementById('footer-badges-container');
+        // Tenta encontrar o local do copyright para inserir os ícones
+        var target = document.querySelector('.footer-note .coppy-right p') || document.querySelector('.footer-bottom .copyright p') || document.querySelector('.coppy-right');
+        if(target && badges && badges.innerHTML.trim() !== "") {
+           target.insertAdjacentHTML('beforeend', badges.innerHTML);
+        }
+      });
+    </script>
+  {%- endif -%}
+</body>
+</html>
+{%- endcapture -%}
+{%- render 'minify-code'
+  , htmlContent: htmlContent -%}

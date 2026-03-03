@@ -1,0 +1,73 @@
+{%- liquid
+  assign collection = collections[block.settings.collection]
+  assign image = block.settings.image | default:collection.image |default:collection.products[0].featured_image
+  assign home_t = 'homepage.onboarding.collection_title' | t
+  assign url =  collection.url | default:'/admin/collections' 
+-%}
+<div id="bk_{{block.id}}" class="laber_banner cat_grid_item cat_space_item cat_grid_item_{{for_i}} {{ccol}}" style=" margin-bottom:{{ block.settings.mg_bottom }}px;" {{ block.shopify_attributes }} >
+  <div class="cat_grid_item__content">
+    <div class="cat_grid_item__link">
+        {%- if image != blank -%}
+          {% render 'responsive-image', image: image, url:url, aspect_ratio:aspect_ratio,border:section.settings.border, image_class: 'w-full h-full' %}
+          {% if section.settings.show_btn %}
+            <span class="icon">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title></title><g data-name="Layer 2" id="Layer_2"><path d="M19,26a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42L26.59,16l-8.3-8.29a1,1,0,0,1,1.42-1.42l9,9a1,1,0,0,1,0,1.42l-9,9A1,1,0,0,1,19,26Z"></path><path d="M28,17H4a1,1,0,0,1,0-2H28a1,1,0,0,1,0,2Z"></path></g><g id="frame"><rect class="cls-1" height="32" width="32"></rect></g></svg>          
+            </span>
+          {% endif %}
+        {%- else -%}
+          {% if aspect_ratio != blank %}
+               {%- assign ratio =  1 | divided_by: aspect_ratio | times: 100 -%}
+            {% else %}
+                {%- assign ratio = 100 -%}
+            {% endif %}
+            <div class="image-card__img overflow-hidden ratio" style="--ratio-percent: {{ ratio }}%;">
+              {% capture current %}{% cycle 1, 2, 3, 4 %}{% endcapture %}
+               {{ 'product-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+            </div>
+        {%- endif -%}
+        <div class="collection-name">
+            <a href="{{ url }}" title="{{ block.settings.title | default:collection.title | default:home_t }}">{{ block.settings.title | default:collection.title | default:home_t }}</a>
+            {% if num_p_qty and collection != blank %}
+                <span class="cat_grid_item__count ">
+                    ({{collection.all_products_count}} 
+                    <span>
+                      {% if collection.all_products_count > 1 %} 
+                          {{'homepage.section.items' | t}} 
+                      {% else %}
+                          {{'homepage.section.item' | t}} 
+                      {% endif %}
+                    </span>)
+                  </span>
+              {% endif %}
+        </div>
+    </div>
+    {% comment %}
+    <div class="cat_grid_item__wrapper">
+      <div class="cat_grid_item__title">
+        {% if block.settings.title %}
+          <a href="url" title="{{ block.settings.title | default:collection.title | default:home_t }}" aria-label="link">
+              {% if num_p_qty and collection != blank %}
+                <span class="cat_grid_item__count ">
+                    {{collection.all_products_count}} 
+                    <span>
+                      {% if collection.all_products_count > 1 %} 
+                          {{'homepage.section.items' | t}} 
+                      {% else %}
+                          {{'homepage.section.item' | t}} 
+                      {% endif %}
+                    </span>
+                  </span>
+              {% endif %}
+              {{ block.settings.title | default:collection.title | default:home_t }}
+              
+         </a>
+        {%endif%} 
+      </div>
+      {% if block.settings.text %}<p>{{ block.settings.text }}</p> {%endif%}
+      </div>
+      {% endcomment %}
+  </div>
+</div>
+
+
+

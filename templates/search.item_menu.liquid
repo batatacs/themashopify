@@ -1,0 +1,11 @@
+{%- liquid
+  layout none
+	capture html
+		assign import_header = settings.select_header | plus: 0
+         case import_header     
+           when 1
+              section 'header1'
+         endcase 
+	endcapture
+	assign arr =  html | split:'[cmshero]' 
+	echo arr[1] -%}

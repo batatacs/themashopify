@@ -1,0 +1,705 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "show_title_page": false,
+        "h_position": "left",
+        "v_position": "middle",
+        "txt_align": "center",
+        "bg": "#f2f2f6",
+        "cl_border": "#ffffff",
+        "b_height": 70,
+        "mg_bottom": 0,
+        "mobile_bg": "#f2f2f6",
+        "mobile_ht": 50,
+        "mobile_mg_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-about",
+      "blocks": {
+        "bd5b7c04-af26-4be3-8c31-174bed898a73": {
+          "type": "content",
+          "settings": {
+            "title": "Our Perfect Store",
+            "sub_title": "Welcome to uminex",
+            "content": "<p>Over 20 years of experience, we have crafted thousands of strategic discovery process that <br>enables us to peel back the layers which enable us to understand, connect.<\/p>",
+            "text_size": "medium",
+            "text_transform": "uppercase",
+            "width": "12",
+            "h_position": "center",
+            "v_position": "middle",
+            "txt_align": "center",
+            "mg": "",
+            "pd": ",,60px,",
+            "mg_mb": "",
+            "pd_mb": "0,0,0,0"
+          }
+        },
+        "d205ec2d-202a-4f1a-b3de-9d19d37a0891": {
+          "type": "banner_img",
+          "settings": {
+            "image_sl": "shopify:\/\/shop_images\/img_about.jpg",
+            "use_eq_height": false,
+            "image_ratio": "ratio3_2",
+            "border": 10,
+            "link": "shopify:\/\/products\/proenza-schouler-white-label-5",
+            "width": "12",
+            "mg": ",,80px,",
+            "pd": "",
+            "mg_mb": ",,40px,",
+            "pd_mb": ""
+          }
+        },
+        "a6d4999a-bbb4-4771-9d88-3896e61ac4b7": {
+          "type": "nb_sale",
+          "settings": {
+            "nb_sale": "21K",
+            "title": "Products For Sale",
+            "subheading": "Class aptent taciti sociosqu litora torquent per conubia.",
+            "width": "3",
+            "h_position": "center",
+            "v_position": "middle",
+            "txt_align": "center",
+            "mg": ",,80px,",
+            "pd": "",
+            "mg_mb": ",,40px,",
+            "pd_mb": ""
+          }
+        },
+        "e5e0117e-ae5c-4345-abea-6aaeb1506350": {
+          "type": "nb_sale",
+          "settings": {
+            "nb_sale": "21K",
+            "title": "Products For Sale",
+            "subheading": "Class aptent taciti sociosqu litora torquent per conubia.",
+            "width": "3",
+            "h_position": "center",
+            "v_position": "middle",
+            "txt_align": "center",
+            "mg": ",,80px,",
+            "pd": "",
+            "mg_mb": ",,40px,",
+            "pd_mb": ""
+          }
+        },
+        "c3dea705-cadd-4a04-b57b-ee44b0260b33": {
+          "type": "nb_sale",
+          "settings": {
+            "nb_sale": "21K",
+            "title": "Products For Sale",
+            "subheading": "Class aptent taciti sociosqu litora torquent per conubia.",
+            "width": "3",
+            "h_position": "center",
+            "v_position": "middle",
+            "txt_align": "center",
+            "mg": ",,80px,",
+            "pd": "",
+            "mg_mb": ",,40px,",
+            "pd_mb": ""
+          }
+        },
+        "b44e2317-4fc9-4415-9b49-9dba53cf050a": {
+          "type": "nb_sale",
+          "settings": {
+            "nb_sale": "21K",
+            "title": "Products For Sale",
+            "subheading": "Class aptent taciti sociosqu litora torquent per conubia.",
+            "width": "3",
+            "h_position": "center",
+            "v_position": "middle",
+            "txt_align": "center",
+            "mg": ",,80px,",
+            "pd": "",
+            "mg_mb": ",,40px,",
+            "pd_mb": ""
+          }
+        },
+        "5c2ad967-b430-48c7-b965-ef8925abbd4d": {
+          "type": "line",
+          "settings": {
+            "cl_line": "#f2f2f6"
+          }
+        },
+        "7ec52b22-ede8-41d7-aaba-661dcaea9f0e": {
+          "type": "text",
+          "settings": {
+            "title": "Over 20 Years Of Experience",
+            "subheading": "Why Choose Us",
+            "text": "<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos vel pretium <\/p><p> lectus qua. Nunc id cursus metus ididunt ut labore metus episcing.<\/p>",
+            "text_size": "medium",
+            "text_transform": "uppercase",
+            "button_label": "",
+            "button_link": "",
+            "width": "12",
+            "h_position": "center",
+            "v_position": "middle",
+            "txt_align": "center",
+            "mg": "",
+            "pd": "100px,0,60px,0",
+            "mg_mb": "",
+            "pd_mb": ""
+          }
+        },
+        "8b611b4a-7287-416c-80cb-e2e80706a3a2": {
+          "type": "image_card",
+          "settings": {
+            "width": "4",
+            "h_position": "left",
+            "v_position": "top",
+            "txt_align": "left",
+            "image": "shopify:\/\/shop_images\/img_about_2.jpg",
+            "border": 10,
+            "use_eq_height": false,
+            "image_ratio": "ratio3_2",
+            "link": "shopify:\/\/products\/proenza-schouler-white-label-3",
+            "title": "1. Perfect space",
+            "subtitle": "Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos vel pretium lectus qua. Nunc id cursus metus ididunt ut labore metus episcing.",
+            "button_label": "",
+            "mg": ",,30px,",
+            "pd": "",
+            "mg_mb": ",,30px,",
+            "pd_mb": ""
+          }
+        },
+        "ec6b8243-afb8-4ffa-9806-3be22ef594e4": {
+          "type": "image_card",
+          "settings": {
+            "width": "4",
+            "h_position": "left",
+            "v_position": "top",
+            "txt_align": "left",
+            "image": "shopify:\/\/shop_images\/img_about_3.jpg",
+            "border": 10,
+            "use_eq_height": false,
+            "image_ratio": "ratio3_2",
+            "link": "shopify:\/\/products\/proenza-schouler-white-label-12",
+            "title": "2. special person",
+            "subtitle": "Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos vel pretium lectus qua. Nunc id cursus metus ididunt ut labore metus episcing.",
+            "button_label": "",
+            "mg": ",,30px,",
+            "pd": "",
+            "mg_mb": ",,30px,",
+            "pd_mb": ""
+          }
+        },
+        "7b377389-9868-473a-9b42-9496a2461699": {
+          "type": "image_card",
+          "settings": {
+            "width": "4",
+            "h_position": "left",
+            "v_position": "top",
+            "txt_align": "left",
+            "image": "shopify:\/\/shop_images\/img_about_4.jpg",
+            "border": 10,
+            "use_eq_height": false,
+            "image_ratio": "ratio3_2",
+            "link": "shopify:\/\/products\/proenza-schouler-white-label-18",
+            "title": "3. modern office",
+            "subtitle": "Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos vel pretium lectus qua. Nunc id cursus metus ididunt ut labore metus episcing.",
+            "button_label": "",
+            "mg": ",,30px,",
+            "pd": "",
+            "mg_mb": ",,30px,",
+            "pd_mb": ""
+          }
+        }
+      },
+      "block_order": [
+        "bd5b7c04-af26-4be3-8c31-174bed898a73",
+        "d205ec2d-202a-4f1a-b3de-9d19d37a0891",
+        "a6d4999a-bbb4-4771-9d88-3896e61ac4b7",
+        "e5e0117e-ae5c-4345-abea-6aaeb1506350",
+        "c3dea705-cadd-4a04-b57b-ee44b0260b33",
+        "b44e2317-4fc9-4415-9b49-9dba53cf050a",
+        "5c2ad967-b430-48c7-b965-ef8925abbd4d",
+        "7ec52b22-ede8-41d7-aaba-661dcaea9f0e",
+        "8b611b4a-7287-416c-80cb-e2e80706a3a2",
+        "ec6b8243-afb8-4ffa-9806-3be22ef594e4",
+        "7b377389-9868-473a-9b42-9496a2461699"
+      ],
+      "settings": {
+        "hidden": false,
+        "show_border": true,
+        "layout": "container",
+        "cl_bg": "#ffffff",
+        "mg": "",
+        "pd": "80px,0,40px,0",
+        "mg_mb": "",
+        "pd_mb": "40px,0,10px,0"
+      }
+    },
+    "8172325f-9ac4-4a6f-8801-ce5fc366ddff": {
+      "type": "faq-sections",
+      "blocks": {
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-0": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-1": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-2": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-3": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-4": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-5": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-6": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-7": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        },
+        "bf528576-cb60-4d3e-89d7-79fb5692222f": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        },
+        "3069ba4c-621f-4acd-ae77-607efef7f867": {
+          "type": "faq",
+          "settings": {
+            "title": "Problems sending or receiving messages?",
+            "text": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<\/p>",
+            "link": "#",
+            "open_link": "_blank"
+          }
+        }
+      },
+      "block_order": [
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-0",
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-1",
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-2",
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-3",
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-4",
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-5",
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-6",
+        "template--17185129595165__8172325f-9ac4-4a6f-8801-ce5fc366ddff-1677666217414dfd20-7",
+        "bf528576-cb60-4d3e-89d7-79fb5692222f",
+        "3069ba4c-621f-4acd-ae77-607efef7f867"
+      ],
+      "settings": {
+        "hidden": false,
+        "title": "Text column with image",
+        "sub_title": "Why Choose Us",
+        "content": "Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos vel pretium<br> lectus qua. Nunc id cursus metus ididunt ut labore metus episcing.",
+        "text_size": "medium",
+        "text_transform": "uppercase",
+        "layout": "container",
+        "cl_bg": "#f1f5f6",
+        "mg": "",
+        "pd": "80px,,80px,",
+        "mg_mb": "",
+        "pd_mb": "40px,,40px,"
+      }
+    },
+    "c86abfa8-64af-4215-b90c-9223c06bc23c": {
+      "type": "text-column-with-image",
+      "blocks": {
+        "template--17185129595165__c86abfa8-64af-4215-b90c-9223c06bc23c-1677659134714e961d-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/img_our_team.png",
+            "title": "Michael Anthony",
+            "sub_title": "Founder\/CEO",
+            "text": "<p>Ced ut perspiciatis unde omnis iste<br\/>natus error sitaccusantium doloremque laudan totam rem aperiam.<\/p>",
+            "btn_title": "",
+            "btn_link": "",
+            "open_link": "_blank"
+          }
+        },
+        "template--17185129595165__c86abfa8-64af-4215-b90c-9223c06bc23c-1677659134714e961d-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/img_our_team_2.png",
+            "title": "Alexandra Miller",
+            "sub_title": "Founder\/CEO",
+            "text": "<p>Ced ut perspiciatis unde omnis iste<br\/>natus error sitaccusantium doloremque laudan totam rem aperiam.<\/p>",
+            "btn_title": "",
+            "btn_link": "",
+            "open_link": "_blank"
+          }
+        },
+        "template--17185129595165__c86abfa8-64af-4215-b90c-9223c06bc23c-1677659134714e961d-2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/img_our_team_3.png",
+            "title": "Frank ge Bruyne",
+            "sub_title": "Founder\/CEO",
+            "text": "<p>Ced ut perspiciatis unde omnis iste<br\/>natus error sitaccusantium doloremque laudan totam rem aperiam.<\/p>",
+            "btn_title": "",
+            "btn_link": "",
+            "open_link": "_blank"
+          }
+        },
+        "d9ac15c5-5851-4a14-92cf-971db579e594": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/img_our_team.png",
+            "title": "Helen Aleema",
+            "sub_title": "Founder\/CEO",
+            "text": "<p>Ced ut perspiciatis unde omnis iste<br\/>natus error sitaccusantium doloremque laudan totam rem aperiam.<\/p>",
+            "btn_title": "",
+            "btn_link": "",
+            "open_link": "_blank"
+          }
+        }
+      },
+      "block_order": [
+        "template--17185129595165__c86abfa8-64af-4215-b90c-9223c06bc23c-1677659134714e961d-0",
+        "template--17185129595165__c86abfa8-64af-4215-b90c-9223c06bc23c-1677659134714e961d-1",
+        "template--17185129595165__c86abfa8-64af-4215-b90c-9223c06bc23c-1677659134714e961d-2",
+        "d9ac15c5-5851-4a14-92cf-971db579e594"
+      ],
+      "settings": {
+        "hidden": false,
+        "title": "Amazing People",
+        "subtitle": "Our perfect team",
+        "content": "Class aptent taciti sociosqu ad litora torquent per conubia nostra per <br>inceptos vel pretium lectus qua nunc id cursus.",
+        "text_size": "medium",
+        "text_transform": "uppercase",
+        "use-slider": true,
+        "slides-To-Scroll": 1,
+        "visible": 4,
+        "widescreen": 4,
+        "desktop": 4,
+        "laptop": 3,
+        "notebook": 2,
+        "tablet": 2,
+        "landscape": 1,
+        "portrait": 1,
+        "mobile": 1,
+        "rows": 1,
+        "autoplay": false,
+        "speed": "300",
+        "autoplay-Speed": "3000",
+        "arrows": true,
+        "fade": false,
+        "center-Mode": false,
+        "adaptive-Height": false,
+        "dots": false,
+        "infinite": false,
+        "padding": 10,
+        "vertical": false,
+        "layout": "container",
+        "cl_bg": "#ffffff",
+        "mg": "",
+        "pd": "80px,,80px,",
+        "mg_mb": "",
+        "pd_mb": "40px,,40px,"
+      }
+    },
+    "9c155839-5d6c-48fa-8ff1-e781fe61f099": {
+      "type": "testimonials",
+      "blocks": {
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-0": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/img_our_team.png",
+            "content": "<p>“The experience with Uminex has been nothing short of amazing. <\/p><p>So much better than other themes I’ve used – wish I had seen this one <\/p><p>first and saved my wasted time and money on other themes! I’d <\/p><p>recommend this theme in a heartbeat!”<\/p>",
+            "title": "Alexander Ball",
+            "address": "Founder\/CEO at Uminex Store",
+            "rating": 5
+          }
+        },
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-1": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/img_our_team_2.png",
+            "content": "<p>“The experience with Uminex has been nothing short of amazing. <\/p><p>So much better than other themes I’ve used – wish I had seen this one <\/p><p>first and saved my wasted time and money on other themes! I’d <\/p><p>recommend this theme in a heartbeat!”<\/p>",
+            "title": "Alexander Ball",
+            "address": "Founder\/CEO at Uminex Store",
+            "rating": 5
+          }
+        },
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-2": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/img_our_team_3.png",
+            "content": "<p>“The experience with Uminex has been nothing short of amazing. <\/p><p>So much better than other themes I’ve used – wish I had seen this one <\/p><p>first and saved my wasted time and money on other themes! I’d <\/p><p>recommend this theme in a heartbeat!”<\/p>",
+            "title": "Alexander Ball",
+            "address": "Founder\/CEO at Uminex Store",
+            "rating": 5
+          }
+        },
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-3": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/img_our_team.png",
+            "content": "<p>“The experience with Uminex has been nothing short of amazing. <\/p><p>So much better than other themes I’ve used – wish I had seen this one <\/p><p>first and saved my wasted time and money on other themes! I’d <\/p><p>recommend this theme in a heartbeat!”<\/p>",
+            "title": "Alexander Ball",
+            "address": "Founder\/CEO at Uminex Store",
+            "rating": 5
+          }
+        },
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-4": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/img_our_team_2.png",
+            "content": "<p>“The experience with Uminex has been nothing short of amazing. <\/p><p>So much better than other themes I’ve used – wish I had seen this one <\/p><p>first and saved my wasted time and money on other themes! I’d <\/p><p>recommend this theme in a heartbeat!”<\/p>",
+            "title": "Alexander Ball",
+            "address": "Founder\/CEO at Uminex Store",
+            "rating": 5
+          }
+        },
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-5": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/img_our_team_3.png",
+            "content": "<p>“The experience with Uminex has been nothing short of amazing. <\/p><p>So much better than other themes I’ve used – wish I had seen this one <\/p><p>first and saved my wasted time and money on other themes! I’d <\/p><p>recommend this theme in a heartbeat!”<\/p>",
+            "title": "Alexander Ball",
+            "address": "Founder\/CEO at Uminex Store",
+            "rating": 5
+          }
+        },
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-6": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/img_our_team_2.png",
+            "content": "<p>“The experience with Uminex has been nothing short of amazing. <\/p><p>So much better than other themes I’ve used – wish I had seen this one <\/p><p>first and saved my wasted time and money on other themes! I’d <\/p><p>recommend this theme in a heartbeat!”<\/p>",
+            "title": "Alexander Ball",
+            "address": "Founder\/CEO at Uminex Store",
+            "rating": 5
+          }
+        },
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-7": {
+          "type": "quote",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/img_our_team_3.png",
+            "content": "<p>“The experience with Uminex has been nothing short of amazing. <\/p><p>So much better than other themes I’ve used – wish I had seen this one <\/p><p>first and saved my wasted time and money on other themes! I’d <\/p><p>recommend this theme in a heartbeat!”<\/p>",
+            "title": "Alexander Ball",
+            "address": "Founder\/CEO at Uminex Store",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-0",
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-1",
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-2",
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-3",
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-4",
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-5",
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-6",
+        "template--17185129595165__9c155839-5d6c-48fa-8ff1-e781fe61f099-167765856369e0dc1b-7"
+      ],
+      "settings": {
+        "title": "Happy Customers Say!",
+        "subtitle": "Explore The Lookbook",
+        "content": "Commodo sociosqu venenatis cras dolor sagittis integer luctus maecenas.",
+        "text_size": "medium",
+        "text_transform": "uppercase",
+        "show_text_bottom": false,
+        "text_bottom": "<p>Trusted customers are our happiness. Contact us.<\/p><p><\/p>",
+        "hidden": false,
+        "layout": "container",
+        "width_c": 70,
+        "style": "style2",
+        "use-slider": true,
+        "slides-To-Scroll": 1,
+        "visible": 1,
+        "widescreen": 1,
+        "desktop": 1,
+        "laptop": 1,
+        "notebook": 1,
+        "tablet": 1,
+        "landscape": 1,
+        "portrait": 1,
+        "mobile": 1,
+        "rows": 1,
+        "autoplay": false,
+        "speed": "300",
+        "autoplay-Speed": "3000",
+        "arrows": true,
+        "fade": false,
+        "center-Mode": false,
+        "adaptive-Height": false,
+        "dots": false,
+        "infinite": false,
+        "padding": 10,
+        "vertical": false,
+        "cl_bg": "#f1f5f6",
+        "mg": "",
+        "pd": "80px,,80px,",
+        "mg_mb": "",
+        "pd_mb": "40px,,40px,"
+      }
+    },
+    "cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435": {
+      "type": "brand-slider",
+      "blocks": {
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-1": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/brand1.png",
+            "url": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-2": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/brand2.jpg",
+            "url": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-3": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/brand3.jpg",
+            "url": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-4": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/brand5.jpg",
+            "url": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-5": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/brand5.jpg",
+            "url": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-6": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/brand6.jpg",
+            "url": "#",
+            "open_link": "_blank"
+          }
+        },
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-7": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/brand1.png",
+            "url": "#",
+            "open_link": "_blank"
+          }
+        }
+      },
+      "block_order": [
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-1",
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-2",
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-3",
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-4",
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-5",
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-6",
+        "template--21324537069886__cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435-brand-7"
+      ],
+      "settings": {
+        "show_border_top": false,
+        "use-slider": true,
+        "slides-To-Scroll": 1,
+        "visible": 6,
+        "widescreen": 6,
+        "desktop": 5,
+        "laptop": 4,
+        "notebook": 3,
+        "tablet": 3,
+        "landscape": 2,
+        "portrait": 2,
+        "mobile": 2,
+        "rows": 1,
+        "autoplay": true,
+        "speed": "300",
+        "autoplay-Speed": "3000",
+        "arrows": true,
+        "fade": false,
+        "center-Mode": false,
+        "adaptive-Height": false,
+        "dots": false,
+        "infinite": false,
+        "padding": 10,
+        "vertical": false,
+        "show_view_all": false,
+        "layout": false,
+        "border": 0,
+        "use_eq_height": false,
+        "image_ratio": "ratio3_2",
+        "cl_bg": "#f1f5f6",
+        "mg": "",
+        "pd": ",,100px,",
+        "mg_mb": "",
+        "pd_mb": ",,50px,"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main",
+    "8172325f-9ac4-4a6f-8801-ce5fc366ddff",
+    "c86abfa8-64af-4215-b90c-9223c06bc23c",
+    "9c155839-5d6c-48fa-8ff1-e781fe61f099",
+    "cfbfbb8b-2554-4c98-a14b-ac1eeaf5e435"
+  ]
+}

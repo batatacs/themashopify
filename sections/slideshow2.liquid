@@ -1,0 +1,2052 @@
+{%- if section.settings.hidden %}{% break %}{% endif -%}
+{{ 'slideshow2.css' | asset_url | stylesheet_tag }}
+{% assign sid = section.id %}
+{% assign style_dots = section.settings.style_dots %}
+{% assign position_dots = section.settings.position_dots %}
+{% assign use_banner_statick = section.settings.use_banner_statick %}
+{%- assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' -%}
+{%- assign sizes = '100vw' -%}
+{% liquid
+  assign section_blocks = section.blocks
+  assign index = 1
+  assign arr_blocks_img = section_blocks | where: 'type', 'img'
+  assign h_des = section.settings.h_des
+  assign h_tb = section.settings.h_tb
+  assign h_mb = section.settings.h_mb
+%}
+
+<section id="laber_{{sid}}" class="{% if use_banner_statick %}use_banner_statick{% endif %}">
+  <div data-wrapper-slidershow class="alo-wrapper-slidershow {{section.settings.layout}}" style="--alo-border-radius:{{section.settings.b_radius}}px;">
+    <div class="wrapper-slidershow" {% if use_banner_statick %}style="--alo-bwidth:{{ section.settings.banner-width }}%;--alo-gap:{{ section.settings.item_gap }}px;"{% endif %}>
+      <div class="laberSlidershow">
+        {% include 'grid-slider', settings: section.settings %}
+        <div
+          class="grid-slider h-full js_carousel vertical-center {% if section.settings.fade_zoom %}fade_zoom{%endif%}"
+          {{ gridSlider }}
+          data-append-Dots=".appendDots"
+        >
+          {% if arr_blocks_img.size > 0 %}
+            {%- for block in arr_blocks_img -%}
+              {% if block.type == 'img' %}
+                
+                {% assign image = block.settings.image_sl %}
+                {% assign image_mobile = block.settings.image_sl_mobile %}
+                {% assign ratio = image.aspect_ratio |default:1.0 %}
+                {% assign url = block.settings.link_img %}
+                {% assign open_link = block.settings.open_link %}
+                <div id="laber_bock_{{block.id}}" class="wrap_slide js_image_slide">
+                  <div class="content-item" style="--alo-height-pc:{{ h_des }} ; --alo-height-tb:{{ h_tb }}; --alo-height-mb:{{ h_mb }};" {{ block.shopify_attributes }}>
+                    {%- if block.settings.video != null -%}
+                    <div class="alo-video">
+                      {{
+                        block.settings.video
+                        | video_tag:
+                          image_size: '2000x',
+                          autoplay: true,
+                          loop: true,
+                          controls: false,
+                          muted: true,
+                          loading: 'lazy'
+                      }}
+                    <div class="video-play pause">
+                      <a class="btn-play" href="#">
+                        <svg class="play" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z"/></svg>
+                        <svg class="pause" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm96-280v160c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16zm-112 0v160c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16z"/></svg>
+                      </a>
+                    </div>
+                    </div>
+                    {% else %}
+                      
+                    {% if image != blank %}
+                      <a class="image-slideshow" aria-label="link" href="{% if url !=blank %}{{url}}{% else %}#{% endif %}" target="{{open_link}}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;" {{ block.shopify_attributes }}>
+                      {%- if forloop.first -%}
+                        <div class="image_pc w-full h-full">
+                          {{
+                            image
+                            | image_url: width: 3840
+                            | image_tag:
+                              width: image.width,
+                              height: image.height,
+                              sizes: sizes,
+                              widths: widths
+                          }}
+                        </div>
+  
+                        <div class="image_mobile w-full h-full">
+                          {% if image_mobile %}
+                            {% assign image_mobile = image_mobile %}
+                          {% else %}
+                            {% assign image_mobile = image %}
+                          {% endif %}
+                          {{
+                            image_mobile
+                            | image_url: width: 840
+                            | image_tag:
+                              width: image_mobile.width,
+                              height: image_mobile.height,
+                              sizes: sizes,
+                              widths: widths
+                          }}
+                        </div>
+                      {% else %}
+                      <div class="image_pc w-full h-full">
+                        {{
+                          image
+                          | image_url: width: 3840
+                          | image_tag:
+                            loading: 'lazy',
+                            width: image.width,
+                            height: image.height,
+                            sizes: sizes,
+                            widths: widths
+                        }}
+                      </div>
+
+                      <div class="image_mobile w-full h-full">
+                        {% if image_mobile %}
+                          {% assign image_mobile = image_mobile %}
+                        {% else %}
+                          {% assign image_mobile = image %}
+                        {% endif %}
+                        {{
+                          image_mobile
+                          | image_url: width: 840
+                          | image_tag:
+                            loading: 'lazy',
+                            width: image_mobile.width,
+                            height: image_mobile.height,
+                            sizes: sizes,
+                            widths: widths
+                        }}
+                      </div>
+                      {%- endif -%}
+                      </a>
+                    {% else %}
+                      <div class="image-card__img h-full">
+                        {% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}  
+                        {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                      </div>
+                    {% endif %}
+                    {% endif %}
+                    <div class="container wrap_text flex h_{{block.settings.h_position}} v_{{block.settings.v_position}} text_{{block.settings.txt_align}}">
+                      <div class="wrapper_caption ">
+                        <div
+                          class="caption"
+                          style="color:{{block.settings.cl_overlay}}; opacity:{{block.settings.cl_opacity | times:10 }}"
+                        >
+                          <div class="outner-caption">
+                            <div class="inner-caption">
+                              {% for block in section_blocks offset: index %}
+                                {% assign index = index | plus: 1 %}
+                                {%- case block.type -%}
+                                  {% when 'logo' %}
+                                    {% assign logo = block.settings.logo_img %}
+                                    {% assign ratio_logo = logo.aspect_ratio | default: 1.0 %}
+                                    {% assign pd_top_logo = 1 | divided_by: ratio_logo | times: 100 %}
+                                    <div
+                                      id="b_{{block.id}}"
+                                      class="laber-{{block.settings.text_animate}}"
+                                      {{ block.shopify_attributes }}
+                                      style="
+                                        display:inline-block;
+                                        -webkit-animation-duration: {{block.settings.text_time}}s;
+                                          animation-duration: {{block.settings.text_time}}s;
+                                      "
+                                    >
+                                      <div class="logo_img" style="width:{{ logo.width}}px">
+                                        <div
+                                          class="lazyload "
+                                          data-bgset="{% if logo != blank %}{{ logo | img_url: '1x1' }}{% else %}{{no-logo}}{% endif %}"
+                                          data-ratio="{{ratio_logo}}"
+                                          data-sizes="auto"
+                                          style="padding-top:{% if image != blank %} {{pd_top_logo}}%{% else %} 100%{% endif %};"
+                                        ></div>
+                                      </div>
+                                    </div>
+                                  {% when 'subhd' %}
+                                    <div
+                                      id="b_{{block.id}}"
+                                      class="slide_item_h4 laber-{{block.settings.text_animate}} {% if block.settings.hide %} d-none{% endif %}"
+                                      {{ block.shopify_attributes }}
+                                      style="
+                                        -webkit-animation-duration: {{block.settings.text_time}}s;
+                                        animation-duration: {{block.settings.text_time}}s;
+                                      "
+                                    >
+                                      {% assign somearray = block.settings.title | split: ' ' %}
+                                      {% assign pos = block.settings.custom_mark %}
+                                      {% assign index_mark = 0 %}
+                                      {% for item in somearray %}
+                                        {% assign index_mark = index_mark | plus: 1 %}
+                                        <span class="{% if block.settings.first_mark and forloop.first %}first {% endif %}{% if pos contains index_mark %}marked{% endif %}{% if block.settings.last_mark and forloop.last %}last {% endif %}">
+                                          {{ item }}
+                                        </span>
+                                      {% endfor %}
+                                    </div>
+                                  {% when 'hd' %}
+                                    <div
+                                      id="b_{{block.id}}"
+                                      class="slide_item_h3 laber-{{block.settings.text_animate}} {% if block.settings.hide %} d-none{% endif %}"
+                                      {{ block.shopify_attributes }}
+                                      style="
+                                        -webkit-animation-duration: {{block.settings.text_time}}s;
+                                        animation-duration: {{block.settings.text_time}}s;
+                                      "
+                                    >
+                                      {% assign somearray = block.settings.title | split: ' ' %}
+                                      {% assign pos = block.settings.custom_mark %}
+                                      {% assign index_mark = 0 %}
+                                      {% for item in somearray %}
+                                        {% assign index_mark = index_mark | plus: 1 %}
+                                        <span class="{% if block.settings.first_mark and forloop.first %}first {% endif %}{% if pos contains index_mark %}marked{% endif %}{% if block.settings.last_mark and forloop.last %}last {% endif %}">
+                                          {{ item }}
+                                        </span>
+                                      {% endfor %}
+                                    </div>
+                                  {% when 'txt' %}
+                                    <div
+                                      id="b_{{block.id}}"
+                                      class="slide_item_p laber-{{block.settings.text_animate}} {% if block.settings.hide_mobile %} hide_mobile{% endif %} {% if block.settings.hide %} d-none{% endif %}"
+                                      {{ block.shopify_attributes }}
+                                      style="
+                                        -webkit-animation-duration: {{block.settings.text_time}}s;
+                                        animation-duration: {{block.settings.text_time}}s;
+                                      "
+                                    >
+                                      {{ block.settings.title }}
+                                    </div>
+                                  {% when 'btn' %}
+                                    {%- if block.settings.title != blank -%}
+                                      <a
+                                        id="b_{{block.id}}"
+                                        class="buttons laber-{{block.settings.text_animate}}"
+                                        href="{% if block.settings.btn_link != blank %}{{block.settings.btn_link}}{% else %}#{% endif %}"
+                                        target="{{open_link}}"
+                                        {{ block.shopify_attributes }}
+                                        aria-label="link"
+                                        style="
+                                          -webkit-animation-duration: {{block.settings.text_time}}s;
+                                          animation-duration: {{block.settings.text_time}}s;
+                                        "
+                                      >
+                                        {{- block.settings.title -}}
+                                      </a>
+                                    {%- endif -%}
+                                  {% when 'space' %}
+                                    <div
+                                      id="b_{{block.id}}"
+                                      class="slide_item_space {% if block.settings.hide_mobile %} hide_mobile{% endif %}"
+                                      {{ block.shopify_attributes }}
+                                    ></div>
+                                  {% when 'box' %}
+                                    <div id="b_{{block.id}}" class="slide_item_box" {{ block.shopify_attributes }}>
+                                      <div class="inner-box">
+                                        <div class="outside-box">
+                                          <div class="inside-box">
+                                            <h2>{{ block.settings.title }}</h2>
+                                            <p>{{ block.settings.content }}</p>
+                                            {%- if block.settings.btn_link != blank
+                                              and block.settings.button_text != blank
+                                            -%}
+                                              <a href="{{block.settings.btn_link}}">{{ block.settings.button_text }}</a>
+                                            {% endif %}
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                  {% else %}
+                                    {%- break -%}
+                                {%- endcase -%}
+                              {%- endfor -%}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
+        {% if section.settings.dots %}
+          <div class="wrapper-dots ">
+            <div class="container">
+              <div class="appendDots"></div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+      {% if use_banner_statick %}
+          {%- render 'banner_statick' -%}	
+      {% endif %}
+    </div>
+  </div>
+</section>
+{%- render 'section_style' -%}
+{%- render 'setting_slideshow' -%}
+{% schema %}
+ {
+   "name": "Slideshow 2",
+"max_blocks": 50,
+"class":"slideshow",
+   "settings": [
+   {
+   "type": "checkbox",
+   "id": "hidden",
+   "label": "Hidden Section?",
+   "default": false
+   },
+   {
+       "type": "paragraph",
+       "content": "—————————————————"
+       },
+       {
+       "type": "text",
+       "id": "h_des",
+       "label": "Desktop Large",
+       "placeholder": "650px",
+       "default": "650px"
+     },
+     {
+       "type": "text",
+       "id": "h_tb",
+       "label": "Tablet (<= 1024px)",
+       "placeholder": "500px",
+       "default": "500px"
+     },
+     {
+       "type": "text",
+       "id": "h_mb",
+       "label": "Mobile (<= 767px)",
+       "placeholder": "450px",
+       "default": "350px"
+     },
+     {
+         "type": "range",
+         "id": "b_radius",
+         "label": "Border radius",
+         "min": 0,
+         "max": 50,
+         "step": 1,
+         "unit": "px",
+         "default": 0
+     },
+   {
+       "type": "header",
+       "content": "---- Slider Show Collection ----",
+       "info": "Refer to the attribute values [here](httpss://kenwheeler.github.io/slick)"
+   },
+   {
+       "type": "checkbox",
+       "id": "use-slider",
+       "label": "Use slider?",
+       "default": true
+   },
+   {
+       "type": "range",
+       "id": "slides-To-Scroll",
+       "label": "Slide to scroll",
+       "info": "The number of items slide to scroll",
+       "min": 1,
+       "max": 8,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "visible",
+       "label": "Columns in Visible",
+       "info": "Item(s) in screen ( Size >= 1920 )",
+       "min": 1,
+       "max": 8,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "widescreen",
+       "label": "Columns in Widescreen",
+       "info": "Item(s) in screen ( 1366 <= Size < 1920 )",
+       "min": 1,
+       "max": 8,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "desktop",
+       "label": "Columns in Desktop",
+       "info":  "Item(s) in screen ( 1200 <= Size < 1480 )",
+       "min": 1,
+       "max": 8,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "laptop",
+       "label": "Columns in Laptop",
+       "info": "Item(s) in screen ( 992 <= Size < 1200 )",
+       "min": 1,
+       "max": 8,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "notebook",
+       "label": "Columns in Notebook",
+       "info": "Item(s) in screen ( 768 <= Size < 992 )",
+       "min": 1,
+       "max": 8,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "tablet",
+       "label": "Columns in Tablet",
+       "info": "Item(s) in screen ( 576 <= Size < 768 )",
+       "min": 1,
+       "max": 8,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "landscape",
+       "label": "Columns in Landscape",
+       "info": "Item(s) in screen ( 480 <= Size < 576 )",
+       "min": 1,
+       "max": 6,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "portrait",
+       "label": "Columns in Portrait",
+       "info": "Item(s) in screen ( 360 < Size < 480 )",
+       "min": 1,
+       "max": 6,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "mobile",
+       "label": "Columns in Mobile",
+       "info": "Item(s) in screen ( Size < = 360 )",
+       "min": 1,
+       "max": 4,
+       "step": 1,
+       "unit": "col",
+       "default": 1
+   },
+   {
+       "type": "range",
+       "id": "rows",
+       "label": "Rows Slider",
+       "min": 1,
+       "max": 3,
+       "step": 1,
+       "unit": "row",
+       "default": 1
+   },
+   {
+       "type": "checkbox",
+       "id": "autoplay",
+       "label": "Autoplay",
+       "default": true
+   },
+   {
+       "type": "text",
+       "id": "speed",
+       "label": "Speed",
+       "default": "300",
+       "info": "Autoplay Speed in milliseconds"
+   },
+   {
+       "type": "text",
+       "id": "autoplay-Speed",
+       "label": "Auto Play Speed",
+       "default": "3000",
+       "info": "Autoplay Speed in milliseconds"
+   },
+   {
+       "type": "checkbox",
+       "id": "arrows",
+       "label": "Arrows",
+       "default": true
+   },
+   {
+       "type": "checkbox",
+       "id": "fade",
+       "label": "Fade",
+       "default": false,
+       "info": "Only use for 1 column"
+   },
+    {
+       "type": "checkbox",
+       "id": "fade_zoom",
+       "label": "Fade zoom",
+       "default": false
+   },
+   {
+       "type": "checkbox",
+       "id": "center-Mode",
+       "label": "Center Mode",
+       "default": false
+   },
+   {
+       "type": "checkbox",
+       "id": "adaptive-Height",
+       "label": "Adaptive Height",
+       "default": false
+   },
+   {
+       "type": "checkbox",
+       "id": "dots",
+       "label": "Dots",
+       "default": false
+   },
+   {
+       "type": "checkbox",
+       "id": "infinite",
+       "label": "Infinite",
+       "default": false
+   },
+   {
+       "type": "number",
+       "id": "padding",
+       "label": "Padding",
+       "default": 0
+   },
+   {
+       "type": "checkbox",
+       "id": "vertical",
+       "label": "Vertical",
+       "default": false
+   },
+       {
+         "type": "header",
+         "content": "== Banner right"
+       },
+       {
+       "type": "range",
+       "id": "banner-width",
+       "label": "Wisth",
+       "min": 0,
+       "max": 50,
+       "step": 0.5,
+       "unit": "%",
+       "default": 30
+       },
+       {
+       "type": "range",
+       "id": "item_gap",
+       "label": "Item gap",
+       "min": 0,
+       "max": 30,
+       "step": 0.5,
+       "unit": "px",
+       "default": 5
+       },
+
+
+       {
+         "type": "checkbox",
+         "id": "use_banner_statick",
+         "label": "Use Banner statick",
+         "default": false
+       },
+
+       {
+         "type": "image_picker",
+         "id": "image_1",
+         "label": "Image 1",
+         "info": "350px x 200px .jpg recommended"
+       },
+     {
+           "type": "url",
+           "id": "link_img_1",
+           "label": "Link image 1",
+           "info": "The image becomes clickable."
+         },
+
+       {
+           "type": "textarea",
+           "id": "content_1",
+           "label": "Content images 1",
+           "default": "<h4>Canyon <br>Star Raider,</h4><p>Headphone & Audio</p>",
+    		"info":"Insert <br> to line break"
+         },
+    
+       {
+         "type": "image_picker",
+         "id": "image_2",
+         "label": "Image 2",
+         "info": "350px x 200px .jpg recommended"
+       },
+        {
+           "type": "url",
+           "id": "link_img_2",
+           "label": "Link image 2",
+           "info": "The image becomes clickable."
+         },
+       {
+           "type": "textarea",
+           "id": "content_2",
+           "label": "Content images 2",
+           "default": "<h4>Canyon <br>Star Raider,</h4><p>Headphone & Audio</p>",
+		"info":"Insert <br> to line break"
+         },
+     
+       {
+         "type": "image_picker",
+         "id": "image_3",
+         "label": "Image 3",
+         "info": "350px x 200px .jpg recommended"
+       },
+       {
+           "type": "url",
+           "id": "link_img_3",
+           "label": "Link image 3",
+           "info": "The image becomes clickable."
+         },
+       {
+           "type": "textarea",
+           "id": "content_3",
+           "label": "Content images 3",
+           "default": "<h4>Canyon <br>Star Raider,</h4><p>Headphone & Audio</p>",
+		"info":"Insert <br> to line break"
+         },
+
+     {
+         "type": "image_picker",
+         "id": "image_4",
+         "label": "Image 4",
+         "info": "350px x 200px .jpg recommended"
+       },
+       {
+           "type": "url",
+           "id": "link_img_4",
+           "label": "Link image 4",
+           "info": "The image becomes clickable."
+         },
+       {
+           "type": "textarea",
+           "id": "content_4",
+           "label": "Content images 4",
+           "default": "<h4>Canyon <br>Star Raider,</h4><p>Headphone & Audio</p>",
+		"info":"Insert <br> to line break"
+         },
+	{
+         "type": "header",
+         "content": "== Design Options"
+       },
+	{
+         "type": "select",
+         "id": "layout",
+         "default": "container",
+         "options": [
+          {
+             "value": "container",
+             "label": "Container"
+          },
+          {
+             "value": "full-width",
+             "label": "Full Width"
+           }
+         ],
+         "label": "Layout"
+       },
+       {
+         "type": "color",
+         "id": "cl_bg",
+         "label": "Background Color",
+         "default": "#f5f5f5",
+         "info": "only active when you use layout 'Container'"
+       },
+
+     {
+
+     "type": "paragraph",
+     "content": "—————————————————"
+     },
+
+     {
+       "type": "text",
+       "id": "mg",
+       "label": "Margin",
+       "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+     },
+     {
+       "type": "text",
+       "id": "pd",
+       "label": "Padding",
+       "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+     },
+    {
+       "type": "header",
+       "content": "== Design Mobile Options"
+     },
+     {
+       "type": "text",
+       "id": "mg_mb",
+       "label": "Margin"
+     },
+     {
+       "type": "text",
+       "id": "pd_mb",
+       "label": "Padding"
+     }
+],
+"blocks": [
+     {
+       "type": "img",
+       "name": "Image slide (Parent)",
+       "settings": [
+          {
+            "type": "video",
+            "id": "video",
+            "label": "Video"
+          },
+         {
+           "type": "image_picker",
+           "id": "image_sl",
+           "label": "Image"
+         },
+	  {
+           "type": "image_picker",
+           "id": "image_sl_mobile",
+           "label": "Image mobile"
+         },
+         {
+           "type": "url",
+           "id": "link_img",
+           "label": "Link image",
+           "info": "The image becomes clickable."
+         },
+         {
+           "type": "select",
+           "id": "open_link",
+           "options": [
+             {
+               "value": "_self",
+               "label": "Current window (_self)"
+             },
+            {
+               "value": "_blank",
+               "label": "New window (_blank)"
+             }
+           ],
+           "label": "Open link in",
+           "default": "_blank"
+         },
+         {
+            "type": "header",
+            "content": "== Caption settings"
+          },
+         {
+           "type": "select",
+           "id": "h_position",
+           "label": "Horizontal Position",
+           "default": "center",
+           "options": [
+             {
+               "value": "left",
+               "label": "Left"
+             },
+             {
+               "value": "center",
+               "label": "Center"
+             },
+             {
+               "value": "right",
+               "label": "Right"
+             }
+           ]
+         },
+		{
+           "type": "select",
+           "id": "v_position",
+           "label": "Vertical Position",
+           "default": "middle",
+           "options": [
+             {
+             "value": "top",
+             "label": "Top"
+             },
+             {
+             "value": "middle",
+             "label": "Middle"
+             },
+             {
+             "value": "bottom",
+             "label": "Bottom"
+             }
+           ]
+         },
+         {
+           "type": "select",
+           "id": "txt_align",
+           "label": "Text alignment",
+           "default": "center",
+           "options": [
+             {
+               "value": "left",
+               "label": "Left"
+             },
+             {
+               "value": "center",
+               "label": "Center"
+             },
+             {
+               "value": "right",
+               "label": "Right"
+             }
+           ]
+         },
+         {
+           "type": "header",
+           "content": "== Color"
+         },
+         {
+           "type": "color",
+           "id": "cl_overlay",
+           "label": "Overlay",
+           "default": "#111"
+         },
+         {
+           "type": "range",
+           "id": "cl_opacity",
+           "label": "Overlay opacity",
+           "default": 100,
+           "min": 0,
+           "max": 100,
+           "step": 10,
+           "unit": "%"
+         }
+       ]
+     },
+     {
+     "type": "logo",
+     "name": "Logo",
+     "settings": [
+         {
+         "type": "image_picker",
+         "id": "logo_img",
+         "label": "Logo"
+         },
+         {
+         "type": "select",
+         "id": "text_animate",
+         "default": "none",
+         "options": [
+         {
+         "value": "none",
+         "label": "None"
+         },
+         {
+         "value": "bounceIn",
+         "label": "bounceIn"
+         },
+         {
+         "value": "fadeInDown",
+         "label": "fadeInDown"
+         },
+         {
+         "value": "fadeInUp",
+         "label": "fadeInUp"
+         },
+         {
+         "value": "zoomIn",
+         "label": "zoomIn"
+         },
+         {
+         "value": "slideInLeft",
+         "label": "slideInLeft"
+         },
+         {
+         "value": "flipInX",
+         "label": "flipInX"
+         },
+         {
+         "value": "slideInRight",
+         "label": "slideInRight"
+         },
+         {
+         "value": "fadeInLeft",
+         "label": "fadeInLeft"
+         },
+         {
+         "value": "fadeInRight",
+         "label": "fadeInRight"
+         }
+         ],
+         "label": "Animate"
+         },
+	  {
+           "type": "range",
+           "id": "text_time",
+           "min": 1,
+           "max": 10,
+           "step": 0.5,
+		"unit": "s",
+           "label": "Animation duration",
+           "default": 1.5
+         }
+     ]
+     },
+     {
+     "type": "hd",
+     "name": "Heading",
+     "settings": [
+         {
+         "type": "checkbox",
+         "id": "hide",
+         "label": "Hidden ?",
+         "default": false
+         },
+         {
+           "type": "textarea",
+           "id": "title",
+           "label": "Heading",
+           "default": "Inner beauty out",
+		"info":"Insert <br> to line break"
+         },
+         {
+         "type": "select",
+         "id": "text_animate",
+         "default": "none",
+         "options": [
+         {
+         "value": "none",
+         "label": "None"
+         },
+         {
+         "value": "bounceIn",
+         "label": "bounceIn"
+         },
+         {
+         "value": "fadeInDown",
+         "label": "fadeInDown"
+         },
+         {
+         "value": "fadeInUp",
+         "label": "fadeInUp"
+         },
+         {
+         "value": "zoomIn",
+         "label": "zoomIn"
+         },
+         {
+         "value": "slideInLeft",
+         "label": "slideInLeft"
+         },
+         {
+         "value": "flipInX",
+         "label": "flipInX"
+         },
+         {
+         "value": "slideInRight",
+         "label": "slideInRight"
+         },
+         {
+         "value": "fadeInLeft",
+         "label": "fadeInLeft"
+         },
+         {
+         "value": "fadeInRight",
+         "label": "fadeInRight"
+         }
+         ],
+         "label": "Animate"
+         },
+	  {
+           "type": "range",
+           "id": "text_time",
+           "min": 1,
+           "max": 10,
+           "step": 0.5,
+		"unit": "s",
+           "label": "Animation duration",
+           "default": 1.5
+         },
+         {
+           "type": "color",
+           "id": "color",
+           "label": "Color Text",
+           "default": "#111"
+         },
+	  {
+             "type": "color_background",
+             "id": "linear_gradient",
+             "label": "Color linear gradient"
+           },
+         {
+           "type": "range",
+           "id": "fw_text",
+           "min": 400,
+           "max": 800,
+           "step": 100,
+           "label": "Font weight",
+           "default": 600
+         },
+         {
+           "type": "range",
+           "id": "fs_text",
+           "min": 20,
+           "max": 100,
+           "step": 1,
+           "label": "Font size",
+           "unit": "px",
+           "default": 60
+         },
+         {
+           "type": "range",
+           "id": "lh_text",
+           "min": 0,
+           "max": 100,
+           "step": 1,
+           "label": "Line Height",
+           "info": "set is '0' use to default",
+           "unit": "px",
+           "default": 0
+         },
+         {
+             "type": "text",
+             "id": "ls_text",
+             "label": "Letter spacing",
+             "info": "set is '0' use to default, unit (em) or (px)",
+             "default": "0"
+           },
+         {
+         "type": "select",
+         "id": "font_style",
+         "default": "normal",
+         "options": [
+         {
+         "value": "normal",
+         "label": "Normal"
+         },
+         {
+         "value": "italic",
+         "label": "Italic"
+         }
+         ],
+         "label": "Font style:"
+         },
+         {
+         "type": "header",
+         "content": "== Font Family by design"
+         },
+         {
+             "type": "select",
+             "id": "text_transform",
+             "default": "none",
+             "options": [
+              {
+                 "value": "none",
+                 "label": "None"
+              },
+              {
+                 "value": "capitalize",
+                 "label": "Capitalize"
+              },
+              {
+                 "value": "lowercase",
+                 "label": "Lowercase"
+              },
+              {
+                 "value": "uppercase",
+                 "label": "Uppercase"
+               }
+             ],
+             "label": "Text transform:"
+           },
+		{
+             "type": "header",
+             "content": "Highlight settings"
+           },
+	    {
+             "type": "checkbox",
+             "id": "first_mark",
+             "label": "Highlight first word ?",
+             "default": false
+           },
+           {
+             "type": "checkbox",
+             "id": "last_mark",
+             "label": "Highlight last word ?",
+             "default": false
+           },
+           {
+             "type": "text",
+             "id": "custom_mark",
+             "label": "Custom position",
+             "info": "Separator is '|'. Example: 1|2|3 "
+           },
+           {
+           "type": "color",
+           "id": "color_mark",
+           "label": "Color first, last, mark "
+         },
+           {
+           "type": "header",
+           "content": "== mobile Settings"
+           },
+           {
+             "type": "range",
+             "id": "mobile_fw_text",
+             "min": 400,
+             "max": 800,
+             "step": 100,
+             "label": "Font weight",
+             "default": 600
+           },
+		{
+             "type": "range",
+             "id": "mobile_lh_text",
+             "min": 0,
+             "max": 100,
+             "step": 1,
+             "label": "Line Height",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+		{
+             "type": "range",
+             "id": "mobile_font_text",
+             "min": 14,
+             "max": 60,
+             "step": 1,
+             "label": "Font size",
+             "unit": "px",
+             "default": 14
+           }
+       ]
+     },
+     {
+       "type": "subhd",
+       "name": "Sub Heading",
+       "settings": [
+
+           {
+             "type": "textarea",
+             "id": "title",
+             "label": "Heading",
+             "default": "bringing you",
+		  "info":"Insert <br> to line break"
+           },
+		{
+             "type": "select",
+             "id": "text_animate",
+             "default": "none",
+             "options": [
+              {
+                 "value": "none",
+                 "label": "None"
+              },
+              {
+                 "value": "bounceIn",
+                 "label": "bounceIn"
+              },
+              {
+                 "value": "fadeInDown",
+                 "label": "fadeInDown"
+              },
+         {
+         "value": "fadeInUp",
+         "label": "fadeInUp"
+         },
+			{
+                 "value": "zoomIn",
+                 "label": "zoomIn"
+              },
+			{
+                 "value": "slideInLeft",
+                 "label": "slideInLeft"
+              },
+			{
+                 "value": "flipInX",
+                 "label": "flipInX"
+              },
+			{
+                 "value": "slideInRight",
+                 "label": "slideInRight"
+              },
+			{
+                 "value": "fadeInLeft",
+                 "label": "fadeInLeft"
+              },
+              {
+                 "value": "fadeInRight",
+                 "label": "fadeInRight"
+               }
+             ],
+             "label": "Animate"
+           },
+		{
+           "type": "range",
+           "id": "text_time",
+           "min": 1,
+           "max": 10,
+           "step": 0.5,
+		"unit": "s",
+           "label": "Animation duration",
+           "default": 1.5
+         },
+           {
+             "type": "color_background",
+             "id": "color",
+             "label": "Color Text",
+             "default": "#111"
+           },
+           {
+             "type": "color_background",
+             "id": "linear_gradient",
+             "label": "Color linear gradient"
+           },
+
+           {
+             "type": "range",
+             "id": "fw_text",
+             "min": 400,
+             "max": 800,
+             "step": 100,
+             "label": "Font weight",
+             "default": 500
+           },
+           {
+             "type": "range",
+             "id": "fs_text",
+             "min": 10,
+             "max": 50,
+             "step": 0.5,
+             "label": "Font size",
+             "unit": "px",
+             "default": 17
+           },
+           {
+             "type": "range",
+             "id": "lh_text",
+             "min": 0,
+             "max": 100,
+             "step": 1,
+             "label": "Line Height",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+           {
+             "type": "text",
+             "id": "ls_text",
+             "label": "Letter spacing",
+             "info": "set is '0' use to default, unit (em) or (px)",
+             "default": "0"
+           },
+           {
+           "type": "select",
+           "id": "font_style",
+           "default": "normal",
+           "options": [
+           {
+           "value": "normal",
+           "label": "Normal"
+           },
+           {
+           "value": "italic",
+           "label": "Italic"
+           }
+           ],
+           "label": "font style:"
+           },
+		{
+             "type": "select",
+             "id": "text_transform",
+             "default": "uppercase",
+             "options": [
+              {
+                 "value": "none",
+                 "label": "None"
+              },
+              {
+                 "value": "capitalize",
+                 "label": "Capitalize"
+              },
+              {
+                 "value": "lowercase",
+                 "label": "Lowercase"
+              },
+              {
+                 "value": "uppercase",
+                 "label": "Uppercase"
+               }
+             ],
+             "label": "Text transform:"
+           },
+           {
+             "type": "checkbox",
+             "id": "hide",
+             "label": "Hidden ?",
+             "default": false
+           },
+           {
+             "type": "header",
+             "content": "Highlight settings"
+           },
+	    {
+             "type": "checkbox",
+             "id": "first_mark",
+             "label": "Highlight first word ?",
+             "default": false
+           },
+           {
+             "type": "checkbox",
+             "id": "last_mark",
+             "label": "Highlight last word ?",
+             "default": false
+           },
+           {
+             "type": "text",
+             "id": "custom_mark",
+             "label": "Custom position",
+             "info": "Separator is '|'. Example: 1|2|3 "
+           },
+           {
+           "type": "color",
+           "id": "color_mark",
+           "label": "Color first, last, mark "
+         },
+           {
+           "type": "header",
+           "content": "== mobile Settings"
+           },
+           {
+             "type": "range",
+             "id": "mobile_fw_text",
+             "min": 400,
+             "max": 800,
+             "step": 100,
+             "label": "Font weight",
+             "default": 500
+           },
+		{
+             "type": "range",
+             "id": "mobile_lh_text",
+             "min": 0,
+             "max": 100,
+             "step": 1,
+             "label": "Line Height",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+		{
+             "type": "range",
+             "id": "mobile_font_text",
+             "min": 10,
+             "max": 50,
+             "step": 0.5,
+             "label": "Font size",
+             "unit": "px",
+             "default": 12
+           }
+         ]
+     },
+     {
+       "type": "txt",
+       "name": "Content",
+       "settings": [
+           {
+             "type": "textarea",
+             "id": "title",
+             "label": "Content",
+             "default": "Massaged or scrubbed with a particular aromatherapy essentail oil, cream, lotion or mineral.",
+		  "info":"Insert <br> to line break"
+
+           },
+           {
+           "type": "select",
+           "id": "text_animate",
+           "default": "none",
+           "options": [
+           {
+           "value": "none",
+           "label": "None"
+           },
+           {
+           "value": "bounceIn",
+           "label": "bounceIn"
+           },
+           {
+           "value": "fadeInDown",
+           "label": "fadeInDown"
+           },
+         {
+         "value": "fadeInUp",
+         "label": "fadeInUp"
+         },
+           {
+           "value": "zoomIn",
+           "label": "zoomIn"
+           },
+           {
+           "value": "slideInLeft",
+           "label": "slideInLeft"
+           },
+           {
+           "value": "flipInX",
+           "label": "flipInX"
+           },
+           {
+           "value": "slideInRight",
+           "label": "slideInRight"
+           },
+           {
+           "value": "fadeInLeft",
+           "label": "fadeInLeft"
+           },
+           {
+           "value": "fadeInRight",
+           "label": "fadeInRight"
+           }
+           ],
+           "label": "Animate"
+           },
+		{
+           "type": "range",
+           "id": "text_time",
+           "min": 1,
+           "max": 10,
+           "step": 0.5,
+		"unit": "s",
+           "label": "Animation duration",
+           "default": 1.5
+         },
+           {
+             "type": "color",
+             "id": "color",
+             "label": "Color Text",
+             "default": "#111"
+           },
+           {
+             "type": "range",
+             "id": "fw_text",
+             "min": 400,
+             "max": 800,
+             "step": 100,
+             "label": "Font weight",
+             "default": 400
+           },
+           {
+             "type": "range",
+             "id": "fs_text",
+             "min": 10,
+             "max": 50,
+             "step": 0.5,
+             "label": "Font size",
+             "unit": "px",
+             "default": 14
+           },
+           {
+             "type": "range",
+             "id": "lh_text",
+             "min": 0,
+             "max": 100,
+             "step": 1,
+             "label": "Line Height",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+           {
+             "type": "range",
+             "id": "ls_text",
+             "min": 0,
+             "max": 10,
+             "step": 0.1,
+             "label": "Letter spacing",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+           {
+             "type": "checkbox",
+             "id": "hide",
+             "label": "Hidden ?",
+             "default": false
+           },
+           {
+           "type": "checkbox",
+           "id": "hide_mobile",
+           "label": "Hidden monbile ?",
+           "default": false
+           },
+		{
+           "type": "header",
+           "content": "== mobile Settings"
+           },
+           {
+             "type": "range",
+             "id": "mobile_fw_text",
+             "min": 400,
+             "max": 800,
+             "step": 100,
+             "label": "Font weight",
+             "default": 600
+           },
+		{
+             "type": "range",
+             "id": "mobile_lh_text",
+             "min": 0,
+             "max": 100,
+             "step": 1,
+             "label": "Line Height",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+		{
+             "type": "range",
+             "id": "mobile_font_text",
+             "min": 14,
+             "max": 60,
+             "step": 1,
+             "label": "Font size",
+             "unit": "px",
+             "default": 14
+           }
+         ]
+     },
+     {
+       "type": "btn",
+       "name": "Button",
+       "settings": [
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Button label",
+             "default": "Shop now"
+           },
+		{
+             "type": "select",
+             "id": "text_animate",
+             "default": "none",
+             "options": [
+              {
+                 "value": "none",
+                 "label": "None"
+              },
+              {
+                 "value": "bounceIn",
+                 "label": "bounceIn"
+              },
+              {
+                 "value": "fadeInDown",
+                 "label": "fadeInDown"
+              },
+         {
+         "value": "fadeInUp",
+         "label": "fadeInUp"
+         },
+			{
+                 "value": "zoomIn",
+                 "label": "zoomIn"
+              },
+			{
+                 "value": "slideInLeft",
+                 "label": "slideInLeft"
+              },
+			{
+                 "value": "flipInX",
+                 "label": "flipInX"
+              },
+			{
+                 "value": "slideInRight",
+                 "label": "slideInRight"
+              },
+			{
+                 "value": "fadeInLeft",
+                 "label": "fadeInLeft"
+              },
+              {
+                 "value": "fadeInRight",
+                 "label": "fadeInRight"
+               }
+             ],
+             "label": "Animate"
+           },
+		{
+           "type": "range",
+           "id": "text_time",
+           "min": 1,
+           "max": 10,
+           "step": 0.5,
+		"unit": "s",
+           "label": "Animation duration",
+           "default": 1.5
+         },
+           {
+             "type": "url",
+             "id": "btn_link",
+             "label": "Button link",
+		  "info": "Note: if you want to display this button then you need to fill button link"
+           },
+           {
+             "type": "color",
+             "id": "cl_txt",
+             "label": "Text color",
+             "default": "#fff"
+           },
+           {
+             "type": "color",
+             "id": "cl_txt_hover",
+             "label": "Text color hover",
+             "default": "#fff"
+           },
+           {
+             "type": "color",
+             "id": "cl_bg",
+             "label": "Background color",
+             "default": "#111"
+           },
+           {
+             "type": "color",
+             "id": "cl_bg_hover",
+             "label": "Background color hover",
+             "default": "#f26460"
+           },
+           {
+             "type": "range",
+             "id": "fs_text",
+             "min": 10,
+             "max": 40,
+             "step": 0.5,
+             "label": "Font size",
+             "unit": "px",
+             "default": 14
+           },
+           {
+             "type": "range",
+             "id": "fw_text",
+             "min": 400,
+             "max": 700,
+             "step": 100,
+             "label": "Font weight",
+             "default": 700
+           },
+		{
+             "type": "select",
+             "id": "button_transform",
+             "default": "none",
+             "options": [
+              {
+                 "value": "none",
+                 "label": "None"
+              },
+              {
+                 "value": "capitalize",
+                 "label": "Capitalize"
+              },
+              {
+                 "value": "lowercase",
+                 "label": "Lowercase"
+              },
+              {
+                 "value": "uppercase",
+                 "label": "Uppercase"
+               }
+             ],
+             "label": "Text transform:"
+           },
+         {
+            "type": "range",
+            "id": "br_button",
+            "label": "Border radius",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "unit": "px",
+            "default": 0
+        },
+           {
+             "type": "text",
+             "id": "mg",
+             "label": "Margin",
+             "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+             "default": "0px 0px 0px 0px",
+             "placeholder": "50px 50px,"
+           },
+           {
+             "type": "text",
+             "id": "pd",
+             "label": "Padding",
+             "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+		  "default": "15px 32px 10px 32px",
+             "placeholder": "50px 50px,"
+           },
+           {
+             "type": "range",
+             "id": "ls_text",
+             "min": 0,
+             "max": 10,
+             "step": 0.1,
+             "label": "Letter spacing",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 1.1
+           },
+		{
+           "type": "header",
+           "content": "== mobile Settings"
+           },
+           {
+             "type": "range",
+             "id": "mobile_fw_text",
+             "min": 400,
+             "max": 800,
+             "step": 100,
+             "label": "Font weight",
+             "default": 600
+           },
+          	{
+             "type": "range",
+             "id": "mobile_font_text",
+             "min": 10,
+             "max": 60,
+             "step": 1,
+             "label": "Font size",
+             "unit": "px",
+             "default": 12
+           },
+           {
+             "type": "text",
+             "id": "mobile_mg",
+             "label": "Margin",
+             "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+             "default": "0px 0px 0px 0px",
+             "placeholder": "50px 50px,"
+           },
+           {
+             "type": "text",
+             "id": "mobile_pd",
+             "label": "Padding",
+             "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+		  "default": "15px 32px 10px 32px",
+             "placeholder": "50px 50px,"
+           }
+
+         ]
+     },
+     {
+       "type": "box",
+       "name": "Information box",
+       "settings": [
+           {
+		  "type": "header",
+             "content": "Title settings"
+		},
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Title",
+             "default": "Natural cosmetics"
+           },
+           {
+             "type": "color",
+             "id": "color",
+             "label": "Color title",
+             "default": "#111"
+           },
+           {
+             "type": "range",
+             "id": "fw_title",
+             "min": 400,
+             "max": 800,
+             "step": 100,
+             "label": "Font weight",
+             "default": 600
+           },
+           {
+             "type": "range",
+             "id": "fs_title",
+             "min": 10,
+             "max": 80,
+             "step": 1,
+             "label": "Font size",
+             "unit": "px",
+             "default": 60
+           },
+           {
+             "type": "range",
+             "id": "lh_title",
+             "min": 0,
+             "max": 100,
+             "step": 1,
+             "label": "Line Height",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+           {
+             "type": "range",
+             "id": "ls_title",
+             "min": 0,
+             "max": 10,
+             "step": 0.1,
+             "label": "Letter spacing",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+		{
+             "type": "select",
+             "id": "title_transform",
+             "default": "none",
+             "options": [
+              {
+                 "value": "none",
+                 "label": "None"
+              },
+              {
+                 "value": "capitalize",
+                 "label": "Capitalize"
+              },
+              {
+                 "value": "lowercase",
+                 "label": "Lowercase"
+              },
+              {
+                 "value": "uppercase",
+                 "label": "Uppercase"
+               }
+             ],
+             "label": "Title transform:"
+           },
+           {
+		  "type": "header",
+             "content": "Content settings"
+		},
+           {
+             "type": "textarea",
+             "id": "content",
+             "label": "Content",
+             "default": "Best treatment for curing stubborn whiteheads<br>—  your skin loves it",
+		  "info":"Insert <br> to line break"
+           },
+           {
+             "type": "color",
+             "id": "color_content",
+             "label": "Color Text",
+             "default": "#111"
+           },
+           {
+             "type": "range",
+             "id": "fw_text",
+             "min": 400,
+             "max": 800,
+             "step": 100,
+             "label": "Font weight",
+             "default": 500
+           },
+           {
+             "type": "range",
+             "id": "fs_text",
+             "min": 10,
+             "max": 50,
+             "step": 0.5,
+             "label": "Font size",
+             "unit": "px",
+             "default": 18
+           },
+           {
+             "type": "range",
+             "id": "lh_text",
+             "min": 0,
+             "max": 100,
+             "step": 1,
+             "label": "Line Height",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+           {
+             "type": "range",
+             "id": "ls_text",
+             "min": 0,
+             "max": 10,
+             "step": 0.1,
+             "label": "Letter spacing",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 0
+           },
+           {
+             "type": "select",
+             "id": "contennt_transform",
+             "default": "none",
+             "options": [
+              {
+                 "value": "none",
+                 "label": "None"
+              },
+              {
+                 "value": "capitalize",
+                 "label": "Capitalize"
+              },
+              {
+                 "value": "lowercase",
+                 "label": "Lowercase"
+              },
+              {
+                 "value": "uppercase",
+                 "label": "Uppercase"
+               }
+             ],
+             "label": "Content transform:"
+           },
+           {
+		  "type": "header",
+             "content": "Button settings"
+		},
+		{
+             "type": "text",
+             "id": "button_text",
+             "label": "Button",
+             "default": "Shop now"
+           },
+           {
+             "type": "url",
+             "id": "btn_link",
+             "label": "Button link",
+		  "default":"/",
+		  "info": "Note: if you want to display this button then you need to fill button link"
+           },
+           {
+             "type": "color",
+             "id": "cl_btn",
+             "label": "Button color",
+             "default": "#fff"
+           },
+           {
+             "type": "color",
+             "id": "cl_bg_btn",
+             "label": "Background color",
+             "default": "#f26460"
+           },
+           {
+             "type": "range",
+             "id": "fs_text_btn",
+             "min": 10,
+             "max": 40,
+             "step": 0.5,
+             "label": "Font size",
+             "unit": "px",
+             "default": 14
+           },
+           {
+             "type": "range",
+             "id": "fw_text_btn",
+             "min": 400,
+             "max": 700,
+             "step": 100,
+             "label": "Font weight",
+             "default": 700
+           },
+		{
+             "type": "range",
+             "id": "ls_btn",
+             "min": 0,
+             "max": 10,
+             "step": 0.1,
+             "label": "Letter spacing",
+             "info": "set is '0' use to default",
+             "unit": "px",
+             "default": 2
+           },
+           {
+             "type": "select",
+             "id": "btn_transform",
+             "default": "uppercase",
+             "options": [
+              {
+                 "value": "none",
+                 "label": "None"
+              },
+              {
+                 "value": "capitalize",
+                 "label": "Capitalize"
+              },
+              {
+                 "value": "lowercase",
+                 "label": "Lowercase"
+              },
+              {
+                 "value": "uppercase",
+                 "label": "Uppercase"
+               }
+             ],
+             "label": "Button transform:"
+           }
+         ]
+     },
+     {
+       "type": "space",
+       "name": "Space between",
+       "settings": [
+		{
+           "type": "checkbox",
+           "id": "hide_mobile",
+           "label": "Hidden monbile ?",
+           "default": false
+           },
+           {
+             "type": "range",
+             "id": "sp",
+             "min": 0,
+             "max": 105,
+             "step": 5,
+             "label": "Space",
+             "unit": "px",
+             "default": 10
+           },
+           {
+             "type": "header",
+             "content": "== mobile Settings"
+           },
+           {
+           "type": "range",
+           "id": "mobile_sp",
+           "min": 0,
+           "max": 105,
+           "step": 5,
+           "label": "Space ",
+           "unit": "px",
+           "default": 10
+           }
+
+         ]
+     }
+],
+   "presets": [{
+     "name": "Slideshow 2","category": "Images","settings": {},
+  "blocks": [{ "type": "img" },{ "type": "img" }
+  ]
+   }]
+ }
+{% endschema %}

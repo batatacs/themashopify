@@ -1,0 +1,81 @@
+{%if forloop.first %}
+  <div class="{%if layout >= 4 %} list {% endif %} post-item {% if layout == 4%} full {% endif %}col-sm-12 col-md-{{cl_first | default:'4'}} {% if layout != 1 and layout != 4 and index == 1 %} even {% endif %}">    
+   <div class="item">
+    <div class="image-blog">
+    <a href="{{ article.url }}" title="{{ article.title }}">
+      <div class="pr_lazy_img lazyload laber_bg_lz item__position" data-bgset="{{ article.image.src | img_url: '1x1' }}" data-ratio="{{article.image.aspect_ratio}}" data-sizes="auto" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100}}%;" ></div>
+    </a>
+    </div>
+     <div class="post-info">  
+       
+       {% if blog.title %}<div class="blog"><a href="{{blog.url}}">{{blog.title}}</a></div>  {% endif %}
+        
+       <div class="head head-article">
+         <div class="title_blog">
+           <h3>
+             <a href="{{ article.url}}" class="post-title">{{ article.title }}</a>
+           </h3>  
+         </div>
+       </div>
+      
+       <div class="main-info-post">
+         {% if article.excerpt.size > 0 %}
+         {{ article.excerpt | strip_html | truncatewords: numb_text_first}}         
+         {% else %}
+         <div class="des"><p>{{ article.content | strip_html | truncatewords: numb_text_first}}</p></div>
+         {% endif %}   
+       </div>
+       <div class="meta-post">
+          <div class="item-meta author">{{'blogs.article.by_author' | t}} {{article.author}}</div>
+         <div class="item-meta inner-date">
+            <span class="month">{{ article.created_at | date: "%b" }}</span>,
+            <span class="day">{{ article.created_at | date: "%d" }}</span>
+            <span class="year">{{ article.created_at | date: "%Y" }}</span>
+          </div>
+        </div> 
+     </div>
+    
+     </div>
+  </div>
+{% else%}
+  {% assign index = forloop.index | modulo: 2 %}
+  <div class="{%if layout >= 4 %} list {% endif %} post-item {% if layout == 4%} full {% endif %}col-sm-12 col-md-{{cl | default:'4'}} {% if layout != 1 and layout != 4 and index == 1 %} even {% endif %}">
+    <div class="item">
+    <div class="image-blog">
+    <a href="{{ article.url }}">
+      <div class="pr_lazy_img lazyload laber_bg_lz item__position" data-bgset="{{ article.image.src | img_url: '1x1' }}" data-ratio="{{article.image.aspect_ratio}}" data-sizes="auto" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100}}%;" ></div>
+    </a>
+    </div>
+           <div class="post-info">  
+
+       {% if blog.title %}<div class="blog"><a href="{{blog.url}}">{{blog.title}}</a></div>  {% endif %}       
+       <div class="head head-article">
+         <div class="title_blog">
+           <h3>
+             <a href="{{ article.url}}" class="post-title">{{ article.title }}</a>
+           </h3>  
+         </div>
+       </div>
+   
+       <div class="main-info-post">
+          {% assign numb = numb_text | default:'25' | plus:0 %}
+         {% if article.excerpt.size > 0 %}
+         {{ article.excerpt | strip_html | truncatewords: numb}}         
+         {% else %}
+         <div class="des"><p>{{ article.content | strip_html | truncatewords: numb}}</p></div>
+         {% endif %}   
+       </div>
+   
+       <div class="meta-post">
+          <div class="item-meta author">{{'blogs.article.by_author' | t}} {{article.author}}</div>
+         <div class="item-meta inner-date">
+            <span class="month">{{ article.created_at | date: "%b" }}</span>,
+            <span class="day">{{ article.created_at | date: "%d" }}</span>
+            <span class="year">{{ article.created_at | date: "%Y" }}</span>
+          </div>
+        </div> 
+
+     </div>
+    </div>
+  </div>
+{% endif %}

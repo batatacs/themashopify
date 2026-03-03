@@ -1,0 +1,22 @@
+{%- assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' -%}
+{%- assign sizes = '100vw' -%}
+{%- assign image_height = image.width | divided_by: image.aspect_ratio -%}
+{%- capture style -%}
+  {% assign ratio =  image.aspect_ratio %}
+    --ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;
+{%- endcapture -%}
+<div data-image-id="{{ image.id }}" class="alo-image absolute inset-0 ratio  {{ image_class }}" style="{{ style | strip | strip_newlines }}">
+   {% if url %} <a class="block h-full" href="{{url}}" target="{{open_link}}" title="" aria-label="link">{% endif %}
+  {{
+    image
+    | image_url: width: 3840
+    | image_tag:
+      loading: 'lazy',
+      width: image.width,
+      height: image_height,
+      class: image_class,
+      sizes: sizes,
+      widths: widths
+  }}
+  {% if url %} </a>{% endif %}
+</div>

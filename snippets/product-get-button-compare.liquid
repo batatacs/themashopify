@@ -1,0 +1,20 @@
+{%- if customer and customer.metafields.compare -%}
+    {%- for item in customer.metafields.compare -%}
+        {%- assign compare_id = item[0] | abs -%}
+        {%- assign compare_handle = item[1] -%}
+        {%- if current_variant_id == compare_id and product.handle == compare_handle -%}
+            {%- assign present_in_compare = true -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}
+<a href="{{ routes.account_url }}" class="compare-button  btn--status js-store-lists-add-compare js-compare"
+    {% if present_in_compare %} data-button-status="added"{% endif %}
+   data-pid="{{product.handle}}" aria-label="link"
+>	
+        <i class="icon-layers"></i>
+        <i class="icon-check" data-button-content="added"></i>
+  <span class="text">{{'products.product.add_to_compare.title' | t }}</span>
+  <span class="added" data-button-content=added>{{'products.product.add_to_compare.added' | t }}</span>
+  
+</a>
+{%- assign present_in_compare = false -%}

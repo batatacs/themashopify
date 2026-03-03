@@ -1,0 +1,70 @@
+        <div class="banner_statick">
+          <div class="image_static ">
+            <div class="image_1 images-card  ">
+            {% assign image_1 = section.settings.image_1 %}
+            {% assign link_1 = section.settings.link_img_1 | default:'#' %}
+            {% if image_1 != blank %}
+              {% render 'responsive-image', image: image_1, image_class: 'w-full h-full', url: link_1 %}
+            {% else %}
+              <div class="image-card__img h-full">
+                {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {% endif %}
+            {% if section.settings.content_1 != blank %}
+              <div class="content-img">
+                {{ section.settings.content_1 }}
+              </div>
+            {% endif %}
+            </div>
+            <div class="image_2 images-card">
+                {% assign image_2 = section.settings.image_2 %}
+                {% assign link_2 = section.settings.link_img_2 | default:'#'%}
+                {% if image_2 != blank %}
+                  {% render 'responsive-image', image: image_2, image_class: 'w-full h-full', url: link_2 %}
+                {% else %}
+                  <div class="image-card__img w-full h-full">
+                    {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {% endif %}
+                {% if section.settings.content_2 != blank %}
+                  <div class="content-img">
+                    {{ section.settings.content_2 }}
+                  </div>
+                {% endif %}
+            </div>
+          </div>
+          <div class="image_static ">
+            <div class="image_3 images-card ">
+            {% assign image_3 = section.settings.image_3 %}
+            {% assign link_3 = section.settings.link_img_3 | default:'#' %}
+            {% if image_3 != blank %}
+              {% render 'responsive-image', image: image_3, image_class: 'w-full h-full', url: link_3 %}
+            {% else %}
+              <div class="image-card__img h-full">
+                {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {% endif %}
+            {% if section.settings.content_3 != blank %}
+              <div class="content-img">
+                {{ section.settings.content_3 }}
+              </div>
+            {% endif %}
+            </div>
+            <div class="image_4 images-card">
+                {% assign image_4 = section.settings.image_4 %}
+                {% assign link_4 = section.settings.link_img_4 | default:'#'%}
+                {% if image_4 != blank %}
+                  {% render 'responsive-image', image: image_4, image_class: 'w-full h-full', url: link_4 %}
+                {% else %}
+                  <div class="image-card__img w-full h-full">
+                    {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {% endif %}
+                {% if section.settings.content_4 != blank %}
+                  <div class="content-img">
+                    {{ section.settings.content_4 }}
+                  </div>
+                {% endif %}
+            </div>
+          </div>
+        </div>

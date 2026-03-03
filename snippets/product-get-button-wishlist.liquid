@@ -1,0 +1,18 @@
+{%- if customer and customer.metafields.wishlist -%}
+    {%- for item in customer.metafields.wishlist -%}
+        {%- assign wishlist_id = item[0] | abs -%}
+        {%- assign wishlist_handle = item[1] -%}
+        {%- if current_variant_id == wishlist_id and product.handle == wishlist_handle -%}
+            {%- assign present_in_wishlist = true -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}
+<a href="{{ routes.account_url }}" class="wishlist-button wishlist  btn--status js-store-lists-add-wishlist js-wishlist"
+    {% if present_in_wishlist %} data-button-status="added"{% endif %} aria-label="link"
+>
+  <i class="icon-heart"></i>
+  <i class="icon-check" data-button-content="added"></i>
+  <span class="text">{{'products.product.add_to_widhlist.title' | t  }}</span>
+  	<span class="added" data-button-content=added>{{'products.product.add_to_widhlist.added' | t }}</span>
+</a>
+{%- assign present_in_wishlist = false -%}

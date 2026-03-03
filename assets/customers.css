@@ -1,0 +1,343 @@
+/*LOGIN*/
+.login-register-form{
+	margin-bottom:70px;
+}
+  
+ .content-form form {
+	 display: grid;
+}
+ .content-form .main-title {
+   margin: 0 0 30px 0;
+    line-height: 1;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-main);
+    cursor: pointer;
+}
+ .content-form .note-title {
+    font-size: 14px;
+    color: var(--color-main);
+    margin: 0 0 15px;
+    font-weight: 500;
+}
+ .content-form .register-form .label-text span {
+	 color: #f57e60;
+}
+ .content-form .label-text {
+    font-size: 14px;
+    margin: 0 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+  .content-form .label-text p{
+  	position:relative;
+    margin-bottom:0;
+  }
+  .content-form .label-text p svg{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+.content-form .label-text.check{
+  border:none;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+  .content-form .label-text.check a{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19px;
+    color: #79819C;
+  }
+.content-form label{
+  color:#6b6b6b;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  margin-bottom:5px;
+}
+.content-form label span{color:#ff0000;}
+  .content-form label.error{
+    color: #ff0000;
+    padding-top: 10px;
+    display: block;
+  }
+ .content-form .input-info {
+    background-color: #F3F3F9;
+    margin-bottom: 10px;
+    padding: 0 15px;
+    outline: 0;
+    font-weight: 400;
+    font-size: 14px;
+    border: 1px solid #F3F3F9;
+    width: 100%;
+    line-height: 45px;
+    height: 45px;
+    border-radius: 3px;
+    color: #999;
+}
+.content-form .check-box{
+
+}
+ .content-form .check-box .text-label {
+   cursor: pointer;
+   font-size: 14px;
+   color: #666;
+   font-weight: 400;
+   margin: 0;
+   padding-left: 20px;
+   position: relative;
+   line-height: 20px;
+}
+ .content-form .check-box input[type="checkbox"] {
+	 display: none;
+}
+ .content-form .check-box input[type="checkbox"] + label::after {
+	 position: absolute;
+	 z-index: 1;
+	 content: "";
+	 left: 0;
+	 top: 5px;
+	 width: 15px;
+	 height: 14px;
+}
+.content-form .check-box input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    top: 2px;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    z-index: 2;
+    padding: 0;
+    line-height: 15px;
+    border: 1px solid #999;
+    border-radius: 1px;
+    color: var(--color-main);
+}
+ .content-form .check-box input[type="checkbox"]:checked + label::before {
+	font-family: icon-dukamarket;
+    content: "\e94c";
+}
+ .content-form .check-box .forgot {
+	 float: right;
+	 font-size: 14px;
+	 color: #666;
+}
+.content-form .group-button {
+}
+#register-form .group-button{
+  padding-top:10px;
+}
+.content-form .group-button .submit {
+   font-size: 13px;
+   font-weight: 600;
+   line-height:45px;
+  	width:100%;
+   padding: 0;
+   display: inline-block;
+   text-transform: uppercase;
+   cursor: pointer;
+   border: 0;
+   background: var(--color-btn);
+   color:var(--color-btn-text);
+   outline: 0;
+   border-radius: 3px;
+     margin-bottom: 15px;
+   -webkit-transition: all 240ms linear 0s;
+   -khtml-transition: all 240ms linear 0ms;
+   -moz-transition: all 240ms linear 0s;
+   -ms-transition: all 240ms linear 0s;
+   -o-transition: all 240ms linear 0s;
+   transition: all 240ms linear 0s;
+}
+.login-page #recoverPassword a.loginForm:hover,
+.login-register-form .register_submit a:hover,
+.content-form  h3.tabtrigger:hover,
+.content-form .group-button .submit:hover {
+  background: var(--color-btn-hover);
+  border-color: var(--color-btn-hover);  
+  color:var(--color-btn-text_hover);
+}
+  
+.content-form .login-form .tabtitle,
+.content-form .register-form .tabtitle{
+  background-color: #f6f6f6;
+  outline: 0;
+  border: 1px solid #ebebeb;
+  color: var(--color-main);
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom:20px;
+  display: block;
+}
+.content-form p.or{
+  position: relative;
+  text-align: center;
+  height: 30px;
+  margin-bottom:15px;
+}
+.content-form p.or:before{
+  content:'';
+  border-top: 1px solid #ebebeb;
+  position:absolute;
+  top:50%;
+  left:0;
+  right:0;
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  -o-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+}
+
+.content-form p.or span{
+    display: inline-block;
+    background: #fff;
+    padding: 0 15px;
+    position: relative;
+    color: #999999;
+    font-size: 14px;
+}
+  
+.login-page #recoverPassword a.loginForm,
+.login-register-form .register_submit a,
+.content-form h3.tabtrigger{
+    font-size: 13px;
+    background-color: #fff;
+    color: var(--color-main);
+    border: 2px solid var(--color-btn);
+    text-transform: uppercase;
+    line-height: 45px;
+    text-align: center;
+    margin: 0 0 30px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    border-radius: 3px;
+    -webkit-transition: all .24s linear 0s;
+    -khtml-transition: all .24s linear 0ms;
+    -moz-transition: all .24s linear 0s;
+    -ms-transition: all .24s linear 0s;
+    -o-transition: all .24s linear 0s;
+    transition: all .24s linear 0s;
+}
+
+  .contact-page h1.main-title{
+    margin:0;
+    font-size: 48px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #0a2748;
+    margin-bottom: 60px;
+    text-align:center;
+  }
+  
+ .content-form .input-note {
+	 line-height: inherit;
+	 height: 120px;
+	 padding: 10px 20px;
+}
+ .content-form .title {
+	 font-size: 14px;
+	 font-weight: 600;
+	 text-transform: uppercase;
+	 margin: 30px 0 25px;
+}
+ .content-form .des {
+	 font-size: 14px;
+	 margin: 20px 0 65px;
+}
+ .content-form .map {
+	 text-align: center;
+	 overflow: hidden;
+	 display: grid;
+}
+ 
+ .login-form .social {
+	 margin-right: 30px;
+	 margin-bottom: 37px;
+	 display: inline-block;
+}
+
+ .login-register-form .input-info {
+   width: 100%;
+   height: 45px;
+   line-height: 45px;
+   background-color: #fff;
+   margin-bottom: 0;
+   padding: 0 20px 0 40px;
+   outline: 0;
+   font-size: 16px;
+   color: var(--color-main);
+   border: 1px solid #F3F3F9;
+   border-radius: 3px;
+}
+  .login-register-form .input-info::placeholder{
+    color:#ACAFB7;
+    font-weight: 400;
+    font-size: 13px;
+  }
+ .content-form .check-box span {
+	 font-size: 14px;
+	 color: #888;
+}
+.content-form .address-edit-toggle, .content-form .address-delete{
+    background-color: var(--color-btn);
+    color: var(--color-btn-text);
+    margin-right: 10px;
+    min-width: 130px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    font-weight: 600;
+    font-size: 13px;
+}
+  
+.content-form .address-edit-toggle:hover, .content-form .address-delete:hover{
+    background-color: var(--color-btn-hover);
+    color: var(--color-btn-text_hover);
+  } 
+  
+  .content-form .box-label{
+    display: flex;
+    margin-bottom: 15px;
+    flex-direction: column;
+  } 
+
+  .content-form .box-label .input-info{
+  	width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background-color: #fff;
+    margin-bottom: 0;
+    padding:0 20px 0 40px;
+    outline: 0;
+    font-size: 16px;
+    color:var(--color-main);
+    border: 1px solid #E6ECF0;
+    border-radius: 3px;
+  } 
+  .content-form .box-label p{
+    position: relative;
+    margin-bottom: 0;
+  }
+  .content-form .box-label p svg{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }

@@ -1,0 +1,374 @@
+{% if section.settings.home_page_only == false or template.name == 'index' %}
+  {% if section.settings.header_use_top_header %}
+    <div class="topbar {% if section.settings.hide_top_header_mobile %}hide-mobile{% endif %}">
+      <div class="announcement-bar">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'message' -%}
+              {% assign text_align = block.settings.text_align %}
+              <div
+                class="wrapper-bar-message {{text_align}} flex {% if block.settings.show_close_btn %} show-close-button parent-close{% endif %}"
+                style="
+                  --color-bg:{{ block.settings.bg_top_header }};
+                  --color-text:{{ block.settings.cl_text }};
+                  --color-boder:{{ block.settings.cl_bd_top_bar }};
+                "
+              >
+                <div class="{{section.settings.layout}}">
+                  <p class="announcement-bar__message">
+                    {{ block.settings.message_text }}
+                    {%- if block.settings.text_link != blank -%}
+                      <a
+                        id="b_{{block.id}}"
+                        class="buttons alo-color-hover alo-color"
+                        style="--alo-color-hover:{{block.settings.color_link_hover}};--alo-color:{{block.settings.color_link}};"
+                        href="{{block.settings.btn_link}}"
+                        target="{{block.settings.open_link}}"
+                        {{ block.shopify_attributes }}
+                      >
+                        {{- block.settings.text_link -}}
+                      </a>
+                    {%- endif -%}
+                  </p>
+                  {% if block.settings.show_close_btn %}
+                    <span class="announcement-close btn-close">
+                      <i class="icon-btn-close icon-x"></i>
+                      {% if block.settings.title_close_btn != blank -%}
+                        <span class="title">{{ block.settings.title_close_btn }}</span>
+                      {%- endif %}
+                    </span>
+                  {% endif %}
+                </div>
+              </div>
+            {%- when 'text-horizontal-running' -%}
+              <div class="" style="background-color:{{ block.settings.bg }};">
+                <div class="{{section.settings.layout}}">
+                  {% assign limit = block.settings.limit %}
+                  <div class="text-horizontal-running">
+                    {%- if section.blocks.size > 0 -%}
+                      <p style="--color-text:{{ block.settings.color_text }};--alo-healing-speed:{{ block.settings.healing_speed }}s;">
+                        {%- for i in (1..limit) -%}
+                          <a
+                            href="{{ block.settings.url | default:"#" }}"
+                            title=" "
+                            target="{{ block.settings.open_link }}"
+                            aria-label="link"
+                          >
+                            {% if block.settings.text != blank -%}
+                              <span class="flex">{{ block.settings.text }}</span>
+                            {%- endif %}
+                          </a>
+                        {%- endfor -%}
+                      </p>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+    </div>
+    {% style %}
+      .alo_slidershow {--height-bar: 40px;}
+    {% endstyle %}
+  {% else %}
+    {% style %}
+      .alo_slidershow {--height-bar: 0px;}
+    {% endstyle %}
+  {% endif %}
+{% endif %}
+
+{% schema %}
+ {
+   "name": "Top Bar",
+   "class":"cms-top-header cms-top-bar",
+   "settings": [
+	{
+         "type": "header",
+         "content": "General settings"
+       },
+       {
+         "type": "checkbox",
+         "id": "header_use_top_header",
+         "label": "Show top header",
+         "default": false
+       },
+       {
+         "type": "checkbox",
+         "id": "hide_top_header_mobile",
+         "label": "Hide header (mobile)",
+         "default": true
+       },
+       {
+         "type": "checkbox",
+         "id": "home_page_only",
+         "label": "Home page only",
+         "default": true
+       },
+	{
+         "type": "select",
+         "id": "layout",
+         "default": "full-width",
+         "options": [
+          {
+             "value": "container",
+             "label": "Container"
+          },
+          {
+             "value": "full-width",
+             "label": "Full Width"
+           }
+         ],
+         "label": "Layout"
+       }
+],
+"blocks": [
+	{
+         "type": "message",
+         "name": "Announcement text",
+         "limit": 1,
+         "settings": [
+           {
+             "type": "color",
+             "id": "bg_top_header",
+             "label": "Background color",
+             "default": "#f5f5f5"
+           },
+           {
+             "type": "color",
+             "id": "cl_bd_top_bar",
+             "label": "Color border",
+             "default": "#f5f5f5"
+           },
+
+   		{
+             "type": "color",
+             "id": "cl_text",
+             "label": "Color text",
+             "default": "#777"
+           },
+             {
+           "type": "checkbox",
+           "id": "show_close_btn",
+           "label": "Show close button",
+           "default": false
+       },
+       {
+           "type": "text",
+           "id": "title_close_btn",
+           "label": "Title close button",
+           "info": "Leave it blank if you don't want to show it"
+       },
+             {
+               "type": "text",
+               "id": "message_text",
+               "label": "Announcement text",
+               "default": "Free Delivery over £40 to most of UK*"
+             },
+             {
+               "type": "text",
+               "id": "text_link",
+               "label": "Link",
+               "default": "Shop Now"
+             },
+             {
+               "type": "url",
+               "id": "btn_link",
+               "label": "Button link",
+ 			  "info": "Note: if you want to display this button then you need to fill button link"
+             },
+            {
+               "type": "select",
+               "id": "open_link",
+               "options": [
+                 {
+                   "value": "_self",
+                   "label": "Current window (_self)"
+                 },
+                {
+                   "value": "_blank",
+                   "label": "New window (_blank)"
+                 }
+               ],
+               "label": "Open link in",
+               "default": "_blank"
+             },
+		  {
+               "type": "select",
+               "id": "text_align",
+               "default": "topbar-left",
+               "options": [
+               {
+                 "value": "topbar-left",
+                 "label": "Left"
+               },
+               {
+                 "value": "topbar-center",
+                 "label": "center"
+               },
+               {
+                 "value": "topbar-right",
+                 "label": "Right"
+               }
+               ],
+                 "label": "text align:"
+             },
+             {
+               "type": "select",
+               "id": "col",
+               "default": "4",
+               "options": [
+               {
+                 "value": "1",
+                 "label": "1/12 (8.333333%)"
+               },
+               {
+                 "value": "2",
+                 "label": "2/12 (16.666667%)"
+               },
+               {
+                 "value": "3",
+                 "label": "3/12 (25%)"
+               },
+               {
+                 "value": "4",
+                 "label": "4/12 (33.333333%)"
+               },
+               {
+                 "value": "6",
+                 "label": "6/12 (50%)"
+               },
+               {
+                 "value": "7",
+                 "label": "7/12 (58.333333%)"
+               },
+               {
+                 "value": "8",
+                 "label": "8/12 (66.666667%)"
+               },
+               {
+                 "value": "9",
+                 "label": "9/12 (75%)"
+               },
+               {
+                 "value": "10",
+                 "label": "10/12 (83.333333%)"
+               },
+               {
+                 "value": "11",
+                 "label": "11/12 (91.666667%)"
+               },
+               {
+                 "value": "12",
+                 "label": "12/12 (100%)"
+               }
+               ],
+                 "label": "Width col:"
+             },
+             {
+             "type": "color",
+             "id": "color_link",
+             "label": "color link",
+             "default": "#1a1a1a"
+             },
+             {
+             "type": "color",
+             "id": "bg_color_link",
+             "label": "Background color link",
+             "default": "#fff"
+             },
+            {
+             "type": "color",
+             "id": "color_link_hover",
+             "label": "color link (Hover)",
+             "default": "#1a1a1a"
+             },
+             {
+             "type": "color",
+             "id": "bg_color_link_hover",
+             "label": "Background  color link (Hover)",
+             "default": "#fff"
+             }
+         ]
+       },
+     {
+         "type": "text-horizontal-running",
+         "name": "Text horizontal running",
+         "limit": 1,
+         "settings": [
+             {
+               "type": "range",
+               "id": "healing_speed",
+               "label": "Healing speed",
+               "min": 10,
+               "max": 30,
+               "step": 1,
+               "unit": "s",
+               "default": 10
+             },
+             {
+                 "type": "range",
+                 "id": "limit",
+                 "label": "repeat text",
+                 "min": 4,
+                 "max": 24,
+                 "step": 1,
+                 "default": 10
+             },
+             {
+               "type": "textarea",
+               "id": "text",
+               "label": "Text",
+               "default": "Special offer: enjoy 3 months of shopify for $1/month"
+             },
+             {
+             "label": "Link to (Optional)",
+             "id": "url",
+             "type": "url"
+           },
+            {
+               "type": "select",
+               "id": "open_link",
+               "options": [
+                 {
+                   "value": "_self",
+                   "label": "Current window (_self)"
+                 },
+                {
+                   "value": "_blank",
+                   "label": "New window (_blank)"
+                 }
+               ],
+               "label": "Open link in",
+               "default": "_blank"
+             },
+             {
+             "type": "color",
+             "id": "bg",
+             "label": "Background color",
+             "default": "#FFB800"
+             },
+             {
+             "type": "color",
+             "id": "color_text",
+             "label": "color text",
+             "default": "#222"
+             }
+         ]
+       }
+
+]
+ }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+  document.addEventListener("DOMContentLoaded", function() {
+      $('.btn-close').on('click', function(){
+        $(this).parents('.parent-close').slideUp();
+      })
+  });
+{% endjavascript %}

@@ -1,0 +1,91 @@
+{%- layout none -%}
+{%- liquid
+   assign currently = product.selected_or_first_available_variant
+   assign cu_pr = currently.price
+   assign cp_pr = currently.compare_at_price | default:cu_pr
+   assign image = currently.featured_image | default:product.featured_image
+   assign pr_variants = product.variants 
+   assign available_v = pr_variants | where: "available"
+   assign available_v_1 = available_v.first
+   assign cur_var_id = currently.id
+   assign default = product.has_only_default_variant
+   assign pid = product.id
+   assign hd_up = 'group-' |append:pid
+   assign nav_up = linklists[hd_up].links | where:'type','product_link'
+   assign nav_up_size = nav_up.size
+   assign variants_size = pr_variants.size 
+   assign selected_variant = product.selected_variant -%}
+{% include 'product-res-variables' %}
+{%  assign build_variant = "all" %}
+{% assign show_title_variant = true %}
+{%- for i in (1..1) -%}
+    <div id="product-quick-edit-cart" class="js-quick-edit-cart" data-js-product >
+      <script class="data-json-product" type="application/json">{% render 'product-get-attributes', product:product, build_variant: 'json' %}</script>
+      <h3>{{'products.product.option_for_you' | t}}</h3>
+       <div class="container product-item">
+          <div class="row">
+             <div class="col-sm-12 col-md-6 col-lg-6">
+               <div class="row">
+                 <div class="col-auto sticky_atc_thumb" data-js-product-image>
+                    {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                     <img data-image-lazy  alt="{{product.title | escape}}" data-src="{{ img_url }}" data-widths="[75, 150]" data-sizes="auto" class="js_fgr_img pr_lazy_img lazyload " src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="> 
+                 </div>
+                 <div class="col sticky_atc_info">
+                    	<h2>{{product.title}}</h2>
+                       <div class="sticky_atc_price" data-js-product-price>
+                         {%- if nav_up_size == 0 -%}
+                         	{% if cp_pr > cu_pr %}<span class="current">{{cu_pr| money}}</span> <span class="compare">{{cp_pr| money}}</span> {% else %}{{cu_pr | money}}{% endif %}
+                         {%- else -%}
+                         	{% if cp_pr > cu_pr %}{{cu_pr| money}}-{{cp_pr| money}}{% else %}{{cu_pr | money}}{% endif %}
+                         {%- endif -%}
+                       </div>
+                     <div data-product-quantity class="js-quantity quantity">
+                       <a rel="nofollow" data-no-instant class="js_minus minus" href="#">
+                         <svg width="20" height="20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M 9,18l 16,0 C 25.552,18, 26,17.552, 26,17C 26,16.448, 25.552,16, 25,16l-16,0 C 8.448,16, 8,16.448, 8,17 C 8,17.552, 8.448,18, 9,18z"></path></g></svg>
+                       </a>
+                      <input type="text" class="input-text js_qty" data-step="1" data-min="1" data-max="{% if currently.inventory_management != null %}{{currently.inventory_quantity}}{% else %}9999{% endif %}" name="quantity" value="1" size="4" pattern="[0-9]*" inputmode="numeric">
+                      <a rel="nofollow" data-no-instant class="js_plus plus" href="#"> 
+                        <svg width="20" height="20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M 9,18L 16,18 l0,7 C 16,25.552, 16.448,26, 17,26S 18,25.552, 18,25L 18,18 l 7,0 C 25.552,18, 26,17.552, 26,17 C 26,16.448, 25.552,16, 25,16L 18,16 L 18,9 C 18,8.448, 17.552,8, 17,8S 16,8.448, 16,9L 16,16 L 9,16 C 8.448,16, 8,16.448, 8,17C 8,17.552, 8.448,18, 9,18z"></path></g></svg>
+                      </a> 
+                     </div>
+                 </div>
+               </div>
+             </div>
+
+             <div class="col-sm-12 col-md-6 col-lg-6 variations_form"> 
+              {%- if available_v.size < 2 -%}
+                 	<input class="js_sticky_sl" name="id" value="{{ available_v_1.id }}" type="hidden">
+              {%- else -%}
+                    <div class="wrap_variant">
+                      <span class="popup_variant"><i class="icon-tune"></i></span>
+                      {% include 'product-get-options' with options_type: 3 select_dropdown_position: 'top' options_show_title: true trigger: 'footbar' %}
+                    </div>  
+                    <div class="select-sticky">
+                    <select name="id" class="js_sticky_sl" data-select-sticky_atc> 
+                      {%- for variant in available_v -%}
+                      <option data-img="{{variant.image | default:product.featured_image | img_url: '1x1'}}" data-ogprice="{{variant.compare_at_price |default:variant.price}}" data-price="{{variant.price}}" value="{{ variant.id }}"{% if variant.id == cur_var_id %} selected="selected"{% endif %}>{{ variant.title | escape }}</option>
+                      {%- endfor -%}
+                    </select> 
+                    </div>
+              {% endif %}
+             </div>
+          </div>
+         <div class="row">
+            <button style="display:none" data-js-product-button-add-to-cart class="single_add_to_cart_button js_add_to_cart_button" data-pid="{{ currently.id }}">
+                   <div class="laber-loading">
+                    <div class="circle-loadding"><span></span></div>
+                  </div>
+                   <span class="txt_add_to_cart">{{'products.product.add_to_cart' | t}}</span>
+                   <span class="txt_out_stock d-none">{{'products.product.out_stock' | t}}</span>
+            </button>
+            <button  class="single_add_to_cart_button js_edit_cart_button" data-pid="{{ currently.id }}">
+                   <div class="laber-loading">
+                    <div class="circle-loadding"><span></span></div>
+                  </div>
+                   <span class="txt_add_to_cart">{{'products.product.add_to_cart' | t}}</span>
+                   <span class="txt_out_stock d-none">{{'products.product.out_stock' | t}}</span>
+            </button>
+          </div> 
+       </div>
+    </div>
+{%- endfor -%}

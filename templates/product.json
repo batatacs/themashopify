@@ -1,0 +1,332 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "ed5dec54-d995-4f88-87d3-102460e07067": {
+          "type": "name_product",
+          "settings": {
+            "np_text_transform": "none",
+            "np_size": 24,
+            "np_weight": 500,
+            "np_size_mobile": 24,
+            "np_mg_top": 0,
+            "np_mg_bottom": 15
+          }
+        },
+        "6ff5677e-1d98-482d-bd86-4c67fe63a2af": {
+          "type": "show_reviews",
+          "settings": {
+            "use-reviewst": true,
+            "use-sold-product": true,
+            "min_sold": 5,
+            "max_sold": 25,
+            "time": "24 hours"
+          }
+        },
+        "f1e09af0-0154-41e2-996f-755cdde44ea4": {
+          "type": "show_price",
+          "settings": {
+          }
+        },
+        "c78dd46d-d065-4e43-aaa7-13423da0532f": {
+          "type": "show_description",
+          "settings": {
+            "custom_liquid": "{{product.metafields.custom.short_description}}"
+          }
+        },
+        "888fb817-16f3-467a-8d84-48f25bfcf851": {
+          "type": "text_countdown_html",
+          "settings": {
+            "show_text_countdown": false,
+            "show_visitors_html": true,
+            "product_visitors_min": 10,
+            "product_visitors_max": 25
+          }
+        },
+        "579829e4-1aee-4727-9d91-41583b54bebd": {
+          "type": "countdown",
+          "settings": {
+            "text": "Hurry up! Sale ends in:",
+            "custom_liquid": "{{product.metafields.custom.countdown_timer}}",
+            "bg": "#f9f2f2",
+            "bd": "#f3d5d5",
+            "cl_title": "#dd3327",
+            "bg_countdown": "#dd3327",
+            "cl_text": "#ffffff"
+          }
+        },
+        "5c909704-7273-41b5-b5b9-38085bf8c176": {
+          "type": "product_variants",
+          "settings": {
+            "show_title": true,
+            "show_size_guide": true,
+            "size_guide_page": ""
+          }
+        },
+        "7dd79963-0728-4ccb-85ae-a4ef29c6e44c": {
+          "type": "inventory_qty",
+          "settings": {
+            "total_items": 50,
+            "bg_1": "#ef262c",
+            "bg_2": "#edf1f2",
+            "h_stock": 5
+          }
+        },
+        "1c6b15e2-cee7-4cbc-b9ab-073e68a6924c": {
+          "type": "message",
+          "settings": {
+            "title": "Your message",
+            "content": "Add your name, note to personalise your item.",
+            "message": "message"
+          }
+        },
+        "31c8ef69-7f67-42b1-909d-ae6219a97a53": {
+          "type": "file",
+          "settings": {
+            "title": "Upload image"
+          }
+        },
+        "8681d35e-2735-4d23-98a5-4f3b5271e474": {
+          "type": "quantity_button",
+          "settings": {
+            "icon_button_cart": "",
+            "border": 30,
+            "qt_show_quantity": true,
+            "qt_show_cart": true,
+            "show_popup": true,
+            "product_terms_conditions_page_content": "",
+            "qt_buy_it_now": true,
+            "btn_affiliate": "Buy On Themeforest",
+            "qt_show_compare": true,
+            "qt_show_wishlist": true,
+            "show_social_sharing": true,
+            "show_custom_color_btn": true,
+            "color_text_cart": "#ffffff",
+            "bg_add_to_cart": "#222222",
+            "color_text_cart_hover": "#ffffff",
+            "bg_add_to_cart_hv": "#16bcdc",
+            "color_text_buy_now": "#ffffff",
+            "bg_buy_it_now": "#222222",
+            "color_text_buy_now_hover": "#ffffff",
+            "bg_buy_it_now_hv": "#16bcdc"
+          }
+        },
+        "d2caabfb-7c33-47ff-b309-cfca9d0d9b98": {
+          "type": "popup",
+          "settings": {
+            "show_size_chart": true,
+            "text_size_chart": "Size chart",
+            "size_guide_page": "size-guide",
+            "show_shipping_returns": true,
+            "text_shipping_returns": "Shipping and Returns",
+            "shipping_returns_page": "shipping-return",
+            "show_compare_color": true,
+            "text_compare_color": "Compare Color",
+            "show_contact_us": true,
+            "text_contact_us": "Contact us"
+          }
+        },
+        "26205a69-31b8-41d3-83bf-2e25db4c4dfa": {
+          "type": "shipping",
+          "settings": {
+            "show_delivery_times": true,
+            "deliver_text": "Estimated Delivery:",
+            "deliver_days": "7",
+            "date_format": "%b %d",
+            "show_shipping_text": true,
+            "shipping_text": "<p>Return within <strong>30 days<\/strong> of purchase. Taxes are non-refundable.<\/p>"
+          }
+        },
+        "993a628c-32eb-456f-9eb4-88c3a61fa8e0": {
+          "type": "product_infor",
+          "settings": {
+            "show_sku": true,
+            "show_barcode": false,
+            "show_vendor": true,
+            "show_type": false,
+            "show_availability": true,
+            "color_in_stock": "#008a00",
+            "color_out_stock": "#dd3842",
+            "show_category": true,
+            "limit_cate": 2,
+            "show_tags": true,
+            "limit_tags": 5
+          }
+        },
+        "f0b169ef-ed96-4dd1-9b76-7e2e8121cc42": {
+          "type": "custom_html",
+          "settings": {
+            "html_custom": "Guarantee safe &amp; Secure checkout",
+            "show_svg_custom": true,
+            "svg_custom": "amazon_payments,american_express,apple_pay,bitcoin,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,google_pay,jcb,klarna,klarna-pay-later,litecoin,maestro,master,paypal,shopify_pay,sofort,visa",
+            "svg_height": 35
+          }
+        }
+      },
+      "block_order": [
+        "ed5dec54-d995-4f88-87d3-102460e07067",
+        "6ff5677e-1d98-482d-bd86-4c67fe63a2af",
+        "f1e09af0-0154-41e2-996f-755cdde44ea4",
+        "c78dd46d-d065-4e43-aaa7-13423da0532f",
+        "888fb817-16f3-467a-8d84-48f25bfcf851",
+        "579829e4-1aee-4727-9d91-41583b54bebd",
+        "5c909704-7273-41b5-b5b9-38085bf8c176",
+        "7dd79963-0728-4ccb-85ae-a4ef29c6e44c",
+        "1c6b15e2-cee7-4cbc-b9ab-073e68a6924c",
+        "31c8ef69-7f67-42b1-909d-ae6219a97a53",
+        "8681d35e-2735-4d23-98a5-4f3b5271e474",
+        "d2caabfb-7c33-47ff-b309-cfca9d0d9b98",
+        "26205a69-31b8-41d3-83bf-2e25db4c4dfa",
+        "993a628c-32eb-456f-9eb4-88c3a61fa8e0",
+        "f0b169ef-ed96-4dd1-9b76-7e2e8121cc42"
+      ],
+      "settings": {
+        "products-before-after": true,
+        "cl_bg": "#ffffff",
+        "mg": "0,0,100px,0",
+        "pd": "40px,40px,40px,40px",
+        "bd": 15,
+        "mg_mb": ",,50px,",
+        "pd_mb": ",,,"
+      }
+    },
+    "612386e0-0c62-4e49-86c7-a00a229568f2": {
+      "type": "products-bought-together",
+      "blocks": {
+        "7733d4d1-4dd7-4f55-a62e-ddbb3d9c48ab": {
+          "type": "discount",
+          "settings": {
+            "qty_items": 2,
+            "value": "1",
+            "percent": "10%",
+            "amount": ""
+          }
+        },
+        "1fca66cb-95f5-42fe-8e77-667b2ad6775e": {
+          "type": "discount",
+          "settings": {
+            "qty_items": 3,
+            "value": "1",
+            "percent": "15%",
+            "amount": ""
+          }
+        },
+        "7a328ecd-9d23-419d-ae69-6655af9ee5d3": {
+          "type": "discount",
+          "settings": {
+            "qty_items": 4,
+            "value": "1",
+            "percent": "20%",
+            "amount": ""
+          }
+        },
+        "0325d4cb-574c-4e21-983d-013041d07dec": {
+          "type": "discount",
+          "settings": {
+            "qty_items": 5,
+            "value": "1",
+            "percent": "25%",
+            "amount": "3000"
+          }
+        }
+      },
+      "block_order": [
+        "7733d4d1-4dd7-4f55-a62e-ddbb3d9c48ab",
+        "1fca66cb-95f5-42fe-8e77-667b2ad6775e",
+        "7a328ecd-9d23-419d-ae69-6655af9ee5d3",
+        "0325d4cb-574c-4e21-983d-013041d07dec"
+      ],
+      "settings": {
+        "title": "Frequently Bought Together",
+        "product-main-require": true,
+        "text_size": "small",
+        "text_transform": "capitalize",
+        "use-slider": true,
+        "slides-To-Scroll": 1,
+        "visible": 5,
+        "widescreen": 5,
+        "desktop": 4,
+        "laptop": 3,
+        "notebook": 3,
+        "tablet": 3,
+        "landscape": 2,
+        "portrait": 2,
+        "mobile": 2,
+        "rows": 1,
+        "autoplay": false,
+        "speed": "300",
+        "autoplay-Speed": "3000",
+        "arrows": true,
+        "fade": false,
+        "center-Mode": false,
+        "adaptive-Height": false,
+        "dots": false,
+        "infinite": false,
+        "padding": 10,
+        "vertical": false,
+        "layout": "container",
+        "cl_bg": "rgba(0,0,0,0)",
+        "border": 15,
+        "mg": ",,100px,",
+        "pd": "",
+        "mg_mb": ",,50px,",
+        "pd_mb": ""
+      }
+    },
+    "product-page-tab": {
+      "type": "product-page-tab",
+      "blocks": {
+        "f9332aee-ca1e-4993-ad5c-e3d5984789cc": {
+          "type": "tab_description",
+          "settings": {
+            "title_description": "Description"
+          }
+        },
+        "22f75249-e4ab-453e-84d5-0006118d5803": {
+          "type": "tab_metafields",
+          "settings": {
+            "title": "Additional Information",
+            "custom_liquid": "{{product.metafields.custom.additional_information}}"
+          }
+        },
+        "d07132a9-cf30-4c47-a9f5-6b3bd410c124": {
+          "type": "tab_custom_html",
+          "settings": {
+            "title": "Shipping & Return",
+            "page_content": "shipping-return"
+          }
+        },
+        "0e2c2c01-948c-43f1-ae77-e8dbabaf8f55": {
+          "type": "tab_reviews",
+          "settings": {
+            "title_reviews": "Reviews"
+          }
+        }
+      },
+      "block_order": [
+        "f9332aee-ca1e-4993-ad5c-e3d5984789cc",
+        "22f75249-e4ab-453e-84d5-0006118d5803",
+        "d07132a9-cf30-4c47-a9f5-6b3bd410c124",
+        "0e2c2c01-948c-43f1-ae77-e8dbabaf8f55"
+      ],
+      "settings": {
+        "hide_tabs": false,
+        "accordion_tabs": false,
+        "cl_bg": "#ffffff",
+        "show_border": false,
+        "cl_line": "#f2f2f6",
+        "mg": "0,0,100px,0",
+        "pd": "40px,40px,40px,40px",
+        "bd": 15,
+        "mg_mb": "0,0,50px,0",
+        "pd_mb": "10px,10px,10px,10px"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "612386e0-0c62-4e49-86c7-a00a229568f2",
+    "product-page-tab"
+  ]
+}

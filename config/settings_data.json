@@ -1,0 +1,3412 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "current": {
+    "home_keywords": "Jc Digital theme, Fastest, Ajax Shop, Minimal, Lazyload",
+    "shop_author": "Jc Digital theme",
+    "rtl": false,
+    "show_button_rtl": false,
+    "show_load_page": false,
+    "cusotm_width": 1730,
+    "gap": 10,
+    "gap_mobile": 5,
+    "border": 3,
+    "select_header": "1",
+    "use_vertical_menu": true,
+    "title_vertical": "Shop By Department",
+    "vertical_menu_position": "1",
+    "select_footer": "1",
+    "show_policy_terms_of_service_page": true,
+    "privacy_policy_page_content": "privacy-policy",
+    "terms_of_service_content": "terms-and-conditions",
+    "show_all_categories": false,
+    "show_key_word": true,
+    "key_word": "Vegetables,Meat,Drink Juice",
+    "logo": "shopify:\/\/shop_images\/logo.png",
+    "logo_page": "shopify:\/\/shop_images\/logo.png",
+    "logo_page_mobile": "shopify:\/\/shop_images\/logo.png",
+    "logo_max_width": 150,
+    "ajaxcart_enabled": true,
+    "ajaxcart_after": "sidebar_cart",
+    "product_gift": "gift-wrap",
+    "show_free_shipping": true,
+    "free_shipping": 500,
+    "custom_color_free_shipping": true,
+    "bg_free_shipping": "#f2f2f6",
+    "bg_free_shipping_progress": "#ea0d42",
+    "color_body_bg": "#f4f5f7",
+    "color_body_text": "#777777",
+    "color_main": "#222222",
+    "color_secondary": "#16bcdc",
+    "color_link": "#222222",
+    "color_link_hover": "#16bcdc",
+    "color_scrollbar": "#222222",
+    "color_link_menu": "#ffffff",
+    "color_menu_heading": "#222222",
+    "color_link_menu_sub": "#888888",
+    "color_link_menu_hover": "#16bcdc",
+    "color_name_product": "#0068c9",
+    "color_name_product_hover": "#ea0d42",
+    "color_star_product": "#ffb800",
+    "color_compare_price_product": "#777777",
+    "color_price_product": "#222222",
+    "color_price_current_product": "#cc1414",
+    "color_cart_product": "#222222",
+    "color_out_product": "#1e882f",
+    "color_btn_product": "#515d66",
+    "color_btn_product_hover": "#ffffff",
+    "bg_btn_product": "#f5f5f5",
+    "bg_btn_product_hover": "#16bcdc",
+    "color_label_hot": "#cc1414",
+    "color_label_new": "#16bcdc",
+    "color_label_sale": "#5aab19",
+    "color_label_in": "#1e882f",
+    "color_label_out": "#cc1414",
+    "color_btn_text": "#ffffff",
+    "color_btn": "#222222",
+    "color_border_btn": "#222222",
+    "color_btn_text_hover": "#ffffff",
+    "color_btn_hover": "#16bcdc",
+    "color_border_btn_hover": "#16bcdc",
+    "cl_btn_p_n": "#ffffff",
+    "bg_btn_p_n": "#222222",
+    "cl_btn_p_n_hover": "#ffffff",
+    "bg_btn_p_n_hover": "#16bcdc",
+    "bd_google_font": "Rubik",
+    "link_google_font": "<link rel=\"preconnect\" href=\"https:\/\/fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https:\/\/fonts.gstatic.com\" crossorigin=\"\">\n<link href=\"https:\/\/fonts.googleapis.com\/css2?family=Rubik:wght@300;400;500;600;800;900&amp;display=swap\" rel=\"stylesheet\">",
+    "bd_font_size": 14,
+    "h1_font_weight": 500,
+    "h2_font_weight": 500,
+    "h3_font_weight": 500,
+    "h4_font_weight": 500,
+    "h5_font_weight": 500,
+    "h6_font_weight": 500,
+    "product_page_layout": "container",
+    "show_product_sidebar": false,
+    "product_info_show_arrows": false,
+    "product_info_show_btn_fullscreen": true,
+    "product_info_enable_zoom": true,
+    "type_zoom": "1",
+    "productzoom-effect": "flyOutWindow",
+    "productzoom-effect-duration": 500,
+    "productzoom-zoomLevel": 1,
+    "width_zoom": "0",
+    "height_zoom": "0",
+    "product_page_design": "thumb_left",
+    "nb_thumb": 7,
+    "sticky_atc": true,
+    "content_style_product": "left",
+    "product_collection_show_label_new": true,
+    "product_collection_show_label_hot": true,
+    "product_page_new_product": "9999",
+    "image_border_product": 15,
+    "use_eq_height_product": true,
+    "image_ratio_product": "ratio1_1",
+    "product_collection_show_title": true,
+    "product_text_transform_title": "none",
+    "product_collection_show_label_in_stock": false,
+    "product_collection_show_reviews": true,
+    "product_collection_hide_reviews_counter": false,
+    "product_collection_show_secondary_image": true,
+    "product_collection_show_options": false,
+    "product_collection_show_button_add_to_cart": true,
+    "product_collection_show_quantity_box": false,
+    "product_collection_show_button_add_to_compare": true,
+    "collection_info_show_description": true,
+    "collection_info_show_options": true,
+    "collection_info_show_sku": false,
+    "collection_info_show_barcode": false,
+    "collection_info_show_availability": true,
+    "collection_info_show_type": false,
+    "collection_info_show_vendor": false,
+    "product_auto_selected_options": "",
+    "product_options_listing_visibility": "2",
+    "product_options_type_circle_color": "Color|Colour",
+    "product_options_type_circle_image": "",
+    "product_options_type_square_color": "",
+    "product_options_type_square_image": "",
+    "product_options_type_select": "",
+    "product_options_type_large_text": "",
+    "shipping_calculator": "Enabled",
+    "shipping_calculator_heading": "Calculated Shipping",
+    "shipping_process_checkout_heading": "PROCEED TO CHECKOUT",
+    "shipping_grand_total_title": "Grand Total",
+    "shipping_calculator_default_country": "United States",
+    "shipping_calculator_submit_button_label": "Calculate shipping rates",
+    "shipping_calculator_submit_button_label_disabled": "Calculating...",
+    "newsletter_form_action": "https:\/\/myshopify.us1.list-manage.com\/subscribe?u=95ad0059b8584d1288d9196cc&id=bf0c692fb4",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_email": true,
+    "share_pinterest": true,
+    "share_tumblr": true,
+    "share_telegram": true,
+    "share_whatsapp": true,
+    "footer_social_facebook_enable": true,
+    "footer_social_facebook_link": "",
+    "footer_social_facebook_text": "Facebook",
+    "footer_social_twitter_enable": true,
+    "footer_social_twitter_link": "",
+    "footer_social_twitter_text": "Twitter",
+    "footer_social_google_enable": false,
+    "footer_social_google_link": "",
+    "footer_social_google_text": "Google",
+    "footer_social_instargram_enable": false,
+    "footer_social_instargram_link": "",
+    "footer_social_instargram_text": "Instargram",
+    "footer_social_pinterest_enable": true,
+    "footer_social_pinterest_link": "",
+    "footer_social_pinterest_text": "Pinterest",
+    "footer_social_tumblr_enable": true,
+    "social_tumblr_link": "",
+    "footer_social_tumblr_text": "Tumblr",
+    "footer_social_snapchat_enable": true,
+    "social_snapchat_link": "",
+    "footer_social_snapchat_text": "Snapchat",
+    "footer_social_youtube_enable": false,
+    "social_youtube_link": "",
+    "footer_social_youtube_text": "Youtube",
+    "footer_social_vimeo_enable": false,
+    "social_vimeo_link": "",
+    "footer_social_vimeo_text": "Vimeo",
+    "footer_social_tiktok_enable": true,
+    "social_tiktok_link": "#",
+    "custom_css": true,
+    "global_css": ".custom-css{\n    margin-right: auto;\n    margin-left: auto;\n    width: 630px;\n    height: 217px;\n    background: #F1F5F6;\n    border: 1px solid #E5E8EC;\n    border-radius: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n    padding: 40px;\n    font-weight: 500;\n    font-size: 20px;\n    line-height: 30px;\n}",
+    "tablet_mobile_css": ".custom-css{padding: 10px;}",
+    "mobile_css": ".custom-css{padding: 10px;}",
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "favicon_apple": "shopify:\/\/shop_images\/favicon.png",
+    "checkout_header_image": "shopify:\/\/shop_images\/bg_breadcrum_blog.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Logo_fb7c7c58-1b8f-455e-8b97-56d607743b37.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "small",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#f1f1f1",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#75c1e4",
+    "checkout_button_color": "#3c535e",
+    "checkout_error_color": "#ff6d6d",
+    "tooltips_animation_type": "perspective",
+    "product_hover_animation_type": "scale",
+    "show_flag": true,
+    "show_multiple_currencies": true,
+    "currency_format": "money_format",
+    "supported_currencies": "GBP USD EUR  DKK ARS CNY BRL",
+    "default_currency": "USD",
+    "show_cusotm_width": true,
+    "h1_use_fonts": false,
+    "h1_google_font": "DM+Sans",
+    "h2_use_fonts": false,
+    "h2_google_font": "DM+Sans",
+    "h3_use_fonts": false,
+    "h3_google_font": "DM+Sans",
+    "h4_use_fonts": false,
+    "h4_google_font": "5",
+    "collection_info_show_label_in_stock": false,
+    "collection_info_show_label_out_stock": false,
+    "collection_info_show_label_sale": true,
+    "collection_info_show_label_new": true,
+    "collection_page_new_product": "9999",
+    "collection_info_show_label_hot": true,
+    "collection_info_image_ratio": "square",
+    "collection_info_show_collections": false,
+    "collection_info_show_title": true,
+    "collection_info_show_price": true,
+    "collection_info_hide_reviews_counter": false,
+    "collection_info_show_quantity_box": true,
+    "collection_info_show_button_add_to_compare": true,
+    "collection_info_show_button_quick_view": true,
+    "product_collection_image_ratio": "square",
+    "use_custom_variants": false,
+    "custom_color_variants": "black:#000",
+    "name_material_1": "material-1",
+    "name_material_2": "material-2",
+    "img_material_2": "shopify:\/\/shop_images\/2.png",
+    "name_material_3": "material-3",
+    "img_material_3": "shopify:\/\/shop_images\/3.png",
+    "show_ajax_scroll": false,
+    "style_scroll": 1,
+    "product_info_gallery_autoplay": false,
+    "production_mode": false,
+    "product": "gift-wrap",
+    "use_eq_height": true,
+    "image_ratio": "ratio1_1",
+    "product_collection_enable_hover_image": true,
+    "collection_fullwidth": false,
+    "layout_collection": "1",
+    "grid_list": "4",
+    "pagination_limit": 16,
+    "product_visitors_min": 10,
+    "product_visitors_max": 50,
+    "product_visitors_interval_min": 4,
+    "product_visitors_interval_max": 5,
+    "bg_product_page": "rgba(0,0,0,0)",
+    "pad_top_product_page": 0,
+    "pad_bottom_product_page": 0,
+    "product_collection_show_label_out_stock": true,
+    "product_collection_hide_empty_reviews": true,
+    "show_text_countdown": false,
+    "border_menu_sub": "#d93939",
+    "collection_product_collection_short_description": false,
+    "footer_title_social": "FOLLOW US ON SOCIAL",
+    "border_color_btn": "#1a1a1a",
+    "br_color_product": "#ffffff",
+    "bg_color_product": "#ffffff",
+    "border_width_product": "1",
+    "product_collection_short_description": false,
+    "color_primary": "#2d2a6e",
+    "color_hover": "#96ae00",
+    "disable_ajax_cart": false,
+    "custom_page_cart": "cart",
+    "use_product_tabs": false,
+    "product_info_show_related_product": false,
+    "product_info_show_recently_view": false,
+    "product_info_show_size_guide": true,
+    "product_info_size_guide_page_content": "size-guide",
+    "product_info_show_delivery_return": false,
+    "product_info_delivery_return_page_content": "",
+    "product_info_show_terms_conditions": true,
+    "product_terms_conditions_page_content": "terms-and-conditions",
+    "select_google_font": "Jost",
+    "select_google_font_h3": "Quicksand",
+    "select_google_font_h4": "Schoolbell",
+    "product_collection_show_description": false,
+    "product_collection_show_sku": true,
+    "product_collection_show_barcode": true,
+    "product_collection_show_availability": true,
+    "product_collection_show_type": true,
+    "product_collection_show_vendor": true,
+    "design_product": "default",
+    "font_default": true,
+    "h1_line_height": 1.1,
+    "h1_letter_spacing": 0,
+    "h2_font_size": 20,
+    "h2_line_height": 1,
+    "h3_line_height": 1,
+    "h4_line_height": 1,
+    "h5_line_height": 1,
+    "h6_line_height": 1,
+    "show_sidebar_homepage": false,
+    "select_sidebar_homepage": "2",
+    "collection_info_show_reviews": true,
+    "product_collection_show_reviews_counter": true,
+    "collection_info_show_reviews_counter": true,
+    "filters_type": "1",
+    "custom_color": false,
+    "bg_top_header": "#f5f5f5",
+    "color_text_top_header": "#777777",
+    "color_text_top_header_hover": "#1a73e8",
+    "bg_header": "#fafafa",
+    "color_text_header": "#111111",
+    "color_text_header_hover": "#1a73e8",
+    "product_info_show_label_hot": true,
+    "product_info_show_label_in_stock": true,
+    "product_info_show_upsell": true,
+    "product_info_show_button_add_to_compare": true,
+    "product_info_show_button_quick_view": true,
+    "body_family": "'Red Hat Display', sans-serif",
+    "body_font_size": "14px",
+    "body_font_weight": "400",
+    "body_line_height": "29px",
+    "h1_family": "'Red Hat Display', sans-serif",
+    "h2_family": "'Red Hat Display', sans-serif",
+    "h3_family": "'Red Hat Display', sans-serif",
+    "h4_family": "'Red Hat Display', sans-serif",
+    "h5_family": "'Red Hat Display', sans-serif",
+    "h6_family": "'Red Hat Display', sans-serif",
+    "product_info_show_social": false,
+    "tooltips_enable": true,
+    "menu_nav_choose": "main-menu",
+    "menu_sticky": true,
+    "menu_use_animation": true,
+    "menu_type_animation": "slideInUp",
+    "collection_info_hide_empty_reviews": false,
+    "collection_info_show_shortcode": false,
+    "enable_use_filter_category": false,
+    "enable_use_filter_price": false,
+    "enable_use_filter_color": false,
+    "enable_use_filter_size": false,
+    "enable_use_filter_brand": false,
+    "enable_use_banner_filter": true,
+    "enable_use_new_product": true,
+    "enable_use_brand_slider": true,
+    "filter_category_title": "Categories",
+    "filter_price_title": "Price",
+    "collection_max_price": "500000",
+    "collection_min_price": "1000",
+    "filter_color_title": "COLOR",
+    "filter_color_name": "red:#df5c53,gray:#a8a7a3,cyan:#80cedb,orange:#ea8d32,blue:#5f90ba,black:#333333,purple:#b39192",
+    "filter_brand_title": "Brands",
+    "filter_size_title": "Size",
+    "filter_size_name": "XL,XXL,M,N,S,XS",
+    "filter_banner_category": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/banner21.jpg?6868281452874600976",
+    "filter_banner_category_link": "#",
+    "filter_title_new_product": "NEW PRODUCTS",
+    "filter_collection_new_product": "",
+    "filter_collection_new_product_limit": "4",
+    "use_autoplay_brand_shortcode": true,
+    "about_brand_slider1": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider1_url": "#",
+    "about_brand_slider2": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider2_url": "#",
+    "about_brand_slider3": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider3_url": "#",
+    "about_brand_slider4": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider4_url": "#",
+    "about_brand_slider5": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider5_url": "#",
+    "about_brand_slider6": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider6_url": "#",
+    "about_brand_slider7": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider7_url": "#",
+    "about_brand_slider8": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider8_url": "#",
+    "about_brand_slider9": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider9_url": "#",
+    "about_brand_slider10": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/brand1.jpg?3582410778414914730",
+    "about_brand_slider10_url": "#",
+    "about_content_image": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/banner24.jpg?16775973811137863711",
+    "about_title_block": "SOME WORKS ABOUT US",
+    "about_content_detail": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.",
+    "about_content_detail_2": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "use_our_team": true,
+    "about_team_title": "OUR MEMBER",
+    "about_team_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.",
+    "about_team_name1": "Michael Jordan's",
+    "about_team_desc1": "Director",
+    "about_team_photo1": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/avata1.jpg?16775973811137863711",
+    "use_member_1": true,
+    "about_team_name2": "Susan Mcsain",
+    "about_team_desc2": "Manager",
+    "about_team_photo2": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/avata2.jpg?17157095864961728421",
+    "use_member_2": true,
+    "about_team_name3": "Join Smith",
+    "about_team_desc3": "Ceo Founder",
+    "about_team_photo3": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/avata3.jpg?8994979638735563279",
+    "use_member_3": true,
+    "about_team_name4": "Ms. Clinton",
+    "about_team_desc4": "Delivery Driver",
+    "about_team_photo4": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/avata4.jpg?17866946063447923058",
+    "use_member_4": true,
+    "about_team_name5": "Ms. Clinton",
+    "about_team_desc5": "Delivery Driver",
+    "about_team_photo5": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/avata5.jpg?11036065312311386555",
+    "use_member_5": false,
+    "about_infor_title_1": "What we really do?",
+    "about_infor_desc_1": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.",
+    "about_infor_title_2": "History of the Company",
+    "about_infor_desc_2": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,",
+    "about_infor_title_3": "Our Vision",
+    "about_infor_desc_3": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,",
+    "about_infor_title_4": "Cooperate with Us!",
+    "about_infor_desc_4": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,",
+    "about_service_block_title": "WHAT WE CAN DO FOR YOU",
+    "about_service_title_1": "Support 24\/7",
+    "about_service_content_1": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+    "about_service_title_2": "Best Quanlity",
+    "about_service_content_2": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+    "about_service_title_3": "Fastest Delivery",
+    "about_service_content_3": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+    "about_service_title_4": "Customer Care",
+    "about_service_content_4": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.",
+    "use_brand_product_shortcode": true,
+    "category_menu_title": "Categories",
+    "category_menu_title_all": "All Categories",
+    "show_content_category": false,
+    "filter_search_title": "Title",
+    "filter_search_handle": "Handle",
+    "filter_search_vendor": "Vendor",
+    "filter_search_product_type": "Product Type",
+    "filter_search_tag": "Tag",
+    "filter_search_variant": "Variant",
+    "filter_search_sku": "Sku",
+    "left_title_block": "Contact Info",
+    "item1_title_contact": "Email",
+    "item1_icon_contact": "fa-envelope",
+    "desc1_item1_title_contact": "Support1@TechStore.com",
+    "item2_title_contact": "Phone",
+    "item2_icon_contact": "fa-phone",
+    "desc1_item2_title_contact": "0123-465-789-111",
+    "item3_title_contact": "Mail Office",
+    "item3_icon_contact": "fa-map-marker",
+    "desc1_item3_title_contact": "Sed ut perspiciatis unde omnis Street Name, Los Angeles",
+    "right_title_block": "Get in touch",
+    "use_contact_map": true,
+    "map_iframe": "<iframe width=\"2000\" height=\"400\" style=\"border:0\" src=\"https:\/\/www.google.com\/maps\/embed\/v1\/search?q=1200+Beverly+Street,+Mountain+View,+CA,+United+States&key=AIzaSyCeVrTUW_JTL2UKUT0-85wiwusOJZ48yMM\" allowfullscreen=\"\"><\/iframe>",
+    "bg_color_404": true,
+    "color_404": "#e1e1e1",
+    "select_home_page": "1",
+    "background_banner_collection": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/banner22.jpg",
+    "collection_page_sale_title": "Hot",
+    "collection_page_sale_desc": "Bestseller",
+    "collection_page_new_title": "New",
+    "collection_page_quickview": "Quick View",
+    "collection_page_availability": "Availability",
+    "collection_page_instock": "in Stock",
+    "collection_page_add_to_compare": "Add to Compare",
+    "compare_amount_product": "4",
+    "product_page_description_tab_title": "Description",
+    "product_page_information_tab_title": "Additional information",
+    "product_page_review_tab_title": "Reviews",
+    "title_related_products": "Related products",
+    "use_featured_box_sidebar_product": true,
+    "use_related_products": true,
+    "use_brand_slider_product_page": true,
+    "product_page_title_quickview": "Quick View",
+    "product_page_title_product_option": "Product option",
+    "product_page_title_available": "Availability",
+    "product_page_title_instock": "In Stock",
+    "product_page_title_first_featured_box": "FREE SHIPPING & RETURN",
+    "product_page_desc_first_featured_box": "Free shipping on all oders over $100",
+    "product_page_link_first_featured_box": "#",
+    "product_page_title_second_featured_box": "MONEY BACK GUARANTEE",
+    "product_page_desc_second_featured_box": "100% money back guarantee",
+    "product_page_link_second_featured_box": "#",
+    "product_page_title_third_featured_box": "ONLINE SUPPORT 24\/7",
+    "product_page_desc_third_featured_box": "Online support 24\/7",
+    "product_page_link_third_featured_box": "#",
+    "product_page_banner_image": "\/\/cdn.shopify.com\/s\/files\/1\/2205\/7421\/files\/banner23.jpg?921035063584660721",
+    "product_page_banner_image_link": "#",
+    "product_page_title_best_selling": "BESTSELLER",
+    "product_page_bestseller_collection": "",
+    "product_page_bestseller_limit": "4",
+    "use_banner_sidebar_product": true,
+    "use_bestseller_product": true,
+    "product_page_related_collection": "",
+    "blog_title_block": "Follow me",
+    "pagination_limit_blog": "5",
+    "pagination_limit_blog_latest": "3",
+    "place_holder_search_sidebar": "Enter your keywords...",
+    "title_category_sidebar": "Categories",
+    "pagination_limit_category": "6",
+    "title_latest_sidebar": "Latest post",
+    "search_use_chk": true,
+    "blog_post_use": true,
+    "category_use_chk": true,
+    "latest_post_use_chk": true,
+    "title_quote_of_the_day": "Quote of the Day!",
+    "content_quote_of_the_day": "We are a platform for home remodeling and design, bringing homeowners and home professionals together in a uniquely visual community.",
+    "sidebar_title_flick": "Our Instagram",
+    "sidebar_client_id": "c602cdc86c3e4cd193df11fa7977d0b5",
+    "sidebar_user_id": "3446345798",
+    "sidebar_accessToken": "3446345798.c602cdc.a0bb0608358141bdb12406dd2e71fcf0",
+    "sidebar_limit": "6",
+    "quote_use_chk": true,
+    "instagram_use_chk": true,
+    "blog_description_block": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero.",
+    "left_description_block": "Maecenas dolor elit, semper a sem sed, pulvinar molestie lacus. Aliquam dignissim, elit non mattis ultrices, neque odio ultricies tellus, eu porttitor nisl ipsum eu massa.",
+    "right_desc_block": "Store 1",
+    "right_title_block2": "HOURS OF OPERATION",
+    "right_title_monday": "Monday",
+    "right_value_monday": "12-5 PM",
+    "right_title_tuesday": "Tuesday",
+    "right_value_tuesday": "12-5 PM",
+    "right_title_wendnesday": "Wendnesday",
+    "right_value_wendnesday": "12-5 PM",
+    "right_title_thursday": "Thursday",
+    "right_value_thursday": "12-5 PM",
+    "right_title_friday": "Friday",
+    "right_value_friday": "12-5 PM",
+    "right_title_saturday": "Saturday",
+    "right_value_saturday": "12-5 PM",
+    "use_brand_contact_shortcode": true,
+    "error_title": "404 PAGE NOT FOUND",
+    "error_description": "This page couldn't be found! Back to home page if you like. Please use search for help!",
+    "bg_image_404": true,
+    "background_img_404": "\/\/cdn.shopify.com\/s\/files\/1\/2087\/4637\/files\/404.jpg?2494754347742990656",
+    "type_header_base_size": "26px",
+    "type_base_family": "Google_Open+Sans_400_sans",
+    "type_base_size": "14px",
+    "color_text": "#e5534c",
+    "color_sale_text": "#222222",
+    "color_borders": "#e6e6e6",
+    "color_button": "#aaaaaa",
+    "color_button_text": "#ffffff",
+    "popup_newsletter_enable": false,
+    "cookie_popup_newsletter": "30",
+    "popup_newsletter_title": "SIGN UP NEWSLETTER",
+    "popup_newsletter_description": "Be the first to get the scoop on sales exclusive offers and new arrivals.",
+    "popup_newsletter_value_of_sale": "25% OFF",
+    "popup_newsletter_placehoder_email": "Enter your email address",
+    "popup_newsletter_submit_button": "Subscribe",
+    "popup_newsletter_check_remmember": "Dont show this popup again!",
+    "type_header_family": "Google_Open+Sans_400_sans",
+    "product_page_compare_button": "Compare",
+    "product_page_email_to_friend": "Email to a Friend",
+    "product_page_title_from_email_to_friend": "Tell a friend",
+    "product_page_button_email_to_friend": "Send this URL",
+    "product_page_placeholder_email_to_friend": "Enter Address Here",
+    "filter_tag_title": "Popular Tags",
+    "enable_use_filter_tag": true,
+    "background_banner_blog": "\/\/cdn.shopify.com\/s\/files\/1\/2087\/4637\/files\/heading-banner.jpg?17663267177497323306",
+    "left_address_infor": "1200 Beverly Hill. Moutain View CA 90768, United States.",
+    "autoplay_team_shortcode": true,
+    "use_heading_shortcode": true,
+    "about_heading_shortcode": "[heading icon-class=\"fa fa-check\" title=\"WORLDWIDE DELIVERY\"  link_title=\"#\" description=\"Free delivery on all online order\"]\n\n[heading icon-class=\"fa fa-check\" title=\"RETURN AND EXCHANGE\"  link_title=\"#\" description=\"30 Days money back guarantee!\"]\n\n[heading icon-class=\"fa fa-check\" title=\"FREE GIFT CARD\"  link_title=\"#\" description=\"Gift cards are free. Claim them now!\"]",
+    "use_skill_shortcode": true,
+    "about_skill_title": "OUR AWESOME SKILLS",
+    "about_skill_desc": "Some facts about us!",
+    "about_skill_shortcode": "[skill title=\"Adobe\/Photoshop\" percent=\"85%\"]\n[skill title=\"Layout\/Frame\" percent=\"70%\"]\n[skill title=\"UI Design\" percent=\"90%\"]\n[skill title=\"Font\/Typography\" percent=\"75%\"]",
+    "about_team_shortcode": "[team avatar=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2087\/4637\/files\/10.jpg?13298334219951642726\" link_avatar=\"#\" name=\"John Doe\" job=\"CEO\/Founder Mazano\"]\n\n[team avatar=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2087\/4637\/files\/3.jpg?13298334219951642726\" link_avatar=\"#\" name=\"Christiana Q\" job=\"Art Director\/Founder Mazano\"]\n\n[team avatar=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2087\/4637\/files\/2.jpg?13298334219951642726\" link_avatar=\"#\" name=\"Jonathan Doe\" job=\"Senior Designer\"]\n\n[team avatar=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2087\/4637\/files\/4.jpg?13298334219951642726\" link_avatar=\"#\" name=\"Andy Dao\" job=\"Team leader\"]",
+    "type_bold_product_titles": false,
+    "color_small_button": "#ffffff",
+    "color_small_button_text": "#3d4246",
+    "color_text_field": "#fff",
+    "color_text_field_text": "#000",
+    "color_image_overlay_text": "#fff",
+    "color_image_overlay": "#3d4246",
+    "image_overlay_opacity": "0.25",
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "sections": {
+      "cross-sell-popup": {
+        "type": "cross-sell-popup",
+        "settings": {
+          "use_cross_sell_popup": true,
+          "collection_id": "phones-accessories",
+          "limit": 10,
+          "index": true,
+          "product": false,
+          "collection": false,
+          "article": false,
+          "blog": false,
+          "cart": false,
+          "page": false,
+          "pp_type": "2",
+          "start_time": 6,
+          "start_time_unit": "1000",
+          "stay_time": 8,
+          "stay_time_unit": "1000",
+          "show_cl": true,
+          "list_user": "Nathan (California) | Alex (Texas) | Henry (New York) | Kiti (Ohio) | Daniel (Washington) | Hau (California) | Van (Ohio) | Sara (Montana)  | Kate (Georgia)",
+          "show_time": true,
+          "list_time": "4 hours ago | 2 hours ago | 45 minutes ago | 1 day ago | 8 hours ago | 10 hours ago | 25 minutes ago | 2 day ago | 5 hours ago | 40 minutes ago",
+          "show_verify": true,
+          "des": "1",
+          "pp_ani": "anislideInUp",
+          "txt1": "purchased",
+          "txt2": "Verified"
+        }
+      },
+      "cart_widget": {
+        "type": "cart_widget",
+        "blocks": {
+          "cart_widget-0": {
+            "type": "price",
+            "settings": {
+            }
+          },
+          "cart_widget-1": {
+            "type": "tax",
+            "settings": {
+            }
+          },
+          "cart_widget-2": {
+            "type": "agree",
+            "settings": {
+            }
+          },
+          "cart_widget-3": {
+            "type": "btnc",
+            "settings": {
+            }
+          },
+          "cart_widget-4": {
+            "type": "btnck",
+            "settings": {
+            }
+          },
+          "cart_widget-5": {
+            "type": "btnmr",
+            "settings": {
+            }
+          },
+          "cart_widget-6": {
+            "type": "img",
+            "settings": {
+            }
+          },
+          "cart_widget-7": {
+            "type": "btn",
+            "settings": {
+              "title": "Return To Shop",
+              "style": "primary tu"
+            }
+          }
+        },
+        "block_order": [
+          "cart_widget-0",
+          "cart_widget-1",
+          "cart_widget-2",
+          "cart_widget-3",
+          "cart_widget-4",
+          "cart_widget-5",
+          "cart_widget-6",
+          "cart_widget-7"
+        ],
+        "settings": {
+          "style": "1",
+          "pos": "2",
+          "calc_ship": false,
+          "show_note": false,
+          "show_rates": true,
+          "show_discount": false,
+          "show_gift_wrap": true
+        }
+      },
+      "products-recently-viewed": {
+        "type": "products-recently-viewed",
+        "settings": {
+          "hidden": false,
+          "title": "Recently viewed products",
+          "text_size": "small",
+          "text_transform": "capitalize",
+          "limit": 10,
+          "use-slider": true,
+          "slides-To-Scroll": 1,
+          "visible": 7,
+          "widescreen": 7,
+          "desktop": 6,
+          "laptop": 5,
+          "notebook": 4,
+          "tablet": 3,
+          "landscape": 2,
+          "portrait": 2,
+          "mobile": 1,
+          "rows": 1,
+          "autoplay": true,
+          "speed": "300",
+          "autoplay-Speed": "3000",
+          "arrows": true,
+          "fade": false,
+          "center-Mode": false,
+          "adaptive-Height": false,
+          "dots": false,
+          "infinite": false,
+          "padding": 11,
+          "vertical": false,
+          "layout": "container",
+          "cl_bg": "rgba(0,0,0,0)",
+          "mg": "0,0,100px,0",
+          "pd": "",
+          "mg_mb": "0,0,50px,0",
+          "pd_mb": ""
+        }
+      },
+      "sticky_add_to_cart": {
+        "type": "sticky_add_to_cart",
+        "settings": {
+          "product_footbar_show_title": true,
+          "product_footbar_show_price": true,
+          "product_footbar_show_reviews": true,
+          "product_footbar_show_options": true,
+          "product_footbar_show_quantity": true,
+          "product_footbar_show_button_add_to_cart": true
+        }
+      },
+      "blog-portfolio-template": {
+        "type": "blog-portfolio-template",
+        "settings": {
+          "ptf_layout": "default",
+          "shop_des": "masonry",
+          "limit": 6,
+          "space": 30,
+          "btn_rd": true,
+          "btn_style": "default",
+          "col_pr": "4",
+          "col_pr_tb": "6",
+          "col_pr_mb": "12",
+          "use_eq_height": false
+        }
+      },
+      "promotion-product-popup": {
+        "type": "promotion-product-popup",
+        "settings": {
+          "use_promotion": true,
+          "title": "top picks for you",
+          "text_size": "small",
+          "text_transform": "capitalize",
+          "product_list": [
+            "proenza-schouler-white-label-24",
+            "proenza-schouler-white-label-23",
+            "proenza-schouler-white-label-25",
+            "origin-lounge-chair"
+          ],
+          "btn_link": "\/collections\/all",
+          "use-slider": true,
+          "slides-To-Scroll": 1,
+          "visible": 4,
+          "widescreen": 4,
+          "desktop": 4,
+          "laptop": 4,
+          "notebook": 3,
+          "tablet": 3,
+          "landscape": 2,
+          "portrait": 2,
+          "mobile": 2,
+          "rows": 1,
+          "autoplay": false,
+          "speed": "300",
+          "autoplay-Speed": "3000",
+          "arrows": true,
+          "fade": false,
+          "center-Mode": false,
+          "adaptive-Height": false,
+          "dots": false,
+          "infinite": false,
+          "padding": 5,
+          "vertical": false,
+          "index": true,
+          "product": false,
+          "collection": false,
+          "article": false,
+          "blog": false,
+          "cart": false,
+          "page": false,
+          "timeout": 15,
+          "day_next": 1,
+          "cl_bg": "#f4f5f7",
+          "pd": "30px,30px,30px,30px"
+        }
+      },
+      "content-services": {
+        "type": "content-services",
+        "blocks": {
+          "cbd76c99-ac54-4c93-af25-158a83ee3eb1": {
+            "type": "form",
+            "settings": {
+              "service_item": "Skin care"
+            }
+          },
+          "4165bb09-1339-416a-861f-796a2aad4a46": {
+            "type": "form",
+            "settings": {
+              "service_item": "Face care"
+            }
+          },
+          "6a6708dc-5559-4315-9669-4a925eb4c3b9": {
+            "type": "form",
+            "settings": {
+              "service_item": "Product introduction"
+            }
+          },
+          "5cee72d0-1d16-4d7f-8ed6-6a9fdc071542": {
+            "type": "service",
+            "settings": {
+              "layout": "ltr",
+              "align": "none",
+              "margin_left_part": "0px",
+              "margin_right_part": "0px",
+              "title_part": "Body treatment",
+              "subtitle_part": "A body treatment is a blanket term for a whole gamut of different holistic, non-medical, physical procedures aimed at helping you achieve something specific for your body or wellbeing.",
+              "content1_part": "Massaged or scrubbed with a particular mineral.",
+              "content2_part": "Wrapped or enveloped in something .",
+              "content3_part": "Immersed or soaked in a liquid, such as water or algae.",
+              "content4_part": "Stroked, treated with or exposed to something external.",
+              "button_part": "Read more",
+              "button_link_part": "#"
+            }
+          },
+          "dc5d1ace-59cb-456f-924f-e2d9c43ea470": {
+            "type": "service",
+            "settings": {
+              "layout": "rtl",
+              "align": "none",
+              "margin_left_part": "0px",
+              "margin_right_part": "0px",
+              "title_part": "Professinal makeup",
+              "subtitle_part": "A body treatment is a blanket term for a whole gamut of different holistic, non-medical, physical procedures aimed at helping you achieve something specific for your body or wellbeing.",
+              "content1_part": "Massaged or scrubbed with a particular mineral.",
+              "content2_part": "Wrapped or enveloped in something .",
+              "content3_part": "Immersed or soaked in a liquid, such as water or algae.",
+              "content4_part": "Stroked, treated with or exposed to something external.",
+              "button_part": "Read more",
+              "button_link_part": "#"
+            }
+          },
+          "0a2b1c49-1e99-4e9e-8d41-9e9c6cffd0f3": {
+            "type": "service",
+            "settings": {
+              "layout": "ltr",
+              "align": "left",
+              "margin_left_part": "57px",
+              "margin_right_part": "0px",
+              "title_part": "Maincure & pedicure",
+              "subtitle_part": "A body treatment is a blanket term for a whole gamut of different holistic, non-medical, physical procedures aimed at helping you achieve something specific for your body or wellbeing.",
+              "content1_part": "Massaged or scrubbed with a particular mineral.",
+              "content2_part": "Wrapped or enveloped in something.",
+              "content3_part": "Immersed or soaked in a liquid, such as water or algae.",
+              "content4_part": "Stroked, treated with or exposed to something external.",
+              "button_part": "Read more",
+              "button_link_part": "#"
+            }
+          },
+          "b3f8a6d3-0fe4-4a17-85c7-e03817f8c102": {
+            "type": "service",
+            "settings": {
+              "layout": "rtl",
+              "align": "right",
+              "margin_left_part": "0px",
+              "margin_right_part": "57px",
+              "title_part": "Hair cut & Coloring",
+              "subtitle_part": "A body treatment is a blanket term for a whole gamut of different holistic, non-medical, physical procedures aimed at helping you achieve something specific for your body or wellbeing.",
+              "content1_part": "Massaged or scrubbed with a particular mineral.",
+              "content2_part": "Wrapped or enveloped in something.",
+              "content3_part": "Immersed or soaked in a liquid, such as water or algae.",
+              "content4_part": "Stroked, treated with or exposed to something external.",
+              "button_part": "Read more",
+              "button_link_part": "#"
+            }
+          }
+        },
+        "block_order": [
+          "cbd76c99-ac54-4c93-af25-158a83ee3eb1",
+          "4165bb09-1339-416a-861f-796a2aad4a46",
+          "6a6708dc-5559-4315-9669-4a925eb4c3b9",
+          "5cee72d0-1d16-4d7f-8ed6-6a9fdc071542",
+          "dc5d1ace-59cb-456f-924f-e2d9c43ea470",
+          "0a2b1c49-1e99-4e9e-8d41-9e9c6cffd0f3",
+          "b3f8a6d3-0fe4-4a17-85c7-e03817f8c102"
+        ],
+        "settings": {
+          "form_title_sevice": "Book service",
+          "name_label_sevice": "Your name",
+          "phone_label_sevice": "Your phone",
+          "services_label_sevice": "Choose a services",
+          "date_label_sevice": "Choose a date",
+          "button_label_sevice": "Appointment"
+        }
+      },
+      "related-product-carousel": {
+        "type": "related-product-carousel",
+        "settings": {
+          "hidden": false,
+          "title": "Related Products",
+          "text_size": "small",
+          "text_transform": "capitalize",
+          "max_count": 15,
+          "use-slider": true,
+          "slides-To-Scroll": 1,
+          "visible": 7,
+          "widescreen": 7,
+          "desktop": 6,
+          "laptop": 5,
+          "notebook": 4,
+          "tablet": 3,
+          "landscape": 2,
+          "portrait": 2,
+          "mobile": 1,
+          "rows": 1,
+          "autoplay": false,
+          "speed": "300",
+          "autoplay-Speed": "3000",
+          "arrows": true,
+          "fade": false,
+          "center-Mode": false,
+          "adaptive-Height": false,
+          "dots": false,
+          "infinite": false,
+          "padding": 10,
+          "vertical": false,
+          "layout": "container",
+          "cl_bg": "rgba(0,0,0,0)",
+          "show_border": true,
+          "cl_line": "#f2f2f6",
+          "mg": "0,0,60px,0",
+          "pd": "",
+          "mg_mb": "0,0,15px,0",
+          "pd_mb": ""
+        }
+      },
+      "shortcode": {
+        "type": "shortcode",
+        "blocks": {
+          "4dc77721-6150-4a24-b8c6-cae90f7f6eb9": {
+            "type": "item",
+            "settings": {
+              "shortcode_show_item": true,
+              "shortcode": "<div class=\"inc_lz inc_ins_laz\" data-include=\"\/search\/?section_id=1602387027386\"><div class=\"lds_bginfinity pr\"><\/div><\/div>",
+              "shortcode_show_title": true,
+              "mg": "0px,0px,0px,0px",
+              "pd": "0px,0px,0px,0px"
+            }
+          },
+          "04e733b0-0ea7-4559-beab-4145208f2683": {
+            "type": "item",
+            "settings": {
+              "shortcode_show_item": false,
+              "shortcode": "<div class=\"inc_lz inc_ins_laz\" data-include=\"\/search\/?section_id=16039489369a370a93\"><div class=\"lds_bginfinity pr\"><\/div><\/div>",
+              "shortcode_show_title": true,
+              "mg": "30px,0px,0px,0px",
+              "pd": "0px,0px,0px,0px"
+            }
+          }
+        },
+        "block_order": [
+          "4dc77721-6150-4a24-b8c6-cae90f7f6eb9",
+          "04e733b0-0ea7-4559-beab-4145208f2683"
+        ],
+        "settings": {
+        }
+      },
+      "content-404": {
+        "type": "content-404",
+        "settings": {
+          "bg_img_404": "shopify:\/\/shop_images\/404.jpg",
+          "title": "Opps! Page not found.",
+          "content": "Sorry for the inconvenience. Go to our homepage or check out our latest collections."
+        }
+      },
+      "main-list-collections": {
+        "type": "main-list-collections",
+        "blocks": {
+          "480a1ba9-2a83-40fc-9eda-0ea314a35691": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "480a1ba9-2a83-40fc-9eda-0ea314a35691"
+        ],
+        "settings": {
+          "hoverz": true,
+          "display_type": "all",
+          "sort": "alphabetical"
+        }
+      },
+      "top-header": {
+        "type": "top-header",
+        "blocks": {
+          "4af54431-fa84-424c-b39d-ab98c975cc38": {
+            "type": "lang_curr",
+            "settings": {
+              "header_use_currency": true,
+              "header_use_language": true,
+              "show_flag": true,
+              "show_phone": true,
+              "text_phone": "Need Help? +001 123 456 789",
+              "text_align": "topbar-left",
+              "col": "50%"
+            }
+          },
+          "33b63695-e95e-42b4-9b51-1247e8ed2e6f": {
+            "type": "message",
+            "disabled": true,
+            "settings": {
+              "message_text": "Sign up for 10% off your first order:",
+              "text_link": "Sign Up",
+              "btn_link": "#",
+              "open_link": "_blank",
+              "text_align": "topbar-center",
+              "col": "33%",
+              "color_link": "#ffffff",
+              "color_link_hover": "#df0e0e"
+            }
+          },
+          "403aae08-a22b-4816-8ca6-535e824b3775": {
+            "type": "top_header_3",
+            "settings": {
+              "menu_topbar": "menu-top",
+              "header_use_social": false,
+              "type_social": "2",
+              "text_align": "topbar-right",
+              "col": "50%"
+            }
+          }
+        },
+        "block_order": [
+          "4af54431-fa84-424c-b39d-ab98c975cc38",
+          "33b63695-e95e-42b4-9b51-1247e8ed2e6f",
+          "403aae08-a22b-4816-8ca6-535e824b3775"
+        ],
+        "settings": {
+          "header_use_top_header": true,
+          "hide_top_header_mobile": true,
+          "home_page_only": false,
+          "custom_width": false,
+          "container_width": 1800,
+          "layout": "container",
+          "bg_top_header": "#263c97",
+          "cl_border_top": "#3b50a3",
+          "cl_text": "#ffffff",
+          "cl_text_h": "#fcbe00"
+        }
+      },
+      "breadcrumb": {
+        "type": "breadcrumb",
+        "settings": {
+          "show_title_page": false,
+          "h_position": "left",
+          "v_position": "middle",
+          "txt_align": "left",
+          "bg": "#ffffff",
+          "cl_border": "#ebebeb",
+          "b_height": 60,
+          "mg_bottom": 40,
+          "mobile_bg": "#ffffff",
+          "mobile_ht": 50,
+          "mobile_mg_bottom": 20
+        }
+      },
+      "benefit": {
+        "type": "benefit",
+        "blocks": {
+          "cc297597-383e-4f8b-b28e-95c4e3695629": {
+            "type": "shipping",
+            "settings": {
+              "icon": "icon-circle",
+              "icon_svg": "<svg width=\"21\" height=\"26\" viewbox=\"0 0 21 26\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M7.5999 19.6001L3.68862 24.6289C3.57111 24.78 3.67878 25.0001 3.87017 25.0001H5.70026C5.76383 25.0001 5.82457 24.9738 5.86805 24.9274L9.19548 21.3781C9.29873 21.268 9.4783 21.2855 9.55831 21.4136L11.7999 25.0001\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/path>\n<path d=\"M18.062 18.443L17.6114 17.8434L18.062 18.443ZM1.01352 8.18184L0.264562 8.14229L1.01352 8.18184ZM1.69442 5.1529L2.38638 5.4422L1.69442 5.1529ZM2.56801 4.86425L2.18125 5.50683L2.56801 4.86425ZM20.0979 16.2296L19.4629 15.8305L20.0979 16.2296ZM19.8678 15.2767L20.2545 14.6341L19.8678 15.2767ZM16 2.8L16.7161 2.57696L16.5229 1.9567L15.8814 2.05944L16 2.8ZM18.8852 14.5846L19.1082 15.3006L20.5404 14.8546L20.3173 14.1385L18.8852 14.5846ZM10.7875 9.0787L10.3635 9.69735L11.6008 10.5454L12.0248 9.92671L10.7875 9.0787ZM15.1859 0.35688C14.8307 0.143769 14.37 0.258943 14.1569 0.614128C13.9438 0.969313 14.0589 1.43001 14.4141 1.64312L15.1859 0.35688ZM17.4141 3.44312C17.7693 3.65623 18.23 3.54106 18.4431 3.18587C18.6562 2.83069 18.5411 2.36999 18.1859 2.15688L17.4141 3.44312ZM3.11614 4.10384L2.37557 4.22245L2.61278 5.70357L3.35334 5.58497L3.11614 4.10384ZM19.4629 15.8305C18.9731 16.6098 18.3486 17.2894 17.6114 17.8434L18.5125 19.0426C19.3965 18.3783 20.1458 17.5627 20.7329 16.6288L19.4629 15.8305ZM17.6114 17.8434C16.7053 18.5244 15.6426 19.0052 14.4804 19.2542L14.7947 20.7209C16.1614 20.428 17.4259 19.8591 18.5125 19.0426L17.6114 17.8434ZM14.4804 19.2542C13.3177 19.5034 12.0771 19.5159 10.829 19.2849L10.556 20.7599C11.9879 21.0249 13.4284 21.0137 14.7947 20.7209L14.4804 19.2542ZM10.829 19.2849C9.58067 19.0539 8.35172 18.5842 7.21419 17.8995L6.44066 19.1847C7.72642 19.9585 9.12417 20.4949 10.556 20.7599L10.829 19.2849ZM7.21419 17.8995C6.07665 17.2148 5.05595 16.3305 4.21146 15.2974L3.0501 16.2467C4.00316 17.4126 5.1549 18.4108 6.44066 19.1847L7.21419 17.8995ZM4.21146 15.2974C3.36697 14.2643 2.71756 13.1056 2.29824 11.8895L0.880179 12.3785C1.359 13.7671 2.09705 15.0808 3.0501 16.2467L4.21146 15.2974ZM2.29824 11.8895C1.87895 10.6736 1.69883 9.4269 1.76248 8.22138L0.264562 8.14229C0.19021 9.55058 0.401331 10.9898 0.880179 12.3785L2.29824 11.8895ZM1.76248 8.22138C1.81424 7.24088 2.02638 6.30326 2.38638 5.4422L1.00246 4.8636C0.573671 5.88919 0.325061 6.99638 0.264562 8.14229L1.76248 8.22138ZM2.38638 5.4422C2.37682 5.46505 2.34674 5.50047 2.29723 5.51637C2.25047 5.53138 2.20689 5.52226 2.18125 5.50683L2.95477 4.22166C2.25196 3.79865 1.33231 4.07466 1.00246 4.8636L2.38638 5.4422ZM20.7329 16.6288C21.1689 15.9351 20.9199 15.0345 20.2545 14.6341L19.481 15.9193C19.4585 15.9057 19.4527 15.8902 19.4513 15.8845C19.4493 15.8765 19.4478 15.8545 19.4629 15.8305L20.7329 16.6288ZM2.18125 5.50683L19.481 15.9193L20.2545 14.6341L2.95477 4.22166L2.18125 5.50683ZM15.2839 3.02304L18.8852 14.5846L20.3173 14.1385L16.7161 2.57696L15.2839 3.02304ZM12.0248 9.92671L16.6186 3.224L15.3814 2.376L10.7875 9.0787L12.0248 9.92671ZM14.4141 1.64312L17.4141 3.44312L18.1859 2.15688L15.1859 0.35688L14.4141 1.64312ZM3.35334 5.58497L16.1186 3.54056L15.8814 2.05944L3.11614 4.10384L3.35334 5.58497Z\" fill=\"#2B38D1\"><\/path>\n<\/svg>",
+              "title": "Fast Delivery",
+              "text": "Across West & East India"
+            }
+          },
+          "b52069db-7a9c-44b2-8632-b82de10d6f49": {
+            "type": "shipping",
+            "settings": {
+              "icon": "icon-circle",
+              "icon_svg": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M1 11.3125V6.25C1 4.86929 2.11929 3.75 3.5 3.75H5.8125H7.01562M20.25 7.53125V6.25C20.25 4.86929 19.1307 3.75 17.75 3.75H15.4375\" stroke=\"#2B38D1\" stroke-width=\"1.5\"><\/path>\n<path d=\"M1 13.375H4.4375C5.57659 13.375 6.5 14.2984 6.5 15.4375V15.4375C6.5 16.5766 5.57659 17.5 4.4375 17.5H1V13.375Z\" stroke=\"#2B38D1\" stroke-width=\"1.5\"><\/path>\n<path d=\"M5.125 7.1875L7.07354 1.34189C7.1416 1.13771 7.33266 1 7.54788 1H15.4621C15.7943 1 16.0342 1.31795 15.9429 1.63736L14.75 5.8125L14.0625 7.875\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/path>\n<path d=\"M15.4375 23H3.8C2.2536 23 1 21.7464 1 20.2V10.675C1 9.1286 2.2536 7.875 3.8 7.875H20.2C21.7464 7.875 23 9.1286 23 10.675V20.2C23 21.7464 21.7464 23 20.2 23H16.8289H15.0437\" stroke=\"#2B38D1\" stroke-width=\"1.5\"><\/path>\n<\/svg>",
+              "title": "safe payment",
+              "text": "100% Secure Payment"
+            }
+          },
+          "f2e7c234-8419-4205-9c44-fb8b769c05cd": {
+            "type": "shipping",
+            "settings": {
+              "icon": "icon-circle",
+              "icon_svg": "<svg width=\"22\" height=\"26\" viewbox=\"0 0 22 26\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12.9136 11.1186C13.4987 11.1186 13.973 10.6444 13.973 10.0593C13.973 9.47427 13.4987 9 12.9136 9C12.3286 9 11.8543 9.47427 11.8543 10.0593C11.8543 10.6444 12.3286 11.1186 12.9136 11.1186ZM6.17723 9.33386C6.44463 9.01752 6.91784 8.97784 7.23418 9.24524L7.73982 9.67264C8.05616 9.94004 8.09583 10.4133 7.82843 10.7296C7.56104 11.0459 7.08782 11.0856 6.77148 10.8182L6.26585 10.3908C5.94951 10.1234 5.90983 9.6502 6.17723 9.33386ZM8.76861 11.5243C9.03601 11.208 9.50922 11.1683 9.82556 11.4357L10.0152 11.596L10.7736 12.2371L11.2793 12.6645L15.3243 16.0837C15.6407 16.3511 15.6803 16.8243 15.4129 17.1407C15.1455 17.457 14.6723 17.4967 14.356 17.2293L10.3109 13.8101L9.80529 13.3826L9.04684 12.7415L8.85722 12.5813C8.54088 12.3139 8.50121 11.8407 8.76861 11.5243ZM9.73569 16.4152C9.73569 17.0003 9.26141 17.4745 8.67637 17.4745C8.09132 17.4745 7.61705 17.0003 7.61705 16.4152C7.61705 15.8302 8.09132 15.3559 8.67637 15.3559C9.26141 15.3559 9.73569 15.8302 9.73569 16.4152Z\" fill=\"#2B38D1\"><\/path>\n<path d=\"M1 16.2498V7.44689C1 5.10711 2.96513 3.27467 5.2392 3.49391L6.34923 3.60093C7.29689 3.6923 8.20196 3.17777 8.62764 2.30566C9.47738 0.564779 11.9026 0.564779 12.7524 2.30566C13.178 3.17777 14.0831 3.6923 15.0308 3.60093L16.1408 3.49391C18.4149 3.27467 20.38 5.10712 20.38 7.44689V16.2498C20.38 17.4224 19.874 18.5351 18.9976 19.2895L13.1836 24.2942C11.7419 25.5353 9.63808 25.5353 8.1964 24.2942L2.3824 19.2895C1.50602 18.5351 1 17.4224 1 16.2498Z\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/path>\n<path d=\"M1 7.44689C1 5.10711 2.96513 3.27467 5.2392 3.49391L6.34923 3.60093C7.29689 3.6923 8.20196 3.17777 8.62764 2.30566C9.47738 0.564779 11.9026 0.564779 12.7524 2.30566C13.178 3.17777 14.0831 3.6923 15.0308 3.60093L16.1408 3.49391C18.4149 3.27467 20.38 5.10712 20.38 7.44689\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"square\"><\/path>\n<\/svg>",
+              "title": "Online Discount",
+              "text": "Add Multi-buy Discount"
+            }
+          },
+          "3f0a7783-317f-4a79-a964-07fd50a3cbc9": {
+            "type": "shipping",
+            "settings": {
+              "icon": "fa fa-truck",
+              "icon_svg": "<svg width=\"28\" height=\"26\" viewbox=\"0 0 28 26\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M5.95714 17.1751V17.1751C4.56278 17.4417 3.21515 16.5278 2.94712 15.1337L1.49398 7.57539C1.20201 6.0568 2.19523 4.59054 3.7141 4.30006C5.84956 3.89167 8.8161 3.32434 11.0642 2.89441C13.3382 2.45952 16.3579 1.93862 18.5073 1.57549C20.0034 1.32272 21.4228 2.31414 21.7092 3.80416C21.8101 4.32882 21.9181 4.89047 22.0257 5.44992\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/path>\n<path d=\"M6.10693 9.6801V18.9102C6.10693 20.3262 7.25788 21.4741 8.67764 21.4741H8.992C9.52827 21.4741 9.96299 21.9088 9.96299 22.4451C9.96299 23.5022 10.0524 25.0661 11.112 25.0365C11.8308 25.0164 12.0877 24.14 12.4786 23.5381L12.991 22.749C13.5074 21.9539 14.3912 21.4741 15.3393 21.4741H23.0736C25.0613 21.4741 26.6726 19.8673 26.6726 17.8849V9.76549C26.6726 7.82707 25.4022 6.13737 23.4592 6.09062C21.3657 6.04023 18.4467 6.09063 16.3898 6.09063H9.70539C7.71772 6.09063 6.10693 7.69769 6.10693 9.6801Z\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/path>\n<ellipse cx=\"11.2482\" cy=\"13.7825\" rx=\"1.28535\" ry=\"1.28195\" fill=\"#2B38D1\"><\/ellipse>\n<ellipse cx=\"16.3898\" cy=\"13.7825\" rx=\"1.28535\" ry=\"1.28195\" fill=\"#2B38D1\"><\/ellipse>\n<ellipse cx=\"21.531\" cy=\"13.7825\" rx=\"1.28535\" ry=\"1.28195\" fill=\"#2B38D1\"><\/ellipse>\n<\/svg>",
+              "title": "Help Center",
+              "text": "Dedicated 24\/7 Support"
+            }
+          },
+          "ed98dbcb-49fd-4b52-a21b-22a9910e5466": {
+            "type": "shipping",
+            "settings": {
+              "icon": "fa fa-truck",
+              "icon_svg": "<svg width=\"23\" height=\"24\" viewbox=\"0 0 23 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M20.8916 19.0584L9.06588 19.2219C4.62937 19.2832 1 15.7037 1 11.2667V11.2667\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/path>\n<rect x=\"1\" y=\"2.46698\" width=\"20.5333\" height=\"20.5333\" rx=\"2.8\" stroke=\"#2B38D1\" stroke-width=\"1.5\"><\/rect>\n<path d=\"M6.86621 3.93333V1\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/path>\n<path d=\"M15.667 3.93333V1\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/path>\n<line x1=\"5.59961\" y1=\"13.1747\" x2=\"11.7996\" y2=\"13.1747\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/line>\n<line x1=\"5.59961\" y1=\"9.32483\" x2=\"14.3663\" y2=\"9.32483\" stroke=\"#2B38D1\" stroke-width=\"1.5\" stroke-linecap=\"round\"><\/line>\n<\/svg>",
+              "title": "Curated items",
+              "text": "From Handpicked Sellers"
+            }
+          }
+        },
+        "block_order": [
+          "cc297597-383e-4f8b-b28e-95c4e3695629",
+          "b52069db-7a9c-44b2-8632-b82de10d6f49",
+          "f2e7c234-8419-4205-9c44-fb8b769c05cd",
+          "3f0a7783-317f-4a79-a964-07fd50a3cbc9",
+          "ed98dbcb-49fd-4b52-a21b-22a9910e5466"
+        ],
+        "settings": {
+          "hidden": true,
+          "source": "3",
+          "style": "vertical",
+          "col_pr": "15",
+          "col_pr_tb": "6",
+          "col_pr_mb": "6",
+          "layout": "container",
+          "cl_bg": "#f1f5f6",
+          "show_border": true,
+          "mg": "",
+          "pd": "35px,0,35px",
+          "mg_mb": "",
+          "pd_mb": "25px,0,25px"
+        }
+      },
+      "text-column-with-image": {
+        "type": "text-column-with-image",
+        "blocks": {
+          "49f88d4c-c583-4d44-ab71-e00b1fb985e0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/about_1.jpg",
+              "title": "Professional liability",
+              "text": "<p>There are many variations of passages lorem <br\/>ipsum available, but the majority have suffer<br\/>alteration in some believable.<\/p>",
+              "btn_title": "More info <i class=\"icon-chevrons-right\"><\/i>",
+              "btn_link": "#",
+              "open_link": "_blank"
+            }
+          },
+          "998db4a2-be4b-4ba4-8b94-5677d329f067": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/about_2.jpg",
+              "title": "Professional liability",
+              "text": "<p>There are many variations of passages lorem <br\/>ipsum available, but the majority have suffer<br\/>alteration in some believable.<\/p>",
+              "btn_title": "More info <i class=\"icon-chevrons-right\"><\/i>",
+              "btn_link": "#",
+              "open_link": "_blank"
+            }
+          },
+          "bc3f3ee9-d190-4452-976e-729ddd457789": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/about_3.jpg",
+              "title": "Professional liability",
+              "text": "<p>There are many variations of passages lorem <br\/>ipsum available, but the majority have suffer<br\/>alteration in some believable.<\/p>",
+              "btn_title": "More info <i class=\"icon-chevrons-right\"><\/i>",
+              "btn_link": "#",
+              "open_link": "_blank"
+            }
+          }
+        },
+        "block_order": [
+          "49f88d4c-c583-4d44-ab71-e00b1fb985e0",
+          "998db4a2-be4b-4ba4-8b94-5677d329f067",
+          "bc3f3ee9-d190-4452-976e-729ddd457789"
+        ],
+        "settings": {
+          "hidden": false,
+          "title": "Amazing performance",
+          "content": "Commodo sociosqu venenatis cras dolor sagittis integer luctus maecenas.",
+          "layout": "container",
+          "cl_bg": "#f6f7f9"
+        }
+      },
+      "content-faqs": {
+        "type": "content-faqs",
+        "blocks": {
+          "b25ad0b8-336c-4c09-b6a0-f7d16b306c11": {
+            "type": "faq",
+            "settings": {
+              "title": "Shopping information",
+              "faq_name": "How much is shipping and how long will it take?",
+              "faq_desc": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name2": "How do I know if my order was successful?",
+              "faq_desc2": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name3": "Vestibulum a lorem placerat, porttitor urna vel?",
+              "faq_desc3": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name4": "Pellentesque habitant morbi tristique senectus et netus?",
+              "faq_desc4": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name5": "Nam pellentesque aliquam metus?",
+              "faq_desc5": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum."
+            }
+          },
+          "fbc265b9-f310-4994-a453-9c506cc4f59f": {
+            "type": "faq",
+            "settings": {
+              "title": "Payment information",
+              "faq_name": "How much is shipping and how long will it take?",
+              "faq_desc": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name2": "How do I know if my order was successful?",
+              "faq_desc2": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name3": "Vestibulum a lorem placerat, porttitor urna vel?",
+              "faq_desc3": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name4": "Pellentesque habitant morbi tristique senectus et netus?",
+              "faq_desc4": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name5": "Nam pellentesque aliquam metus?",
+              "faq_desc5": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum."
+            }
+          },
+          "e8235400-8897-4fd5-9156-911158147a2f": {
+            "type": "faq",
+            "settings": {
+              "title": "Order & Returns",
+              "faq_name": "How much is shipping and how long will it take?",
+              "faq_desc": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name2": "How do I know if my order was successful?",
+              "faq_desc2": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name3": "Vestibulum a lorem placerat, porttitor urna vel?",
+              "faq_desc3": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name4": "",
+              "faq_desc4": "",
+              "faq_name5": "",
+              "faq_desc5": ""
+            }
+          },
+          "a5e0bd4d-cef4-4103-8852-3e7d047759f9": {
+            "type": "faq",
+            "settings": {
+              "title": "Ordering from Gosto",
+              "faq_name": "How much is shipping and how long will it take?",
+              "faq_desc": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name2": "How do I know if my order was successful?",
+              "faq_desc2": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name3": "Pellentesque habitant morbi tristique senectus et netus?",
+              "faq_desc3": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name4": "Nam pellentesque aliquam metus?",
+              "faq_desc4": "The perfect way to enjoy brewing tea on low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most important part of improving at photography has been sharing it. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit \nesse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \ndeserunt mollit anim id est laborum.",
+              "faq_name5": "",
+              "faq_desc5": ""
+            }
+          }
+        },
+        "block_order": [
+          "b25ad0b8-336c-4c09-b6a0-f7d16b306c11",
+          "fbc265b9-f310-4994-a453-9c506cc4f59f",
+          "e8235400-8897-4fd5-9156-911158147a2f",
+          "a5e0bd4d-cef4-4103-8852-3e7d047759f9"
+        ],
+        "settings": {
+          "faq_title_page": "FAQS",
+          "show_content": true,
+          "faq_title": "How can we help you?",
+          "faq_desc": "<p>Returns are free for orders shipped within the U.S. We include a UPS return label in every package which is at no cost to use.<\/p>\n\n<p>Follow the steps below for a seamless returns process:<\/p>\n<ul>\n\t<li>-   Please indicate a reason for return using one of the Return Codes listed on the order form included in your package. <\/li>\n\t<li>-   Attach your UPS return label to the outside of the package. There is no cost to use this label.<\/li>\n\t<li>-   Please make note of your tracking number so that you are able to track it on its way back to us.<\/li>\n<\/ul>\n\n<p style=\"color:#c6452c;\">You will receive an email once your return has been processed. Please allow 06 - 12 business days from the time your package arrives back to us for a refund to be issued.<\/p>",
+          "show_menu": true,
+          "menu_page": "menu-page"
+        }
+      },
+      "header1": {
+        "type": "header1",
+        "blocks": {
+          "56f215e8-e033-46a2-8e94-91f5fe1b1152": {
+            "type": "mega",
+            "settings": {
+              "title": "Home",
+              "url": "",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "pos_rel": true,
+              "wid": "cus",
+              "cus_wid": 500,
+              "bg": "#ffffff"
+            }
+          },
+          "6f4e4b71-6db6-4e84-8af3-6e74e231c457": {
+            "type": "link2",
+            "settings": {
+              "col": "6",
+              "menu": "home-page"
+            }
+          },
+          "80e7da7d-b7b8-4deb-a6ee-1295b46c0657": {
+            "type": "link2",
+            "settings": {
+              "col": "6",
+              "menu": "home-column-2"
+            }
+          },
+          "2edb69f1-946f-44fb-9516-b508ad1dbadc": {
+            "type": "mega",
+            "settings": {
+              "title": "Shop",
+              "url": "shopify:\/\/collections",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "pos_rel": false,
+              "wid": "cus",
+              "cus_wid": 1200,
+              "bg": "#ffffff"
+            }
+          },
+          "cc1ec0f5-91e2-4b61-a17b-8821a0fb0b57": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Shop Layout",
+              "url": "#",
+              "open_link": "_self",
+              "menu": "shop-layout",
+              "col": "3"
+            }
+          },
+          "e3ad527e-3670-40a3-b827-3adcc2c529d4": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Product Type",
+              "url": "#",
+              "open_link": "_self",
+              "menu": "product-type",
+              "col": "3"
+            }
+          },
+          "eb4b8b78-e314-4cbd-bfd9-fa78f1dbb8d9": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Collection Layout",
+              "url": "#",
+              "open_link": "_self",
+              "menu": "product-layout",
+              "col": "3"
+            }
+          },
+          "d549a5e3-6ea0-4959-8cd7-14b46c1fa870": {
+            "type": "banner",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/products_4_7.jpg",
+              "title": "Laptop & Ipad",
+              "url": "shopify:\/\/collections\/laptop-ipad",
+              "open_link": "_self",
+              "col": "3"
+            }
+          },
+          "9ea37089-1ecc-414b-a84c-1aff6ea43af5": {
+            "type": "mega",
+            "settings": {
+              "title": "Product",
+              "url": "\/collections\/all",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "pos_rel": false,
+              "wid": "cus",
+              "cus_wid": 1200,
+              "bg": "#ffffff"
+            }
+          },
+          "9cffa0e8-d0b2-4efd-9278-4199ced883af": {
+            "type": "link2",
+            "settings": {
+              "col": "3",
+              "menu": "product-type"
+            }
+          },
+          "20937395-253c-422a-bd42-fc5aa25ddc2c": {
+            "type": "link2",
+            "settings": {
+              "col": "3",
+              "menu": "product-layout-1"
+            }
+          },
+          "79f322d8-d36a-4fc7-a97b-de35a91442c8": {
+            "type": "cat",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/products_2_4.jpg",
+              "cat_design": "1",
+              "hoverz": true,
+              "collection": "vintage-leather-bag",
+              "title": "",
+              "col": "3"
+            }
+          },
+          "ca137f59-9acb-47fe-a6a5-a6fead24d524": {
+            "type": "cat",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/products_4_7.jpg",
+              "cat_design": "1",
+              "hoverz": true,
+              "collection": "kid-leather-bag",
+              "title": "",
+              "col": "3"
+            }
+          },
+          "91d39423-2228-4261-a575-2a91514f5de6": {
+            "type": "logo",
+            "settings": {
+              "logo_max_width": 200
+            }
+          },
+          "3681d0ce-afc6-4344-b966-cfda71fb5b43": {
+            "type": "dropdown",
+            "settings": {
+              "title": "Pages",
+              "url": "shopify:\/\/pages\/page-demo",
+              "open_link": "_self",
+              "menu": "pages",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "#4ad295"
+            }
+          },
+          "bab6430c-5d2b-4e8e-8e42-224c6d149882": {
+            "type": "dropdown",
+            "settings": {
+              "title": "Blog",
+              "url": "shopify:\/\/blogs\/technology",
+              "open_link": "_self",
+              "menu": "blog",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "407f6f92-2819-4cb0-a735-a3caec3c4cd2": {
+            "type": "simple",
+            "settings": {
+              "title": "Contact Us",
+              "url": "shopify:\/\/pages\/contact",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "49f03b2d-2086-45b8-a76f-e35c204976da": {
+            "type": "simple",
+            "disabled": true,
+            "settings": {
+              "title": "Buy Jc Digital!",
+              "url": "https:\/\/themeforest.net\/item\/uminex-fastest-shopify-20-theme\/46350215",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          }
+        },
+        "block_order": [
+          "56f215e8-e033-46a2-8e94-91f5fe1b1152",
+          "6f4e4b71-6db6-4e84-8af3-6e74e231c457",
+          "80e7da7d-b7b8-4deb-a6ee-1295b46c0657",
+          "2edb69f1-946f-44fb-9516-b508ad1dbadc",
+          "cc1ec0f5-91e2-4b61-a17b-8821a0fb0b57",
+          "e3ad527e-3670-40a3-b827-3adcc2c529d4",
+          "eb4b8b78-e314-4cbd-bfd9-fa78f1dbb8d9",
+          "d549a5e3-6ea0-4959-8cd7-14b46c1fa870",
+          "9ea37089-1ecc-414b-a84c-1aff6ea43af5",
+          "9cffa0e8-d0b2-4efd-9278-4199ced883af",
+          "20937395-253c-422a-bd42-fc5aa25ddc2c",
+          "79f322d8-d36a-4fc7-a97b-de35a91442c8",
+          "ca137f59-9acb-47fe-a6a5-a6fead24d524",
+          "91d39423-2228-4261-a575-2a91514f5de6",
+          "3681d0ce-afc6-4344-b966-cfda71fb5b43",
+          "bab6430c-5d2b-4e8e-8e42-224c6d149882",
+          "407f6f92-2819-4cb0-a735-a3caec3c4cd2",
+          "49f03b2d-2086-45b8-a76f-e35c204976da"
+        ],
+        "settings": {
+          "header_design": "logo-left_2l",
+          "sticky_top": false,
+          "Background_header": "#263c97",
+          "bg_header_sticky": "#263c97",
+          "custom_width": false,
+          "container_width": 1800,
+          "layout": "container",
+          "header_use_search_home": true,
+          "style_search": "3",
+          "cl_bd_search": "rgba(0,0,0,0)",
+          "header_use_cart_home": true,
+          "header_use_wishlist_home": true,
+          "header_use_compare_home": false,
+          "header_use_account": true,
+          "color_icon": "#ffffff",
+          "color_count": "#16bcdc",
+          "enable_icon_menu": false,
+          "cl_bg_menu": "#263c97",
+          "cl_border_menu": "#3b50a3",
+          "custom_html": "<p><a href=\"#\" title=\"Sale\">Sale $20 Off Your First Order.<\/a><\/p>"
+        }
+      },
+      "vertical_menu": {
+        "type": "vertical_menu",
+        "blocks": {
+          "e8ebc923-7702-4173-a59c-e0d7d44e57d2": {
+            "type": "mega",
+            "settings": {
+              "title": "Computer & Desktop",
+              "url": "shopify:\/\/collections\/computer-desktop",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "wid": "cus",
+              "cus_wid": 800,
+              "cl_bg": "#ffffff"
+            }
+          },
+          "84e1932e-471f-4b26-9ef7-3dfec524a40e": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Laptop & Computers",
+              "url": "shopify:\/\/collections\/computer-desktop",
+              "open_link": "_self",
+              "menu": "laptop-computers",
+              "tt_hd2": "Desktop and Monitors",
+              "url2": "shopify:\/\/collections\/cameras-photos",
+              "open_link2": "_self",
+              "menu2": "desktop-and-monitors",
+              "col": "4"
+            }
+          },
+          "13dd185e-f97c-4d0f-8fab-1814cfe7a47a": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Prime Videos",
+              "url": "#",
+              "open_link": "_self",
+              "menu": "prime-videos",
+              "tt_hd2": "Cameras",
+              "url2": "shopify:\/\/collections\/cameras-photos",
+              "open_link2": "_self",
+              "menu2": "cameras",
+              "col": "4"
+            }
+          },
+          "4877c37a-1866-4ff0-8521-88b4cd8393bd": {
+            "type": "banner",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/menu_1.png",
+              "url": "shopify:\/\/collections\/phones-accessories",
+              "open_link": "_blank",
+              "col": "4"
+            }
+          },
+          "8e8e1b81-52d1-4d34-a0be-6ce244523ab4": {
+            "type": "dropdown",
+            "settings": {
+              "title": "Laptop & Ipad",
+              "url": "shopify:\/\/collections\/laptop-ipad",
+              "open_link": "_self",
+              "menu": "laptop-ipad",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "1fc80983-49c9-45c0-a4e4-59c3e7682610": {
+            "type": "mega",
+            "settings": {
+              "title": "Cameras & Photos",
+              "url": "shopify:\/\/collections\/cameras-photos",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "wid": "cus",
+              "cus_wid": 500,
+              "cl_bg": "#ffffff",
+              "img_bg": "shopify:\/\/shop_images\/bg_menu.png"
+            }
+          },
+          "ac800396-e8da-4fac-b7c8-55e4a0f469b6": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Laptop & Computers",
+              "url": "#",
+              "open_link": "_self",
+              "menu": "laptop-computers",
+              "tt_hd2": "Desktop and Monitors",
+              "url2": "#",
+              "open_link2": "_self",
+              "menu2": "desktop-and-monitors",
+              "col": "6"
+            }
+          },
+          "ef200aee-279a-4964-abac-bebe2f727adb": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Prime Videos",
+              "url": "shopify:\/\/collections\/desktop-pc",
+              "open_link": "_self",
+              "menu": "prime-videos",
+              "tt_hd2": "",
+              "url2": "",
+              "open_link2": "_self",
+              "menu2": "",
+              "col": "6"
+            }
+          },
+          "c53c46bc-f18a-455b-80a2-c2548098d859": {
+            "type": "mega",
+            "settings": {
+              "title": "Smart Phones & Tablets",
+              "url": "shopify:\/\/collections\/smart-phones-tablets",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "wid": "cus",
+              "cus_wid": 800,
+              "cl_bg": "#ffffff"
+            }
+          },
+          "7ca25df5-209e-4b5a-8ded-37a05ebb68d2": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Laptop & Computers",
+              "url": "shopify:\/\/collections\/laptop-ipad",
+              "open_link": "_self",
+              "menu": "laptop-computers",
+              "tt_hd2": "Desktop and Monitors",
+              "url2": "#",
+              "open_link2": "_self",
+              "menu2": "desktop-and-monitors",
+              "col": "4"
+            }
+          },
+          "d8969115-58f7-44af-98b2-eabf1b5706ec": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Prime Videos",
+              "url": "#",
+              "open_link": "_self",
+              "menu": "prime-videos",
+              "tt_hd2": "Laptop & Ipad",
+              "url2": "#",
+              "open_link2": "_self",
+              "menu2": "cameras",
+              "col": "4"
+            }
+          },
+          "fed6ad98-1261-40d8-b4a3-dd7618b1bc53": {
+            "type": "banner",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/menu_2.png",
+              "url": "#",
+              "open_link": "_self",
+              "col": "4"
+            }
+          },
+          "22570370-6b60-4181-9fb0-db1bf8580747": {
+            "type": "mega",
+            "settings": {
+              "title": "Home & Kitchen",
+              "url": "shopify:\/\/collections\/home-kitchen",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": "",
+              "wid": "cus",
+              "cus_wid": 500,
+              "cl_bg": "#ffffff",
+              "img_bg": "shopify:\/\/shop_images\/bg_menu2.png"
+            }
+          },
+          "7b5afc56-afe1-4ae7-af42-a197582997e8": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Laptop & Computers",
+              "url": "shopify:\/\/collections\/laptop-ipad",
+              "open_link": "_self",
+              "menu": "laptop-computers",
+              "tt_hd2": "Desktop PC",
+              "url2": "shopify:\/\/collections\/desktop-pc",
+              "open_link2": "_self",
+              "menu2": "cameras",
+              "col": "6"
+            }
+          },
+          "0365e340-12f6-4618-b8d9-f8a211fa901a": {
+            "type": "link",
+            "settings": {
+              "tt_hd": "Cameras & Photos",
+              "url": "shopify:\/\/collections\/cameras-photos",
+              "open_link": "_self",
+              "menu": "desktop-and-monitors",
+              "tt_hd2": "",
+              "url2": "",
+              "open_link2": "_self",
+              "menu2": "",
+              "col": "6"
+            }
+          },
+          "b144f080-e7e6-4ee5-a7a4-2d192937d731": {
+            "type": "simple",
+            "settings": {
+              "title": "TV & Audios",
+              "url": "shopify:\/\/collections\/tv-audios",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "95b15b59-cb6a-446a-bec3-97965f900d4b": {
+            "type": "simple",
+            "settings": {
+              "title": "Health & Beauty",
+              "url": "shopify:\/\/collections\/health-beauty",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "a5479b73-452c-428b-807c-9fc23e6b7499": {
+            "type": "simple",
+            "settings": {
+              "title": "Watches & Eyewear",
+              "url": "shopify:\/\/collections\/watches-eyewear",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "32d188e5-f17e-4047-91a9-0ddd61b80940": {
+            "type": "simple",
+            "settings": {
+              "title": "Top Deals",
+              "url": "#",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "458e0169-9da4-432a-a257-d375f3e8b8b1": {
+            "type": "simple",
+            "settings": {
+              "title": "Top Selling Products",
+              "url": "#",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "cdf00ca1-1c7e-4be1-b44f-59f861f0d1ed": {
+            "type": "simple",
+            "settings": {
+              "title": "Top Featured Products",
+              "url": "#",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ec0101",
+              "lb": "",
+              "lb_cl": ""
+            }
+          }
+        },
+        "block_order": [
+          "e8ebc923-7702-4173-a59c-e0d7d44e57d2",
+          "84e1932e-471f-4b26-9ef7-3dfec524a40e",
+          "13dd185e-f97c-4d0f-8fab-1814cfe7a47a",
+          "4877c37a-1866-4ff0-8521-88b4cd8393bd",
+          "8e8e1b81-52d1-4d34-a0be-6ce244523ab4",
+          "1fc80983-49c9-45c0-a4e4-59c3e7682610",
+          "ac800396-e8da-4fac-b7c8-55e4a0f469b6",
+          "ef200aee-279a-4964-abac-bebe2f727adb",
+          "c53c46bc-f18a-455b-80a2-c2548098d859",
+          "7ca25df5-209e-4b5a-8ded-37a05ebb68d2",
+          "d8969115-58f7-44af-98b2-eabf1b5706ec",
+          "fed6ad98-1261-40d8-b4a3-dd7618b1bc53",
+          "22570370-6b60-4181-9fb0-db1bf8580747",
+          "7b5afc56-afe1-4ae7-af42-a197582997e8",
+          "0365e340-12f6-4618-b8d9-f8a211fa901a",
+          "b144f080-e7e6-4ee5-a7a4-2d192937d731",
+          "95b15b59-cb6a-446a-bec3-97965f900d4b",
+          "a5479b73-452c-428b-807c-9fc23e6b7499",
+          "32d188e5-f17e-4047-91a9-0ddd61b80940",
+          "458e0169-9da4-432a-a257-d375f3e8b8b1",
+          "cdf00ca1-1c7e-4be1-b44f-59f861f0d1ed"
+        ],
+        "settings": {
+          "show_title": false,
+          "show_style": "2",
+          "item_numb": 12,
+          "item_title": "More Categories",
+          "close_title": "Close",
+          "cl_border": "#ebebeb"
+        }
+      },
+      "mobile_menu": {
+        "type": "mobile_menu",
+        "blocks": {
+          "mobile_menu-6": {
+            "type": "search",
+            "settings": {
+              "title": "WHAT ARE YOU LOOKING FOR?",
+              "search": "Search",
+              "show_icon": true,
+              "icon": "<i class=\"icon-search\"><\/i>"
+            }
+          },
+          "mobile_menu-7": {
+            "type": "account",
+            "settings": {
+              "title": "Login \/ Register",
+              "show_icon": true,
+              "icon": "<i class=\"icon-users\"><\/i>",
+              "icon2": "<i class=\"icon-user-x\"><\/i>"
+            }
+          },
+          "bee752b1-a35e-44f7-9cb2-f71448a728eb": {
+            "type": "menu_mb",
+            "disabled": true,
+            "settings": {
+              "title": "All Categories",
+              "url": "shopify:\/\/collections",
+              "open_link": "_self",
+              "menu": "",
+              "show_icon": true,
+              "icon": "<i class=\"las la-campground\"><\/i>",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "mobile_menu-0": {
+            "type": "menu_mb",
+            "settings": {
+              "title": "Home",
+              "url": "\/",
+              "open_link": "_self",
+              "menu": "home-page",
+              "show_icon": false,
+              "icon": "<i class=\"las la-campground\"><\/i>",
+              "lb": "",
+              "lb_cl": "#fafafa"
+            }
+          },
+          "mobile_menu-1": {
+            "type": "menu_mb",
+            "settings": {
+              "title": "Shop",
+              "url": "shopify:\/\/collections\/all-furniture",
+              "open_link": "_self",
+              "menu": "product-categories",
+              "show_icon": false,
+              "icon": "<i class=\"fas fa-yin-yang\"><\/i>",
+              "lb": "New",
+              "lb_cl": "#d93939"
+            }
+          },
+          "mobile_menu-2": {
+            "type": "menu_mb",
+            "settings": {
+              "title": "page",
+              "url": "shopify:\/\/collections",
+              "open_link": "_self",
+              "menu": "pages",
+              "show_icon": false,
+              "icon": "<i class=\"fas fa-yin-yang\"><\/i>",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "mobile_menu-3": {
+            "type": "menu_mb",
+            "settings": {
+              "title": "Blog",
+              "url": "shopify:\/\/blogs\/technology",
+              "open_link": "_self",
+              "menu": "blog",
+              "show_icon": false,
+              "icon": "<i class=\"fas fa-yin-yang\"><\/i>",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "mobile_menu-4": {
+            "type": "wishlist",
+            "settings": {
+              "title": "Wishlist",
+              "show_icon": false,
+              "icon": "<i class=\"far fa-heart\"><\/i>"
+            }
+          },
+          "mobile_menu-5": {
+            "type": "compare",
+            "settings": {
+              "title": "Compare",
+              "show_icon": false,
+              "icon": "<i class=\"fas fa-layer-group\"><\/i>"
+            }
+          },
+          "961fa2fa-0c91-4435-8f22-2faa48b985c5": {
+            "type": "menu_mb",
+            "settings": {
+              "title": "Contact Us",
+              "url": "shopify:\/\/pages\/contact",
+              "open_link": "_self",
+              "menu": "",
+              "show_icon": false,
+              "icon": "<i class=\"las la-campground\"><\/i>",
+              "lb": "",
+              "lb_cl": ""
+            }
+          },
+          "2709ff91-c156-4bf3-a87f-748dbfc96c74": {
+            "type": "language_currency",
+            "settings": {
+              "show_flag": false
+            }
+          }
+        },
+        "block_order": [
+          "mobile_menu-6",
+          "mobile_menu-7",
+          "bee752b1-a35e-44f7-9cb2-f71448a728eb",
+          "mobile_menu-0",
+          "mobile_menu-1",
+          "mobile_menu-2",
+          "mobile_menu-3",
+          "mobile_menu-4",
+          "mobile_menu-5",
+          "961fa2fa-0c91-4435-8f22-2faa48b985c5",
+          "2709ff91-c156-4bf3-a87f-748dbfc96c74"
+        ],
+        "settings": {
+          "show_close": true,
+          "close": "close",
+          "show_logo": false,
+          "logo_max_width": 120,
+          "bg_menu": "#ffffff",
+          "color_text": "#212529",
+          "color_text_hover": "#2b38d1",
+          "bd_color": "#e5e8ec"
+        }
+      },
+      "mobile_categories": {
+        "type": "mobile_categories",
+        "blocks": {
+          "8d0c91f9-83c7-4320-92d0-95cb71f1cac0": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Home",
+              "url": "",
+              "menu": "home-column-1",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "4daa8953-4f85-430d-b1fe-06fbdb826464": {
+            "type": "cate",
+            "settings": {
+              "cat": "accessories",
+              "title": "Top Deals",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "c82d20f7-b89b-4bf9-b24c-7c0cea68532b": {
+            "type": "cate",
+            "settings": {
+              "cat": "basketball",
+              "title": "Top Selling Products",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "3ba529df-17fc-4b02-acb8-fc6532317d9c": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Top Featured Products",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "6bcb12ec-cd3e-4a65-b80b-37b6c53fc5e2": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "TVs & Audios",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "0e09efd7-cb43-42d0-8d32-aaf6d9842e7c": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Car Electronic & GPS",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "73752c23-c406-488c-944c-0c3c5ea79c50": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Headphones & Accessories",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "1d2aa826-bfd9-4a2c-939a-adab5109c160": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Printers & Ink",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "8d2d3bc3-6460-4741-841a-c51b4d58b080": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Home Theaters",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "3ca0b8db-40c4-4aa6-8184-f1780a5b7318": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "PC Components",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "76c7fbb4-c9d5-4662-b3fb-8d46f0d7ea79": {
+            "type": "contact",
+            "settings": {
+              "title": "Contact Us?",
+              "phone": "+391 (0)35 2568 4593",
+              "email": "Gosto@google.com"
+            }
+          },
+          "715dd9d5-2c98-4839-b102-9e623af206c8": {
+            "type": "social",
+            "settings": {
+              "title": "Follow us",
+              "type_social": "1"
+            }
+          }
+        },
+        "block_order": [
+          "8d0c91f9-83c7-4320-92d0-95cb71f1cac0",
+          "4daa8953-4f85-430d-b1fe-06fbdb826464",
+          "c82d20f7-b89b-4bf9-b24c-7c0cea68532b",
+          "3ba529df-17fc-4b02-acb8-fc6532317d9c",
+          "6bcb12ec-cd3e-4a65-b80b-37b6c53fc5e2",
+          "0e09efd7-cb43-42d0-8d32-aaf6d9842e7c",
+          "73752c23-c406-488c-944c-0c3c5ea79c50",
+          "1d2aa826-bfd9-4a2c-939a-adab5109c160",
+          "8d2d3bc3-6460-4741-841a-c51b4d58b080",
+          "3ca0b8db-40c4-4aa6-8184-f1780a5b7318",
+          "76c7fbb4-c9d5-4662-b3fb-8d46f0d7ea79",
+          "715dd9d5-2c98-4839-b102-9e623af206c8"
+        ],
+        "settings": {
+          "title": "All categories",
+          "bg_menu": "#ffffff",
+          "color_title": "#7d879c",
+          "color_text": "#09432b",
+          "color_text_hover": "#95ae00"
+        }
+      },
+      "promotion-newsletter-popup": {
+        "type": "promotion-newsletter-popup",
+        "settings": {
+          "use_newsletter_popup": true,
+          "bg_newsletter": "shopify:\/\/shop_images\/bg_newsletterpopup.jpg",
+          "bg_color": "#ffffff",
+          "title_newslette": "Our Newsletter",
+          "subtitle_newslette": "SIGN UP FOR OUR NEWSLETTER & PROMOTIONS !",
+          "description": "ON YOUR NEXT PURCHASE",
+          "placeholder_newsletter": "Your email address...",
+          "button_newsletter": "Subscribe",
+          "no_show_popup_again": "Don't show this popup again",
+          "max_width": "910",
+          "max_height": "455",
+          "border": 15,
+          "timeout": 5,
+          "day_next": 1
+        }
+      },
+      "top-bar": {
+        "type": "top-bar",
+        "blocks": {
+          "0acdf3d5-9c21-481a-b5c1-f04f5d89c1a2": {
+            "type": "message",
+            "disabled": true,
+            "settings": {
+              "bg_top_header": "#ffb800",
+              "cl_bd_top_bar": "#ffb800",
+              "cl_text": "#222222",
+              "show_close_btn": true,
+              "title_close_btn": "",
+              "message_text": "Summer discount on all fruit and free delivery nationwide -",
+              "text_link": "Sale 40% Off!",
+              "btn_link": "shopify:\/\/collections\/fresh-vegetables",
+              "open_link": "_blank",
+              "text_align": "topbar-center",
+              "col": "12",
+              "color_link": "#212529",
+              "bg_color_link": "rgba(0,0,0,0)",
+              "color_link_hover": "#1e882f",
+              "bg_color_link_hover": "rgba(0,0,0,0)"
+            }
+          },
+          "text_horizontal_running_z7Rrga": {
+            "type": "text-horizontal-running",
+            "settings": {
+              "healing_speed": 30,
+              "limit": 10,
+              "text": "Special offer: enjoy 3 months of shopify for $1\/month",
+              "url": "",
+              "open_link": "_blank",
+              "bg": "#ffb800",
+              "color_text": "#222222"
+            }
+          }
+        },
+        "block_order": [
+          "0acdf3d5-9c21-481a-b5c1-f04f5d89c1a2",
+          "text_horizontal_running_z7Rrga"
+        ],
+        "settings": {
+          "header_use_top_header": false,
+          "hide_top_header_mobile": false,
+          "home_page_only": false,
+          "layout": "container"
+        }
+      },
+      "banner": {
+        "type": "banner",
+        "blocks": {
+          "c6b80bd9-0d84-4cc3-b51f-36b6f5ce00c9": {
+            "type": "banner_img",
+            "settings": {
+              "image_sl": "shopify:\/\/shop_images\/img_about.jpg",
+              "col": "12",
+              "ipad_col": "12",
+              "link_img": "#",
+              "open_link": "_blank",
+              "h_position": "center",
+              "v_position": "middle",
+              "txt_align": "center",
+              "mg_bottom": 20
+            }
+          },
+          "b15b7916-0f82-46ea-aa9b-c52b07da41b5": {
+            "type": "subhd",
+            "settings": {
+              "hide": false,
+              "title": "Hi, Gosto Store",
+              "color": "#ffffff",
+              "fw_text": 400,
+              "fs_text": 18,
+              "lh_text": 0,
+              "ls_text": 0,
+              "text_transform": "none",
+              "mg_bottom": 30,
+              "mobile_font_text": 14,
+              "mobile_mg_bottom": 15
+            }
+          },
+          "afa78590-2b46-407b-a835-b85640e3caa1": {
+            "type": "hd",
+            "settings": {
+              "hide": false,
+              "title": "Unique People",
+              "color": "#ffffff",
+              "fw_text": 400,
+              "fs_text": 80,
+              "lh_text": 0,
+              "ls_text": "0",
+              "text_transform": "none",
+              "mg_bottom": 30,
+              "mobile_font_text": 40,
+              "mobile_mg_bottom": 15
+            }
+          },
+          "ae6d43a8-f13d-436a-945f-11dc2e90731d": {
+            "type": "txt",
+            "settings": {
+              "title": "Over 25 years of experience, we have crafted thousands of strategic discovery process that <br>\nenables us to peel back the layers which enable us to understand, connect.",
+              "color": "#ffffff",
+              "fw_text": 400,
+              "fs_text": 18,
+              "lh_text": 0,
+              "ls_text": 0,
+              "mg_bottom": 50,
+              "hide": false,
+              "mobile_font_text": 14,
+              "mobile_mg_bottom": 25
+            }
+          },
+          "101ea0c2-85f3-4ca2-b810-2553c157b201": {
+            "type": "btn",
+            "settings": {
+              "title": "Let’s Talk",
+              "btn_link": "#",
+              "open_link": "_blank",
+              "cl_txt": "#0a2748",
+              "cl_txt_hover": "#0a2748",
+              "cl_bg": "#ffffff",
+              "cl_bg_hover": "#ffffff",
+              "cl_border": "#ffffff",
+              "cl_border_hover": "#ffffff",
+              "fs_text": 12,
+              "fw_text": 500,
+              "button_transform": "uppercase",
+              "br_button": "2px 2px",
+              "mg": "0px 0px 0px 0px",
+              "pd": "12px 50px 12px 50px",
+              "icon_button": "",
+              "ls_text": 0,
+              "mobile_font_text": 14,
+              "mobile_mg_bottom": 0,
+              "mobile_mg": "0px 0px 0px 0px",
+              "mobile_pd": "10px 25px 10px 25px"
+            }
+          },
+          "bf569952-99de-42f6-9080-71f67ef03b13": {
+            "type": "btn",
+            "settings": {
+              "title": "Explore now",
+              "btn_link": "#",
+              "open_link": "_blank",
+              "cl_txt": "#ffffff",
+              "cl_txt_hover": "#0a2748",
+              "cl_bg": "rgba(0,0,0,0)",
+              "cl_bg_hover": "#ffffff",
+              "cl_border": "#ffffff",
+              "cl_border_hover": "#ffffff",
+              "fs_text": 12,
+              "fw_text": 500,
+              "button_transform": "uppercase",
+              "br_button": "2px 2px",
+              "mg": "0px 0px 0px 0px",
+              "pd": "11px 40px 11px 40px",
+              "icon_button": "",
+              "ls_text": 0,
+              "mobile_font_text": 14,
+              "mobile_mg_bottom": 0,
+              "mobile_mg": "0px 0px 0px 0px",
+              "mobile_pd": "10px 25px 10px 25px"
+            }
+          }
+        },
+        "block_order": [
+          "c6b80bd9-0d84-4cc3-b51f-36b6f5ce00c9",
+          "b15b7916-0f82-46ea-aa9b-c52b07da41b5",
+          "afa78590-2b46-407b-a835-b85640e3caa1",
+          "ae6d43a8-f13d-436a-945f-11dc2e90731d",
+          "101ea0c2-85f3-4ca2-b810-2553c157b201",
+          "bf569952-99de-42f6-9080-71f67ef03b13"
+        ],
+        "settings": {
+          "hidden": false
+        }
+      },
+      "featured_blog": {
+        "type": "featured_blog",
+        "settings": {
+          "title": "Looking for Gosto",
+          "blog": "shopping",
+          "layout": "container",
+          "cl_bg": "#ffffff"
+        }
+      },
+      "brand-grid": {
+        "type": "brand-grid",
+        "blocks": {
+          "578691c6-031a-4b5b-b99d-789e9c996f59": {
+            "type": "brand",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brand_1.png",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "1fba3b0a-f03f-4191-94a5-1be0f851f0e0": {
+            "type": "brand",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brand_2.png",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "93eb0a23-07ba-41dd-8da9-752f13687d98": {
+            "type": "brand",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brand_3.png",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "573ed64e-8c05-4586-bd2a-cc5f85e8e0b2": {
+            "type": "brand",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brand_4.png",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "7d6f6d7e-fe48-4e49-8f8f-536bef309d98": {
+            "type": "brand",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brand_5.png",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "58f8a5be-3dbe-4cdb-8ad4-fc08b66d3596": {
+            "type": "brand",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brand_6.png",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "22d33cff-b917-407a-bc39-75da79068c5c": {
+            "type": "brand",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brand_7.png",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "1f3d52bd-5db3-4cc0-a4dc-01f1b38f19b0": {
+            "type": "brand",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brand_8.png",
+              "url": "",
+              "open_link": "_blank"
+            }
+          }
+        },
+        "block_order": [
+          "578691c6-031a-4b5b-b99d-789e9c996f59",
+          "1fba3b0a-f03f-4191-94a5-1be0f851f0e0",
+          "93eb0a23-07ba-41dd-8da9-752f13687d98",
+          "573ed64e-8c05-4586-bd2a-cc5f85e8e0b2",
+          "7d6f6d7e-fe48-4e49-8f8f-536bef309d98",
+          "58f8a5be-3dbe-4cdb-8ad4-fc08b66d3596",
+          "22d33cff-b917-407a-bc39-75da79068c5c",
+          "1f3d52bd-5db3-4cc0-a4dc-01f1b38f19b0"
+        ],
+        "settings": {
+          "hidden": false,
+          "layout": "container",
+          "bg_brand": "shopify:\/\/shop_images\/bg_brand.jpg",
+          "cl_bg": "#f6f7f9",
+          "mg_top": 0,
+          "mg_bottom": 0,
+          "pad_top": 100,
+          "pad_bottom": 100,
+          "mobile_mg_top": 0,
+          "mobile_mg_bottom": 0,
+          "mobile_pd_top": 50,
+          "mobile_pd_bottom": 50,
+          "title": "Our important partners",
+          "sub_title": "WHO OUR CLIENTS",
+          "content": "Commodo sociosqu venenatis cras dolor sagittis integer luctus maecenas.",
+          "col_pr": "4",
+          "show_btn": true,
+          "title_btn": "view all clients",
+          "url": "",
+          "open_link": "_blank"
+        }
+      },
+      "categories_sidebar": {
+        "type": "categories_sidebar",
+        "blocks": {
+          "9cdf5ebb-f1b7-4a5a-8b9a-14a9a5d4c102": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Top Deals",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "06df68fc-a66a-4343-b6ca-2a4c2569601a": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Top Selling Products",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "c3cbfb07-318b-45e1-bc89-bb13c089838a": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Top Featured Products",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "a2806a48-eeaa-45c3-abde-659de1da5a72": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Fruits & Vegetables",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "da3a48ac-b80a-4357-851d-8d8af263756e": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Health & Beauty",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "715b6906-1b6a-4416-aaad-d7d9ce9943c6": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Fresh Vegetables",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "37a8e5d3-2f48-4527-a997-3fe877fa8efc": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Fresh Meat",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "ca2148a5-b639-4663-81b0-3ad5e5f38d5d": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Package Foods",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "8e31828a-c9b6-416a-8150-9823b38dfab7": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Baby & Infants",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "db794c85-5ac1-433e-b30e-e06a80f9023f": {
+            "type": "cate",
+            "settings": {
+              "cat": "",
+              "title": "Dairy Bread & Eggs",
+              "url": "",
+              "menu": "",
+              "lb": "",
+              "lb_cl": "#222222",
+              "show_icon": false,
+              "icon": "<i class=\"las la-female\"><\/i>"
+            }
+          },
+          "54d44c66-ff7a-4714-b9e9-e4606373baf3": {
+            "type": "contact",
+            "settings": {
+              "title": "Contact Us?",
+              "phone": "+391 (0)35 2568 4593",
+              "email": "Gosto@google.com"
+            }
+          },
+          "9e95468f-7f21-4c0b-8493-05b763cb3c9d": {
+            "type": "social",
+            "settings": {
+              "title": "Follow us",
+              "type_social": "2"
+            }
+          }
+        },
+        "block_order": [
+          "9cdf5ebb-f1b7-4a5a-8b9a-14a9a5d4c102",
+          "06df68fc-a66a-4343-b6ca-2a4c2569601a",
+          "c3cbfb07-318b-45e1-bc89-bb13c089838a",
+          "a2806a48-eeaa-45c3-abde-659de1da5a72",
+          "da3a48ac-b80a-4357-851d-8d8af263756e",
+          "715b6906-1b6a-4416-aaad-d7d9ce9943c6",
+          "37a8e5d3-2f48-4527-a997-3fe877fa8efc",
+          "ca2148a5-b639-4663-81b0-3ad5e5f38d5d",
+          "8e31828a-c9b6-416a-8150-9823b38dfab7",
+          "db794c85-5ac1-433e-b30e-e06a80f9023f",
+          "54d44c66-ff7a-4714-b9e9-e4606373baf3",
+          "9e95468f-7f21-4c0b-8493-05b763cb3c9d"
+        ],
+        "settings": {
+          "title": "All categories",
+          "bg_menu": "#ffffff",
+          "color_title": "#7d879c",
+          "color_text": "#09432b",
+          "color_text_hover": "#95ae00"
+        }
+      },
+      "main-collection-banner": {
+        "type": "main-collection-banner",
+        "settings": {
+          "show_full_width": false,
+          "show_collection_description": true,
+          "show_collection_image": true,
+          "cl_bg": "#fff",
+          "mg": "0,0,30px,0",
+          "pd": "",
+          "mg_mb": "0,0,30px,0",
+          "pd_mb": ""
+        }
+      },
+      "banner-collection": {
+        "type": "banner-collection",
+        "settings": {
+          "show_name_collection": false,
+          "show_collection_description": false,
+          "show_collection_image": true,
+          "use_eq_height": true,
+          "image_ratio": "ratio4_1",
+          "cl_bg": "#ffffff",
+          "mg": "0,0,30px,0",
+          "pd": "",
+          "mg_mb": "0,0,30px,0",
+          "pd_mb": ""
+        }
+      },
+      "product_sidebar": {
+        "type": "product_sidebar",
+        "blocks": {
+          "d413021c-808d-4a95-a1b8-f4ab49e66693": {
+            "type": "benefit",
+            "settings": {
+              "source": "3",
+              "show_benefit_1": true,
+              "icon": "icon-codesandbox",
+              "text_svg": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M3.16992 7.43994L11.9999 12.5499L20.7699 7.46991\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M12 21.61V12.54\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M9.9306 2.48L4.59061 5.45003C3.38061 6.12003 2.39062 7.80001 2.39062 9.18001V14.83C2.39062 16.21 3.38061 17.89 4.59061 18.56L9.9306 21.53C11.0706 22.16 12.9406 22.16 14.0806 21.53L19.4206 18.56C20.6306 17.89 21.6206 16.21 21.6206 14.83V9.18001C21.6206 7.80001 20.6306 6.12003 19.4206 5.45003L14.0806 2.48C12.9306 1.84 11.0706 1.84 9.9306 2.48Z\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M16.9998 13.2401V9.58014L7.50977 4.1001\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+              "title": "Free shipping apply to all <br>orders over $90",
+              "show_benefit_2": true,
+              "icon2": "icon-shield",
+              "text_svg2": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M10.4902 2.23006L5.50016 4.11006C4.35016 4.54006 3.41016 5.90006 3.41016 7.12006V14.5501C3.41016 15.7301 4.19016 17.2801 5.14016 17.9901L9.44016 21.2001C10.8502 22.2601 13.1702 22.2601 14.5802 21.2001L18.8802 17.9901C19.8302 17.2801 20.6102 15.7301 20.6102 14.5501V7.12006C20.6102 5.89006 19.6702 4.53006 18.5202 4.10006L13.5302 2.23006C12.6802 1.92006 11.3202 1.92006 10.4902 2.23006Z\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M9.05078 11.8702L10.6608 13.4802L14.9608 9.18018\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+              "title2": "Guaranteed 100% Organic <br>from nature farms",
+              "show_benefit_3": true,
+              "icon3": "icon-check-circle",
+              "text_svg3": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M8.38086 12.0001L10.7909 14.4201L15.6209 9.58008\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M10.7509 2.44982C11.4409 1.85982 12.5709 1.85982 13.2709 2.44982L14.8509 3.80982C15.1509 4.06982 15.7109 4.27982 16.1109 4.27982H17.8109C18.8709 4.27982 19.7409 5.14982 19.7409 6.20982V7.90982C19.7409 8.29982 19.9509 8.86982 20.2109 9.16982L21.5709 10.7498C22.1609 11.4398 22.1609 12.5698 21.5709 13.2698L20.2109 14.8498C19.9509 15.1498 19.7409 15.7098 19.7409 16.1098V17.8098C19.7409 18.8698 18.8709 19.7398 17.8109 19.7398H16.1109C15.7209 19.7398 15.1509 19.9498 14.8509 20.2098L13.2709 21.5698C12.5809 22.1598 11.4509 22.1598 10.7509 21.5698L9.17086 20.2098C8.87086 19.9498 8.31086 19.7398 7.91086 19.7398H6.18086C5.12086 19.7398 4.25086 18.8698 4.25086 17.8098V16.0998C4.25086 15.7098 4.04086 15.1498 3.79086 14.8498L2.44086 13.2598C1.86086 12.5698 1.86086 11.4498 2.44086 10.7598L3.79086 9.16982C4.04086 8.86982 4.25086 8.30982 4.25086 7.91982V6.19982C4.25086 5.13982 5.12086 4.26982 6.18086 4.26982H7.91086C8.30086 4.26982 8.87086 4.05982 9.17086 3.79982L10.7509 2.44982Z\" stroke=\"#B45353\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+              "title3": "60 days returns if you change <br>your mind"
+            }
+          },
+          "973e6bb4-6d62-4f16-9176-ca2be3497750": {
+            "type": "promobox",
+            "settings": {
+              "title": "Hot deals",
+              "sub_title": "Nuts & dried <span>weekend Promo<\/span>",
+              "content": "Everything You Need",
+              "url": "#"
+            }
+          },
+          "ca6fcdc1-822e-4739-84ff-f48bb4ab492e": {
+            "type": "products",
+            "settings": {
+              "title": "Recent Products",
+              "collection": "accessories",
+              "max_count": 10,
+              "use-slider": true,
+              "slides-To-Scroll": 1,
+              "visible": 1,
+              "widescreen": 1,
+              "desktop": 1,
+              "laptop": 1,
+              "notebook": 1,
+              "tablet": 1,
+              "landscape": 1,
+              "portrait": 1,
+              "mobile": 1,
+              "rows": 3,
+              "autoplay": false,
+              "speed": "300",
+              "autoplay-Speed": "3000",
+              "arrows": false,
+              "fade": false,
+              "center-Mode": false,
+              "adaptive-Height": false,
+              "dots": true,
+              "infinite": false,
+              "padding": 0,
+              "vertical": false,
+              "use_eq_height": true,
+              "image_ratio": "ratio3_4",
+              "cl_bg": "#ffffff",
+              "pd": ""
+            }
+          }
+        },
+        "block_order": [
+          "d413021c-808d-4a95-a1b8-f4ab49e66693",
+          "973e6bb4-6d62-4f16-9176-ca2be3497750",
+          "ca6fcdc1-822e-4739-84ff-f48bb4ab492e"
+        ],
+        "settings": {
+          "cl_bg": "rgba(0,0,0,0)",
+          "mg": "",
+          "pd": "",
+          "bd": "",
+          "mg_mb": "",
+          "pd_mb": ""
+        }
+      },
+      "password": {
+        "type": "password",
+        "settings": {
+          "heading": "Our New Website <br>Will Be Available Soon",
+          "sub_heading": "Coming Soon!",
+          "content": "We are currently working on an awesome new site. Your personal details<br>\nare strictly for our use, and you can unsubscribe at any time.",
+          "newsletter_placeholder": "Your email address",
+          "newsletter_button_text": "Notify me",
+          "signup_form_success": "We will send you an email right before we open!",
+          "social": "1",
+          "copyright": "<p>Copyright © <a href=\"\/\" title=\"\/\">Jc Digital<\/a> all rights reserved. Powered by <a href=\"#\" title=\"#\">JcThemes<\/a>.<\/p>",
+          "layout": "container",
+          "cl_bg": "#ffffff",
+          "pd_c": "",
+          "mg": "",
+          "pd": "",
+          "mg_mb": "",
+          "pd_mb": ""
+        }
+      },
+      "footer1": {
+        "type": "footer1",
+        "blocks": {
+          "297971d8-0316-476b-b319-8a21c85d2f7b": {
+            "type": "html",
+            "settings": {
+              "title": "Download App",
+              "cl_heading": "#ffffff",
+              "text_size": "small",
+              "text_transform": "capitalize",
+              "content": "Jc Digital App is now available on App Store &amp; Google Play. \nGet it now.",
+              "cl_content": "#999999",
+              "img": "shopify:\/\/shop_images\/app.png",
+              "width_img": 385,
+              "use_social": true,
+              "col": "25%"
+            }
+          },
+          "76338e37-4d61-40e4-8bf2-402c157154d3": {
+            "type": "menu",
+            "settings": {
+              "title": "My Account",
+              "cl_heading": "#ffffff",
+              "text_size": "small",
+              "text_transform": "capitalize",
+              "menu": "my-account",
+              "cl_link": "#999999",
+              "cl_link_hover": "#16bcdc",
+              "col": "16%"
+            }
+          },
+          "88094249-da27-401b-baf0-75958ab4ebda": {
+            "type": "menu",
+            "settings": {
+              "title": "Customer Service",
+              "cl_heading": "#ffffff",
+              "text_size": "small",
+              "text_transform": "capitalize",
+              "menu": "customer-service",
+              "cl_link": "#999999",
+              "cl_link_hover": "#16bcdc",
+              "col": "16%"
+            }
+          },
+          "f8f2b544-2fef-4fe7-8621-5c0f692b223e": {
+            "type": "menu",
+            "settings": {
+              "title": "Help & Customer Care",
+              "cl_heading": "#ffffff",
+              "text_size": "small",
+              "text_transform": "capitalize",
+              "menu": "help-customer-care",
+              "cl_link": "#999999",
+              "cl_link_hover": "#16bcdc",
+              "col": "16%"
+            }
+          },
+          "05da67b0-2406-42df-856c-577b3265c324": {
+            "type": "mail",
+            "settings": {
+              "center_align": false,
+              "title": "Sign Up To Newsletter",
+              "cl_heading": "#ffffff",
+              "text_size": "small",
+              "text_transform": "capitalize",
+              "sub_title": "Join 60.000+ subscribers and get a new discount coupon  on every Saturday.",
+              "sub_title2": "By providing your email address, you agree to our Privacy Policy and Terms of Service.",
+              "cl_text": "#999999",
+              "cl_btn": "#16bcdc",
+              "use_social": false,
+              "col": "25%",
+              "mg_b": 0,
+              "sm_mg_b": 0
+            }
+          }
+        },
+        "block_order": [
+          "297971d8-0316-476b-b319-8a21c85d2f7b",
+          "76338e37-4d61-40e4-8bf2-402c157154d3",
+          "88094249-da27-401b-baf0-75958ab4ebda",
+          "f8f2b544-2fef-4fe7-8621-5c0f692b223e",
+          "05da67b0-2406-42df-856c-577b3265c324"
+        ],
+        "settings": {
+          "full_width": false,
+          "cl_bg_footer": "#1f2024",
+          "cl_line": "#313135",
+          "pd": "40px,0,60px,0",
+          "pd_mb": "40px,0,40px,0"
+        }
+      },
+      "footer2": {
+        "type": "footer2",
+        "blocks": {
+          "2f91e398-fe5b-49da-a5f6-6667e1ccc089": {
+            "type": "contact_information",
+            "settings": {
+              "title": "Contact information",
+              "use_logo_footer": true,
+              "logo_footer": "shopify:\/\/shop_images\/Logo.png",
+              "logo_max_width": 115,
+              "title2": "Let’s Talk",
+              "show_phone": true,
+              "show_email": true,
+              "title3": "Find Us",
+              "description": "<p>1418 Riverwood Drive, Suite 3245 Cottonwood<br>\nCA 96052, United States<\/p>",
+              "title4": "We Accept",
+              "cl": "3",
+              "cl_tb": "6",
+              "cl_mb": "12",
+              "h_position": "left",
+              "txt_align": "left"
+            }
+          },
+          "945a4042-f947-4704-86a6-0fe0485218f6": {
+            "type": "menu",
+            "settings": {
+              "title": "Get Help",
+              "menu": "",
+              "cl": "3",
+              "cl_tb": "6",
+              "cl_mb": "12",
+              "h_position": "left",
+              "txt_align": "left"
+            }
+          },
+          "2cd8f5ac-1904-4fdd-a8f8-92dad701a630": {
+            "type": "menu",
+            "settings": {
+              "title": "Popular Categories",
+              "menu": "",
+              "cl": "3",
+              "cl_tb": "6",
+              "cl_mb": "12",
+              "h_position": "left",
+              "txt_align": "left"
+            }
+          },
+          "3feba5fd-028c-4d6a-a57b-7e284ebc3d29": {
+            "type": "mail",
+            "settings": {
+              "title": "Let’s stay in touch",
+              "sub_title": "Keep up to date with our latest news and  special offers.",
+              "cl_btn": "#ffffff",
+              "bg_btn": "#1a1a1a",
+              "use_social": true,
+              "title_social": "Follow Us",
+              "type_social": "2",
+              "cl": "3",
+              "cl_tb": "6",
+              "cl_mb": "12"
+            }
+          }
+        },
+        "block_order": [
+          "2f91e398-fe5b-49da-a5f6-6667e1ccc089",
+          "945a4042-f947-4704-86a6-0fe0485218f6",
+          "2cd8f5ac-1904-4fdd-a8f8-92dad701a630",
+          "3feba5fd-028c-4d6a-a57b-7e284ebc3d29"
+        ],
+        "settings": {
+          "Col_footer": "2",
+          "menu": "",
+          "copyright_text": "<p>© 2022 <a href=\"\/\" title=\"\/\">Sofine<\/a>. All Right Reserved<\/p>",
+          "cl_copyright_text": "#666666",
+          "cl_copyright_a": "#1a1a1a",
+          "bg_line": "#dddddf",
+          "bg": "#f6f6f8",
+          "pd": "80px,0,80px,0",
+          "pd_mb": "40px,0,40px,0"
+        }
+      },
+      "main-search": {
+        "type": "main-search",
+        "settings": {
+        }
+      },
+      "menu-mobile-bottom": {
+        "type": "menu-mobile-bottom",
+        "blocks": {
+          "a7cf5703-f58d-4304-9260-a31926b7759d": {
+            "type": "home",
+            "settings": {
+            }
+          },
+          "746102d6-51b9-4e1a-bf0a-e7a380a34b6f": {
+            "type": "collections",
+            "settings": {
+              "collection": "",
+              "btn_link": "shopify:\/\/collections"
+            }
+          },
+          "b8c292b1-c78e-4394-bedd-9e1fa69e8a2c": {
+            "type": "cart",
+            "settings": {
+            }
+          },
+          "f0f66887-2b9f-480f-ad4c-623933307c76": {
+            "type": "search",
+            "settings": {
+            }
+          },
+          "c77b59fb-85b6-4b30-9f5c-bb13dc2ce1fc": {
+            "type": "account",
+            "disabled": true,
+            "settings": {
+            }
+          },
+          "728b9c92-f684-4755-b78d-0376c5f14f66": {
+            "type": "wishlist",
+            "settings": {
+            }
+          }
+        },
+        "block_order": [
+          "a7cf5703-f58d-4304-9260-a31926b7759d",
+          "746102d6-51b9-4e1a-bf0a-e7a380a34b6f",
+          "b8c292b1-c78e-4394-bedd-9e1fa69e8a2c",
+          "f0f66887-2b9f-480f-ad4c-623933307c76",
+          "c77b59fb-85b6-4b30-9f5c-bb13dc2ce1fc",
+          "728b9c92-f684-4755-b78d-0376c5f14f66"
+        ],
+        "settings": {
+          "hidden": false
+        }
+      },
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/logo11.png",
+          "logo_max_width": 170,
+          "color_scheme": "accent-2"
+        }
+      },
+      "custom-colors": {
+        "type": "custom-colors",
+        "blocks": {
+          "5993e669-8bcc-4fff-abd9-9c199a63be53": {
+            "type": "color",
+            "settings": {
+              "title": "grayish red",
+              "color_code": "#8e7f7c"
+            }
+          },
+          "e9cb1bb4-eb45-4c97-8724-4b25ce9b30ea": {
+            "type": "color",
+            "settings": {
+              "title": "Black",
+              "color_code": "#141414"
+            }
+          },
+          "dcb15e6a-9c6e-47ac-9d1a-3aacde9cddf5": {
+            "type": "color",
+            "settings": {
+              "title": "Dark grayish yellow",
+              "color_code": "#4d4e3e"
+            }
+          },
+          "2173660d-a474-4b0d-9310-c30d15023510": {
+            "type": "color",
+            "settings": {
+              "title": "Light grayish orange",
+              "color_code": "#e1dcd8"
+            }
+          },
+          "2116589d-9179-4053-8159-47577ad5ff80": {
+            "type": "color",
+            "settings": {
+              "title": "Grayish yellow-green",
+              "color_code": "#8e9585"
+            }
+          },
+          "fc5406f3-80d1-46ef-bccb-22018f2311e4": {
+            "type": "color",
+            "settings": {
+              "title": "Light grayish yellow",
+              "color_code": "#dcdace"
+            }
+          },
+          "b9a680b0-66af-478e-a26f-6c9390ac58bb": {
+            "type": "color",
+            "settings": {
+              "title": "Dull orange",
+              "color_code": "#a88160"
+            }
+          },
+          "45a02e62-53af-48d4-9474-ea7ad5dd90f1": {
+            "type": "color",
+            "settings": {
+              "title": "Dark grayish orange",
+              "color_code": "#383735"
+            }
+          },
+          "b7079001-96c4-4593-bf8b-7af9dc80c7e3": {
+            "type": "color",
+            "settings": {
+              "title": "Soft red",
+              "color_code": "#955e61"
+            }
+          },
+          "f3b5742b-a14e-4272-897b-0e4cd7d9c36d": {
+            "type": "color",
+            "settings": {
+              "title": "Dark orange",
+              "color_code": "#543a2d"
+            }
+          },
+          "75f78701-77a5-4f30-9368-727753d3dcdf": {
+            "type": "color",
+            "settings": {
+              "title": "Dark grayish navy",
+              "color_code": "#25262a"
+            }
+          },
+          "1b8c583e-f468-4218-ae6e-1653711ee00d": {
+            "type": "color",
+            "settings": {
+              "title": "Deep orange",
+              "color_code": "#944e1d"
+            }
+          },
+          "78e740a4-06aa-42fc-bcb6-55d8bdc8f927": {
+            "type": "color",
+            "settings": {
+              "title": "Dull red",
+              "color_code": "#743031"
+            }
+          },
+          "3dca664d-6700-48ea-b395-d3ed706685a4": {
+            "type": "color",
+            "settings": {
+              "title": "Dark cyan",
+              "color_code": "#18332c"
+            }
+          },
+          "6ac1769a-ff34-4e9a-b739-dc8e565c6714": {
+            "type": "color",
+            "settings": {
+              "title": "Grayish blue",
+              "color_code": "#42535d"
+            }
+          },
+          "48fa2ae7-1b32-4d4d-86c1-e237d6ef54eb": {
+            "type": "color",
+            "settings": {
+              "title": "Gray",
+              "color_code": "#767674"
+            }
+          },
+          "fe594b93-f578-40fe-82c9-24e4e6e07339": {
+            "type": "color",
+            "settings": {
+              "title": "Dark grayish blue",
+              "color_code": "#252628"
+            }
+          },
+          "24fbd62e-8e52-46b6-a579-0541e304cc01": {
+            "type": "color",
+            "settings": {
+              "title": "Light red",
+              "color_code": "#e58380"
+            }
+          },
+          "19cccbd1-ea00-420b-af16-8da049a8d2cb": {
+            "type": "color",
+            "settings": {
+              "title": "Light gray",
+              "color_code": "#dadada"
+            }
+          }
+        },
+        "block_order": [
+          "5993e669-8bcc-4fff-abd9-9c199a63be53",
+          "e9cb1bb4-eb45-4c97-8724-4b25ce9b30ea",
+          "dcb15e6a-9c6e-47ac-9d1a-3aacde9cddf5",
+          "2173660d-a474-4b0d-9310-c30d15023510",
+          "2116589d-9179-4053-8159-47577ad5ff80",
+          "fc5406f3-80d1-46ef-bccb-22018f2311e4",
+          "b9a680b0-66af-478e-a26f-6c9390ac58bb",
+          "45a02e62-53af-48d4-9474-ea7ad5dd90f1",
+          "b7079001-96c4-4593-bf8b-7af9dc80c7e3",
+          "f3b5742b-a14e-4272-897b-0e4cd7d9c36d",
+          "75f78701-77a5-4f30-9368-727753d3dcdf",
+          "1b8c583e-f468-4218-ae6e-1653711ee00d",
+          "78e740a4-06aa-42fc-bcb6-55d8bdc8f927",
+          "3dca664d-6700-48ea-b395-d3ed706685a4",
+          "6ac1769a-ff34-4e9a-b739-dc8e565c6714",
+          "48fa2ae7-1b32-4d4d-86c1-e237d6ef54eb",
+          "fe594b93-f578-40fe-82c9-24e4e6e07339",
+          "24fbd62e-8e52-46b6-a579-0541e304cc01",
+          "19cccbd1-ea00-420b-af16-8da049a8d2cb"
+        ],
+        "settings": {
+        }
+      },
+      "footer-bottom": {
+        "type": "footer-bottom",
+        "blocks": {
+          "ad9550a7-5500-4d01-b37d-9689d518bd43": {
+            "type": "policy",
+            "disabled": true,
+            "settings": {
+              "cl_link": "#999999",
+              "cl_link_hover": "#ffffff",
+              "pos_block": "center",
+              "col": "100%",
+              "mb": 20
+            }
+          },
+          "bfb74f7d-6e29-40f9-981f-348230c74bf7": {
+            "type": "menu",
+            "settings": {
+              "menu": "menu-footer",
+              "cl_link": "#999999",
+              "cl_link_hover": "#16bcdc",
+              "pos_block": "center",
+              "col": "100%",
+              "mb": 30
+            }
+          },
+          "a556a61e-2595-483e-9365-487a9c52b0ca": {
+            "type": "payment_img",
+            "settings": {
+              "title": "",
+              "cl_text": "#888888",
+              "img_payment": "shopify:\/\/shop_images\/payments.png",
+              "width_img": 330,
+              "pos_block": "center",
+              "col": "100%",
+              "mb": 25
+            }
+          },
+          "024abc77-3ea5-4b33-965b-47f77bcfcc45": {
+            "type": "copyright",
+            "settings": {
+              "copyright": "<p>Copyright © <a href=\"\/\" title=\"\/\">Jc Digital<\/a>. All Rights Reserved. Powered by <a href=\"#\" title=\"#\">JcThemes<\/a>.<\/p>",
+              "cl_text": "#999999",
+              "cl_link": "#16bcdc",
+              "pos_block": "center",
+              "col": "100%",
+              "mb": 0
+            }
+          }
+        },
+        "block_order": [
+          "ad9550a7-5500-4d01-b37d-9689d518bd43",
+          "bfb74f7d-6e29-40f9-981f-348230c74bf7",
+          "a556a61e-2595-483e-9365-487a9c52b0ca",
+          "024abc77-3ea5-4b33-965b-47f77bcfcc45"
+        ],
+        "settings": {
+          "hidden": false,
+          "full_width": false,
+          "cl_bg": "#1f2024",
+          "cl_border": "#36373a",
+          "pd": "50px,,50px,",
+          "pd_mb": "30px,,30px,"
+        }
+      },
+      "text-runs-popup": {
+        "type": "text-runs-popup",
+        "blocks": {
+          "text_eWDd77": {
+            "type": "text",
+            "settings": {
+              "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "text_nACQfK": {
+            "type": "text",
+            "settings": {
+              "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "text_TqNw6b": {
+            "type": "text",
+            "settings": {
+              "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "text_kCxhyD": {
+            "type": "text",
+            "settings": {
+              "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
+              "url": "",
+              "open_link": "_blank"
+            }
+          },
+          "text_7AjJxA": {
+            "type": "text",
+            "settings": {
+              "text": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1\/month",
+              "url": "",
+              "open_link": "_blank"
+            }
+          }
+        },
+        "block_order": [
+          "text_eWDd77",
+          "text_nACQfK",
+          "text_TqNw6b",
+          "text_kCxhyD",
+          "text_7AjJxA"
+        ],
+        "settings": {
+          "location": "bottom",
+          "hidden": false,
+          "hidden_mobile": false,
+          "width": 630,
+          "healing_speed": 10,
+          "cl_bg": "#b3e359",
+          "cl_text": "#212529"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "13396495102645618393": {
+        "type": "shopify:\/\/apps\/infinite-scroll\/blocks\/app-embed\/a3bc84f2-5d30-48ba-bdd2-bc9edbc709f6",
+        "disabled": false,
+        "settings": {
+          "autoLink": true,
+          "offset": -1,
+          "font_size": 1,
+          "borderSize": 1,
+          "borderRadius": 30,
+          "imageMaxWidth": 100,
+          "circleColor": "#222222",
+          "backgroundButtonLoadmore": "#222222",
+          "borderColor": "#222222",
+          "textLoadmoreColor": "#ffffff",
+          "textLoadingColor": "#121212",
+          "prevMoreButtonText": "",
+          "loadingText": "Loading ...",
+          "loadMoreButtonText": "Load More",
+          "container": "",
+          "item": "",
+          "pagination": "",
+          "custom_css": ""
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "color_text": "#3d4246",
+      "color_body_text": "#788188",
+      "color_sale_text": "#7796A8",
+      "color_borders": "#e8e9eb",
+      "color_button": "#7796A8",
+      "color_button_text": "#fff",
+      "color_small_button": "#fff",
+      "color_small_button_text": "#3d4246",
+      "color_text_field": "#fff",
+      "color_text_field_text": "#000",
+      "color_image_overlay_text": "#fff",
+      "color_image_overlay": "#3d4246",
+      "image_overlay_opacity": "0.25",
+      "color_body_bg": "#fff",
+      "type_header_family": "Google_Work+Sans_600_sans",
+      "type_header_base_size": "26px",
+      "type_base_family": "Google_Work+Sans_400_sans",
+      "type_base_size": "16px",
+      "type_bold_product_titles": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "content_for_index": [
+
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#757575",
+      "color_sale_text": "#ff574f",
+      "color_borders": "#e4e4e4",
+      "color_button": "#ff574f",
+      "color_button_text": "#ffffff",
+      "color_small_button": "#eaeaea",
+      "color_small_button_text": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": "0.3",
+      "color_body_bg": "#f8f8f8",
+      "type_header_family": "Google_Muli_600_sans",
+      "type_header_base_size": "26px",
+      "type_base_family": "Google_Muli_600_sans",
+      "type_base_size": "18px",
+      "type_bold_product_titles": true,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "content_for_index": [
+
+      ]
+    }
+  },
+  "platform_customizations": {
+    "custom_css": [
+
+    ]
+  }
+}

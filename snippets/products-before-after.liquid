@@ -1,0 +1,107 @@
+{%- liquid
+  assign show_reviews = settings.product_collection_show_reviews
+  assign sett_equal = settings.use_eq_height_product
+  assign image_ratio = settings.image_ratio_product
+  if sett_equal 
+   case image_ratio   
+      when 'ratio2_1'
+            assign aspect_ratio = 2.0
+        when 'ratio3_2'
+            assign aspect_ratio = 1.5
+        when 'ratio4_3'
+            assign aspect_ratio = 1.333
+       when 'ratio5_6'
+            assign aspect_ratio = 0.8333
+        when 'ratio1_1'
+            assign aspect_ratio = 1.0
+        when 'ratio6_5'
+            assign aspect_ratio = 1.2
+        when 'ratio3_4'
+            assign aspect_ratio = 0.75
+        when 'ratio2_3'
+            assign aspect_ratio = 0.66667
+        when 'ratio1_2'
+            assign aspect_ratio = 0.5
+        when 'custom'    
+            assign custom_ratio = settings.custom_ratio | split: "/"
+            assign width = custom_ratio[0]
+            assign height = custom_ratio[1] | times: 1.0
+            assign aspect_ratio = width | divided_by: height
+   endcase 
+  endif
+   
+    assign prev = collection.previous_product
+    assign next = collection.next_product
+    assign prev_url = prev.url
+    assign next_url = next.url
+
+    if next == nil
+      assign next = collection.products.first
+      assign next_url = next.url | within: collection
+    endif
+
+    if prev == nil
+      assign prev = collection.products.last
+      assign prev_url = prev.url | within: collection
+    endif
+
+    assign prev_image = prev.featured_media
+    assign next_image = next.featured_media
+   
+-%}
+<div class="alo-prev-next-products sm:d-none md:d-none">
+  <div class="prd-prev-next {{ class }}">
+    {%- if prev -%}
+     
+      <a href="{{ prev_url }}" class="product-pagiation_prev product-pagiation_item" >
+        {%- if prev_image -%}
+          <span class="pagiation_image">
+            {% render 'responsive-image',
+              image: prev_image,
+              aspect_ratio:aspect_ratio,
+              url: url,
+              image_class: 'w-full h-full'
+            %}
+          </span>
+        {%- endif -%}
+        <div class="pagiation__info">
+          <span class="name-product">{{ prev.title }}</span>
+          {%- if show_reviews -%}
+            <!-- Start of Judge.me code --> 
+            <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge'  data-id='{{ prev.id }}'>
+            {{- product.metafields.judgeme.badge -}}
+            </div>  
+            <!-- End of Judge.me code -->  
+            {%- endif -%}
+          <span class="price-product">{{ prev.price | money }}</span>
+        </div>
+      </a>
+    {%- endif -%}
+
+    {%- if next -%}
+      <a href="{{ next_url }}" class="product-pagiation_next product-pagiation_item">
+        <div class="pagiation__info">
+          <span class="name-product">{{ next.title }}</span>
+          {%- if show_reviews -%}
+            <!-- Start of Judge.me code --> 
+            <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge'  data-id='{{ next.id }}'>
+            {{- product.metafields.judgeme.badge -}}
+            </div>  
+            <!-- End of Judge.me code -->  
+            {%- endif -%}
+          <span class="price-product">{{ next.price | money }}</span>
+        </div>
+        {%- if next_image -%}
+          <span class="pagiation_image">
+            {% render 'responsive-image',
+              image: next_image,
+              aspect_ratio:aspect_ratio,
+              url: url,
+              image_class: 'w-full h-full'
+            %}
+          </span>
+        {%- endif -%}
+      </a>
+    {%- endif -%}
+  </div>
+</div>

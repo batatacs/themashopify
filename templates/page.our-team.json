@@ -1,0 +1,186 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "disabled": true,
+      "settings": {
+        "show_title_page": true,
+        "h_position": "center",
+        "v_position": "middle",
+        "txt_align": "center",
+        "bg": "#ffffff",
+        "cl_border": "#ffffff",
+        "b_height": 150,
+        "mg_bottom": 0,
+        "mobile_bg": "#ffffff",
+        "mobile_ht": 120,
+        "mobile_mg_bottom": 0
+      }
+    },
+    "34cc858b-cf4b-4d9d-aaba-853275cc9caa": {
+      "type": "custom-section",
+      "blocks": {
+        "3a7e5f26-9d34-4c6b-a840-6f7447dfc702": {
+          "type": "text",
+          "settings": {
+            "title": "Awesomeness people",
+            "subheading": "Our perfect team",
+            "text": "<p>Commodo sociosqu venenatis cras dolor sagittis integer luctus maecenas.<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "width": "12",
+            "h_position": "center",
+            "v_position": "middle",
+            "txt_align": "center",
+            "mg": ",,80px,",
+            "pd": "",
+            "mg_mb": ",,40px,",
+            "pd_mb": ""
+          }
+        },
+        "f052fa9b-9552-4482-968d-480960e60141": {
+          "type": "image_card",
+          "settings": {
+            "width": "4",
+            "h_position": "left",
+            "v_position": "middle",
+            "txt_align": "left",
+            "use_eq_height": false,
+            "image_ratio": "ratio1_1",
+            "image": "shopify:\/\/shop_images\/1_65038d9a-7f35-4d68-b955-f31fc1f4ff5b.jpg",
+            "link": "#",
+            "title": "Martin Place",
+            "subtitle": "268 St, South New York\/NY 98944, <br>United States\n+222-1800-2628<br>\naloshopify@Jc.com\n<br><br>\nMon - Friday: 9:00am - 6:00pm<br>\nSaturday - Sunday: 10:00am - 5:00pm",
+            "button_label": "See details",
+            "mg": "",
+            "pd": ",,30px,",
+            "mg_mb": "",
+            "pd_mb": ",,30px,"
+          }
+        },
+        "2cb42811-f196-4c15-9289-3338c555f772": {
+          "type": "image_card",
+          "settings": {
+            "width": "4",
+            "h_position": "left",
+            "v_position": "middle",
+            "txt_align": "left",
+            "use_eq_height": false,
+            "image_ratio": "ratio3_2",
+            "image": "shopify:\/\/shop_images\/2.jpg",
+            "link": "#",
+            "title": "Martin Place",
+            "subtitle": "268 St, South New York\/NY 98944, <br>United States\n+222-1800-2628<br>\naloshopify@Jc.com\n<br><br>\nMon - Friday: 9:00am - 6:00pm<br>\nSaturday - Sunday: 10:00am - 5:00pm",
+            "button_label": "See details",
+            "mg": "",
+            "pd": ",,30px,",
+            "mg_mb": "",
+            "pd_mb": ",,30px,"
+          }
+        },
+        "4195d392-6d33-46a6-9fe2-d221f9f0c9f8": {
+          "type": "image_card",
+          "settings": {
+            "width": "4",
+            "h_position": "left",
+            "v_position": "middle",
+            "txt_align": "left",
+            "use_eq_height": false,
+            "image_ratio": "ratio3_2",
+            "image": "shopify:\/\/shop_images\/6_3077088a-1914-4878-81bc-bde6f94fffed.jpg",
+            "link": "#",
+            "title": "Martin Place",
+            "subtitle": "268 St, South New York\/NY 98944, <br>United States\n+222-1800-2628<br>\naloshopify@Jc.com\n<br><br>\nMon - Friday: 9:00am - 6:00pm<br>\nSaturday - Sunday: 10:00am - 5:00pm",
+            "button_label": "See details",
+            "mg": "",
+            "pd": ",,30px,",
+            "mg_mb": "",
+            "pd_mb": ",,30px,"
+          }
+        },
+        "09bcd19c-7278-4453-80a3-1ea45d0bb7d9": {
+          "type": "image_card",
+          "settings": {
+            "width": "4",
+            "h_position": "left",
+            "v_position": "middle",
+            "txt_align": "left",
+            "use_eq_height": false,
+            "image_ratio": "ratio3_2",
+            "image": "shopify:\/\/shop_images\/4_6e75904c-20ff-41ac-9d5a-2b7580f57ff5.jpg",
+            "link": "#",
+            "title": "South Fulon",
+            "subtitle": "268 St, South New York\/NY 98944, <br>United States\n+222-1800-2628<br>\naloshopify@Jc.com\n<br><br>\nMon - Friday: 9:00am - 6:00pm<br>\nSaturday - Sunday: 10:00am - 5:00pm",
+            "button_label": "See details",
+            "mg": "",
+            "pd": ",,30px,",
+            "mg_mb": "",
+            "pd_mb": ",,30px,"
+          }
+        },
+        "540afb21-4cd0-407b-85af-a9bc7ab799bf": {
+          "type": "image_card",
+          "settings": {
+            "width": "4",
+            "h_position": "left",
+            "v_position": "middle",
+            "txt_align": "left",
+            "use_eq_height": false,
+            "image_ratio": "ratio3_2",
+            "image": "shopify:\/\/shop_images\/3.jpg",
+            "link": "#",
+            "title": "Martin Place",
+            "subtitle": "268 St, South New York\/NY 98944, <br>United States\n+222-1800-2628<br>\naloshopify@Jc.com\n<br><br>\nMon - Friday: 9:00am - 6:00pm<br>\nSaturday - Sunday: 10:00am - 5:00pm",
+            "button_label": "See details",
+            "mg": "",
+            "pd": ",,30px,",
+            "mg_mb": "",
+            "pd_mb": ",,30px,"
+          }
+        },
+        "f9232f36-8f6b-4438-a8bf-ad66cdf93845": {
+          "type": "image_card",
+          "settings": {
+            "width": "4",
+            "h_position": "left",
+            "v_position": "middle",
+            "txt_align": "left",
+            "use_eq_height": false,
+            "image_ratio": "ratio3_2",
+            "image": "shopify:\/\/shop_images\/1_65038d9a-7f35-4d68-b955-f31fc1f4ff5b.jpg",
+            "link": "#",
+            "title": "Martin Place",
+            "subtitle": "268 St, South New York\/NY 98944, <br>United States\n+222-1800-2628<br>\naloshopify@Jc.com\n<br><br>\nMon - Friday: 9:00am - 6:00pm<br>\nSaturday - Sunday: 10:00am - 5:00pm",
+            "button_label": "See details",
+            "mg": "",
+            "pd": ",,30px,",
+            "mg_mb": "",
+            "pd_mb": ",,30px,"
+          }
+        }
+      },
+      "block_order": [
+        "3a7e5f26-9d34-4c6b-a840-6f7447dfc702",
+        "f052fa9b-9552-4482-968d-480960e60141",
+        "2cb42811-f196-4c15-9289-3338c555f772",
+        "4195d392-6d33-46a6-9fe2-d221f9f0c9f8",
+        "09bcd19c-7278-4453-80a3-1ea45d0bb7d9",
+        "540afb21-4cd0-407b-85af-a9bc7ab799bf",
+        "f9232f36-8f6b-4438-a8bf-ad66cdf93845"
+      ],
+      "settings": {
+        "border": 15,
+        "layout": "container",
+        "cl_bg": "#ffffff",
+        "mg": "",
+        "pd": "20px,,80px,",
+        "mg_mb": "",
+        "pd_mb": "20px,,40px,"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "34cc858b-cf4b-4d9d-aaba-853275cc9caa"
+  ]
+}

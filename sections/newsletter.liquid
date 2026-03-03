@@ -1,0 +1,273 @@
+{% liquid
+  assign sid = section.id 
+%}
+  <section id="laber_{{sid}}" class="{{ section.settings.design }}"> 
+    <div class=" {%if section.settings.layout != 'full-width' %}container {%else%} {{section.settings.layout}}{%endif%} text_{{ section.settings.position }}">
+
+      <aside class="laber_mail">
+        {% if section.settings.title  %}
+  		<div class="wrap_title {{ section.settings.text_size }}">
+          {% if section.settings.subtitle != blank %}<div class="h3 section-subtitle alo-text-transform alo-color" style="--alo-color:{{ section.settings.cl_subtitle }};--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.subtitle}}</div>{% endif %}    
+  		  <h3 class="section-title alo-text-transform alo-color" style="--alo-color:{{ section.settings.cl_title }};--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</h3>  
+          {% if section.settings.content!= blank %}
+            <div class="content alo-color" style="--alo-color:{{ section.settings.cl_content }};">{{section.settings.content}}</div>
+          {% endif %}	
+        </div>
+        {% endif %}
+          <div class="newsletter">                                   	
+            {%- form 'customer', class:'newsletter-form-footer' -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="mc4wp-form-fields">
+              <div class="signup-newsletter-form  {{class}}">
+                <div class="col pd-0">
+                  <div class="i-email">
+                    <input type="email" name="contact[email]" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"  value="{% if customer %}{{ customer.email }}{% endif %}" class="{{class_ip}} input-text alo-border-color" required="required" style="--alo-border-color:{{ section.settings.cl_border }};">
+                  </div>
+                </div>
+                 <div class="col-auto pd-0">
+                  <button type="submit" class="submit-btn truncate{% if settings.checkbox_mail %} mail_agree pr{% endif %}" aria-label="submit">
+                      <span>{{ 'general.newsletter_form.submit' | t }} </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            {%- if form.posted_successfully? -%}
+              <div class="mc4wp-response">  
+                <div class="shopify-message"><i class="las la-check"></i>{{ 'general.newsletter_form.confirmation' | t }}</div>
+              </div>
+            {%- elsif form.errors -%}
+              <div class="mc4wp-response"> 
+                <div class="shopify-error"><i class="las la-exclamation-triangle"></i>{{ form.errors | default_errors }}</div>
+              </div>
+            {%- endif -%}
+            
+            {%- endform -%}								
+           </div> 	
+      </aside>
+    </div>
+</section>
+{%style%}
+
+@media (min-width: 1024px){
+
+  #laber_{{sid}} .laber_mail{
+    width: {{section.settings.width_c}}%;
+  }
+  
+}
+{%endstyle%}
+{%- render 'section_style' -%}
+
+{%- schema -%}
+  {
+    "name": "Newsletter",
+    "class": "laber-newsletter",
+    "settings": [ 
+
+      {
+        "type": "header",
+        "content": "== Setting"
+      },
+	  {  
+      "type": "range",  
+      "id": "width_c",  
+      "label": "Width container",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "default": 100 
+      },
+      {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "join our newsletter"
+      },
+      {
+      "type": "color",
+      "id": "cl_title",
+      "label": "Color title",
+      "default": "#fff"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Heading",
+        "default": "OUR NEWSLETTER"
+      },
+      {
+      "type": "color",
+      "id": "cl_subtitle",
+      "label": "Color sub title",
+      "default": "#fff"
+      },
+	  {
+        "type": "textarea",
+        "id": "content",
+        "label": "Content",
+        "default": "Subscribe to the Gosto mailing list to receive updates on new arrivals <br> & other discount information."
+      },
+      {
+      "type": "color",
+      "id": "cl_content",
+      "label": "Color content",
+      "default": "#fff"
+      },
+      {
+      "type": "select",
+      "id": "text_size",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "small"
+       },
+       {
+          "value": "medium",
+          "label": "Medium"
+       },
+       {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "label": "Text size"
+    },
+    {
+            "type": "select",
+            "id": "text_transform",
+            "default": "none",
+            "options": [
+             {
+                "value": "none",
+                "label": "None"
+             },
+             {
+                "value": "capitalize",
+                "label": "Capitalize"
+             },
+             {
+                "value": "lowercase",
+                "label": "Lowercase"
+             },
+             {
+                "value": "uppercase",
+                "label": "Uppercase"
+              }
+            ],
+            "label": "Text transform:"
+          },
+      {
+        "type": "select",
+        "id": "position",
+        "options": [
+         {
+            "value": "left",
+            "label": "Left"
+         },
+         {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ],
+        "label": "Position"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+         {
+            "value": "container",
+            "label": "Container"
+         },
+         {
+            "value": "full-width",
+            "label": "Full Width"
+          }
+        ],
+        "label": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "design",
+        "options": [
+         {
+            "value": "design-1",
+            "label": "Design 1"
+         },
+         {
+            "value": "design-2",
+            "label": "Design 2"
+          },
+          {
+            "value": "design-3",
+            "label": "Design 3"
+          }
+        ],
+        "label": "Design"
+      },
+      {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image",			
+      "info": "1920px x 400px .jpg recommended"
+      },
+      {
+      "type": "color",
+      "id": "cl_bg",
+      "label": "Background color",
+      "default": "#fff"
+      },
+      {
+      "type": "color",
+      "id": "cl_border",
+      "label": "Border color (input)",
+      "default": "#fff"
+      },
+      {
+        "type": "text",
+        "id": "mg",
+        "label": "Margin",
+        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank",
+        "default": "30px,,,",
+        "placeholder": "30px,,30px,"
+      },
+      {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank",
+        "placeholder": "30px,,30px,"
+      },
+     {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "text",
+        "id": "mg_mb",
+        "label": "Margin",
+        "placeholder": "30px,,30px,"
+      },
+      {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding",
+        "placeholder": "30px,,30px,"
+      }  
+     
+    ],    
+    "presets": [
+      {
+        "name": "Newsletter",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

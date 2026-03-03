@@ -1,0 +1,40 @@
+<script>
+  (function(){if(typeof EventTarget!=="undefined"){let func=EventTarget.prototype.addEventListener;EventTarget.prototype.addEventListener=function(type,fn,capture){this.func=func;if(typeof capture!=="boolean"){capture=capture||{};capture.passive=!1}
+  this.func(type,fn,capture)}}}())
+</script>
+<script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+<script src="{{ 'shopify.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'elements.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'jquery.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'jquery.slick.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'grid-slider.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-options.js' | asset_url }}" defer="defer"></script>
+{%- if request.design_mode %}<script src="{{ 'admin_setting.js' | asset_url }}" defer="defer"></script>{% endif -%}
+<script
+  src="{{ 'vendor.js' | asset_url }}"
+  id="cms_js"
+  defer="defer"
+  data-global="{{"global.js" | asset_url  }}"
+  data-product-model="{{"product-model.js" | asset_url  }}"
+  data-lazysizes="{{"lazysizes.min.js" | asset_url  }}"
+  data-nouislider="{{"nouislider.min.js" | asset_url  }}"
+  data-nouislider-style="{{"nouislider.min.css" | asset_url  }}"
+  data-jquery="{{"jquery.min.js" | asset_url  }}"
+  data-collection="{{"jquery.collection.js" | asset_url  }}"
+  data-product="{{"jquery.product.js" | asset_url  }}"
+  data-slick="{{"jquery.slick.min.js" | asset_url  }}"
+  data-cookie="{{"jquery.cookie.js" | asset_url  }}"
+  data-countdown="{{"jquery.countdown.min.js" | asset_url  }}"
+  data-fotorama="{{"jquery.plugin.fotorama.min.js" | asset_url  }}"
+  data-ez="{{"jquery.ez-plus.min.js" | asset_url  }}"
+  data-main="{{"jquery.interact-function.js" | asset_url  }}"
+  data-accordion="{{"magicaccordion.js" | asset_url  }}"
+  data-stickybar="{{"jquery.sticky-sidebar.js" | asset_url  }}"
+  data-magnific="{{"jquery.magnific-popup.min.js" | asset_url  }}"
+  data-gridslider="{{"grid-slider.js" | asset_url  }}"
+  data-waypoints="{{"waypoints.js" | asset_url  }}"
+  data-counterup="{{"counterup.min.js" | asset_url  }}"
+  data-wow="{{"wow.min.js" | asset_url  }}"
+  data-custom="{{"jquery.custom.js" | asset_url  }}"
+></script>

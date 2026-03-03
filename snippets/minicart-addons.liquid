@@ -1,0 +1,111 @@
+<div class="alo_cart-addons">
+      {% if settings.show_note %}
+       <div data-id="note" class="mini_cart_note alo_tooltip">
+        <button type="button" data-open="note" class="mini_cart_addon_btn note">
+          {% render 'icon_note' %}
+          <span class="alo_tooltip-content">{{'cart.general.order_note_title' | t}}</span>
+        </button>
+      </div>
+      {% endif %}
+      {% if settings.show_gift %}
+      <div data-id="gift" class="mini_cart_gift alo_tooltip">
+        <button type="button" data-open="gift" class="mini_cart_addon_btn gift">
+          {% render 'icon_gift' %}
+          <span class="alo_tooltip-content">{{'cart.general.add_gift' | t}}</span>
+        </button>
+      </div>
+      {% endif %}
+      {% if settings.show_estimate %}  
+      <div data-id="shipping" class="mini_cart_shipping alo_tooltip">
+        <button type="button" data-open="shipping" class="mini_cart_addon_btn shipping">
+         {% render 'icon_shipping' %}
+          <span class="alo_tooltip-content">{{'cart.general.estimate' | t}}</span>
+        </button>
+      </div>
+      {% endif %}
+      {% if settings.show_coupon %}
+      <div data-id="coupon" class="mini_cart_coupon alo_tooltip">
+        <button type="button" data-open="coupon" class="mini_cart_addon_btn coupon">
+          {% render 'icon_coupon' %}
+          <span class="alo_tooltip-content">{{'cart.general.coupon' | t}}</span>
+        </button>
+      </div>
+     {% endif %}
+</div>
+{% if settings.show_note %}  
+<div class="alo_addon" id="addon_note">
+  <div class="alo_addon-title">
+  {% render 'icon_note' %}
+  <span>{{'cart.general.order_note_title' | t}}</span>
+  </div>
+  <div class="alo_addon-content">
+  <div class="add-order-note">
+  <textarea name="note" id="CartSpecialInstructions" class="cart-note__input" placeholder="{{'cart.general.order_note_text'| t}}">{{ cart.note }}</textarea>
+  </div>
+  </div>
+  <div class="alo_addon-actions">
+  <button type="button" class="btn-save" data-action="note">{{'cart.general.save' | t}}</button>
+  <button type="button" class="btn-cancel btn-secondary">{{'cart.general.cancel' | t}}</button>
+  </div>
+</div>
+{% endif %}
+{% if settings.show_gift %}  
+<div class="alo_addon" id="addon_gift">
+  <div class="alo_addon-content">
+  <div class="add-order-gift">
+      {% render 'icon_gift' %}
+      {%- assign product = all_products[settings.product_gift] %}
+      {%- assign price = product.price | money %}
+      {% if product != blank %}
+      <p>{{'cart.general.gift_wrap_html' | t : money: price}}</p>
+      {% endif %}
+  </div>
+  </div>
+  <div class="alo_addon-actions">
+        {% if product != blank %}
+          <a href="{{ product.url }}" data-pid="{{ product.variants.first.id }}" class="js_add_to_cart_button alo_add-giftwrap btn w-full">
+            <div class="laber-loading">
+                  <div class="circle-loadding"><span></span></div>
+              </div>
+            <span>{{ 'cart.general.add_gift_wrap' | t }}</span> 
+          </a>
+        {% endif %}
+  <button type="button" class="btn-cancel btn-secondary">{{'cart.general.cancel' | t}}</button>
+  </div>
+</div>
+{% endif %}
+{% if settings.show_estimate %}  
+<div class="alo_addon" id="addon_shipping">
+    <div class="alo_addon-title">
+  {% render 'icon_shipping' %}
+  <span>{{ 'cart.shipping_rates.title' | t }}</span>
+  </div>
+  <div class="alo_addon-content">
+  <div class="add-order-shipping">
+    {% render 'shipping-calculator' %}
+  </div>
+  </div>
+  <div class="alo_addon-actions">
+  <button type="button" class="btn-cancel btn-secondary">{{'cart.general.cancel' | t}}</button>
+  </div>
+</div>
+{% endif %}
+{% if settings.show_coupon %}  
+<div class="alo_addon" id="addon_coupon">
+  <div class="alo_addon-title">
+  {% render 'icon_coupon' %}
+  <span>{{'cart.general.add_coupon' | t}}</span>
+  </div>
+  <div class="alo_addon-content">
+  <div class="add-order-coupon">
+   <p>{{'cart.general.info_coupon' | t}}</p> 
+  <input type="text" name="discount" id="couponcode" value="" placeholder="{{'cart.general.placeholder_coupon' | t}}">
+  </div>
+  </div>
+  <div class="alo_addon-actions">
+  <button type="button" class="btn-save" data-action="discount">{{'cart.general.save' | t}}</button>
+  <button type="button" class="btn-cancel btn-secondary">{{'cart.general.cancel' | t}}</button>
+  </div>
+  
+</div>
+{% endif %}

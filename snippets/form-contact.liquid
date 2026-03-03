@@ -1,0 +1,66 @@
+
+<div id="contact-us" data-effect="mfp-move-horizontal" class="mfp-hide mfp-with-anim contact-us-open-popup">
+    <div class="contact-us-popup-wrapper">
+        <div class="contact-us-popup-header">
+            <h5 class="contact-us-popup-title">
+                {{'contact.form.title' | t}}
+            </h5>
+        </div>
+        <div class="compare-color-popup-content">
+                  <div class="contact-form">
+                    {% form 'contact', class:'form-contact', id:'contact-form' %}	
+                        {% if form.posted_successfully? %}
+                        <div class="successForm feedback">
+                          {{ 'contact.form.post_success' | t }}
+                        </div>
+                        {% endif %}
+                        {% if form.errors %}
+                        <div class="errorForm feedback">                
+                          <p>Your contact form has {{ form.errors | size | pluralize: "an error", "a few errors" }}. To submit your form, make the following changes and try again:</p>
+                          {% for field in form.errors %}
+                          <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+                          {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="main-title h3">{{section.settings.right_title_block}}</div>
+                        <div class="content">{{section.settings.content}}</div>
+                        {% assign name_attr = 'contact.form.name' | t | handle %}
+          
+                            <input 
+                              placeholder="{{'contact.form.name' | t}} *" 
+                              class="input-info" 
+                              id="name" 
+                              required 
+                              name="contact[{{ name_attr }}]"  
+                              type="text" 
+                              value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.first_name }}{% endif %}"/>  
+                   
+                
+                            <input 
+                              placeholder="{{ 'contact.form.email' | t }} *" 
+                              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" 
+                              required name="contact[email]" 
+                              class="input-info" 
+                              id="email" type="text"/>
+              
+                          <input required
+                            type="tel" 
+                            id="ContactForm-phone" 
+                            class="input-info" 
+                            autocomplete="tel" 
+                            name="contact[{{ 'contact.form.phone' | t }}]" 
+                            pattern="[0-9\-]*" 
+                            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" 
+                            placeholder="{{ 'contact.form.phone' | t }} *">
+                          <div class="field">
+                            
+                          </div>	
+                        <textarea placeholder="{{'contact.form.message' | t}} *" rows="8" class="input-info input-note" name="contact[body]" required id="message">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+                        <div class="group-button">                
+                          <button class="button submit" type="submit">{{'contact.form.submit'|t}}</button>
+                        </div>
+                    {% endform %}
+                  </div>
+        </div>
+    </div>
+</div>

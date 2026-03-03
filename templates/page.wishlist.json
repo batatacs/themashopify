@@ -1,0 +1,58 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "show_title_page": false,
+        "h_position": "left",
+        "v_position": "middle",
+        "txt_align": "center",
+        "bg": "#f2f2f6",
+        "cl_border": "#fff",
+        "b_height": 50,
+        "mg_bottom": 40,
+        "mobile_bg": "#f2f2f6",
+        "mobile_ht": 30,
+        "mobile_mg_bottom": 20
+      }
+    },
+    "main": {
+      "type": "main-wishlist",
+      "settings": {
+        "title": "Your favourite product",
+        "content": "",
+        "text_size": "small",
+        "text_transform": "capitalize",
+        "visible": 6,
+        "widescreen": 6,
+        "desktop": 5,
+        "laptop": 4,
+        "notebook": 3,
+        "tablet": 3,
+        "landscape": 2,
+        "portrait": 2,
+        "mobile": 1,
+        "padding": 10,
+        "layout": false,
+        "cl_bg": "rgba(0,0,0,0)",
+        "mg": "",
+        "pd": "0,0,100px,0",
+        "mg_mb": "",
+        "pd_mb": "50px,0,50px,0"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main"
+  ]
+}

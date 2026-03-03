@@ -1,0 +1,157 @@
+<!-- customers/login.liquid -->
+{% section 'breadcrumb' %}
+<div class="main-content shop-page login-page">
+  <div class="container">
+    <div class="login-register-form content-form row pr_center ">
+      <div class="note form-success hide" id="ResetSuccess" style="display:none;">
+        {{ 'customer.recover_password.success' | t }}
+      </div>
+      <div class="cms-left col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="switch-form" id="loginForm">
+          {% form 'customer_login', class: 'login' %}
+            {{ form.errors | default_errors }}
+            <div class="login-form">
+              <h3 class="main-title">{{ 'customer.login.log_in' | t }}</h3>
+
+              <div class="box-label">
+                <label>
+                  {{- 'customer.login.email' | t }}
+                  <span>*</span></label
+                >
+                <p>
+                  <input
+                    required
+                    class="input-info {% if form.errors contains 'email' %} input--error{% endif %}"
+                    type="email"
+                    name="customer[email]"
+                    id="CustomerEmail"
+                    autocomplete="email"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    {% if form.errors contains 'form' %}
+                      aria-invalid="true"
+                    {% endif %}
+                    placeholder="{{ 'customer.login.email' | t }}"
+                  >
+                </p>
+              </div>
+              {% if form.password_needed %}
+                <div class="box-label">
+                  <label>
+                    {{- 'customer.login.password' | t }}
+                    <span>*</span></label
+                  >
+                  <p>
+                    <input
+                      required
+                      class="input-info {% if form.errors contains 'password' %} input--error{% endif %}"
+                      type="password"
+                      value=""
+                      name="customer[password]"
+                      id="CustomerPassword"
+                      autocomplete="current-password"
+                      {% if form.errors contains 'form' %}
+                        aria-invalid="true"
+                      {% endif %}
+                      placeholder="{{ 'customer.login.password' | t }}"
+                    >
+                  </p>
+                </div>
+              {% endif %}
+
+              <div class="label-text check">
+                {% if form.password_needed %}
+                  <a href="#recoverPassword" class="switch-button recoverPassword forgot">
+                    {{- 'customer.login.forgot_password' | t -}}
+                  </a>
+                {% endif %}
+              </div>
+              <div class="group-button">
+                <input type="submit" class="btn button submit" name="login" value="{{ 'customer.login.sign_in' | t }}">
+              </div>
+              <div class="register_submit">
+                <a href="{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}/account/register">
+                  {{ 'customer.register.submit' | t }}
+                </a>
+              </div>
+            </div>
+          {% endform %}
+        </div>
+
+        <div id="recoverPassword" class="switch-form hidden">
+          <h3 class="main-title">{{ 'customer.recover_password.title' | t }}</h3>
+          <p class="subtext">{{ 'customer.recover_password.subtext' | t }}</p>
+
+          <div class="form-vertical">
+            {% form 'recover_customer_password' %}
+              {{ form.errors | default_errors }}
+
+              {% comment %}
+                Add a hidden span to indicate the form was submitted succesfully.
+              {% endcomment %}
+              {% if form.posted_successfully? %}
+                <span class="hide reset-password-success"></span>
+              {% endif %}
+              <div class="box-label">
+                <label>
+                  {{- 'customer.recover_password.email' | t -}}
+                  <span class="required">*</span></label
+                >
+                <p>
+                  <input
+                    type="email"
+                    value=""
+                    name="email"
+                    placeholder="{{'customer.recover_password.placeholder' | t}}"
+                    id="RecoverEmail"
+                    class="input-info"
+                    required
+                  >
+                </p>
+              </div>
+
+              <div class="group-button">
+                <input type="submit" class="btn button submit" value="{{ 'customer.recover_password.submit' | t }}">
+              </div>
+              <a href="#loginForm" class="loginForm switch-button" class="button submit">
+                {{- 'customer.recover_password.cancel' | t -}}
+              </a>
+            {% endform %}
+          </div>
+        </div>
+
+        {% comment %}
+          If accounts are set as optional, the following will be shown as an option
+          during checkout, not on the default /login page.
+        {% endcomment %}
+        {% if shop.checkout.guest_login %}
+          <div class="text-center">
+            <hr class="hr--invisible">
+            <h2>{{ 'customer.login.guest_title' | t }}</h2>
+
+            {% form 'guest_login' %}
+              <input type="submit" class="submit button" value="{{ 'customer.login.guest_continue' | t }}">
+            {% endform %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    var hashId = window.location.hash;
+    if(hashId){
+      document.querySelector('.switch-form').classList.add('hidden');
+      document.querySelector(hashId).classList.remove('hidden');
+    }
+    document.querySelectorAll('.switch-button').forEach(button => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector('.switch-form').classList.add('hidden');
+        document.querySelector(e.target.getAttribute('href')).classList.remove('hidden');
+      });
+    });
+  });
+</script>

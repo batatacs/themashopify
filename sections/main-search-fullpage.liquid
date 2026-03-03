@@ -1,0 +1,470 @@
+{{ 'style.collection_page.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+  {{ 'base.css' | asset_url | stylesheet_tag }} 
+  {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign arr_terms = search.terms |split:'product_type:'
+  assign search_terms = arr_terms[0] | strip 
+  assign search_terms_filter = search_terms |split:'*'
+  assign search_terms = search_terms_filter[0] | strip 
+  assign product_type = arr_terms[1] | strip
+-%}
+{% assign sett_equal = settings.use_eq_height %}
+{% assign image_ratio = settings.image_ratio %}
+{% assign sid = section.id  %}
+<section id="laber_{{sid}}">
+{% assign type="" %}
+
+{% for item in search.results %}
+    {% if item.object_type == 'article' %}
+        {% assign type="article" %}
+        {% break %}
+    {% elsif item.object_type == 'page' %}
+        <!--
+        'item' is a page.
+        All page object properties can be accessed.
+        -->
+        {% assign type="page" %}
+        {% break %}
+    {% elsif item.object_type == 'product' %}
+        <!--
+        'item' is a product.
+        All product object properties can be accessed.
+        -->
+        {% assign type="product" %}
+        {% break %}
+  {% else %}
+    {% assign type="" %}
+    {% break %}
+    {% endif %}
+{% endfor %}
+<div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
+{% if type == "product" %}
+      <div class="main-container shop-page">
+          {% if search.results_count == 0 or search.performed == false %}
+            <div class="container empty-page-content text-center">
+              <h1 class="h2">{{ 'general.search.title' | t }}</h1>
+          {% else %}
+              <div class="container section-header text-center">
+              <h1 class="section-title h2">{{ 'general.search.results_with_count' | t: terms: search_terms, count: search.results_count }}</h1>
+          {% endif %}
+          {% if search.performed and search.results_count == 0 %}
+            <hr class="hr--small hr--invisible">
+            <p>{{ 'general.search.no_results_html' | t: terms: search_terms }}</p>
+          {% endif %}
+        </div>
+      </div>
+      {% if search.performed %}
+        <div class=" main-content-grid js_container_cat">
+          <div class="container wrap-main-collection">
+            <div class="row">
+              <div class="mobile-content col">
+      {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' and search.filters != empty -%}
+      <facet-filters-form class="facets facets-vertical-sort page-width small-hide no-js-hidden">
+        <form class="facets-vertical-form" id="FacetSortForm">
+          <div class="facet-filters sorting caption">
+            <div class="facet-filters__field">
+              <h2 class="facet-filters__label caption-large text-body">
+                <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
+              </h2>
+              <div class="select">
+                {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
+                <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
+                  {%- for option in search.sort_options -%}
+                    <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+                  {%- endfor -%}
+                </select>
+                {% render 'icon-caret' %}
+              </div>
+            </div>
+            <noscript>
+              <button type="submit" class="facets__button-no-js button button--secondary">{{ 'products.facets.sort_button' | t }}</button>
+            </noscript>
+          </div>
+
+          <div class="product-count-vertical light" role="status">
+            <h2 class="product-count__text text-body">
+              <span id="ProductCountDesktop">
+                {%- if search.results_count -%}
+                  {{ 'templates.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+                {%- elsif search.products_count == search.all_products_count -%}
+                  {{ 'products.facets.product_count_simple' | t: count: search.products_count }}
+                {%- else -%}
+                  {{ 'products.facets.product_count' | t: product_count: search.products_count, count: search.all_products_count }}
+                {%- endif -%}
+              </span>
+            </h2>
+            <div class="loading-overlay__spinner">
+              <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+              </svg>
+            </div>
+          </div>
+        </form>
+      </facet-filters-form>
+    {%- endif -%}
+              <div{% if section.settings.filter_type == 'vertical' %} class="facets-vertical page-width"{% endif %}>
+                {%- if search.filters != empty -%}
+                  {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+                    <aside aria-labelledby="verticalTitle" class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}" id="main-search-filters" data-id="{{ section.id }}">
+                      {% render 'facets', results: search, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, filter_type: section.settings.filter_type %}
+                    </aside>
+                  {%- endif -%}
+                {%- endif -%}
+                <div class="js_products_arrivals products-arrivals grid-style" id="ProductGridContainer">
+                {%- if search.results.size == 0 and search.filters != empty -%}
+                  <div class="template-search__results collection collection--empty{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}" id="product-grid" data-id="{{ section.id }}">
+                    <div class="loading-overlay gradient"></div>
+                    <div class="title-wrapper center">
+                      <h2 class="title title--primary">
+                        {{ 'sections.collection_template.empty' | t }}<br>
+                        {{ 'sections.collection_template.use_fewer_filters_html' | t: link: search_url, class: "underlined-link link" }}
+                      </h2>
+                    </div>
+                  </div>
+                {%- else -%}
+                    {% paginate search.results by section.settings.pagination_limit %}
+                    <div id="primary" class="js_categories_content" >
+                      <div class="top-control box-has-content"> 
+                        <div class="control"> 
+                          {% if paginate.pages > 1 %}
+                          {% assign val_1 = paginate.current_offset%}
+                          {% assign val_2 = val_1 | plus: paginate.page_size %}
+                          {% if val_2 > paginate.items %}
+                          {% assign val_2 = paginate.items %}
+                          {% endif %}
+                          <div class="col laber-products-count">
+                            <span class="note products-result-count  align-left">{{'collections.general.showing' | t}} {% if paginate.items >0 %}{{val_1 | plus:1}}{% else %} {{val_1}} {% endif %}&ndash;{{val_2}} of {{paginate.items}} {{'collections.general.results' | t}}</span>
+                          </div>
+                          {% endif %} 
+                          {% include 'collection-views' %}  
+                        </div>
+                      </div>
+                        <div id="collection-product" class="collection">
+                          <div id="product-grid" data-id="{{ section.id }}" class="js_products_holder products product-container pr_center row section-content {%if sett_equal%}{{image_ratio}} {%endif%}" >
+                            {% assign view_mod = "grid" %}
+                            {% for item in search.results %}
+                             {% include 'card-product', product: item %}   
+                            {% endfor %}
+                          </div>
+                      </div>
+                      {%- if paginate.pages > 1 -%}
+                        {% render 'pagination', paginate: paginate, anchor: '' %}
+                      {%- endif -%}
+                      <span class="note products-result-count" style="display:none;">Showing {% if paginate.items >0 %}{{val_1 | plus:1}}{% else %} {{val_1}} {% endif %}&ndash;{{val_2}} of {{paginate.items}}</span>  
+                    </div>
+                    </div>
+                    {% endpaginate %}
+                  {%- endif -%}
+              </div
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  {% endif %}
+
+{% elsif type == 'article' %}
+    {% if search.performed %} 
+        {% paginate search.results by section.settings.pagination_limit %} 
+
+        {% if search.results_count == 0 %}
+            <div class="container">
+              <h1 class="section-title h2">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h1>
+            </div>
+        {% else %}
+            <div class="container section-header text-center">
+              <h1 class="section-title  h2">{{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}</h1>
+            </div>
+            
+            <div class="main-content shop-page main-content-blog main-search-article">
+              <div class="container">                  
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row auto-clear blog-grid">
+                      {% for item in search.results %} 
+                          {% render 'article-card', article: item %}                               
+                      {% endfor %}
+                    </div>
+
+                    {%- if paginate.pages > 1 -%}
+                      {% render 'pagination', paginate: paginate, anchor: '' %}
+                    {%- endif -%}           
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+        {% endif %}
+    {% endpaginate %}
+   {% endif %}
+
+
+  {% elsif type == 'page' %}
+        {% if search.performed %} 
+          {% paginate search.results by section.settings.pagination_limit %} 
+        {% if search.results_count == 0 %}
+                    <div class="container" style="margin-bottom:100px;">
+                      <h1 class="section-title h2">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h1>
+                    </div>
+                {% else %}
+          <div class="container section-header text-left">
+                <h1 class="section-title h2">{{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}</h1>
+          </div>
+                    <div class="main-content shop-page main-content-seach" style="margin-bottom:100px;">
+                      <div class="container">                  
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="row auto-clear">
+                              {% for item in search.results %} 
+                                  <div class="col-ts-12 col-xs-12 col-sm-12 col-md-12">                                    
+                                    <div class="post-info">
+                                      <div class="head">
+                                        <a href="{{ item.url }}" class="post-title">{{ item.title }}</a>                                        
+                                      </div>                                      
+                                    </div>
+                                  </div>                             
+                              {% endfor %}
+                            </div>
+
+                            {%- if paginate.pages > 1 -%}
+                              {% render 'pagination', paginate: paginate, anchor: '' %}
+                            {%- endif -%}  
+
+                          </div>  
+                        </div>
+                      </div>
+                    </div>
+                {% endif %}
+      
+          {% endpaginate %}
+        {% endif %}
+  {% else %}
+        <div class="container" style="margin-bottom:100px;">
+          <h1 class="section-title h2">{{ 'general.search.no_results_html' | t: terms: search_terms }}</h1>
+        </div>
+{% endif %}
+</div>
+</section>
+{% render 'grid-style', settings:section.settings %}
+{%- render 'section_style' -%}
+{% schema %}
+  {
+    "name": "Product search",
+  "class": "product_section",
+    "settings": [ 
+      {
+        "type": "range",
+        "id": "pagination_limit",
+        "min": 1,
+        "max": 48,
+        "step": 1,
+        "unit": "pds",
+        "label": "Max number products",
+        "info": "The number of products I have on a page",
+        "default": 18
+      },
+        {
+        "type": "header",
+        "content": "---- Grid Show Collection ----"
+    },    
+    {  
+        "type": "range",  
+        "id": "visible",  
+        "label": "Columns in Visible",
+        "info": "Item(s) in screen ( Size >= 1920 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 5 
+    },
+    {  
+        "type": "range",  
+        "id": "widescreen",  
+        "label": "Columns in Widescreen",
+        "info": "Item(s) in screen ( 1366 <= Size < 1920 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 4 
+    },  
+    {  
+        "type": "range",  
+        "id": "desktop",  
+        "label": "Columns in Desktop",
+        "info":  "Item(s) in screen ( 1200 <= Size < 1480 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 4  
+    },    
+    {  
+        "type": "range",  
+        "id": "laptop",  
+        "label": "Columns in Laptop",
+        "info": "Item(s) in screen ( 992 <= Size < 1200 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 4
+    },    
+    {  
+        "type": "range",  
+        "id": "notebook",  
+        "label": "Columns in Notebook",
+        "info": "Item(s) in screen ( 768 <= Size < 992 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 3  
+    },  
+    {  
+        "type": "range",  
+        "id": "tablet",  
+        "label": "Columns in Tablet",
+        "info": "Item(s) in screen ( 576 <= Size < 768 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 3 
+    },
+    {  
+        "type": "range",  
+        "id": "landscape",  
+        "label": "Columns in Landscape",
+        "info": "Item(s) in screen ( 480 <= Size < 576 )",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "unit": "col",
+        "default": 2 
+    }, 
+    {  
+        "type": "range",  
+        "id": "portrait",  
+        "label": "Columns in Portrait",
+        "info": "Item(s) in screen ( 360 < Size < 480 )",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "unit": "col",
+        "default": 2 
+    },
+    {  
+        "type": "range",  
+        "id": "mobile",  
+        "label": "Columns in Mobile",
+        "info": "Item(s) in screen ( Size < = 360 )",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "unit": "col",
+        "default": 1 
+    },
+    {
+        "type": "number",
+        "id": "padding_lr",
+        "label": "Padding left & right",
+        "default": 10
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "select",
+      "id": "filter_type",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__1.label"
+        },
+        {
+          "value": "vertical",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__2.label"
+        },
+        {
+          "value": "drawer",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__3.label"
+        }
+      ],
+      "default": "horizontal",
+      "label": "t:sections.main-collection-product-grid.settings.filter_type.label",
+      "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+    "type": "header",
+    "content": "== Setting PC",
+    "info":"Margin"
+    },
+    {
+    "type": "color",
+    "id": "cl_bg",
+    "label": "Background color",
+    "default": "#fff"
+    }, 
+    {
+    "type": "text",
+    "id": "mg",
+    "label": "Margin",
+    "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+    },
+    {
+    "type": "text",
+    "id": "pd",
+    "label": "Padding",
+    "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+    },
+    {
+    "type": "header",
+    "content": "== Design Mobile Options"
+    },
+    {
+    "type": "text",
+    "id": "mg_mb",
+    "label": "Margin"
+    },
+    {
+    "type": "text",
+    "id": "pd_mb",
+    "label": "Padding"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

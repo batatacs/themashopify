@@ -1,0 +1,204 @@
+{% liquid
+  assign sid = section.id 
+  assign layout = section.settings.layout
+  
+  assign border = section.settings.border 
+  assign h_des = section.settings.h_des
+  assign h_tb = section.settings.h_tb
+  assign h_mb = section.settings.h_mb
+  assign sett_equal = section.settings.use_eq_height
+  assign image_ratio = section.settings.image_ratio
+  if sett_equal 
+     case image_ratio   
+        when 'ratio2_1'
+            assign aspect_ratio = 2.0
+        when 'ratio3_2'
+            assign aspect_ratio = 1.5
+        when 'ratio4_3'
+            assign aspect_ratio = 1.333
+        when 'ratio1_1'
+            assign aspect_ratio = 1.0
+        when 'ratio3_4'
+            assign aspect_ratio = 0.75
+        when 'ratio2_3'
+            assign aspect_ratio = 0.66667
+        when 'ratio1_2'
+            assign aspect_ratio = 0.5
+     endcase 
+  endif
+  
+%}
+{%- assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' -%}
+{{ 'image-comparison-slider.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'image-comparison.js' | asset_url }}" defer="defer"></script>
+<section id="laber_{{sid}}">
+<div class="container {%if layout == 'full-width' %}{{layout}}{%endif%}" >   
+  <image-comparison class="img-comp-container" style="--alo-height-pc:{{ h_des }} ; --alo-height-tb:{{ h_tb }}; --alo-height-mb:{{ h_mb }}; --alo-border-radius:{{ border }}px;">
+    <div class="img-comp-img w-full">
+      <span class="button-comparison button-after">{{'sections.image-comparison-slider.after' |t}}</span>
+      {% assign assign image_after = section.settings.image_after %}
+      {%- if image_after != blank -%}
+        {{
+          image_after
+          | image_url: width: 3840
+          | image_tag:
+            loading: 'lazy',
+            width: image.width,
+            height: image_height,
+            class: 'h-full',
+            sizes: sizes,
+            widths: widths
+        }}
+      {%- else -%}
+        {% if aspect_ratio != blank %}
+             {%- assign ratio =  1 | divided_by: aspect_ratio | times: 100 -%}
+          {% else %}
+              {%- assign ratio = 100 -%}
+          {% endif %}
+          <div class="image-card__img overflow-hidden ratio" style="--ratio-percent: {{ ratio }}%;">
+             {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+          </div>
+      {%- endif -%}
+    </div>
+    <div class="img-comp-img  img-comp-overlay">
+      <span class="button-comparison button-before">{{'sections.image-comparison-slider.before' |t}}</span>
+      {% assign assign image_before = section.settings.image_before %}
+      {%- if image_before != blank -%}
+        {{
+          image_before
+          | image_url: width: 3840
+          | image_tag:
+            loading: 'lazy',
+            width: image.width,
+            height: image_height,
+            class: 'h-full',
+            sizes: sizes,
+            widths: widths
+        }}
+      {%- else -%}
+        {% if aspect_ratio != blank %}
+             {%- assign ratio =  1 | divided_by: aspect_ratio | times: 100 -%}
+          {% else %}
+              {%- assign ratio = 100 -%}
+          {% endif %}
+          <div class="image-card__img overflow-hidden ratio" style="--ratio-percent: {{ ratio }}%;">
+             {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+          </div>
+      {%- endif -%}
+    </div>
+  </image-comparison>                        
+</div>
+</section>
+{%- render 'section_style' -%}
+
+
+{%- schema -%}
+  {
+    "name": "Image Comparison Slider",
+    "class": "image_comparison_slider",
+    "settings": [
+              {
+        "type": "text",
+        "id": "h_des",
+        "label": "Desktop Large",
+        "placeholder": "650px",
+        "default": "650px"
+      },
+      {
+        "type": "text",
+        "id": "h_tb",
+        "label": "Tablet (<= 1024px)",
+        "placeholder": "500px",
+        "default": "500px"
+      },
+      {
+        "type": "text",
+        "id": "h_mb",
+        "label": "Mobile (<= 767px)",
+        "placeholder": "450px",
+        "default": "350px"
+      },
+      {  
+        "type": "range",  
+        "id": "border",  
+        "label": "Border",  
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "default": 10
+    },
+        {
+        "type": "image_picker",
+        "id": "image_before",
+        "label": "Image Before"
+        },
+        {
+        "type": "image_picker",
+        "id": "image_after",
+        "label": "Image After"
+        },
+          
+      {
+        "type": "header",
+        "content": "== Design Options"
+      }, 	
+	 
+      {
+        "type": "select",
+        "id": "layout",
+        "default": "container",
+        "options": [
+         {
+            "value": "container",
+            "label": "Container"
+         },
+         {
+            "value": "full-width",
+            "label": "Full Width"
+          }
+        ],
+        "label": "Layout"
+      },
+      {
+        "type": "color",
+        "id": "cl_bg",
+        "label": "Background color",
+        "default": "#fff"
+      },  
+	      {
+        "type": "text",
+        "id": "mg",
+        "label": "Margin",
+        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+      },
+      {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+      },
+      {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "text",
+        "id": "mg_mb",
+        "label": "Margin"
+      },
+      {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding"
+      }
+	
+    ],
+    "presets": [
+      {
+        "name": "Image Comparison Slider",
+        "category": "Images"
+      }
+    ]
+  }
+{% endschema %}

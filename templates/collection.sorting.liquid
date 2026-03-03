@@ -1,0 +1,30 @@
+{% layout none %}
+{%- assign pageUrl = content_for_header | split:'"pageurl":"' | last | split:'"' | first | replace:'\/','/' | prepend: 'https://' | remove: canonical_url | url_decode | replace:'\u0026', '&#38;' | replace:'%20', ' ' -%}
+{%- if pageUrl contains '?' -%}
+    {%- assign params = pageUrl | remove: '?' | split: '&#38;' -%}
+    {%- for param in params -%}
+        {%- assign prop_n_value = param | split: '=' -%}
+        {%- if prop_n_value[0] == 'count_limit' -%}
+            {%- assign count_limit = prop_n_value[1] -%}
+        {%- elsif prop_n_value[0] == 'grid_classes' -%}
+            {%- assign grid_classes = prop_n_value[1] -%}
+		{%- elsif prop_n_value[0] == 'slider' -%}
+			{%- assign slider = prop_n_value[1] -%}
+		{%- elsif prop_n_value[0] == 'first_col_50' -%}
+			{%- assign first_col_50 = prop_n_value[1] -%}
+		{%- elsif prop_n_value[0] == 'column' -%}
+			{%- assign column = prop_n_value[1] -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}
+{%- unless count_limit -%}
+    {%- assign count_limit = 8 -%}
+{%- endunless -%}
+{% capture first_grid %}col-xs-12 col-sm-6 col-md-6 col-lg-6 first-product{% endcapture %}
+{%- capture url_cat -%}{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
+{%- for product in collections[collection.handle].products limit: count_limit -%}
+      {% assign pr_hd = product.handle %}
+      <div data-lazy-product-load  class="product-item productLazyload lazyload product-item"  data-include="{{url_cat}}/products/{{pr_hd}}/?view=pr_lazy_load">
+          {% include 'product-loading' %} 
+      </div>
+{%- endfor -%}

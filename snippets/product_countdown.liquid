@@ -1,0 +1,145 @@
+
+{% include 'product-res-variables' %}    
+{%- assign show_collection = settings.collection_info_show_collections -%}
+{% assign show_title_variant = false %}
+{% assign build_variant = "all" %}
+{% assign show_secondary_image = settings.product_collection_show_secondary_image %}
+{% assign media_aspect_ratio = settings.product_collection_image_ratio %}
+<div class="product-item">
+  <div class="product-collection w-full h-full" data-js-product >
+    {% if block-title %}<h3 class="block-title">{{block-title}}</h3> {% endif %}
+    <script class="data-json-product" type="application/json">{% render 'product-get-attributes', product:product, build_variant: 'json' %}</script> 
+    {% form "product", product, id: null, class: "frm_product_collection", data-js-product-form: '' %}
+  {%- liquid
+    assign ratio = 1
+    if product.featured_media and media_aspect_ratio == 'portrait'
+      assign ratio = 0.8
+    elsif product.featured_media and media_aspect_ratio == 'adapt'
+      assign ratio = product.featured_media.aspect_ratio
+    endif
+    if ratio == 0 or ratio == nil
+      assign ratio = 1
+    endif
+  -%}
+     <input type="hidden" name="id" value="{{ current_variant.id }}" data-js-product-variant-input>   
+    <div class="row">
+      <div class="col-lg-5 col-md-6 col-12">
+        <div class="product-collection__image product-image js-product-images-navigation js-product-images-hovered-end">
+         <div class="card__media"> 
+            <div class="media {% if show_secondary_image %} secondary_image_hover{% endif %}">
+               <a href="{{ product.url | within: collection }}" 
+                class="d-block image_product cursor-default {% if product.featured_media %} ratio{% endif %}" 
+                style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+                data-js-product-image >
+                  {% render 'product-image' with card_product: product show_secondary_image: show_secondary_image %}
+            	</a>
+            </div>
+         </div>
+      
+          {%- if show_label_sale or show_label_new or show_label_hot -%}
+              {%- assign label_present = true -%}
+          {%- else -%}
+              {%- assign label_present = false -%}
+          {%- endif -%}
+            {%- if label_present -%}
+            <div class="product-image__overlay-top-left ">
+              {% include 'product-get-label' with product: product %}
+            </div>
+            {%- endif -%}
+
+          {%- if show_button_quick_view or show_button_add_to_compare -%}
+              <div class="product-image__overlay-bottom">
+                <div class="group-button">
+                  <div class="inner"> 
+                    {% if show_button_add_to_wishlist %}
+                      {% include 'product-get-button-wishlist' %}
+                    {% endif %}
+                    {% if show_button_add_to_compare %}
+                     {% include 'product-get-button-compare' %}
+                    {% endif %}
+                    {% if show_button_quick_view %}
+                    {% include 'product-get-button-quickview'%}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+          {%- endif -%}
+      </div>
+      </div>
+      <div class="content-right col-lg-7 col-md-6 col-12">
+          <div class="product-collection__content style_{{style_product}}">  
+        
+        {% if show_collection %}
+          <div class="product-collection__info">
+            <div class="product-collection__more-info">
+              {%- if product.collections.size > 0 -%}
+              {% render 'product-get-collections' with product: product %}
+              {%- endif -%}   
+            </div>
+          </div>
+        {%endif%}
+          {%- if show_title -%}
+              <div class="product-collection__title">
+                  <h2>
+                      <a href="{{ url }}">{{ title }}</a>
+                  </h2>
+              </div>
+          {%- endif -%}  
+			{%- if show_reviews -%}
+            <!-- Start of Judge.me code --> 
+            <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge'  data-id='{{ product.id }}'>
+            {{- product.metafields.judgeme.badge -}}
+            </div>  
+            <!-- End of Judge.me code -->  
+            {%- endif -%}        
+          <div class="frm-price-color">
+          {%- if show_price -%}
+              <div class="product-collection__price ">
+                  {%- if product.price_varies -%}
+                    <span class="price"><span>{{ product.price_min | money }} – {{ product.price_max | money }}</span></span>
+                  {%- else -%}
+                    {% render 'product-get-price' with price: price compare_at_price: product.compare_at_price %}
+                  {%- endif -%}
+              </div>
+          {%- endif -%}
+        </div>
+        {% if product.metafields.custom.short_description != blank %}
+          <div class="short-description">
+            {{ product.metafields.custom.short_description }}
+          </div>
+        {% endif %}  
+        {{ countdown | strip_newlines | remove:"  "}}
+        {{ stockBar | strip_newlines | remove:"  "}}
+        
+        {% if show_button_add_to_cart %}
+          <div class="button-cart-bottom flex">
+            {% if product.available %}
+             {% if show_quantity_box %}
+              <div data-product-quantity class="js-quantity quantity justify-content-center focus-form">
+                <div class="inner-quantity flex">
+                  <input data-step="1" data-min="1" data-max="{{ product.variants.first.inventory_quantity }}" class="input-text js_qty focus-form-input" type= "text" size="4" title="Qty" value="1" name="quantity">
+                  <p class="qty-btn">
+                      <a class="js_plus" href="#"><i class="icon-chevron-up"></i></a>
+                      <a class="js_minus" href="#"><i class="icon-chevron-down"></i></a>
+                  </p>
+                </div>
+              </div>
+            {% endif %} 
+            <button type="submit" class="add-to-cart js_add_to_cart_button {%if settings.disable_ajax_cart %}page_{{settings.custom_page_cart}}{%endif%}"  data-pid="{{ product.variants.first.id }}" data-js-product-button-add-to-cart>
+                <div class="laber-loading">
+                  <div class="circle-loadding"><span></span></div>
+              </div>
+              <span class="text">{{'products.product.add_to_cart' | t  }}</span>
+            </button>
+            {% else %}
+            <a  class="add-to-cart js-btn-sold-out" onclick="location.href='{{ product.url | within: collection }}'">
+              <span class="text">{{'products.product.sold_out' | t  }}</span></a>
+            {% endif %} 
+          </div>
+        {% endif %} 
+      </div>
+      </div>
+    </div>  
+    {% endform %}
+  </div>
+</div>

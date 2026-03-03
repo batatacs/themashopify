@@ -1,0 +1,28 @@
+  {%- if localization.available_languages.size > 1 -%}
+    
+    <noscript class="small-hide medium-hide ">
+      {%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
+        <div class="localization-form__select">
+          <h2 class="visually-hidden" id="HeaderLanguageMobileLabelNoScript">{{ 'localization.language_label' | t }}</h2>
+          <select class="localization-selector link" name="locale_code" aria-labelledby="HeaderLanguageMobileLabelNoScript">
+            {%- for language in localization.available_languages -%}
+              <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+                {{ language.endonym_name | capitalize }}
+              </option>
+            {%- endfor -%}
+          </select>
+          {% render 'icon-caret' %}
+        </div>
+        <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
+      {%- endform -%}
+    </noscript>
+    <localization-form class="small-hide medium-hide no-js-hidden {{ showFlag }}">
+      {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+        <div>
+          <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+          {%- render 'language-localization', localPosition: 'HeaderLanguage' showFlag:showFlag -%}
+        </div>
+      {%- endform -%}
+    </localization-form>
+
+  {%- endif -%}

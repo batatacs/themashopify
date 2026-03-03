@@ -1,0 +1,202 @@
+{%- layout none -%}
+{% include 'product-res-variables' %}
+{%- assign style_product = settings.content_style_product -%}
+{%- assign show_label_sale = settings.product_collection_show_label_sale -%}
+{%- assign show_label_new =  settings.product_collection_show_label_new -%}
+{%- assign show_label_hot =  settings.product_collection_show_label_hot -%}
+{%- assign image_border_product = settings.image_border_product -%}
+{%- assign show_collection = settings.collection_info_show_collections -%}
+{%- assign show_title = settings.product_collection_show_title -%}
+{%- assign text_transform = settings.product_text_transform_title -%}
+{%- assign show_price = settings.product_collection_show_price -%}
+{%- assign show_availability = settings.product_collection_show_label_in_stock -%}
+{%- assign show_custom_options = true | default: settings.product_show_custom_options -%}
+{%- assign show_options = settings.product_collection_show_options -%}
+{%- assign show_button_add_to_cart = settings.product_collection_show_button_add_to_cart -%}
+{% assign show_quantity_box = settings.product_collection_show_quantity_box %}
+{%- assign show_button_add_to_wishlist = settings.product_collection_show_button_add_to_wishlist -%}
+{%- assign show_button_add_to_compare =  settings.product_collection_show_button_add_to_compare -%}
+{%- assign show_button_quick_view = settings.product_collection_show_button_quick_view -%}
+{%- assign show_reviews = settings.product_collection_show_reviews -%}
+{%- assign hide_reviews_counter = settings.product_collection_hide_reviews_counter -%}
+{% assign show_secondary_image = settings.product_collection_show_secondary_image %}
+
+{%- assign variants_size = product.variants | size -%}
+{% assign show_title_variant = false %}
+{% assign build_variant = "all" %}
+{%- liquid
+ assign sett_equal = settings.use_eq_height_product
+  assign image_ratio = settings.image_ratio_product
+  if sett_equal 
+     case image_ratio   
+        when 'ratio2_1'
+            assign aspect_ratio = 2.0
+        when 'ratio3_2'
+            assign aspect_ratio = 1.5
+        when 'ratio4_3'
+            assign aspect_ratio = 1.333
+        when 'ratio1_1'
+            assign aspect_ratio = 1.0
+        when 'ratio3_4'
+            assign aspect_ratio = 0.75
+        when 'ratio2_3'
+            assign aspect_ratio = 0.66667
+        when 'ratio1_2'
+            assign aspect_ratio = 0.5
+     endcase 
+  endif
+  
+-%}
+{%- capture style -%}
+  {% assign ratio = aspect_ratio | default:product.featured_media.aspect_ratio %}
+  --ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;
+{%- endcapture -%}
+<div class="pin__popup pa">
+  <div class="product-item ">
+      <div class="product-collection"  data-js-product >
+    <script class="data-json-product" type="application/json">{% render 'product-get-attributes', product:product, build_variant: 'json' %}</script> 
+    {% form "product", product, id: null, class: "frm_product_collection", data-js-product-form: '' %}
+      <input type="hidden" name="id" value="{{ current_variant.id }}" data-js-product-variant-input>  
+    <div class="product-collection__image product-image js-product-images-navigation alo-border-radius" style="--alo-border-radius:{{ image_border_product }}px;">
+         <div class="card__media"> 
+            <div class="media {% if show_secondary_image %} secondary_image_hover{% endif %}">
+               <a href="{{ product.url | within: collection }}" 
+                class="d-block image_product cursor-default {% if product.featured_media %} ratio{% endif %}" 
+                style="{{ style }}"
+                data-js-product-image >
+                  {% render 'product-image' with card_product: product show_secondary_image: show_secondary_image %}
+            	</a>
+            </div>
+         </div>
+          {%- if show_label_sale or show_label_new or show_label_hot -%}
+              {%- assign label_present = true -%}
+          {%- else -%}
+              {%- assign label_present = false -%}
+          {%- endif -%}
+            {%- if label_present -%}
+            <div class="product-image__overlay-top-left ">
+              {% include 'product-get-label' with product: product %}
+            </div>
+            {%- endif -%}
+
+          {%- if show_button_add_to_wishlist or show_button_add_to_compare or show_button_quick_view -%}
+              <div class="product-image__overlay-bottom">
+                <div class="group-button">
+                  <div class="inner"> 
+                   {% if show_button_add_to_wishlist %}
+                        {% include 'product-get-button-wishlist' %}
+                    {% endif %}
+                    {% if show_button_add_to_compare %}
+                     {% include 'product-get-button-compare' %}
+                    {% endif %}
+                    {% if show_button_quick_view %}
+                    {% include 'product-get-button-quickview'%}
+                    {% endif %}  
+                  </div>
+                </div>
+              </div>
+          {%- endif -%}
+      {% if show_button_add_to_cart%}
+          <div class="button-cart-bottom">
+          
+          {% if variants_size == 1 %}  
+            <div class="flex alo-gap" style="--alo-gap:5px;">
+            {% if product.available %}
+             {% if show_quantity_box %}
+              <div data-product-quantity class="js-quantity quantity justify-content-center focus-form">
+                <div class="inner-quantity flex">
+                  
+                  <input data-step="1" data-min="1" data-max="{{ product.variants.first.inventory_quantity }}" class="input-text js_qty focus-form-input" type= "text" size="4" title="Qty" value="1" name="quantity">
+                  <p class="qty-btn">
+                      <a class="js_plus" href="#"><i class="icon-chevron-up"></i></a>
+                      <a class="js_minus" href="#"><i class="icon-chevron-down"></i></a>
+                  </p>
+                </div>
+              </div>
+            {% endif %} 
+            <button type="submit" class="add-to-cart js_add_to_cart_button {%if settings.disable_ajax_cart %}page_{{settings.custom_page_cart}}{%endif%} alo-border-radius" style="--alo-border-radius:5px;"  data-pid="{{ product.variants.first.id }}" data-js-product-button-add-to-cart>
+              <div class="laber-loading">
+                  <div class="circle-loadding"><span></span></div>
+              </div>
+              <span class="text">{{'products.product.add_to_cart' | t  }}</span>
+            </button>
+            {% else %}
+            <a  class="add-to-cart js-btn-sold-out alo-border-radius" style="--alo-border-radius:5px;" onclick="location"href='{{ product.url | within: collection }}'">
+              <span class="text">{{'products.product.sold_out' | t  }}</span></a>
+            {% endif %}
+          </div>
+          {% else %}
+            <a href="{{ url }}" data-pid="{{ current_variant_id }}" class="js_select_options select_options alo-border-radius" style="--alo-border-radius:5px;">
+              <div class="laber-loading">
+                <div class="circle-loadding"><span></span></div>
+              </div>
+              <span class="text">{{'products.grid_items.select_options' | t  }}</span>
+            </a>
+          {% endif %} 
+          </div>
+        {% endif %} 
+      </div>
+      <div class="product-collection__content style_{{style_product}}">  
+        
+        {% if show_collection %}
+          <div class="product-collection__info">
+            <div class="product-collection__more-info">
+              {%- if product.collections.size > 0 -%}
+              {% render 'product-get-collections' with product: product %}
+              {%- endif -%}   
+            </div>
+          </div>
+        {%endif%}
+          {%- if show_title -%}
+              <div class="product-collection__title">
+                  <h2>
+                      <a href="{{ url }}" class="alo-text-transform" style="--alo-text-transform:{{ text_transform }}">{{ title }}</a>
+                  </h2>
+              </div>
+          {%- endif -%}  
+			{%- if show_reviews -%}
+            {% include 'reviews-count' %}
+              <div class="product-collection__reviews">
+                {% render 'product-get-review' with id: product.id hide_counter: hide_reviews_counter %}
+              </div>
+            {%- endif -%}        
+          <div class="frm-price-color">
+          {%- if show_price -%}
+              <div class="product-collection__price ">
+                  {%- if product.price_varies -%}
+                    <span class="price"><span>{{ product.price_min | money }} – {{ product.price_max | money }}</span></span>
+                  {%- else -%}
+                    {% render 'product-get-price' with price: price compare_at_price: product.compare_at_price %}
+                  {%- endif -%}
+              </div>
+          {%- endif -%}
+        </div>
+        {%- if show_availability -%}
+          <div class="product-collection__availability">
+            <p class="{% if available %}in_stock{% else %}out_stock{% endif %} {% if quantity < 10 %}small-quantity{% endif %} " data-js-product-availability >
+              {% if available %}
+                
+                <i class="icon-check"></i>
+                {% if quantity < 10 %}
+                    {{ 'products.product.only_left_in_stock_html' | t: count: quantity }}
+                {% else %}  
+                  {{ 'products.product.availability_value_in_stock' | t }} {{ 'products.product.value_in_stock_html' | t: count: quantity }}
+                {% endif %}  
+              {% else %}
+              <i class="icon-check"></i>{{ 'products.product.availability_value_out_stock' | t }}
+              {% endif %}
+            </p>
+          </div>
+          {%- endif -%}
+          
+          {%- if show_options and show_custom_options and variants_size > 1 -%}
+                <div class="product-collection__options">
+                    {% include 'product-get-options' %}
+                </div>
+                {%- assign enable_select_options_button = true -%}
+          {%- endif -%}
+      </div>
+    {% endform %}
+  </div>
+  </div>
+</div>

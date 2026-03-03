@@ -1,0 +1,240 @@
+<!--Footer-->
+{%  assign sid = section.id  %}
+{%- assign full_width = section.settings.full_width -%}
+<footer id="footer" class="wow animate--slide-in" 
+  style="{% if section.settings.bg_img != blank %}background-image:url({{ section.settings.bg_img | img_url:"1920x" }});{% endif %}
+    --alo-background-color:{{ section.settings.cl_bg_footer }};
+    --alo-border-color:{{ section.settings.cl_line }};
+    ">
+<section id="laber_{{sid}}">
+    <div class="main-footer">
+        <div class="{% if full_width %}full-width{% else %}container{% endif %}">
+        	<div class="row">
+          {%- for block in section.blocks -%}
+                  {%-capture Heading -%}  
+                    {%- if block.settings.title != blank -%}
+                       <h3 class="widget-title {{ block.settings.text_size }}">
+                          <span class="txt_title alo-color alo-text-transform" style="--alo-color:{{ block.settings.cl_heading }};--alo-text-transform:{{ block.settings.text_transform }};">{{block.settings.title}}</span>
+                          <span class="icon_mobile alo-color" style="--alo-color:{{ block.settings.cl_heading }};" ><i class="laber-icon-down icon-chevron-down"></i><i class="laber-icon-up icon-chevron-up"></i></span>
+                        </h3>
+                    {% endif %}  
+                  {%-endcapture -%} 
+                  {% case block.settings.col %}
+                        {% when '16%' %}
+                            {%- assign block_width = 'col-lg-2 col-md-2 col-12' -%}
+                        {% when '25%' %}
+                            {%- assign block_width = 'col-lg-3 col-md-3 col-12' -%}
+                        {% when '33%' %}
+                            {%- assign block_width = 'col-lg-4 col-md-4 col-12' -%}
+                        {% when '42%' %}
+                            {%- assign block_width = 'col-lg-5 col-md-5 col-12' -%}
+                        {% when '50%' %}
+                            {%- assign block_width = 'col-lg-6 col-md-6 col-12' -%}
+                        {% when '58%' %}
+                            {%- assign block_width = 'col-lg-7 col-md-7 col-12' -%}
+                        {% when '66%' %}
+                            {%- assign block_width = 'col-lg-8 col-md-8 col-12' -%}
+                        {% when '75%' %}
+                            {%- assign block_width = 'col-lg-9 col-md-9 col-12' -%}
+                        {% when '100%' %}
+                            {%- assign block_width = 'col-12' -%}
+                    {% endcase %}
+                  {%- case block.type -%}
+                  {%- when 'mail' -%} 
+                    
+                  <div class="footer-iteam {{ block_width }} sm:mb-{{ block.settings.sm_mg_b }} mb-{{ block.settings.mg_b }}" {{ block.shopify_attributes }}> 
+                    <aside id="block_{{block.id}}" class="labernewsletter widget widget_text alo-mail" style="--color-btn:{{ block.settings.cl_btn }};">
+                        {{ Heading | strip_newlines | remove:"  "}}
+                        <div class="widget_footer" style="--alo-color-text:{{block.settings.cl_text}};">
+                          {% if block.settings.sub_title %}
+                          <div class="sub-email">
+                            {{block.settings.sub_title}}
+                          </div>
+                          {% endif %}
+                          
+                          <div class="textwidget">
+                            <div class="footer-mail">                                   	
+                              {%- form 'customer', class:'newsletter-form-footer' -%}
+                              <input type="hidden" name="contact[tags]" value="newsletter">
+                              <div class="mc4wp-form-fields">
+                                <div class="signup-newsletter-form  {{class}}">
+                                  <div class="col_email">
+                                  <input type="email" name="contact[email]" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"  value="{% if customer %}{{ customer.email }}{% endif %}" class="{{class_ip}} input-text" required="required"></div>
+                                  <div class="col_btn">
+                                    <button type="submit" class="submit-btn truncate{% if settings.checkbox_mail %} mail_agree pr{% endif %}">
+                                      <span> 
+                                        {{ 'general.newsletter_form.submit' | t }} 
+                                      </span>
+                                    </button>
+                                  </div>
+                                </div>
+                                {%- if settings.checkbox_mail -%}{%- render 'conditions_mail',html:'p',margin:'mt__15',stt_link:settings.link_mail,sid:sid -%}{%- endif -%}
+                              </div>
+                              <div class="mc4wp-response">
+                                {%- if form.posted_successfully? -%}<div class="shopify-message"><i class="las la-check"></i>{{ 'general.newsletter_form.confirmation' | t }}</div>{%- elsif form.errors -%}<div class="shopify-error"><i class="las la-exclamation-triangle"></i>{{ form.errors | default_errors }}</div>{%- endif -%}
+                              </div>
+                              {%- endform -%}								
+                            </div>
+                          </div>
+                          {% if block.settings.sub_title2 %}
+                          <div class="sub-email2">
+                            {{block.settings.sub_title2}}
+                          </div>
+                          {% endif %}
+                          {%if block.settings.use_social%}
+                            {% render 'social_link' %}
+                          {% endif %}
+                        </div>
+                    </aside>
+                  </div>
+                    {% style %}
+                        #block_{{block.id}}.widget_mail .widget_footer .signup-newsletter-form .submit-btn{background: {{ block.settings.cl_sub }};border-color: {{ block.settings.cl_sub }};}
+                        #block_{{block.id}}.widget_mail .widget_footer .signup-newsletter-form .submit-btn:hover{background: {{ block.settings.cl_sub_hover }};border-color: {{ block.settings.cl_sub_hover }};}
+                      {% endstyle %}  
+				  {%- when 'text' -%}
+                          <div class="footer-iteam {{ block_width }}" {{ block.shopify_attributes }}>
+                        <aside id="block_{{block.id}}" class="widget widget_text">
+                             {{ Heading | strip_newlines | remove:"  "}}
+                             <div class="textwidget widget_footer alo-color" style="--alo-color:{{ block.settings.cl_content }};">{{block.settings.content}}</div>
+                          </aside>
+						</div>
+                   {%- when 'contact_information' -%}
+                    
+                        <div class="footer-iteam contact_information {{ block_width }}" {{ block.shopify_attributes }}>
+                        <aside id="block_{{block.id}}" class="widget widget_text">
+                             {{ Heading | strip_newlines | remove:"  "}}
+                             <div class="textwidget widget_footer">
+                               <div class="information">
+                                    {%- if block.settings.text1 -%}<div class="text" style="color:{{ block.settings.cl_text }}">{{ block.settings.text1 }} </div>{%endif%}
+                                   {%- if block.settings.show_phone -%}
+                                 		<a class="phone" href="tel:{{shop.phone}}" style="color:{{ block.settings.cl_phone }}">{{shop.phone}}</a>
+                                   {%endif%}
+                                  {%- if block.settings.text2 -%}<div class="Address" style="color:{{ block.settings.cl_text }}">{{ block.settings.text2 }} </div>{%endif%}
+                                   
+                                   {%- if block.settings.show_email -%}
+                                 		<a href="mailto:{{shop.email}}" style="color:{{ block.settings.cl_text }}" target="_blank">{{shop.email}}</a>
+                                   {%endif%}
+                               </div>	
+                          	 </div>
+                          </aside>
+						</div>
+                   {%- when 'logo-footer' -%}
+                    
+                      <div class="footer-iteam footer-iteam-logo {{ block_width }}" {{ block.shopify_attributes }}>
+                      <aside id="block_{{block.id}}" class="widget widget_text alo-logo-footer">
+                      
+                    {% if block.settings.use_logo_footer %}
+                      <div class="logo-footer">
+                        {% if block.settings.logo_footer != blank %}
+                          <a href="{{ routes.root_url }}" class="site-header__logo-image">
+                          {% capture image_size %}{{ block.settings.logo_max_width | escape }}{% endcapture %}
+                          <img    
+                          loading="lazy"
+                          src="{{ block.settings.logo_footer | img_url: image_size, scale: 2 }}"                      
+                          alt="{{ logo_alt | escape }}"
+                          style="max-width: {{ image_size }}px; width:auto; height:auto;">
+                          </a>
+                        {% else %}
+                          <a class="site-title" href="{{ routes.root_url }}" itemprop="url"><span class="logo-default">{{ shop.name }}</span></a>
+                        {% endif %}
+                     </div>
+                      
+                    {% endif %}
+                    {%- if block.settings.content -%}
+                          <div class="content" style="--alo-color-text:{{ block.settings.text_color }};">{{block.settings.content}}</div>
+                     {%endif%}
+                    </aside>
+                    </div>
+                    
+                  {%- when 'html' -%}
+                    
+                          <div class="footer-iteam {{ block_width }}" {{ block.shopify_attributes }}>
+                            <aside id="block_{{block.id}}" class="widget widget_text ">
+                             {{ Heading | strip_newlines | remove:"  "}}
+                             <div class="textwidget widget_footer">
+                               {%- if block.settings.content != blank-%}
+                               <div class="contentHtml mb-30 alo-color" style="--alo-color:{{ block.settings.cl_content }};">
+                               		{{block.settings.content}}
+                               </div>
+                               {%endif%}
+                               <div class="ao-img mb-30" style="--alo-width:{{ block.settings.width_img }}px;"> 
+                                {% if block.settings.img %}  
+                                  {% render 'responsive-image', image: block.settings.img, image_class: 'w-auto h-full' %}
+                                {%- endif -%}
+                              </div>
+                               {%if block.settings.use_social%}
+                                  {% render 'social_link' %}
+                               {% endif %}
+                              </div>
+                          </aside>
+						</div>
+                       {%- when 'image' -%}
+                          <div class="footer-iteam {{ block_width }}" {{ block.shopify_attributes }}>
+                            <aside id="block_{{block.id}}" class="widget widget_text ">
+                             {{ Heading | strip_newlines | remove:"  "}}
+                             <div class="textwidget widget_footer">
+                                    <div class="image-footer">
+                                    {%- assign image = block.settings.image %}
+                                    {% assign url = block.settings.url -%}
+                                    {%- if image != blank -%}
+                                        {% render 'responsive-image', image: image, aspect_ratio:aspect_ratio, image_class: 'w-full h-full' url:url %}
+                                    {%- else -%}
+                                          {% if aspect_ratio != blank %}
+                                             {%- assign ratio =  1 | divided_by: aspect_ratio | times: 100 -%}
+                                          {% else %}
+                                              {%- assign ratio = 100 -%}
+                                          {% endif %}
+                                          <div class="image-card__img overflow-hidden alo-border-radius ratio" style="--alo-border-radius:{{ border }}px;--ratio-percent: {{ ratio }}%;">
+                                            {% capture current %}{% cycle 1, 2, 3, 4, 5 %}{% endcapture %}
+                                            {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+                                          </div>
+                                    {%- endif -%}
+                                    </div>
+                              </div>
+                          </aside>
+						</div>
+                      {%- when 'instagram' -%}
+                          <div class="footer-iteam {{ block_width }}" {{ block.shopify_attributes }}>
+                            <aside id="block_{{block.id}}" class="widget widget_text ">
+                             {{ Heading | strip_newlines | remove:"  "}}
+                             <div class="textwidget widget_footer">
+                                    <div class="instagram-footer row">
+                                      {% render 'instagram_footer', block: block.settings%}
+                                    </div>
+                              </div>
+                          </aside>
+						</div>
+                    {%- when 'menu' -%}
+                     
+                          <div class="footer-iteam {{ block_width }}" {{ block.shopify_attributes }}>
+                            <aside id="block_{{block.id}}" class="widget widget_nav_menu">
+                             {{ Heading | strip_newlines | remove:"  "}}
+                             <div class="menu_footer widget_footer">
+                              {%- assign menu = block.settings.menu -%}
+                              {%- if menu != blank -%}
+                                <ul class="menu">
+                                  {%- for link in linklists[menu].links -%}
+                                   <li class="menu-item{% if link.active %}active{% endif %}">
+                                     <a class="alo-color alo-color-hover" style="--alo-color:{{ block.settings.cl_link }};--alo-color-hover:{{ block.settings.cl_link_hover }};" href="{{ link.url }}">{{ link.title | split: '[' | first }}
+                                     {% if link.object.all_products_count %}
+                                    	 <span class="n_products">({{ link.object.all_products_count }})</span>
+                                     {%endif%}
+                                     </a>
+                                  	</li>
+                                   {%- endfor -%}
+                                </ul>
+                                {%- else -%}
+                                  You have not selected the footer menu
+                                {%- endif -%}
+                             </div>
+                          </aside>
+                            </div>
+                     
+                  {%- endcase -%}
+              {%- endfor -%}
+        </div>
+        </div>
+      </div>
+</section>
+</footer>      
+<!--/Footer-->

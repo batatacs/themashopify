@@ -1,0 +1,45 @@
+{%- liquid
+  assign on_sale = false
+  if product.compare_at_price_min > product.price_min
+    assign on_sale = true 
+  endif 
+-%}
+<div class="item">  
+  <div class="product-item">
+      <div class="product-image">
+        <a href="{{product.url | within: c}}" class="image_product">
+            {% render 'product-image' with card_product: product show_secondary_image: false %}
+        </a>
+        {%comment%}
+        {%if product.compare_at_price > product.price %}
+        <div class="product-image__overlay-top-left ">
+        {%- if settings.label_sale_style == '1' -%}
+        <span class="label label--sale">{{ on_sale_txt }}</span>
+        {%- else-%}
+        {%- assign save = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | ceil -%}
+        <span class="label label--sale">{{ save_js | replace:'saved_amount',save }}</span>
+        {% endif -%}
+        </div>  
+        {%endif%}
+        {%endcomment%}
+      </div>
+      <div class="product-content">
+        <a class="product-title " href="{{product.url | within: c}}">{{ product.title }}</a>
+        <div class="product-price">
+          
+         {%- if product.price_varies -%}
+           {{ product.price_min | money }}–{{ product.price_max | money }}
+          
+          {%- elsif on_sale -%}
+              <span class="current">{{ product.price | money }}</span>
+              <span class="compare">
+                    {{ product.compare_at_price  | money }}
+              </span> 
+          {%- else -%}
+          {{ product.price | money }}
+          {%- endif -%}
+          
+        </div>
+      </div>
+    </div>
+</div>

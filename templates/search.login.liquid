@@ -1,0 +1,161 @@
+{%- layout none -%}
+<i class="close_popup_ajax icon-x"></i>
+{% unless customer %}
+<div class="mini_cart_header flex al_center">
+  <h3 class="tabtitle title active" data-tabid="tablogin">{{ 'customer.login.sign_in' | t }}</h3>
+  <h3 class="tabtitle title " data-tabid="tabregister">{{'customer.register.register' | t}}</h3>
+</div>
+<div class="wrapper_tabcontent">
+<div id="tablogin" class="customer_login tabcontent active">
+{% form 'customer_login', class:'login login-register-form content-form ' %}        
+        {{ form.errors | default_errors }}
+        <div class="login-form">  
+          {%comment%}<h5 class="note-title">{{'layout.customer.account' | t}}</h5>{%endcomment%}         
+          <div class="label-text">
+            <label>{{'customer.login.email' | t}} <span>*</span></label>
+            <p>
+
+            <input required
+                   class="input-info {% if form.errors contains 'email' %} input--error{% endif %}"	
+                   type="email"
+                   name="customer[email]"
+                   id="CustomerEmail"
+                   autocomplete="email"
+                   autocorrect="off"
+                   autocapitalize="off"
+                   {% if form.errors contains 'form' %}
+                   aria-invalid="true"
+                   {% endif %}
+                   placeholder="{{ 'customer.login.email' | t }}"
+                   >
+            </p>
+          </div>
+          
+            {% if form.password_needed %}      
+          	<div class="label-text">
+            <label>{{'customer.login.password' |t}} <span>*</span></label>
+              <p>
+             <input required
+                    class="input-info {% if form.errors contains 'password' %} input--error{% endif %}"
+                     type="password"
+                     value=""
+                     name="customer[password]"
+                     id="CustomerPassword"
+                     autocomplete="current-password"
+                     {% if form.errors contains 'form' %}
+                     aria-invalid="true"
+                     {% endif %}
+                     placeholder="{{ 'customer.login.password' | t }}"
+                     >
+              </p>
+          </div>
+          {% endif %}
+         <div class="label-text check">
+           	{% if form.password_needed %}
+            	<a href="{{ routes.root_url }}account/login#recoverPassword" id="RecoverPassword" class="forgot">{{ 'customer.login.forgot_password' | t }}</a>
+            {% endif %}
+          </div>
+          <div class="group-button">            
+            <input type="submit" class="btn button submit" name="login" value="{{ 'customer.login.sign_in' | t }}"/>
+          </div>
+          {%comment%}
+          <p class="or"><span>{{'customer.register.or' | t}}</span></p>
+            <h3 class="tabtrigger" data-tabid="tabregister"  >
+              {{'customer.register.submit' | t}}
+            </h3>
+		{%endcomment%}
+        </div>
+{% endform %}
+</div>
+  <div id="tabregister" class="customer_register tabcontent">
+    {% form 'create_customer', class:'register login-register-form content-form' %}
+    {{ form.errors | default_errors }}
+    <div class="register-form">
+      	 <div class="label-text">
+              <label>{{'customer.register.first_name' | t}} <span>*</span></label>    
+              <p>
+              <input required
+                class="required input-info {% if form.errors contains 'first_name' %} input--error{% endif %}"     
+                type="text"
+                name="customer[first_name]"
+                id="RegisterForm-FirstName"
+                {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
+                autocomplete="given-name"
+                placeholder="{{ 'customer.register.first_name' | t }}"
+              >
+              </p>
+          </div>
+          <div class="label-text">
+          <label>{{'customer.register.last_name' |t}} <span>*</span></label>
+            <p> 
+           <input required
+              class="required input-info {% if form.errors contains 'last_name' %} input--error{% endif %}"    
+              type="text"
+              name="customer[last_name]"
+              id="RegisterForm-LastName"
+              {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+              autocomplete="family-name"
+              placeholder="{{ 'customer.register.last_name' | t }}"
+            >
+            </p>
+          </div>	
+          <div class="label-text">
+            <label>{{'customer.register.email' | t}} <span>*</span></label>   
+            <p>
+           <input required
+                   class="required email input-info {% if form.errors contains 'email' %} input--error{% endif %}"
+                   type="email"
+                   name="customer[email]"
+                   id="RegisterForm-email"
+                   {% if form.email %} value="{{ form.email }}"{% endif %}
+                   spellcheck="false"
+                   autocapitalize="off"
+                   autocomplete="email"
+                   aria-required="true"
+                   {% if form.errors contains 'email' %}
+                   aria-invalid="true"
+                   aria-describedby="RegisterForm-email-error"
+                   {% endif %}
+                   placeholder="{{ 'customer.register.email' | t }}"
+                   >
+            </p>
+          
+          </div>
+          
+            <div class="label-text">
+              <label>{{'customer.register.password' | t}} <span>*</span></label> 
+              <p>
+              <input  required
+                     placeholder="{{ 'customer.register.password' | t }}"
+                     type="password" 
+                     name="customer[password]" 
+                     id="CreatePassword"
+                     autocomplete="on" 
+                     class="required password input-info{% if form.errors contains 'password' %} input--error{% endif %}"
+                     >
+              </p>
+            </div>
+            
+          <div class="group-button">            
+            <input type="submit" class="btn button submit" value="{{ 'customer.register.submit' | t }}"/>
+          </div>	
+      {%comment%}
+      <p class="or"><span>{{'customer.register.or' | t}}</span></p>
+      <h3 class="tabtrigger " data-tabid="tablogin">{{ 'customer.login.sign_in' | t }}</h3>
+      {%endcomment%}
+    </div>
+    {% endform %}
+  </div>
+  
+  {%- assign show_contnent = settings.show_policy_terms_of_service_page -%}
+  {%- assign value1 = pages[settings.privacy_policy_page_content].url -%}
+  {%- assign value2 = pages[settings.terms_of_service_content].url -%}
+  {%if show_contnent %}
+  <div class="text">
+    <p>{{ 'customer.login.text_html' | t: value1:value1, value2:value2}}</p>
+  </div>
+  {%endif%}
+</div>
+{% endunless %}
+
+

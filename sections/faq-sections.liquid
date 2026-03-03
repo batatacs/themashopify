@@ -1,0 +1,250 @@
+{% liquid
+  assign sid = section.id 
+%}
+   
+{%- for i in (1..1) -%}
+{%- if section.settings.hidden %}{% break %}{% endif -%}	
+<section id="laber_{{sid}}">
+  <div class="container {% if section.settings.layout == "full-width"%}{{section.settings.layout}}{% endif %}">
+		{% if section.settings.title!= blank %}
+    	<div class="wrap_title style2 {{ section.settings.text_size }}">
+		  {% if section.settings.sub_title!= blank %}
+    		  <span class="section-subtitle h4 alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.sub_title}}</span>
+		  {% endif %}
+          {% if section.settings.title != blank %}
+    		  <h3 class="section-title h3 alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</h3>  
+		  {% endif %}
+          {% if section.settings.content!= blank %}
+    		  <div class="content">{{section.settings.content}}</div>
+		  {% endif %}
+		</div>
+    {% endif %}
+    <div class="content_section">
+    <div class="row">
+      	{%- for block in section.blocks -%}
+            <div class="col-lg-6 col-md-6 col-12">
+              <div id="id_b_{{ block.id }}" class="item-faq">
+                <div class="js-item-faq item">	
+                  {% if block.settings.title != blank %}
+                    <h3 class="heading-title">
+                        <a href="{{block.settings.btn_link}}" target="{{block.settings.open_link}}" title="{{ block.settings.title | escape }}">{{ block.settings.title | escape }}</a>
+                        <span class="faqs-icon">
+                            <i class="icon-plus"></i>
+                        </span>
+                    </h3>
+                  {% endif %}
+     
+                  {% if block.settings.text != blank %}
+                    <div class="content-faq">{{ block.settings.text }}</div>
+                  {% endif %}
+                </div>	
+              </div>
+            </div>
+        {%- endfor -%}
+    </div>
+    </div>
+  </div>
+</section>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+      $(".item-faq:not('.js-init')").each(function(){
+        $(this).addClass('js-init');
+        $(this).find(".heading-title").click(function () {
+          $(this).next("div.content-faq").slideToggle("fast");
+          $(this).closest('.js-item-faq').toggleClass('active');
+        });
+      });
+    });
+  </script>
+{%- endfor -%}
+{%- render 'section_style' -%} 
+{%- schema -%}
+  {
+    "name": "FAQ - section",
+    "class": "cms_section faq-section",
+	"max_blocks": 10,
+    "settings": [
+      {
+      "type": "checkbox",
+      "id": "hidden",
+      "label": "Hidden Section?",
+      "default": false
+      },
+      {
+        "type": "header",
+        "content": "== Title Settings"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Frequently Asked Questions",
+        "default": "Text column with image"
+      },
+      
+      {
+        "type": "text",
+        "id": "sub_title",
+        "label": "Sub title",
+        "default": "Why Choose Us"
+      }, 
+	  {
+        "type": "textarea",
+        "id": "content",
+        "label": "Content",
+        "default": "Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos vel pretium<br> lectus qua. Nunc id cursus metus ididunt ut labore metus episcing."
+      }, 
+      {
+      "type": "select",
+      "id": "text_size",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "small"
+       },
+       {
+          "value": "medium",
+          "label": "Medium"
+       },
+       {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "label": "Text size"
+    },
+    {
+        "type": "select",
+        "id": "text_transform",
+        "default": "none",
+        "options": [
+         {
+            "value": "none",
+            "label": "None"
+         },
+         {
+            "value": "capitalize",
+            "label": "Capitalize"
+         },
+         {
+            "value": "lowercase",
+            "label": "Lowercase"
+         },
+         {
+            "value": "uppercase",
+            "label": "Uppercase"
+          }
+        ],
+        "label": "Text transform:"
+      },
+      {
+        "type": "header",
+        "content": "== Design Options"
+      },
+		{
+        "type": "select",
+        "id": "layout",
+        "options": [
+         {
+            "value": "container",
+            "label": "Container"
+         },
+         {
+            "value": "full-width",
+            "label": "Full Width"
+          }
+        ],
+        "label": "Layout"
+      },
+      {
+      "type": "color",
+      "id": "cl_bg",
+      "label": "Background color",
+      "default": "#fff"
+      },
+      {
+      "type": "text",
+      "id": "mg",
+      "label": "Margin",
+      "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+      },
+      {
+      "type": "text",
+      "id": "pd",
+      "label": "Padding",
+      "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+      },
+      {
+      "type": "header",
+      "content": "== Design Mobile Options"
+      },
+      {
+      "type": "text",
+      "id": "mg_mb",
+      "label": "Margin"
+      },
+      {
+      "type": "text",
+      "id": "pd_mb",
+      "label": "Padding"
+      }
+    ],
+	"blocks": [{
+    "type": "faq",
+    "name": "Faq",
+    "settings": [
+
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Problems sending or receiving messages?"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Curabitur lacinia purus vitae lorem porttitor fermentum. In in mattis erat mattis libero. Donec volutpat faucibus elit cursus interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>"
+        },
+        {
+        "type": "url",
+        "id": "link",
+        "label": "link"
+        }, 
+        {
+        "type": "select",
+        "id": "open_link",
+        "options": [
+        {
+        "value": "_self",
+        "label": "Current window (_self)"
+        },
+        {
+        "value": "_blank",
+        "label": "New window (_blank)"
+        }
+        ],
+        "label": "Open link in",
+        "default": "_blank"
+        }
+
+      ]
+    }],
+    "presets": [
+      {
+        "name": "FAQ - section",
+        "category": "Images",
+		"blocks": [
+          { "type": "faq" },
+          { "type": "faq" },
+          { "type": "faq" },
+          { "type": "faq" },
+          { "type": "faq" },
+          { "type": "faq" },
+          { "type": "faq" },
+          { "type": "faq" }
+        ]
+      }
+    ]
+  }
+{% endschema %}

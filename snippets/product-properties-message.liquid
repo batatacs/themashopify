@@ -1,0 +1,14 @@
+{% assign use_message = product.metafields.custom.use_message %}
+{% if use_message %}
+<div class="field alo-message">
+  {% if block.settings.title != blank %}<div class="title">{{ block.settings.title }}</div>{% endif %}
+  {% if block.settings.content != blank %}<div class="content">{{ block.settings.content }}</div>{% endif %}
+  <textarea
+    id="message"
+    class="text-area field__input"
+    placeholder="{{ 'products.product.message' | t }}"
+    name="properties[Message]"
+    form="product-form-{{ section.id }}"
+  ></textarea>
+</div>
+{% endif %}

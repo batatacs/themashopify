@@ -1,0 +1,39 @@
+{%- liquid
+    assign sort_by = collection.sort_by | default: collection.default_sort_by
+    if collection.url
+        assign results_url = collection.url
+    else
+        assign terms = collection.terms | escape
+        assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+    endif
+-%}
+{% if collection.filters.size > 0 %}
+    <div class="active-facets">
+        {%- for filter in collection.filters -%}
+            {%- for value in filter.active_values -%}
+                <facet-remove>
+                    <a href="{{ value.url_to_remove }}" class="button"><span>
+                    {{ value.label | escape }}</span>
+                    {% render 'icon-close-small' %}
+                    </a>
+                </facet-remove>
+            {%- endfor -%}
+            {% if filter.type == "price_range" %}
+                {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                    <facet-remove>
+                        <a href="{{ filter.url_to_remove }}" class="button">
+                            <span>{%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}&nbsp;-&nbsp;{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}</span>
+                            {% render 'icon-close-small' %}  
+                      </a>
+                    </facet-remove>
+                {%- endif -%}
+            {% endif %}
+        {%- endfor -%}
+        <facet-remove>
+            <a href="{{ results_url }}"
+               class="button"><span>{{ 'products.facets.clear_all' | t }}</span>
+              <i class="icon-trash-2"></i>
+            </a>
+        </facet-remove>
+    </div>
+{% endif %}

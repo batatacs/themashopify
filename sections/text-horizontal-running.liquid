@@ -1,0 +1,156 @@
+{% liquid
+  assign sid = section.id
+%}
+
+{%- for i in (1..1) -%}
+  <section id="laber_{{sid}}">
+    <div class=" {%if section.settings.layout %}full-width{% else %}container{% endif %}">
+      <div class="text-horizontal-running">
+        {%- if section.blocks.size > 0 -%}
+          <p style="--color-text:{{ section.settings.cl_text }};--alo-healing-speed:{{ section.settings.healing_speed }}s;">
+            {%- for block in section.blocks -%}
+              <a
+                href="{{ block.settings.url | default:"https://shopify.pxf.io/q4yPK5" }}"
+                title=" "
+                target="{{ block.settings.open_link }}"
+                aria-label="link"
+              >
+                {% if block.settings.text != blank -%}
+                  <span class="flex">{{ block.settings.text }}</span>
+                {%- endif %}
+              </a>
+            {%- endfor -%}
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+  {%- render 'section_style' -%}
+{%- endfor -%}
+
+{%- schema -%}
+ {
+   "name": "Text horizontal running",
+   "class": "laber_section  type_text_horizontal_running",
+"max_blocks": 30,
+   "settings": [
+     {
+       "type": "header",
+       "content": "== Design Options"
+     },
+     {
+       "type": "range",
+       "id": "healing_speed",
+       "label": "Healing speed",
+       "min": 10,
+       "max": 30,
+       "step": 1,
+       "unit": "s",
+       "default": 10
+     },
+         {
+         "type": "checkbox",
+         "id": "layout",
+         "label": "Full Width",
+         "default": false
+         },
+     {
+       "type": "color",
+       "id": "cl_bg",
+       "label": "Background color",
+       "default": "#263c97"
+     },
+     {
+       "type": "color",
+       "id": "cl_text",
+       "label": "Color text",
+       "default": "#fff"
+     },
+  {
+       "type": "header",
+       "content": "== Margin",
+	"info":"Margin top, margin bottom. If you not use to blank"
+     },
+     {
+       "type": "text",
+       "id": "mg",
+       "label": "Margin",
+       "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+     },
+     {
+       "type": "text",
+       "id": "pd",
+       "label": "Padding",
+       "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+     },
+    {
+       "type": "header",
+       "content": "== Design Mobile Options"
+     },
+     {
+       "type": "text",
+       "id": "mg_mb",
+       "label": "Margin"
+     },
+     {
+       "type": "text",
+       "id": "pd_mb",
+       "label": "Padding"
+     }
+   ],
+"blocks": [
+   {
+   "type": "text",
+   "name": "Text",
+   "settings": [
+       {
+         "type": "textarea",
+         "id": "text",
+         "label": "Text",
+         "default": "Special offer: enjoy 3 months of shopify for $1/month"
+       },
+      {
+       "label": "Link to (Optional)",
+       "id": "url",
+       "type": "url"
+     },
+     {
+       "type": "select",
+       "id": "open_link",
+       "options": [
+         {
+           "value": "_self",
+           "label": "Current window (_self)"
+         },
+        {
+           "value": "_blank",
+           "label": "New window (_blank)"
+         }
+       ],
+       "label": "Open link in",
+       "default": "_blank"
+     }
+     ]
+   }],
+   "presets": [
+     {
+       "name": "Text horizontal running",
+       "category": "Text",
+	"blocks": [
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" },
+         { "type": "text" }
+       ]
+     }
+   ]
+ }
+{%- endschema -%}

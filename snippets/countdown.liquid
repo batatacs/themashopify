@@ -1,0 +1,26 @@
+{% if timer != blank %}
+  {%- assign data_times = timer | date: '%Y-%m-%d %H:%M' | split: ' ' -%}
+  {%- assign ymd = data_times[0] | split: '-' -%}
+  {%- assign his = data_times[1] | split: ':' -%}
+  {% assign now = 'now' | date: '%Y-%m-%d' %}
+  {% assign today_date = now | date: '%s' %}
+  {% assign pre_date = timer | date: '%s' %}
+  {% if pre_date > today_date %}
+    <div class="countdown-wrap">
+      {% if title_cd != blank %}
+        <div class="countdown-label ">
+          {{ title_cd }}
+        </div>
+      {% endif %}
+      <count-down
+        class="cms-countdown"
+        data-y="{{ymd[0]}}"
+        data-m="{{ymd[1]}}"
+        data-d="{{ymd[2]}}"
+        data-h="{{his[0]}}"
+        data-i="{{his[1]}}"
+        data-s="{{his[2]| remove:"Z"}}"
+      ></count-down>
+    </div>
+  {% endif %}
+{% endif %}

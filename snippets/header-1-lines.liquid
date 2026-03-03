@@ -1,0 +1,193 @@
+{% assign style_search = section.settings.style_search | plus: 0 %}
+<div class="header-main-wrap">
+  <div class="header-top">
+    <div
+      class="container {% if section.settings.layout == 'full-width' %}{{section.settings.layout}} {% endif %}"
+      {% if section.settings.custom_width %}
+        style="--alo-container-width:{{ section.settings.container_width }}px;"
+      {% endif %}
+    >
+      <div class="row">
+        <div class="header-nav-mobile col-md-3 col-3">
+          <div class="js-mobile-menu menu-bar mobile-navigation">
+            <span class="icon">
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <defs><style>.cls-1{fill:none;}</style></defs><title/><g data-name="Layer 2" id="Layer_2"><path d="M28,10H4A1,1,0,0,1,4,8H28a1,1,0,0,1,0,2Z"/><path d="M28,17H4a1,1,0,0,1,0-2H28a1,1,0,0,1,0,2Z"/><path d="M28,24H4a1,1,0,0,1,0-2H28a1,1,0,0,1,0,2Z"/></g><g id="frame"><rect class="cls-1" height="32" width="32"/></g>
+              </svg>
+            </span>
+          </div>
+        </div>
+        {%- render 'logo_mobile' -%}
+        {% if section.settings.header_design == 'logo-left-menu-center'
+          or section.settings.header_design == 'logo-left-menu-left'
+        %}
+          <div class="header-logo hide-mobile {%if section.settings.header_design =='logo-left-menu-center' %}col-md-3 col-3{% endif %}">
+            {%- render 'logo' -%}
+          </div>
+        {% endif %}
+        {% if section.settings.header_design == 'both-center' %}
+          <ul class="header-control hide-mobile col-md-2">
+            {% if section.settings.header_use_search_home %}
+              <li class="header_search  ">
+                {% if style_search == 1 %}
+                  <a
+                    href="/search"
+                    class="header-search push_side header-icon"
+                    data-id="#search_pupop"
+                    title="{{'general.search.title' | t}}"
+                  >
+                    <svg height="27" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.9 11.731C11.8 11.731 11.8 11.731 11.9 11.731C11.8 11.8304 11.8 11.8304 11.8 11.8304C11.3 12.3275 10.7 12.7251 9.9 13.0234C9.2 13.3216 8.4 13.4211 7.6 13.4211C6.8 13.4211 6 13.2222 5.3 12.924C4.6 12.6257 4 12.2281 3.4 11.6316C2.9 11.1345 2.4 10.4386 2.1 9.74269C1.8 9.1462 1.7 8.45029 1.7 7.65497C1.7 6.85965 1.9 6.06433 2.2 5.36842C2.5 4.5731 2.9 3.97661 3.4 3.38012C4 2.88304 4.6 2.48538 5.3 2.18713C6 1.88889 6.8 1.69006 7.6 1.69006C8.4 1.69006 9.2 1.88889 9.9 2.18713C10.6 2.48538 11.3 2.88304 11.8 3.47953C12.3 3.97661 12.7 4.67251 13.1 5.36842C13.4 6.06433 13.6 6.76023 13.6 7.65497C13.6 8.45029 13.4 9.24561 13.1 9.94152C12.8 10.538 12.4 11.1345 11.9 11.731ZM16.7 15.4094L13.6 12.3275C14.1 11.6316 14.5 10.9357 14.8 10.1404C15.1 9.34503 15.2 8.45029 15.2 7.55556C15.2 6.46199 15 5.46784 14.6 4.5731C14.2 3.67836 13.7 2.88304 13 2.18713C12.3 1.49123 11.5 0.994152 10.6 0.596491C9.7 0.19883 8.7 0 7.6 0C6.6 0 5.6 0.19883 4.6 0.596491C3.7 0.994152 2.9 1.49123 2.2 2.18713C1.5 2.88304 1 3.67836 0.6 4.67251C0.2 5.56725 0 6.5614 0 7.65497C0 8.64912 0.2 9.64327 0.6 10.6374C1 11.5322 1.6 12.3275 2.3 13.0234C3 13.7193 3.8 14.2164 4.7 14.7134C5.6 15.0117 6.6 15.2105 7.6 15.2105C8.5 15.2105 9.4 15.1111 10.2 14.8129C11 14.5146 11.8 14.117 12.4 13.6199L15.5 16.7018C15.7 16.9006 15.9 17 16.1 17C16.3 17 16.5 16.9006 16.7 16.7018C16.9 16.5029 17 16.3041 17 16.1053C17 15.807 16.9 15.6082 16.7 15.4094Z" fill="#111111"/>
+                    </svg>
+                  </a>
+                {% else %}
+                  {%- render 'header-search' -%}
+                {% endif %}
+              </li>
+            {% endif %}
+          </ul>
+        {% endif %}
+        <div class="{% if section.settings.header_design =='logo-center-menu-left' %}col-md-5 col-5{% else %}col{% endif %} hide-mobile ps-static">
+          {%- render 'menu', se_blocks: se_blocks, tp_blocks: tp_blocks -%}
+        </div>
+        {% if section.settings.header_design == 'logo-center-menu-left' %}
+          <div class="header-logo hide-mobile col-md-2 col-2">
+            {%- render 'logo' -%}
+          </div>
+        {% endif %}
+        <div class="header-top-meta  {% if section.settings.header_design =='logo-center-menu-left' %}col-md-5{% elsif section.settings.header_design =='both-center' %}col-md-2{% else %}col-md-3{% endif %}">
+          <ul class="header-control">
+            {% if section.settings.header_use_account %}
+              <li class="signin item-list hide-mobile">
+                {% unless customer %}
+                  {%- assign page_type = request.page_type | handle -%}
+                  <a
+                    href="{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}/account/login"
+                    {% if page_type != 'customers-login' %}
+                      data-id="#login_pupop"
+                    {% endif %}
+                    class="push_side header-icon"
+                    title="{{'customer.login.log_in' | t}}"
+                  >
+                    <svg height="27" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16.8927 15.7682C16.0329 14.3137 14.8061 13.1078 13.3338 12.27C11.8614 11.4322 10.1946 10.9915 8.49845 10.9915C6.80225 10.9915 5.13546 11.4322 3.66314 12.27C2.19082 13.1078 0.964024 14.3137 0.104236 15.7682C-0.00102398 15.9568 -0.027822 16.179 0.0295835 16.387C0.0566587 16.493 0.106188 16.592 0.174854 16.6774C0.243521 16.7628 0.329737 16.8326 0.427728 16.8821C0.554141 16.9534 0.697158 16.9904 0.842462 16.9894C0.986554 16.9955 1.12952 16.9616 1.25545 16.8917C1.38138 16.8218 1.48536 16.7185 1.5558 16.5933C2.26752 15.3886 3.2833 14.3898 4.50251 13.6958C5.72172 13.0018 7.10204 12.6367 8.50674 12.6367C9.91144 12.6367 11.2918 13.0018 12.511 13.6958C13.7302 14.3898 14.746 15.3886 15.4577 16.5933C15.5685 16.7807 15.7491 16.9169 15.9603 16.9725C16.1715 17.0282 16.3963 16.9986 16.5858 16.8904C16.6801 16.8403 16.7628 16.7711 16.8285 16.6873C16.8943 16.6034 16.9415 16.5067 16.9673 16.4035C16.998 16.298 17.0072 16.1875 16.9944 16.0784C16.9816 15.9693 16.947 15.8638 16.8927 15.7682Z" fill="#111111"/>
+                      <path d="M8.4999 10.2C9.83646 10.2002 11.1197 9.67091 12.0735 8.72594C13.0273 7.78097 13.5754 6.49588 13.5999 5.14718C13.5999 3.78206 13.0626 2.47286 12.1061 1.50757C11.1497 0.542291 9.85251 0 8.4999 0C7.1473 0 5.85009 0.542291 4.89366 1.50757C3.93722 2.47286 3.3999 3.78206 3.3999 5.14718C3.42441 6.49588 3.97252 7.78097 4.92632 8.72594C5.88011 9.67091 7.16334 10.2002 8.4999 10.2ZM5.0999 5.14718C5.0999 4.2371 5.45812 3.3643 6.09574 2.72078C6.73336 2.07725 7.59817 1.71573 8.4999 1.71573C9.40164 1.71573 10.2664 2.07725 10.9041 2.72078C11.5417 3.3643 11.8999 4.2371 11.8999 5.14718C11.8999 6.05726 11.5417 6.93006 10.9041 7.57359C10.2664 8.21711 9.40164 8.57864 8.4999 8.57864C7.59817 8.57864 6.73336 8.21711 6.09574 7.57359C5.45812 6.93006 5.0999 6.05726 5.0999 5.14718Z" fill="#111111"/>
+                    </svg>
+
+                    <span class="box">
+                      <span class="text">{{ 'customer.login.log_in' | t }}</span>
+                      <span class="b">{{ 'customer.login.account' | t }}</span>
+                    </span>
+                  </a>
+                {% else %}
+                  <a
+                    href="{{ routes.account_url }}"
+                    class="push_side header-icon"
+                    title="{{'customer.login.account' | t}}"
+                  >
+                    <svg height="27" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16.8927 15.7682C16.0329 14.3137 14.8061 13.1078 13.3338 12.27C11.8614 11.4322 10.1946 10.9915 8.49845 10.9915C6.80225 10.9915 5.13546 11.4322 3.66314 12.27C2.19082 13.1078 0.964024 14.3137 0.104236 15.7682C-0.00102398 15.9568 -0.027822 16.179 0.0295835 16.387C0.0566587 16.493 0.106188 16.592 0.174854 16.6774C0.243521 16.7628 0.329737 16.8326 0.427728 16.8821C0.554141 16.9534 0.697158 16.9904 0.842462 16.9894C0.986554 16.9955 1.12952 16.9616 1.25545 16.8917C1.38138 16.8218 1.48536 16.7185 1.5558 16.5933C2.26752 15.3886 3.2833 14.3898 4.50251 13.6958C5.72172 13.0018 7.10204 12.6367 8.50674 12.6367C9.91144 12.6367 11.2918 13.0018 12.511 13.6958C13.7302 14.3898 14.746 15.3886 15.4577 16.5933C15.5685 16.7807 15.7491 16.9169 15.9603 16.9725C16.1715 17.0282 16.3963 16.9986 16.5858 16.8904C16.6801 16.8403 16.7628 16.7711 16.8285 16.6873C16.8943 16.6034 16.9415 16.5067 16.9673 16.4035C16.998 16.298 17.0072 16.1875 16.9944 16.0784C16.9816 15.9693 16.947 15.8638 16.8927 15.7682Z" fill="#111111"/>
+                      <path d="M8.4999 10.2C9.83646 10.2002 11.1197 9.67091 12.0735 8.72594C13.0273 7.78097 13.5754 6.49588 13.5999 5.14718C13.5999 3.78206 13.0626 2.47286 12.1061 1.50757C11.1497 0.542291 9.85251 0 8.4999 0C7.1473 0 5.85009 0.542291 4.89366 1.50757C3.93722 2.47286 3.3999 3.78206 3.3999 5.14718C3.42441 6.49588 3.97252 7.78097 4.92632 8.72594C5.88011 9.67091 7.16334 10.2002 8.4999 10.2ZM5.0999 5.14718C5.0999 4.2371 5.45812 3.3643 6.09574 2.72078C6.73336 2.07725 7.59817 1.71573 8.4999 1.71573C9.40164 1.71573 10.2664 2.07725 10.9041 2.72078C11.5417 3.3643 11.8999 4.2371 11.8999 5.14718C11.8999 6.05726 11.5417 6.93006 10.9041 7.57359C10.2664 8.21711 9.40164 8.57864 8.4999 8.57864C7.59817 8.57864 6.73336 8.21711 6.09574 7.57359C5.45812 6.93006 5.0999 6.05726 5.0999 5.14718Z" fill="#111111"/>
+                    </svg>
+                    <span class="box">
+                      <span class="text">{{ customer.name }}</span>
+                      <span class="b">{{ 'customer.login.account' | t }}</span>
+                    </span>
+                  </a>
+                {% endunless %}
+              </li>
+            {% endif %}
+            {% if section.settings.header_design != 'both-center' %}
+              {% if section.settings.header_use_search_home %}
+                <li class="header_search  hide-mobile">
+                  {% if style_search == 1 %}
+                    <a
+                      href="/search"
+                      class="header-search push_side header-icon"
+                      data-id="#search_pupop"
+                      title="{{'general.search.title' | t}}"
+                    >
+                      <svg height="27" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.9 11.731C11.8 11.731 11.8 11.731 11.9 11.731C11.8 11.8304 11.8 11.8304 11.8 11.8304C11.3 12.3275 10.7 12.7251 9.9 13.0234C9.2 13.3216 8.4 13.4211 7.6 13.4211C6.8 13.4211 6 13.2222 5.3 12.924C4.6 12.6257 4 12.2281 3.4 11.6316C2.9 11.1345 2.4 10.4386 2.1 9.74269C1.8 9.1462 1.7 8.45029 1.7 7.65497C1.7 6.85965 1.9 6.06433 2.2 5.36842C2.5 4.5731 2.9 3.97661 3.4 3.38012C4 2.88304 4.6 2.48538 5.3 2.18713C6 1.88889 6.8 1.69006 7.6 1.69006C8.4 1.69006 9.2 1.88889 9.9 2.18713C10.6 2.48538 11.3 2.88304 11.8 3.47953C12.3 3.97661 12.7 4.67251 13.1 5.36842C13.4 6.06433 13.6 6.76023 13.6 7.65497C13.6 8.45029 13.4 9.24561 13.1 9.94152C12.8 10.538 12.4 11.1345 11.9 11.731ZM16.7 15.4094L13.6 12.3275C14.1 11.6316 14.5 10.9357 14.8 10.1404C15.1 9.34503 15.2 8.45029 15.2 7.55556C15.2 6.46199 15 5.46784 14.6 4.5731C14.2 3.67836 13.7 2.88304 13 2.18713C12.3 1.49123 11.5 0.994152 10.6 0.596491C9.7 0.19883 8.7 0 7.6 0C6.6 0 5.6 0.19883 4.6 0.596491C3.7 0.994152 2.9 1.49123 2.2 2.18713C1.5 2.88304 1 3.67836 0.6 4.67251C0.2 5.56725 0 6.5614 0 7.65497C0 8.64912 0.2 9.64327 0.6 10.6374C1 11.5322 1.6 12.3275 2.3 13.0234C3 13.7193 3.8 14.2164 4.7 14.7134C5.6 15.0117 6.6 15.2105 7.6 15.2105C8.5 15.2105 9.4 15.1111 10.2 14.8129C11 14.5146 11.8 14.117 12.4 13.6199L15.5 16.7018C15.7 16.9006 15.9 17 16.1 17C16.3 17 16.5 16.9006 16.7 16.7018C16.9 16.5029 17 16.3041 17 16.1053C17 15.807 16.9 15.6082 16.7 15.4094Z" fill="#111111"/>
+                      </svg>
+                    </a>
+                  {% else %}
+                    {%- render 'header-search' -%}
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endif %}
+            {% if section.settings.header_use_wishlist_home %}
+              <li class="laber-wishlist hide-mobile">
+                <a
+                  {% if page_title != 'wishlist' %}
+                    data-id="#wishlist_popup"
+                  {% endif %}
+                  href="{{ routes.root_url }}pages/wishlist"
+                  class="push_side header-icon"
+                  title="{{'general.wishlist.title' | t}}"
+                >
+                  <svg height="27" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.3887 1.55421C17.3506 0.55606 15.9769 0 14.5491 0C13.1212 0 11.7475 0.55606 10.7094 1.55421L10 2.24289L9.29063 1.55421C8.25514 0.549292 6.87729 -0.00765789 5.44682 0.000470637C4.01902 -0.00635871 2.64421 0.550561 1.61125 1.55421C1.10276 2.0382 0.697356 2.6234 0.420188 3.27353C0.14302 3.92365 0 4.62483 0 5.33357C0 6.0423 0.14302 6.74348 0.420188 7.3936C0.697356 8.04373 1.10276 8.62894 1.61125 9.11292L9.4391 16.7724C9.51585 16.8408 9.60199 16.8974 9.6948 16.9404C9.89078 17.0199 10.1092 17.0199 10.3052 16.9404C10.398 16.8974 10.4841 16.8408 10.5609 16.7724L18.3887 9.11292C18.8972 8.62894 19.3026 8.04373 19.5798 7.3936C19.857 6.74348 20 6.0423 20 5.33357C20 4.62483 19.857 3.92365 19.5798 3.27353C19.3026 2.6234 18.8972 2.0382 18.3887 1.55421ZM18.3887 5.31677C18.3911 5.81361 18.2943 6.30576 18.1043 6.7634C17.9143 7.22103 17.6351 7.63463 17.2834 7.97912L10 15.1179L2.7248 7.97912C2.36775 7.63749 2.08319 7.22502 1.88868 6.76713C1.69417 6.30925 1.59382 5.81565 1.59382 5.31677C1.59382 4.81789 1.69417 4.32429 1.88868 3.86641C2.08319 3.40852 2.36775 2.99605 2.7248 2.65442C3.45741 1.94171 4.43359 1.54714 5.44682 1.55421C6.46509 1.5463 7.44671 1.94068 8.18532 2.65442L9.4391 3.88901C9.51585 3.95737 9.60199 4.01396 9.6948 4.05698C9.89078 4.13645 10.1092 4.13645 10.3052 4.05698C10.398 4.01396 10.4841 3.95737 10.5609 3.88901L11.8229 2.65442C12.5555 1.94171 13.5317 1.54714 14.5449 1.55421C15.5632 1.5463 16.5448 1.94068 17.2834 2.65442C17.6381 2.99747 17.9204 3.41042 18.1133 3.86813C18.3061 4.32583 18.4055 4.81872 18.4052 5.31677H18.3887Z" fill="#111111"/>
+                  </svg>
+
+                  <span class="header__counter" data-js-wishlist-count="0">0</span>
+                </a>
+              </li>
+            {% endif %}
+            <li
+              class="laber-compare hide-mobile"
+              {% if section.settings.header_use_compare_home == false %}
+                style="display: none;"
+              {% endif %}
+            >
+              <a
+                href="#"
+                class="push_side header-icon"
+                data-js-popup-button="compare-full"
+                title="{{'general.compare.title' | t}}"
+              >
+                <i class="icon-layers" aria-hidden="true"></i>
+                <span class="header__counter" data-js-compare-count="0">0</span>
+              </a>
+            </li>
+            {% if section.settings.header_use_cart_home %}
+              <li class="box-minicart">
+                <div class="minicart ">
+                  <div class="cart-block  box-has-content">
+                    <a
+                      href="{{ routes.cart_url }}"
+                      class="push_side header-icon"
+                      {% if request.page_type != 'cart' %}
+                        data-id="#js_cart_popup"
+                      {% endif %}
+                      title="{{'cart.general.title' | t}}"
+                    >
+                      {%- render 'icon-cart' -%}
+                      <span class="header__counter js-cart-count" data-js-cart-count="{{ cart.item_count }}">
+                        {{- cart.item_count -}}
+                      </span>
+                    </a>
+
+                    <span data-total-price class="total-price">
+                      <span class="text">{{ 'cart.general.title' | t }} </span>
+                      <span class="js-total-price"> {{ cart.total_price | money }}</span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% if section.settings.sticky_top %}
+  {% assign height-header = '0px' %}
+{% else %}
+  {% assign height-header = '70px' %}
+{% endif %}
+{% style %}
+  .alo_slidershow {--height-header: {{height-header}};}
+{% endstyle %}

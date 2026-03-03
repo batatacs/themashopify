@@ -1,0 +1,137 @@
+{%- assign id = product.id -%}
+{%- assign title = product.title -%}
+{%- assign description = product.description -%}
+{%- assign type = product.type -%}
+{%- assign vendor = product.vendor -%}
+{%- assign metafields = product.metafields -%}
+{%- if select_current_variant_by_id -%}
+  {%- for variant in product.variants -%}
+    {%- if variant.id == select_current_variant_by_id -%}
+      {%- assign current_variant = variant -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- endif -%}
+{%- assign current_variant_id = current_variant.id -%}
+{%- assign current_variant_metafields = current_variant.metafields -%}
+{%- assign url = product.url | within: collection -%}
+{%- assign quantity = current_variant.inventory_quantity -%}
+{%- assign sku = current_variant.sku -%}
+{%- assign barcode = current_variant.barcode -%}
+{%- assign price = current_variant.price -%}
+{%- assign compare_at_price = current_variant.compare_at_price -%}
+{%- assign available = current_variant.available -%}
+{%- assign show_reviews = settings.product_collection_show_reviews -%}
+{%- if product.selected_variant.id == product.selected_or_first_available_variant.id
+  and current_variant.image != blank
+-%}
+  {%- assign image = current_variant.image -%}
+  {%- assign hover_image = null -%}
+{%- elsif select_current_variant_by_id and current_variant.image != blank -%}
+  {%- assign image = current_variant.image -%}
+  {%- assign hover_image = null -%}
+{%- else -%}
+  {%- assign image = product.images[0] -%}
+  {%- assign hover_image = product.images[1] -%}
+{%- endif -%}
+{%- assign select_current_variant_by_id = null -%}
+{% assign show_secondary_image = settings.product_collection_show_secondary_image %}
+{%- assign ratio = image.aspect_ratio -%}
+{%- liquid
+  assign sett_equal = settings.use_eq_height_product
+  assign image_ratio = settings.image_ratio_product
+  if sett_equal
+    case image_ratio
+      when 'ratio2_1'
+        assign aspect_ratio = 2.0
+      when 'ratio3_2'
+        assign aspect_ratio = 1.5
+      when 'ratio4_3'
+        assign aspect_ratio = 1.333
+      when 'ratio1_1'
+        assign aspect_ratio = 1.0
+      when 'ratio3_4'
+        assign aspect_ratio = 0.75
+      when 'ratio2_3'
+        assign aspect_ratio = 0.66667
+      when 'ratio1_2'
+        assign aspect_ratio = 0.5
+    endcase
+  endif
+-%}
+{%- capture style -%}
+  {% assign ratio = aspect_ratio | default:product.featured_media.aspect_ratio %}
+  --ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;
+{%- endcapture -%}
+<div class="product-item">
+  <div
+    class=" item-product selected-product {% if settings['product-main-require'] %} require {% endif -%} {{ classes }} w-full h-full">
+    <div
+      class="product-collection w-full h-full"
+      data-js-product
+    >
+      <script class="data-json-product" type="application/json">
+        {% render 'product-get-attributes', product:product, build_variant: 'json' %}
+      </script>
+      {% form 'product', product, id: null, class: 'frm_product_collection', data-js-product-form: '' %}
+        <div class="alo-checkbox">
+            <input type="checkbox" name="bought-together-checkbox" class="bought-together-checkbox" checked >
+            <span><i class="icon-check"></i><i class="icon-x"></i></span>
+        </div>
+        <input type="hidden" name="id" value="{{ current_variant.id }}" data-js-product-variant-input>
+        <div
+          class="product-collection__image product-image js-product-images-navigation">
+          <div class="card__media">
+            <div class="media {% if show_secondary_image %} secondary_image_hover{% endif %}">
+              <a
+                href="{{ product.url | within: collection }}"
+                class="d-block image_product cursor-default {% if product.featured_media %} ratio{% endif %}"
+                style="{{ style }}"
+                data-js-product-image
+              >
+                {% render 'product-image' with card_product: product, show_secondary_image: show_secondary_image %}
+              </a>
+            </div>
+          </div>
+
+          {%- if show_label_in_stock or show_label_out_stock or show_label_sale or show_label_new or show_label_hot -%}
+            {%- assign label_present = true -%}
+          {%- else -%}
+            {%- assign label_present = false -%}
+          {%- endif -%}
+          {%- if label_present -%}
+            <div class="product-image__overlay-top-left ">
+              {% render 'product-get-label' with product: product, settings: settings %}
+            </div>
+          {%- endif -%}
+        </div>
+        <div class="product-collection__content style_{{style_product}}">
+          <div class="product-collection__title">
+            <h2>
+              <a href="{{ url }}" class="alo-text-transform" style="--alo-text-transform:{{ text_transform }}">
+                {{- title -}}
+              </a>
+            </h2>
+          </div>
+          {%- if show_reviews -%}
+            <!-- Start of Judge.me code --> 
+            <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge'  data-id='{{ product.id }}'>
+            {{- product.metafields.judgeme.badge -}}
+            </div>  
+            <!-- End of Judge.me code -->  
+          {%- endif -%}
+          <div class="frm-price-color">
+            <div class="product-collection__price ">
+              {% render 'product-get-price' with price: product.price, compare_at_price: product.compare_at_price %}
+            </div>
+          </div>
+          <div class="product-collection__options">
+            {% render 'product-get-options', product: product %}
+          </div>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>

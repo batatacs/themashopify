@@ -1,0 +1,543 @@
+<link rel="preconnect" href=" {{ 'mobile_menu.css' | asset_url}}" crossorigin>
+<link rel="preload" as="style" href="{{ 'mobile_menu.css' | asset_url}}">
+{{ 'mobile_menu.css' | asset_url | stylesheet_tag }}
+{% liquid
+  assign show_logo = section.settings.show_logo
+  assign show_close = section.settings.show_close
+%}
+
+<div class="js-menu-mobile-content box-menu-moible ">
+  {% if show_close %}
+    <div class="js-close-sidebar close-sidebar-btn">
+      {{ section.settings.close -}}
+      <i class="icon-x"></i>
+    </div>
+  {% endif %}
+  <div id="mobile_menu" class="menu-mobile">
+    {% if show_logo %}
+      <div class="logo-mobile">
+        {% if section.settings.logo != blank %}
+          <a
+            href="{{ routes.root_url }}"
+            class="site-header__logo-image"
+            aria-label="{{ settings.logo.alt | default: shop.name }}"
+          >
+            {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
+            <img
+              src="{{ section.settings.logo | img_url: image_size, scale: 2 }}"
+              alt="{{ logo_alt | escape }}"
+              style="max-width: {{ section.settings.logo_max_width }}px;"
+            >
+            <noscript>
+              {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
+              <img
+                src="{{ section.settings.logo | img_url: image_size }}"
+                srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                alt="{{ section.settings.logo.alt | default: shop.name }}"
+                style="max-width: {{ section.settings.logo_max_width }}px;"
+              >
+            </noscript>
+          </a>
+        {% else %}
+          <a class="site-title" href="{{ routes.root_url }}" itemprop="url">{{ settings.logo_text }}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+    <ul id="menu_mb_ul" class="nav-accordion laber_mb_menu">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          {%- assign sblock = block.settings -%}
+          {%- case block.type -%}
+            {%- when 'contact' -%}
+              <li id="item_contact" class="menu-item item-level-0">
+                <p class="menu_contact_title">
+                  {% if sblock.show_icon and sblock.icon != blank %}
+                    <span class="icon">{{ sblock.icon }}</span>
+                  {% endif %}
+                  <span>{{ sblock.title }}</span>
+                </p>
+                <div class="menu_contact_text">
+                  {%- if block.settings.show_phone -%}
+                    <p>
+                      <span class="title">{{ 'general.mobile_menu.hotline' | t }}</span
+                      ><a href="tel:{{shop.phone}}">{{ shop.phone }}</a>
+                    </p>
+                  {% endif %}
+
+                  {%- if block.settings.show_email -%}
+                    <p>
+                      <span class="title">{{ 'general.mobile_menu.email' | t }}</span>
+                      <a href="mailto:{{shop.email}}">{{ shop.email }}</a>
+                    </p>
+                  {% endif %}
+                </div>
+              </li>
+            {%- when 'wishlist' -%}
+              <li class="item_wishlist menu-item item-popup item-level-0">
+                <a href="#" class="push_side" data-id="#wishlist_popup" title="{{'general.wishlist.title' | t}}">
+                  {% if sblock.show_icon and sblock.icon != blank %}
+                    <span class="icon">{{ sblock.icon }}</span>
+                  {% endif %}
+                  <span>{{ sblock.title }}</span>&nbsp;(<span class="count" data-js-wishlist-count="0">0</span>)
+                </a>
+              </li>
+            {%- when 'compare' -%}
+              <li class="item_compare menu-item item-popup item-level-0">
+                <a
+                  href="#"
+                  class="push_side header-icon"
+                  data-js-popup-button="compare-full"
+                  title="{{'general.compare.title' | t}}"
+                >
+                  {% if sblock.show_icon and sblock.icon != blank %}
+                    <span class="icon">{{ sblock.icon }}</span>
+                  {% endif %}
+                  <span>{{ sblock.title }}</span>&nbsp;(<span class="count" data-js-compare-count="0">0</span>)
+                </a>
+              </li>
+            {%- when 'language_currency' -%}
+              {% if shop.published_locales.size > 1 %}
+                <div class="language_currency_mobile">
+                  {% assign showFlag = block.settings.show_flag %}
+                  {% render 'language', showFlag:showFlag %} 
+                  {% render 'currency' %}
+                </div>
+              {% endif %}
+            {%- when 'search' -%}
+              <li id="item_search" class="menu-item item-popup item-level-0" data-id="#search_pupop">
+                <div class="title_search h3">{{ sblock.title }}</div>
+                <a
+                  href="{{ routes.root_url }}search"
+                  class="header-search push_side header-icon"
+                  data-id="#search_pupop"
+                  title="{{sblock.search}}"
+                >
+                  {% if sblock.show_icon and sblock.icon != blank %}
+                    <span class="icon">{{ sblock.icon }}</span>
+                  {% endif %}
+                  <span>{{ sblock.search }}</span>
+                </a>
+              </li>
+            {%- when 'account' -%}
+              {% unless customer %}
+                <li class="item_signin menu-item item-popup item-level-0">
+                  <a
+                    href="{{ routes.account_login_url }}"
+                    data-id="#login_pupop"
+                    class="push_side header-icon"
+                    title="{{sblock.title}}"
+                  >
+                    {% if sblock.show_icon and sblock.icon != blank %}
+                      <span class="icon">{{ sblock.icon }}</span>
+                    {% endif %}
+                    <span>{{ sblock.title }}</span>
+                  </a>
+                </li>
+              {% else %}
+                <li class="item_signin menu-item item-popup item-level-0">
+                  <a
+                    href="{{ routes.account_logout_url }}"
+                    class="push_side header-icon"
+                    title="{{'customer.login.sign_out' | t}}"
+                  >
+                    {% if sblock.show_icon and sblock.icon != blank %}
+                      <span class="icon">{{ sblock.icon2 }}</span>
+                    {% endif %}
+                    <span>{{ 'customer.login.sign_out' | t }}</span>
+                  </a>
+                  <p class="title-customer">
+                    {{ 'customer.login.welcome' | t }}
+                    <a href="{{ routes.account_url }}">{{ customer.name }}</a>
+                  </p>
+                </li>
+              {% endunless %}
+            {%- when 'menu_mb' -%}
+              {%- if linklists[sblock.menu].links.size > 0 -%}
+                <li id="item_{{block.id}}" class="menu-item item-level-0 has-children" {{ block.shopify_attributes }}>
+                  <a href="{% if sblock.url != blank %}{{sblock.url}}{% else %}#{% endif %}" target="{{sblock.open_link}}">
+                    {% if sblock.show_icon and sblock.icon != blank %}
+                      <span class="icon">{{ sblock.icon }}</span>
+                    {% endif %}
+                    <span>
+                      {{- sblock.title -}}
+                      {%- if sblock.lb != blank %}
+                        <span class="label" style="background-color: {{sblock.lb_cl | default:'#222'}}">
+                          {{- sblock.lb -}}
+                        </span>
+                      {%- endif %}
+                    </span>
+                  </a>
+                  <ul class="sub-menu">
+                    {%- for link in linklists[sblock.menu].links -%}
+                      {%- if link.links != blank -%}
+                        <li class="menu-item item-level-1 has-children {% if link.active %}active{% endif %}">
+                          <a href="{{link.url}}">
+                            <span>{{ link.title }}</span>
+                          </a>
+                          <ul class="sub-menu2">
+                            {%- for child_link in link.links -%}
+                              {%- if child_link.links != blank -%}
+                                <li
+                                  id="item_{{block.id}}"
+                                  class="menu-item item-level-2 has-children{% if child_link.active %} active{% endif %}"
+                                >
+                                  <a href="{{child_link.url}}">
+                                    <span>{{ child_link.title }} </span>
+                                  </a>
+                                  <ul class="sub-menu3">
+                                    {%- for grandchild_link in child_link.links -%}
+                                      <li class="menu-item item-level-3{% if grandchild_link.active %} active{% endif %}">
+                                        <a href="{{grandchild_link.url}}"> {{ grandchild_link.title }}</a>
+                                      </li>
+                                    {%- endfor -%}
+                                  </ul>
+                                </li>
+                              {%- else -%}
+                                <li class="menu-item item-level-2{% if child_link.active %} active{% endif %}">
+                                  <a href="{{child_link.url}}">
+                                    {{ child_link.title }}
+                                  </a>
+                                </li>
+                              {%- endif -%}
+                            {%- endfor -%}
+                          </ul>
+                        </li>
+                      {%- else -%}
+                        <li class="menu-item item-level-1{% if link.active %} active{% endif %}">
+                          <a href="{{link.url}}">{{ link.title }}</a>
+                        </li>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </ul>
+                </li>
+              {%- else -%}
+                <li id="item_{{block.id}}" class="menu-item item-level-0">
+                  <a href="{% if sblock.url != blank %}{{sblock.url}}{% else %}#{% endif %}" target="{{sblock.open_link}}">
+                    {% if sblock.show_icon and sblock.icon != blank %}
+                      <span class="icon">{{ sblock.icon }}</span>
+                    {% endif %}
+                    <span> {{ sblock.title }}</span>
+                    {% if sblock.lb != blank %}
+                      <span class="label" style="background-color: {{sblock.lb_cl | default:'#222'}}">
+                        {{ sblock.lb }}
+                      </span>
+                    {% endif %}
+                  </a>
+                </li>
+              {%- endif -%}
+          {%- endcase -%}
+        {%- endfor -%}
+      {%- else -%}
+      {%- endif -%}
+    </ul>
+    {% style %}
+      :root {
+        --color-bg-menu-mobile:{{section.settings.bg_menu}};
+        --color-bd-menu-mobile:{{section.settings.bd_color}};
+        --color-text-menu-mobile:{{section.settings.color_text}};
+        --color-text-menu-mobile-hover:{{section.settings.color_text_hover}};
+      }
+    {% endstyle %}
+  </div>
+</div>
+{%- schema -%}
+ {
+   "name": "Mobile Menu",
+   "class": "sc-menu-mobile",
+   "max_blocks": 50,
+   "settings": [
+       {
+       "type": "header",
+       "content": "==  Settings"
+       },
+	{
+       "type": "checkbox",
+       "id": "show_close",
+       "label": "Show close",
+       "default": true
+       },
+       {
+       "type": "text",
+       "id": "close",
+       "label": "Close",
+       "default": "close"
+       },
+       {
+       "type": "checkbox",
+       "id": "show_logo",
+       "label": "Show logo",
+       "default": true
+       },
+       {
+       "type": "image_picker",
+       "id": "logo",
+       "label": "Logo"
+       },
+     {
+       "type": "range",
+       "id": "logo_max_width",
+       "label":"Custom logo width",
+       "min": 50,
+       "max": 250,
+       "step": 5,
+       "unit": "px",
+       "default": 115
+     },
+     {
+     "type": "color",
+     "id": "bg_menu",
+     "label": "Background Color",
+     "default": "#0a2748"
+     },
+     {
+     "type": "color",
+     "id": "color_text",
+     "label": "Color text",
+     "default": "#fff"
+     },
+  {
+     "type": "color",
+     "id": "color_text_hover",
+     "label": "Color text (Hover)",
+     "default": "#f04f35"
+     },
+     {
+     "type": "color",
+     "id": "bd_color",
+     "label": "Border Color",
+     "default": "#113762"
+     }
+],
+   "blocks": [
+     {
+       "type": "menu_mb",
+       "name": "Menu item",
+       "settings": [
+                 {
+           "type": "text",
+           "id": "title",
+           "label": "Heading",
+           "default": "Heading"
+         },
+         {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+         },
+         {
+           "type": "select",
+           "id": "open_link",
+           "options": [
+             {
+               "value": "_self",
+               "label": "Current window (_self)"
+             },
+            {
+               "value": "_blank",
+               "label": "New window (_blank)"
+             }
+           ],
+           "label": "Open link in"
+         },
+         {
+           "type": "link_list",
+           "id": "menu",
+           "label": "Add menu"
+         },
+         {
+           "type": "checkbox",
+           "id": "show_icon",
+           "label": "Show icon",
+           "default": true
+         },
+         {
+           "id": "icon",
+           "type": "text",
+           "label": "Icon",
+		"default": "<i class=\"las la-campground\"></i>",
+           "info":"Ex:user [Line awesome icons](https://icons8.com/line-awesome)"
+         },
+         {
+           "type":"text",
+           "id":"lb",
+           "label":"Label text"
+         },
+         {
+           "type":"color",
+           "id":"lb_cl",
+           "label":"Label color"
+         }
+       ]
+     },
+     {
+       "type": "wishlist",
+       "name": "Wishlist",
+       "limit": 1,
+	"settings":[
+       {
+       "type": "text",
+       "id": "title",
+       "label": "Title",
+       "default": "Wishlist"
+       },
+	{
+           "type": "checkbox",
+           "id": "show_icon",
+           "label": "Show icon",
+           "default": true
+         },
+         {
+           "id": "icon",
+           "type": "text",
+           "label": "Icon",
+		"default": "<i class=\"icon-heart\"></i>",
+           "info":"Ex:user [Line awesome icons](https://icons8.com/line-awesome)"
+         }
+	]
+     },
+     {
+       "type": "compare",
+       "name": "Compare",
+       "limit": 1,
+	"settings":[
+       {
+       "type": "text",
+       "id": "title",
+       "label": "Title",
+       "default": "Compare"
+       },
+	{
+           "type": "checkbox",
+           "id": "show_icon",
+           "label": "Show icon",
+           "default": true
+         },
+         {
+           "id": "icon",
+           "type": "text",
+           "label": "Icon",
+		"default": "<i class=\"icon-layers\"></i>",
+           "info":"Ex:user [Line awesome icons](https://icons8.com/line-awesome)"
+         }
+	]
+     },
+     {
+       "type": "language_currency",
+       "name": "Language & currency",
+       "limit": 1,
+    	"settings":[
+          {
+            "type": "checkbox",
+            "id": "show_flag",
+            "label": "Show Flag Image",
+            "default": true
+          }
+    	]
+     },
+
+     {
+       "type": "search",
+       "name": "Search",
+       "limit": 1,
+       "settings": [
+	{
+       "type": "text",
+       "id": "title",
+       "label": "Title",
+       "default": "WHAT ARE YOU LOOKING FOR?"
+       },
+       {
+       "type": "text",
+       "id": "search",
+       "label": "search",
+       "default": "Search"
+       },
+	{
+           "type": "checkbox",
+           "id": "show_icon",
+           "label": "Show icon",
+           "default": true
+         },
+         {
+           "id": "icon",
+           "type": "text",
+           "label": "Icon",
+		"default": "<i class=\"icon-search\"></i>",
+           "info":"Ex:user [Line awesome icons](https://icons8.com/line-awesome)"
+         }
+       ]
+     },
+     {
+       "type": "account",
+       "name": "Login / Register",
+       "limit": 1,
+       "settings": [
+       {
+       "type": "text",
+       "id": "title",
+       "label": "Title",
+       "default": "Login / Register"
+       },
+	{
+           "type": "checkbox",
+           "id": "show_icon",
+           "label": "Show icon",
+           "default": true
+         },
+         {
+           "id": "icon",
+           "type": "text",
+           "label": "Icon sign in",
+		"default": "<i class=\"icon-user\"></i>",
+           "info":"Ex:user [Line awesome icons](https://icons8.com/line-awesome)"
+         },
+	  {
+           "id": "icon2",
+           "type": "text",
+           "label": "Icon sign out",
+		"default": "<i class=\"icon-user-x\"></i>",
+           "info":"Ex:user [Line awesome icons](https://icons8.com/line-awesome)"
+         }
+       ]
+     },
+     {
+       "type": "contact",
+       "name": "Contact Us",
+       "limit": 1,
+       "settings": [
+        {
+           "type": "text",
+           "id": "title",
+           "label": "Title",
+           "default": "Contact Us?"
+        },
+	 {
+         "type": "checkbox",
+         "id": "show_phone",
+         "label": "Show Phone",
+         "default": true
+         },
+         {
+         "type": "checkbox",
+         "id": "show_email",
+         "label": "Show Email",
+         "default": true
+         }
+       ]
+     }
+   ],
+   "default": {
+     "blocks": [
+       { "type": "menu_mb" },
+       { "type": "menu_mb" },
+       { "type": "menu_mb" },
+       { "type": "menu_mb" },
+       { "type": "wishlist" },
+	{ "type": "compare" },
+       { "type": "search" },
+       { "type": "account" },
+       { "type": "contact" }
+     ]
+   }
+ }
+{%- endschema -%}

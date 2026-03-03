@@ -1,0 +1,205 @@
+{%- assign options_type_circle_color = settings.product_options_type_circle_color | escape | downcase | split: '|' -%}
+{%- assign options_type_circle_image = settings.product_options_type_circle_image | escape | downcase | split: '|' -%}
+{%- assign options_type_square_image = settings.product_options_type_square_image | escape | downcase | split: '|' -%}
+{%- assign options_type_square_color = settings.product_options_type_square_color | escape | downcase | split: '|' -%}
+<div class="product-compare-color">
+  <button
+    type="button"
+    class="compare-color-button"
+    data-page-open-popup
+    href="#compare-color-popup"
+    data-effect="mfp-move-horizontal"
+  >
+    <svg
+      class="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+    >
+      <image width="18" height="18" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAD10lEQVQ4jU2UT2xUVRTGf+e+9+ZNB2aw08G2aCpVkVpIsEBU8D+IqSVEgahLNQYXxsjCrUtduSHRxBhcYNSFIhghEQiKJCImNrVUYAimaKAwbanQ6Uw7fTPvvXvMawvxJCc3uTf3y/m+c74j7xxYRzmq8VBbxM5HM5SrEfUwenFpxu9dnks9rKrtYARxS3bwfL+9WjkqGflOjWBKiqkrxOCyEEaS1B5r5X3E6avWY6wFY5J3F22ErfGNWo84vKnIUYT3EAZu/58/LI2YrWnDSd/RPlVhNlKmwxgQFIOWK1CL5n+49KrHz1i2IfMILhYyjtfVP+5+XjhLbseqkCtlQyXU8Voc/5jDGxRE7VSlh5hncU0bHshVslqRfaT1CYGiG6cCX2Xx3iZo+XowxhWlt6t+KJji3VgZvlW6qE3o36cZPuQa2+UaqE8+js1njmM3max/Y3PKTDze4k9xd9by6RlzYLRuX7grx7DqLZg5qKT+Sya0O5zruh8fpGkObEPssdkUy1t2RtbHcyZoXzR2PdcU7/7jmsM/NwV3QcG5SEAXLWRWd2uzjpFWJExoOi87Fzf+8MHFSt+dV6pPETiN/etbfv9icES5GQRsWxFAIgg+asro8WnMRQ/GZVomTJec9daaP13kbyflilNuq4YtVGc7uRR1D1wIt1CPUqRDh8NHCny0cR+PTZzEfDKK+cvDVj3I2IToGWIBB0hrwTUmgNwUpCPiap4rxa3gWag3uFyr8OXbb1Ca6OaRlR/T0XkZUwixjTRoDI6AFWiIuGTCMeqpApM5nGL7Wjt0B1oARiu8de4Qq1jGIE9zadDwZLiXgjvDChmDVNMacjG6OBlr/dfVUyv7Gcuspuwngj6vHSzrKv5SckbHmGIJVpS01mheNMmZ0v0UpmZ4IDfSptn8Vkox4imyJOo3eqH5W6Z9SAF52siwp7U0TH56BDsnwELTVFjs1fDSFnLskUywDHeB2nXnG6PNnCCvv9olkOTyoaGXmmZmDlalcG9inf/3PyP1zvHU0v39dt0rUEH8BqT0N5z4J5c8gb0hu8SxpzrOncuvLp6gKvntMe4GRzgGDCV2UjVrPCd6LufPtp+eeTAxOD1+cdLUw1047qw7N2gRF5qHR1/rHj751SzZbICPQ6OtldSryY6wKLWwg8gafAKanSqng+7plsbk68vdkfM4XmLr+R1gbHw4JPNMg8wxJaQJw9I5TytCgyBspx4VUIlISXTcs+GmGPM9Mm//2/souVAxAyi9gUY7OiXdl0bWB2irKzWJbW68Vr+nP+MOHImUgwnbZMHMBfAfct24toplOLEAAAAASUVORK5CYII="></image>
+    </svg>
+    <span class="text">{{ text_compare_color }}</span>
+  </button>
+  <div
+    id="compare-color-popup"
+    data-effect="mfp-move-horizontal"
+    class="mfp-hide mfp-with-anim compare-color-open-popup"
+  >
+    <div class="compare-color-popup-wrapper">
+      <div class="compare-color-popup-header">
+        <h5 class="compare-color-popup-title">
+          {{ text_compare_color }}
+        </h5>
+      </div>
+      <div class="compare-color-popup-content">
+        <div class="compare-colors">
+          <div class="compare-colors-swatch">
+            <div class="cms-option-item">
+              {%- for option in product.options_with_values -%}
+                {%- assign clear_name = option.name | escape | downcase -%}
+                {%- if options_type_circle_color contains clear_name -%}
+                  <div
+                    class="product-options__section style_{{style_product}}  laber-{{ option.name }} d-flex flex-wrap px-2"
+                    data-style="color"
+                    data-property="{{ option.name | handleize }}"
+                    {% if disable_auto_select %}
+                      data-disable-auto-select
+                    {% endif %}
+                  >
+                    {%- for value in option.values -%}
+                      {% render 'product-get-options-res-status' with option_index0: option_index0 %}
+                      <div
+                        data-index="{{ forloop.index }}"
+                        class="label index_{{ forloop.index }} {% if active_value %} active{% endif %} {% if disabled_value %} d-none{% endif %}"
+                      >
+                        <div
+                          class="compoare-color-value alo_tooltip product-options__value product-options__value--circle standard-color-{{ value | handleize }} {{ value | handleize }} rounded-circle text-hide cursor-pointer{% if disabled_value %} disabled{% endif %}{% if active_value %} active{% endif %}"
+                          data-js-option-value
+                          style="background-color:{{ value }};"
+                          data-value="{{ value }}"
+                          {{ trigger_attr }}
+                          data-bg="none"
+                          data-scale="2"
+                        >
+                          <i class="las la-check"></i>
+                          <span class="alo_tooltip-content">{{ value }}</span>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {%- elsif options_type_circle_image contains clear_name -%}
+                  <div
+                    class="product-options__section style_{{style_product}} laber-{{ option.name }} circle-image d-flex flex-wrap px-2"
+                    data-style="circle-image"
+                    data-property="{{ option.name | handleize }}"
+                    {% if disable_auto_select %}
+                      data-disable-auto-select
+                    {% endif %}
+                  >
+                    {%- for value in option.values -%}
+                      {% render 'product-get-options-res-status' with option_index0: option_index0 %}
+                      {%- assign option_image = null -%}
+                      {%- for variant in product.variants -%}
+                        {%- if value == variant.option1 or value == variant.option2 or value == variant.option3 -%}
+                          {%- if variant.image != blank -%}
+                            {%- assign option_image = variant.image -%}
+                            {%- break -%}
+                          {%- endif -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                      {%- if option_image == null -%}
+                        {%- assign option_image = image -%}
+                      {%- endif -%}
+                      <div
+                        data-index="{{ forloop.index }}"
+                        class="compoare-color-value alo_tooltip lazyload product-options__value product-options__value--circle rounded-circle text-hide cursor-pointer{% if disabled_value %} disabled{% endif %}{% if active_value %} active{% endif %} "
+                        data-js-option-value
+                        data-value="{{ value }}"
+                        {{ trigger_attr }}
+                        {%- if settings.product_format_pjpg -%}
+                          data-master="{{ option_image | img_url: '1x1', format: 'pjpg' | replace: '_1x1.', '_[width]x.' }}"
+                          data-bgset="{{ option_image | img_url: '48x', format: 'pjpg' }}"
+                        {%- else -%}
+                          data-master="{{ option_image | img_url: '1x1' | replace: '_1x1.', '_[width]x.' }}"
+                          data-bgset="{{ option_image | img_url: '48x' }}"
+                        {%- endif -%}
+                        data-scale="2"
+                      >
+                        <span class="alo_tooltip-content">{{ value }}</span>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {%- elsif options_type_square_color contains clear_name -%}
+                  <div
+                    class="product-options__section style_{{style_product}} laber-{{ option.name }}  d-flex flex-wrap"
+                    data-style="image"
+                    data-property="{{ option.name | handleize }}"
+                    {% if disable_auto_select %}
+                      data-disable-auto-select
+                    {% endif %}
+                  >
+                    {%- for value in option.values -%}
+                      {% render 'product-get-options-res-status' with option_index0: option_index0 %}
+                      <div
+                        data-index="{{ forloop.index }}"
+                        class="compoare-color-value alo_tooltip product-options__value product-options__value--square standard-color-{{ value | handleize }} text-hide cursor-pointer{% if disabled_value %} disabled{% endif %}{% if active_value %} active{% endif %} "
+                        data-js-option-value
+                        style="background-color:{{ value }};"
+                        data-value="{{ value }}"
+                        {{ trigger_attr }}
+                        data-bg="none"
+                        data-scale="2"
+                        {%- if settings.tooltips_enable %}
+                          data-js-tooltip
+                          data-tippy-content="{{ value }}"
+                          data-tippy-placement="top"
+                          data-tippy-distance="6"
+                        {%- endif -%}
+                      >
+                        <span class="alo_tooltip-content">{{ value }}</span>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {%- elsif options_type_square_image contains clear_name -%}
+                  <div
+                    class="product-options__section style_{{style_product}} laber-{{ option.name }} d-flex flex-wrap"
+                    data-style="image"
+                    data-property="{{ option.name | handleize }}"
+                    {% if disable_auto_select %}
+                      data-disable-auto-select
+                    {% endif %}
+                  >
+                    {%- for value in option.values -%}
+                      {%- assign option_image = null -%}
+                      {%- for variant in product.variants -%}
+                        {%- if value == variant.option1 or value == variant.option2 or value == variant.option3 -%}
+                          {%- if variant.image != blank -%}
+                            {%- assign option_image = variant.image -%}
+                            {%- break -%}
+                          {%- endif -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                      {%- if option_image == null -%}
+                        {%- assign option_image = image -%}
+                      {%- endif -%}
+                      {% render 'product-get-options-res-status' with option_index0: option_index0 %}
+                      <div
+                        data-index="{{ forloop.index }}"
+                        class="compoare-color-value alo_tooltip lazyload product-options__value product-options__value--square text-hide cursor-pointer{% if disabled_value %} disabled{% endif %}{% if active_value %} active{% endif %} "
+                        data-js-option-value
+                        data-value="{{ value }}"
+                        {{ trigger_attr }}
+                        {%- if settings.product_format_pjpg -%}
+                          data-master="{{ option_image | img_url: '1x1', format: 'pjpg' | replace: '_1x1.', '_[width]x.' }}"
+                          data-bgset="{{ option_image | img_url: '92x', format: 'pjpg' }})"
+                        {%- else -%}
+                          data-master="{{ option_image | img_url: '1x1' | replace: '_1x1.', '_[width]x.' }}"
+                          data-bgset="{{ option_image | img_url: '92x' }}"
+                        {%- endif -%}
+                        data-scale="2"
+                        {%- if settings.tooltips_enable %}
+                          data-js-tooltip
+                          data-tippy-content="{{ value }}"
+                          data-tippy-placement="top"
+                          data-tippy-distance="6"
+                        {%- endif -%}
+                      >
+                        <span class="alo_tooltip-content">{{ value }}</span>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+          <div class="compare-color-image flex flex-wrap"></div>
+          <div class="compare-color-text text-center">
+            {{ 'products.product.compare_color_text' | t }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+{%- comment -%}
+  Renders the country picker for the localization form
+
+  Accepts:
+    - localPosition: pass in the position in which the form is coming up to create specific IDs
+{%- endcomment -%}
+  <button
+    type="button"
+    class="disclosure__button localization-form__select localization-selector link link--text caption-large"
+    aria-expanded="false"
+    aria-controls="{{ localPosition }}List"
+    aria-describedby="{{ localPosition }}Label"
+  >
+    <span>
+      {{ localization.country.name -}}
+      (
+      {{- localization.country.currency.iso_code }}
+      {{ localization.country.currency.symbol }})
+    </span>
+    <i class="icon-chevron-down"></i>
+  </button>
+<div class="disclosure__list-wrapper" hidden>
+  <ul class="{{shop.currency}} dropdown list-currencies currency-lists">
+    {%- for country in localization.available_countries -%}
+      <li
+        class="disclosure__item {% if country.iso_code == localization.country.iso_code %}active{% endif %}"
+        tabindex="-1"
+      >
+        <a
+          class="link link--text disclosure__link caption-large focus-inset"
+          href="#"
+          {% if country.iso_code == localization.country.iso_code %}
+            aria-current="true"
+          {% endif %}
+          data-value="{{ country.iso_code }}"
+        >
+          <span class="localization-form__currency">
+            {{ country.name }} (
+            {{- country.currency.iso_code }}
+            {{ country.currency.symbol }})
+          </span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+<input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">

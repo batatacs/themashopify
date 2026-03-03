@@ -1,0 +1,15 @@
+<div class="product-page-info__text-countdown clearfix">
+  <div class="text-countdown js-text-countdown" data-delivery-time="{{ minutes }}" data-delivery-format="Day DD/MM/YYYY" data-delivery-excludes="Saturday, Sunday">
+      <count-down class="text-countdown__counter" data-plus-min="{{ minutes }}" data-timeout="false">
+        {% capture {{ minutes }} %}
+            <span class="box-count min"><span class="number">00</span></span><span class="dot">:</span><span class="box-count secs"><span class="number">00</span> <span class="text">s</span></span>
+        {% endcapture %}
+        <div class="message start">
+        {%- render 'icon-note' -%} <p>{{ 'products.product.text_countdown_html' | t: minutes: minutes }}</p>
+        </div>
+        <div class="message text_countdown_time_up end">
+          {%- render 'icon-note' -%} <p>{{ 'products.product.text_countdown_time_up' | t }}</p>
+        </div>
+      </count-down>
+  </div> 
+</div>

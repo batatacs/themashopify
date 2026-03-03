@@ -1,0 +1,113 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "show_title_page": true,
+        "h_position": "center",
+        "v_position": "middle",
+        "txt_align": "center",
+        "bg": "#ffffff",
+        "cl_border": "#fff",
+        "b_height": 150,
+        "mg_bottom": 20,
+        "mobile_bg": "#ffffff",
+        "mobile_ht": 100,
+        "mobile_mg_bottom": 15
+      }
+    },
+    "content-faqs": {
+      "type": "content-faqs",
+      "blocks": {
+        "346bda0e-133f-4467-a5e1-13cf6c712d17": {
+          "type": "faq",
+          "settings": {
+            "title": "Informações de Compra",
+            "faq_name": "Como sei se meu pedido foi bem-sucedido?",
+            "faq_desc": "Você receberá um e-mail de confirmação assim que o pedido for processado. Verifique sua caixa de entrada e spam.",
+            "faq_name2": "Como acompanho meu pedido?",
+            "faq_desc2": "Assim que seu pedido for enviado, você receberá um código de rastreamento por e-mail.",
+            "faq_name3": "Posso alterar meu endereço de entrega?",
+            "faq_desc3": "Entre em contato conosco imediatamente se precisar alterar o endereço. Se o pedido já tiver sido enviado, não poderemos alterá-lo.",
+            "faq_name4": "Quais métodos de pagamento são aceitos?",
+            "faq_desc4": "Aceitamos cartões de crédito, débito, boleto e PIX.",
+            "faq_name5": "É seguro comprar neste site?",
+            "faq_desc5": "Sim, utilizamos criptografia SSL para proteger seus dados."
+          }
+        },
+        "8704d905-d8ec-4ed4-83cc-f23915e14fb4": {
+          "type": "faq",
+          "settings": {
+            "title": "Informações de Pagamento",
+            "faq_name": "Quais formas de pagamento aceitam?",
+            "faq_desc": "Aceitamos cartões de crédito, débito, boleto e PIX.",
+            "faq_name2": "O pagamento é seguro?",
+            "faq_desc2": "Sim, todas as transações são criptografadas e seguras.",
+            "faq_name3": "Posso parcelar minha compra?",
+            "faq_desc3": "Sim, oferecemos parcelamento no cartão de crédito. Verifique as condições no checkout.",
+            "faq_name4": "Quanto tempo leva para aprovar o pagamento?",
+            "faq_desc4": "Cartões e PIX geralmente são aprovados na hora. Boletos podem levar até 3 dias úteis.",
+            "faq_name5": "Vocês guardam os dados do meu cartão?",
+            "faq_desc5": "Não, os dados são processados diretamente pela operadora de pagamento."
+          }
+        },
+        "1b09f917-f567-481b-aa4f-91902f5bca26": {
+          "type": "faq",
+          "settings": {
+            "title": "Pedidos e Devoluções",
+            "faq_name": "Qual o prazo de entrega?",
+            "faq_desc": "O prazo varia de acordo com sua região. Você pode calcular o prazo na página do produto ou no carrinho.",
+            "faq_name2": "Como faço para devolver um produto?",
+            "faq_desc2": "Entre em contato com nosso suporte para iniciar o processo de devolução.",
+            "faq_name3": "Qual o prazo para devolução?",
+            "faq_desc3": "Você tem até 7 dias após o recebimento para solicitar a devolução por arrependimento.",
+            "faq_name4": "",
+            "faq_desc4": "",
+            "faq_name5": "",
+            "faq_desc5": ""
+          }
+        },
+        "2652379e-e839-4d0b-9ef9-1ca703d05067": {
+          "type": "faq",
+          "settings": {
+            "title": "Sobre a Loja",
+            "faq_name": "Vocês possuem loja física?",
+            "faq_desc": "Somos uma loja 100% online para oferecer os melhores preços.",
+            "faq_name2": "Enviam para todo o Brasil?",
+            "faq_desc2": "Sim, enviamos para todo o território nacional via Correios e transportadoras.",
+            "faq_name3": "Como entro em contato?",
+            "faq_desc3": "Você pode nos contatar pelo e-mail de suporte ou WhatsApp.",
+            "faq_name4": "Os produtos são originais?",
+            "faq_desc4": "Sim, trabalhamos apenas com produtos originais e com garantia.",
+            "faq_name5": "",
+            "faq_desc5": ""
+          }
+        }
+      },
+      "block_order": [
+        "346bda0e-133f-4467-a5e1-13cf6c712d17",
+        "8704d905-d8ec-4ed4-83cc-f23915e14fb4",
+        "1b09f917-f567-481b-aa4f-91902f5bca26",
+        "2652379e-e839-4d0b-9ef9-1ca703d05067"
+      ],
+      "settings": {
+        "faq_title_page": "",
+        "show_content": true,
+        "faq_title": "Como podemos ajudar?",
+        "faq_desc": "<p>Estamos aqui para tirar suas dúvidas. Confira abaixo as perguntas mais frequentes.<\/p>",
+        "show_menu": true,
+        "menu_page": "menu-faqs",
+        "cl_bg": "#ffffff",
+        "pd_c": "",
+        "mg": "",
+        "pd": ",0,80px,0",
+        "mg_mb": "",
+        "pd_mb": ",0,40px,0"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "content-faqs"
+  ]
+}

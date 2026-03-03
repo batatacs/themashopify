@@ -1,0 +1,536 @@
+{% liquid
+  assign sid = section.id 
+  assign layout = section.settings.layout
+  assign collection = section.settings.collection 
+  assign show_all_collection = section.settings.show_all_collection
+  assign se_blocks = section.blocks
+  assign se_size = se_blocks.size
+  assign arrows =  section.settings.arrows
+  assign dots =  section.settings.dots
+
+  assign visible = section.settings.visible
+  assign widescreen = section.settings.widescreen
+  assign desktop = section.settings.desktop
+  assign laptop = section.settings.laptop
+  assign notebook = section.settings.notebook
+  assign tablet = section.settings.tablet
+  assign landscape = section.settings.landscape
+  assign portrait = section.settings.portrait
+  assign mobile = section.settings.mobile
+  assign padding = section.settings.padding
+
+  assign sett_equal = section.settings.use_eq_height
+  assign image_ratio = section.settings.image_ratio
+  if sett_equal 
+     case image_ratio   
+        when 'ratio2_1'
+            assign aspect_ratio = 2.0
+        when 'ratio3_2'
+            assign aspect_ratio = 1.5
+        when 'ratio4_3'
+            assign aspect_ratio = 1.333
+        when 'ratio1_1'
+            assign aspect_ratio = 1.0
+        when 'ratio3_4'
+            assign aspect_ratio = 0.75
+        when 'ratio2_3'
+            assign aspect_ratio = 0.66667
+        when 'ratio1_2'
+            assign aspect_ratio = 0.5
+     endcase 
+  endif
+%}
+  
+{%- for i in (1..1) -%}  
+<section id="laber_{{sid}}" class="wow animate--slide-in">
+  <div class="container {%if layout %}full-width{%endif%}" >   
+    <div class="collection_featured ">
+    {% if section.settings.title != blank %}
+      <div class="wrap_title {{ section.settings.text_size }}">
+        <div class="h3 section-title alo-text-transform" style="--alo-text-transform:{{ section.settings.text_transform }}">{{section.settings.title}}</div>  
+      </div>
+    {% endif %}
+    <div class="collection-list-featured" style="--alo-border-radius:{{ section.settings.border }}px; --color-border:{{ section.settings.cl_border}};">
+    {% include 'grid-slider', settings:section.settings %} 
+    <div class="content_section slick-carousel">
+    <div class="grid-slider js_carousel collection-slider" {{gridSlider}}
+      data-mobile="{{ mobile }}"
+      data-portrait="{{ portrait }}"
+      data-landscape="{{ landscape }}"
+      data-tablet="{{ tablet }}"
+      data-notebook="{{ notebook }}"
+      data-laptop="{{ laptop }}"
+      data-desktop="{{ desktop }}"
+      data-widescreen="{{ widescreen }}"
+      data-visible="{{ visible }}"
+      data-spacing="{{ padding | plus: padding }}"
+      data-append-Arrows=".arrows_{{sid}}" 
+      data-append-Dots=".dots_{{sid}}"
+      style="--perload-gap: {{ padding | plus: padding }}px"
+      >
+          {% assign index = 1 %} 
+          {%- for block in section.blocks -%}
+      		<article class="product-item alo-loop scroll-trigger" style="--animation-order:{{ index }};"> 	
+              {%- include 'cat-grid-item',block:block,aspect_ratio:aspect_ratio,for_i:se_size -%}
+            </article> 
+          {% assign index = index | plus: 1 %}
+          {%- endfor -%}
+        	{% if show_all_collection %}
+              <article class="product-item alo-loop scroll-trigger" style="--animation-order:{{ index }};"> 	
+                <div class="cat_grid_item__content">
+                  <div class="cat_grid_item__link">
+                  <a class="all_collection block h-full " href="/collections" target="" title="" aria-label="link" tabindex="0">
+                     {% if aspect_ratio != blank %}
+                       {%- assign ratio =  1 | divided_by: aspect_ratio | times: 100 -%}
+                    {% else %}
+                        {%- assign ratio = 100 -%}
+                    {% endif %}
+                    <div class="image-card__img overflow-hidden ratio" style="--ratio-percent: {{ ratio }}%;">
+                        {% if section.settings.icon_svg_all_collection != blank%}
+                          {{ section.settings.icon_svg_all_collection }}
+                        {% else %}  
+                          <svg id="Layer_1" enable-background="new 0 0 512.457 512.457"  viewBox="0 0 512.457 512.457"  xmlns="http://www.w3.org/2000/svg"><g><g clip-rule="evenodd" fill-rule="evenodd"><path d="m256.277 442.457h-120v60h240v-60z" fill="#8690af"/><path d="m284.558 100.455s35.357-35.356 35.357-35.356c48.618-45.196 115.65 22.124 70.713 70.714-19.573 19.573-51.135 19.577-70.713 0l-33.357-33.357zm-28.281-28.281-3.25-3.25-32.107-32.107c-34.961-34.961-92.314-34.962-127.276 0s-34.963 92.314-.001 127.276c34.961 34.961 92.314 34.962 127.276.001l35.357-35.357s2.125 2.125 2.125 2.125 33.232 33.232 33.232 33.232c35.089 35.089 92.172 35.105 127.276 0 80.891-87.566-39.717-208.388-127.276-127.276.001 0-35.356 35.356-35.356 35.356zm-28.281 28.281s-35.357 35.357-35.357 35.357c-48.692 44.933-115.65-22.02-70.713-70.714 19.419-19.419 51.292-19.42 70.713 0 8.718 8.708 26.584 26.593 35.357 35.357z" fill="#ff5d7d"/><g fill="#ffdcd5"><path d="m91.551 260.375-46.854-76.682c-14.655-23.037-42.127-5.357-32.373 15.44 6.829 14.172 33.897 81.587 54.226 126.305 14.622 32.165 20.525 40.413 46.337 63.875l39.239 35.667v17.477h104.151v-19.569c-6.081-63.516-61.295-74.005-92.254-111.268-5.61-6.752-38.828-48.507-44.439-55.26-7.148-9.222-23.643-7.026-28.033 4.015z"/><path d="m348.532 311.62c-30.959 37.262-86.173 47.752-92.254 111.268v19.569h104.151v-17.477l39.239-35.667c25.812-23.462 31.714-31.709 46.337-63.875 20.329-44.718 47.397-112.133 54.226-126.305 9.755-20.796-17.717-38.477-32.373-15.44l-46.854 76.682c-4.398-11.039-20.879-13.24-28.033-4.014-5.612 6.753-38.829 48.507-44.439 55.259z"/></g></g><g><path d="m497.969 166.188c-10.999-6.047-27.758-4.827-38.549 12.139-.104.124-40.115 65.679-40.22 65.821-10.787-6.462-26.023-4.061-33.922 5.823-5.44 6.537-38.779 48.442-44.439 55.26-25.628 29.917-65.241 42.138-84.536 80.88-7.565-15.188-18.069-25.8-27.558-33.964-4.186-3.603-10.501-3.128-14.103 1.058-3.603 4.186-3.129 10.5 1.058 14.103 13.512 11.627 27.693 27.379 30.575 56.072v9.079h-84.15v-7.478c0-2.818-1.188-5.504-3.273-7.4 0 0-39.239-35.667-39.239-35.667-24.56-22.324-29.901-29.688-43.96-60.613-16.098-34.855-40.255-95.247-54.295-126.455-2.795-6.007.478-9.821 2.859-11.13 3.991-2.193 8.471-.223 11.996 5.275l44.603 72.996c-.819 5.353-.147 12.001 3.103 20.216 9.335 23.587 20.904 47.147 31.743 64.638 2.909 4.694 9.07 6.143 13.768 3.233 4.694-2.909 6.142-9.073 3.232-13.768-10.241-16.528-21.229-38.93-30.146-61.463-3.811-9.631-1.279-11.759-.326-12.56 1.537-1.292 3.452-1.904 5.395-1.733 1.726.155 3.256.936 4.307 2.202 2.738 3.295 12.534 15.532 22.007 27.366 4.654 5.814 9.314 11.636 13.22 16.5 3.459 4.308 9.752 4.995 14.059 1.538 4.307-3.458 4.995-9.751 1.537-14.058-3.9-4.858-8.554-10.671-13.201-16.478-9.969-12.453-19.384-24.214-22.238-27.649-7.896-9.881-23.136-12.288-33.921-5.823-.101-.154-40.125-65.681-40.219-65.821-21.423-33.589-64.659-6.643-49.863 25.054 14.201 31.65 37.956 91.063 54.176 126.196 15.226 33.492 22.055 42.904 48.714 67.136 0 0 35.966 32.691 35.966 32.691v3.053h-5.85c-5.522 0-10 4.477-10 10v60c0 5.523 4.478 10 10 10h240c5.522 0 10-4.477 10-10v-60c0-5.523-4.478-10-10-10h-5.849v-3.053s35.966-32.691 35.966-32.691c26.658-24.232 33.487-33.644 48.714-67.136 11.687-25.708 25.479-58.615 36.561-85.056 7.92-18.896 14.76-35.214 17.57-41.046 6.647-14.041 1.797-30.111-11.272-37.287zm-351.692 286.269h100v40h-100zm220 40h-100v-40h100zm124.916-297.605c-14.13 31.389-38.134 91.459-54.292 126.447-14.058 30.925-19.399 38.289-43.96 60.613l-39.239 35.667c-2.085 1.896-3.273 4.582-3.273 7.4v7.478h-84.151v-9.075c5.175-57.296 58.645-67.416 89.946-105.371 5.431-6.527 38.77-48.428 44.438-55.259 2.318-2.858 6.959-2.889 9.703-.468.952.801 3.483 2.928-.327 12.559-8.917 22.533-19.904 44.936-30.146 61.463-2.909 4.694-1.462 10.858 3.232 13.768s10.858 1.461 13.768-3.233c10.839-17.491 22.408-41.051 31.743-64.639 3.25-8.215 3.922-14.864 3.104-20.216l44.603-72.998c3.523-5.496 8.003-7.468 11.995-5.274 2.38 1.31 5.657 5.126 2.856 11.138z"/><path d="m157.283 200.315c47.315-.101 68.692-26.834 98.995-57.436l28.285 28.286c37.162 38.74 104.257 38.747 141.419-.002 90.114-97.212-44.211-231.533-141.42-141.416.001-.001-28.284 28.285-28.284 28.285s-28.286-28.286-28.286-28.286c-38.99-38.989-102.43-38.989-141.418 0-62.672 61.891-17.53 171.415 70.709 170.569zm-56.567-156.427c31.19-31.189 81.942-31.192 113.133 0l28.286 28.286-14.139 14.139s-28.286-28.286-28.286-28.286c-23.396-23.394-61.461-23.393-84.855.001-23.165 22.208-23.177 62.648.001 84.856 23.394 23.394 61.46 23.394 84.855 0l98.995-98.995c31.191-31.192 81.942-31.19 113.134 0 50.152 49.529 13.968 137.142-56.566 136.528-40.5.216-58.835-26.257-84.853-51.679l14.139-14.139 28.285 28.286c23.395 23.395 61.462 23.394 84.856 0 37.644-37.159 10.41-102.88-42.43-102.466-16.002 0-31.07 6.254-42.427 17.61l-98.995 98.995c-29.55 30.848-83.584 30.852-113.133-.002-31.191-31.19-31.191-81.942 0-113.134zm113.138 56.567-28.286 28.286c-24.755 25.058-68.563 7.039-68.208-28.286-.499-21.759 18.709-40.463 39.924-39.982 10.242 0 20.487 3.899 28.284 11.696zm84.848.001s28.285-28.285 28.285-28.285c14.947-15.566 41.624-15.568 56.571 0 36.049 38.889-17.688 92.619-56.572 56.57.001 0-28.284-28.285-28.284-28.285z"/><path d="m186.364 322.537c-5.522 0-9.996 4.477-9.996 10 .491 13.248 19.514 13.249 20.003 0 0-5.525-4.483-10.004-10.007-10z"/></g></g></svg>
+                        {% endif %}
+              
+                    </div> 
+                    <div class="collection-name">
+                     <p>{{ 'homepage.onboarding.all_collection' | t }}</p> 
+                    </div>
+                 </a>
+                  </div>
+                </div>
+              </article>
+            {% endif %}
+    </div>
+      {%if dots %}
+      <div class="laber_append_dots dots_{{sid}}"></div>
+      {%endif%}
+      {%if arrows%}	
+      <div class="laber_append_arrows arrows_{{sid}}"></div>	
+      {% endif %}
+  </div>
+    </div>
+  </div>
+  </div>  
+</section>
+{%- render 'section_style' -%} 
+{%- endfor -%}
+
+
+{%- schema -%}
+  {
+    "name": "Sub Collection",
+    "class": "collection_list cms_section type_sub_collection",
+    "max_blocks": 20,
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Title Settings"
+      },
+	  {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Popular Categories"
+      },  
+      {
+        "type": "select",
+        "id": "text_size",
+        "default": "medium",
+        "options": [
+          {
+            "value": "small",
+            "label": "small"
+         },
+         {
+            "value": "medium",
+            "label": "Medium"
+         },
+         {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "label": "Text size"
+      },
+      {
+              "type": "select",
+              "id": "text_transform",
+              "default": "none",
+              "options": [
+               {
+                  "value": "none",
+                  "label": "None"
+               },
+               {
+                  "value": "capitalize",
+                  "label": "Capitalize"
+               },
+               {
+                  "value": "lowercase",
+                  "label": "Lowercase"
+               },
+               {
+                  "value": "uppercase",
+                  "label": "Uppercase"
+                }
+              ],
+              "label": "Text transform:"
+            },   
+      {  
+        "type": "range",  
+        "id": "border",  
+        "label": "Border",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 0 
+    }, 
+     {
+      "type": "checkbox",
+      "id": "show_all_collection",
+      "label": "All Collection",
+      "default": false
+    }, 
+      {
+      "type": "textarea",
+      "id": "icon_svg_all_collection",
+      "label": "code SVG",
+      "info": "Icon SVG All Collection"
+    },
+    {
+        "type": "checkbox",
+        "id": "use_eq_height",
+        "label": "Use equal height images?",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "image_ratio",
+        "label": "Aspect Ratio",
+        "default": "ratio3_2",
+        "info": "Aspect Ratio Custom will settings in General panel.",
+        "options": [
+          {
+            "group": "Landscape",
+            "value": "ratio2_1",
+            "label": "2:1"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio3_2",
+            "label": "3:2"
+          },
+          {
+            "group": "Landscape",
+            "value": "ratio4_3",
+            "label": "4:3"
+          }, 
+          {
+            "group": "Squared",
+            "value": "ratio1_1",
+            "label": "1:1"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio3_4",
+            "label": "3:4"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio2_3",
+            "label": "2:3"
+          },
+          {
+            "group": "Portrait",
+            "value": "ratio1_2",
+            "label": "1:2"
+          }
+        ]
+      },
+
+	{
+        "type": "header",
+        "content": "---- Slider Show Collection ----",
+        "info": "Refer to the attribute values [here](httpss://kenwheeler.github.io/slick)"
+    }, 	
+    {
+        "type": "checkbox",
+        "id": "use-slider",
+        "label": "Use slider?",
+        "default": true
+    },
+    {  
+        "type": "range",  
+        "id": "slides-To-Scroll",  
+        "label": "Slide to scroll",  
+        "info": "The number of items slide to scroll",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 1
+    },   
+    {  
+        "type": "range",  
+        "id": "visible",  
+        "label": "Columns in Visible",
+		"info": "Item(s) in screen ( Size >= 1920 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 5 
+    },
+    {  
+        "type": "range",  
+        "id": "widescreen",  
+        "label": "Columns in Widescreen",
+		"info": "Item(s) in screen ( 1366 <= Size < 1920 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 4 
+    },  
+    {  
+        "type": "range",  
+        "id": "desktop",  
+        "label": "Columns in Desktop",
+		"info":  "Item(s) in screen ( 1200 <= Size < 1480 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 4  
+    },	  
+    {  
+        "type": "range",  
+        "id": "laptop",  
+        "label": "Columns in Laptop",
+		"info": "Item(s) in screen ( 992 <= Size < 1200 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 4
+    },	  
+    {  
+        "type": "range",  
+        "id": "notebook",  
+        "label": "Columns in Notebook",
+		"info": "Item(s) in screen ( 768 <= Size < 992 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 3  
+    },  
+    {  
+        "type": "range",  
+        "id": "tablet",  
+        "label": "Columns in Tablet",
+		"info": "Item(s) in screen ( 576 <= Size < 768 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 3 
+    },
+    {  
+        "type": "range",  
+        "id": "landscape",  
+        "label": "Columns in Landscape",
+		"info": "Item(s) in screen ( 480 <= Size < 576 )",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 2 
+    }, 
+    {  
+        "type": "range",  
+        "id": "portrait",  
+        "label": "Columns in Portrait",
+		"info": "Item(s) in screen ( 360 < Size < 480 )",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 2 
+    },
+    {  
+        "type": "range",  
+        "id": "mobile",  
+        "label": "Columns in Mobile",
+		"info": "Item(s) in screen ( Size < = 360 )",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "default": 1 
+    },
+    {  
+        "type": "range",  
+        "id": "rows",  
+        "label": "Rows Slider",  
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "default": 1
+    },
+    {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Autoplay",
+        "default": true
+    },
+    {	
+        "type": "text",
+        "id": "speed",
+        "label": "Speed",
+        "default": "300",
+        "info": "Autoplay Speed in milliseconds"
+    },
+    {	
+        "type": "text",
+        "id": "autoplay-Speed",
+        "label": "Auto Play Speed",
+        "default": "3000",
+        "info": "Autoplay Speed in milliseconds"
+    },
+    {	
+        "type": "checkbox",
+        "id": "arrows",
+        "label": "Arrows",
+        "default": true
+    },
+    {	
+        "type": "checkbox",
+        "id": "fade",
+        "label": "Fade",
+        "default": false,
+        "info": "Only use for 1 column"
+    },
+    {	
+        "type": "checkbox",
+        "id": "center-Mode",
+        "label": "Center Mode",
+        "default": false
+    },
+    {	
+        "type": "checkbox",
+        "id": "adaptive-Height",
+        "label": "Adaptive Height",
+        "default": false
+    },
+    {	
+        "type": "checkbox",
+        "id": "dots",
+        "label": "Dots",
+        "default": false 
+    },
+    {	
+        "type": "checkbox",
+        "id": "infinite",
+        "label": "Infinite",
+        "default": false
+    },
+    {  
+        "type": "range",  
+        "id": "padding",  
+        "label": "padding",
+		"info": "Distance between items",
+        "min": 0,
+        "max": 15,
+        "step": 5,
+        "unit": "px",
+        "default": 10 
+    },
+
+    {	
+        "type": "checkbox",
+        "id": "vertical",
+        "label": "Vertical",
+        "default": false
+    },
+      {
+        "type": "header",
+        "content": "== Design Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "layout",
+        "label": "Full Width",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "cl_bg",
+        "label": "Background color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "cl_border",
+        "label": "Color Border",
+        "default": "#fff"
+      },
+	{
+        "type": "text",
+        "id": "mg",
+        "label": "Margin",
+        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+      },
+      {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+      },
+     {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "text",
+        "id": "mg_mb",
+        "label": "Margin"
+      },
+      {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding"
+      } 
+	
+    ],
+    "blocks": [{
+    "type": "collection",
+    "name": "Collection",
+    "settings": [
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+         "type": "image_picker",
+         "id": "image",
+         "label": "Image",
+		 "info":"Dimension: 330 x 430px"
+       }, 
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title block (optional)",
+        "info": "Leave empty to use 'collection title' title."
+      }
+      ]
+    }],
+    "presets": [
+      {
+        "name": "Sub Collection",
+        "category": "Collections",
+        "blocks": [
+          { "type": "collection" },
+          { "type": "collection" },
+          { "type": "collection" },
+          { "type": "collection" },
+          { "type": "collection" },
+          { "type": "collection" }
+        ]
+      }
+    ]
+  }
+{% endschema %}

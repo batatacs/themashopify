@@ -1,0 +1,58 @@
+ .page-404 {
+   width: 100%;
+   display: block;
+}
+ .page-404 .wrap-content {
+	 display: table;
+}
+ .page-404 .wrap-content .page-404-content {
+   display: flex;
+   width: 100%;
+   text-align: center;
+   flex-direction: column;
+   align-items: center;
+}
+  .page-404 .wrap-content .page-404-content .images{
+	margin-bottom: 50px
+  }
+ .page-404 .wrap-content .page-404-content .oops-404 {
+    color: var(--color-main);
+    margin: 0;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 40px;
+}
+ .page-404 .wrap-content .page-404-content .title-404 {
+	 font-weight: 600;
+	 color: #111;
+	 margin: 0;
+	 text-transform: uppercase;
+	 line-height: 1;
+	 font-size: 24px;
+	 margin-bottom: 30px;
+}
+ .page-404 .wrap-content .page-404-content p {
+    color: #4D5574;
+    margin: 0;
+    margin-bottom: 50px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px
+}
+ .page-404 .wrap-content .page-404-content a.back-homepage {
+    text-transform: uppercase;
+    color: var(--color-btn-text);
+    background-color: var(--color-btn);
+    font-size: 13px;
+    position: relative;
+    line-height: 50px;
+    display: inline-block;
+    min-width: 210px;
+    font-weight: 600;
+    border-radius: 30px; 
+}
+ .page-404 .wrap-content .page-404-content a.back-homepage:hover {
+     color: var(--color-btn-text_hover);
+     background-color:var(--color-btn-hover);
+}

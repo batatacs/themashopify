@@ -1,0 +1,207 @@
+{%- liquid 
+  assign page_type = section.settings[key] -%}
+
+{% if section.settings.use_newsletter_popup %}
+	{% assign max_width = section.settings.max_width %}
+	{% assign max_height = section.settings.max_height %}
+    {% assign border = section.settings.border %}
+	{% assign bg_color = section.settings.bg_color %}
+    {% assign img_banner = section.settings.bg_newsletter %}
+    <div data-effect="mfp-move-horizontal" 
+      style="
+      border-radius:{{ border }}px;
+      max-width:{{max_width}}px;
+      height:{{max_height}}px; 
+      background-color:{{bg_color}};
+       {% if img_banner != blank %}
+          background-image: url('{{ img_banner | img_url:"1920x"}}');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: top center;
+      {% endif %}	 
+        " 
+        data-js-lazy-newsletter-popup class="js_popup_prpr_wrap_newsletter mfp-with-anim" 
+        data-time='{{section.settings.timeout | times: 1000}}' 
+        data-stt='{ "pp_version": {{section.settings.pp_version |default:1}},"day_next": {{section.settings.day_next}} }' >
+      <div class="popup_content"> 
+        <div class=" content">
+          <div class="wrap-newslette-popup">
+            
+            <div class="title_newslette">
+             {% if section.settings.subtitle_newslette != blank %}
+              <h4>	
+              	{{section.settings.subtitle_newslette}}
+              </h4>
+               {% endif %}
+            {% if section.settings.title_newslette != blank %}
+              <h3>	
+              	{{section.settings.title_newslette}}
+              </h3>
+              {% endif %}
+            </div>	
+            {% if section.settings.description != blank %}
+            <div class="desc">
+              {{section.settings.description}}
+            </div>
+            {% endif %}
+            <form method="post" 
+              action="{% if settings.newsletter_form_action != blank %}{{settings.newsletter_form_action}}{% else %}/contact#contact_form{% endif %}"
+              class="newsletter-form-footer" 
+              autocomplete="on" >                              
+                <div class="signup-newsletter-form">
+                  <div class="col_email">
+                    <input type="email" name="EMAIL" placeholder="{{section.settings.placeholder_newsletter}}"  value="{% if customer %}{{ customer.email }}{% endif %}" class="input-text" required="required">
+                  </div>
+                  {%comment%}
+                  <div class="group-input">
+                    <label class="radio radio-before">
+                      <span class="radio__input">
+                        <input type="radio" name="radio">
+                        <span class="radio__control"></span>
+                      </span>
+                      <span class="radio__label">Man</span>
+                    </label>
+                    <label class="radio radio-before">
+                      <span class="radio__input">
+                        <input type="radio" name="radio">
+                        <span class="radio__control"></span>
+                      </span>
+                      <span class="radio__label">Women</span>
+                    </label>
+                    <!--<input type="radio" name="gender" value="man"/> <label>Man</label>
+                    <input class="women" type="radio" name="gender" value="women" checked /> <label>Women</label>-->
+                  </div>
+                  {%endcomment%}
+                  <div class="col-auto"><button type="submit" class="btn btn-theme">{{section.settings.button_newsletter}}</button></div>
+               </div>          
+            </form>  
+            <div class="do-not-show-again checkbox clearfix">
+              <input id="do-not-show" name="do-not-show" type="checkbox"> <label for="do-not-show">{{section.settings.no_show_popup_again}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endif %}
+{%- schema -%}
+  {
+    "name": "Newsletter popup",
+    "class":"mfp-hide type_promotion_popup",
+    "settings": [  
+	  {
+        "type": "paragraph",
+        "content": "Only visible on desktop."
+      },
+	  {
+          "type": "checkbox",
+          "id": "use_newsletter_popup",
+          "label": "Show newsletter popup",
+          "default": true
+	  },      
+      {
+        "type": "header",
+        "content": "== Newsletter Settings"
+      },
+      {
+      "type": "image_picker",
+      "id": "bg_newsletter",
+      "label":"background image"
+      }, 
+      {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+      },
+      {
+      "type": "text",
+      "id": "title_newslette",
+      "label": "Title newslette",
+      "default":"GET 20% OFF"
+      },
+      {
+      "type": "text",
+      "id": "subtitle_newslette",
+      "label": "Sub Title newslette",
+      "default":"SIGN UP FOR OUR NEWSLETTER & PROMOTIONS !"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+		"default": "ON YOUR NEXT PURCHASE"
+      },
+      {
+        "type": "text",
+        "id": "placeholder_newsletter",
+        "label": "Placeholder of newsletter",
+		"default":"Your email address"
+      },
+	  {
+        "type": "text",
+        "id": "button_newsletter",
+        "label": "Button of newsletter",
+		"default":"Subscribe"
+      },
+	  {
+        "type": "text",
+        "id": "no_show_popup_again",
+        "label": "Don't show this popup again",
+		"default":"Don't show this popup again"
+      }, 
+      {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max width",
+      "default": "860",	
+	  "info":"unit px"
+      },
+	  {
+      "type": "text",
+      "id": "max_height",
+      "label": "Max height",
+      "default": "405",
+      "info":"unit px"
+      },
+      {
+       "type": "range",
+       "id": "border",
+       "label": "Border",
+       "min": 0,
+       "max": 50,
+       "step": 1,
+       "unit": "px",
+       "default": 0
+   },
+      {
+        "type": "header",
+        "content": "General Settings"
+      },      
+      {
+        "type": "range",
+        "id": "timeout",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "sec",
+        "label": "Delay time (second)",        
+        "default": 15
+      },
+      {
+        "type": "header",
+        "content": "Show popup after Settings"
+      },        
+      {
+        "type": "range",
+        "id": "day_next",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "Day",
+        "label": "Day next show (n)",
+        "info": "if customer close the popup, next show will be after 'n' Day",
+        "default": 1
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,505 @@
+{%- if section.settings.hidden %}{% break %}{% endif -%}
+{% assign sid = section.id %}
+{% assign handle_current = product.handle %}
+{% assign layout = section.settings.layout %}
+{% assign handle = product.collections[0].handle %}
+{% if handle == '' or handle == blank %}
+  {% assign handle = 'frontpage' %}
+{% endif %}
+{% assign max_count = section.settings.max_count | plus: 0 %}
+{% liquid
+  assign navigation = section.settings.navigation
+  assign rows = section.settings.rows | plus: 0
+  assign pagination = section.settings.pagination
+  assign spaceBetween = section.settings['space-Between']
+  if section.settings['use-slider']
+    assign use-slider = true
+  else
+    assign use-slider = false
+  endif
+%}
+<div
+  id="laber_{{sid}}"
+  class="laber_collection_related {% if section.settings.use_border_for_product %}alo-border-product{% endif%}"
+>
+  {%- assign loops = cart.items.size | times: 10 -%}
+  {%- capture indexes -%}
+	{%- for i in (1..loops) -%}{{ "now" | date: "%N" | modulo: cart.items.size }},{%- endfor -%}
+  {%- endcapture -%}
+  {%- assign indexes = indexes | split: ',' | uniq -%}
+  {%- assign idx = indexes.first | plus: 0 -%}
+
+  <product-recommendations
+    data-url="{{ routes.product_recommendations_url }}?limit={{ max_count }}"
+    data-section-id="{{ section.id }}"
+    data-product-id="{{ cart.items[idx].product_id }}"
+    style="--alo-border-radius:{{ settings.image_border_product}}px;"
+  >
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+      <div
+        class="{% if layout %}full-width{% else %}container{% endif %}"
+      >
+        <div class="products-arrivals">
+          {% if section.settings.title != blank %}
+            <div class="wrap_title {{ section.settings.text_size }} w_{{ section.settings.d_position }}">
+              <h3
+                class="section-title alo-text-transform"
+                style="--alo-text-transform:{{ section.settings.text_transform }}"
+              >
+                {{ section.settings.title }}
+              </h3>
+              {% if section.settings.content != blank %}
+                <div class="content">{{ section.settings.content }}</div>
+              {% endif %}
+            </div>
+          {% endif %}
+          <div class="section-content">
+            {% include 'grid-slider', settings: section.settings %}
+            {%- capture url_cat -%}{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}{% if collection %}/collections/{{collection.handle}}{% endif %}{%- endcapture -%}
+            {%- assign products = recommendations.products -%}
+            <grid-slider
+              class="grid-slider collection-slider"
+              {{ gridSlider }}
+              style="--perload-gap: {{ spaceBetween}}px"
+            >
+              {% assign index = 1 %}
+              {% for product in products limit: max_count %}
+                {% assign pr_hd = product.handle %}
+                <div
+                  data-lazy-product-load
+                  class="swiper-slide productLazyload lazyload product-item  scroll-trigger"
+                  data-include="{{url_cat}}/products/{{pr_hd}}/?view=pr_lazy_load"
+                ></div>
+              {% endfor %}
+            </grid-slider>
+          </div>
+        </div>
+      </div>
+      {% if section.settings.show_border %}
+        <div class="sm:d-none pt-60 {%if layout_des%}full-width{% else %}container{%endif%}">
+          <div class="line alo-background-color" style="--alo-background-color:{{ section.settings.cl_line }};"></div>
+        </div>
+      {% endif %}
+    {% endif %}
+  </product-recommendations>
+</div>
+{%- render 'section_style' -%}
+{% if rows > 1 %}
+  {% style %}#laber_{{sid}} .grid-init .alo-item{padding-bottom:{{padding | plus: padding}}px; }{% endstyle %}
+{% endif %}
+<script>
+if (!customElements.get("product-recommendations")) {
+  class ProductRecommendations extends HTMLElement {
+    observer = undefined;
+  
+    constructor() {
+      super();
+    }
+  
+    connectedCallback() {
+      this.initializeRecommendations(this.dataset.productId);
+    }
+  
+    initializeRecommendations(productId) {
+      this.observer?.unobserve(this);
+      this.observer = new IntersectionObserver(
+        (entries, observer) => {
+          if (!entries[0].isIntersecting) return;
+          observer.unobserve(this);
+          this.loadRecommendations(productId);
+        },
+        { rootMargin: '0px 0px 400px 0px' }
+      );
+      this.observer.observe(this);
+    }
+  
+    loadRecommendations(productId) {
+      fetch(`${this.dataset.url}&product_id=${productId}&section_id=${this.dataset.sectionId}`)
+        .then((response) => response.text())
+        .then((text) => {
+          const html = document.createElement('div');
+          html.innerHTML = text;
+          const recommendations = html.querySelector('product-recommendations');
+  
+          if (recommendations?.innerHTML.trim().length) {
+            this.innerHTML = recommendations.innerHTML;
+          }
+  
+          if (!this.querySelector('slideshow-component') && this.classList.contains('complementary-products')) {
+            this.remove();
+          }
+  
+          if (html.querySelector('.grid__item')) {
+            this.classList.add('product-recommendations--loaded');
+          }
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }
+  }
+  
+  customElements.define('product-recommendations', ProductRecommendations);
+}
+</script>
+{% schema %}
+ {
+   "name": "Cart Recommendations",
+"class": "cms_section  product_section laber_section",
+   "settings": [
+       {
+       "type": "checkbox",
+       "id": "hidden",
+       "label": "Hidden Section?",
+       "default": false
+     },
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "You may like"
+      },
+      {
+      "type": "textarea",
+      "id": "content",
+      "label": "Content",
+      "default": "Commodo sociosqu venenatis cras dolor sagittis integer luctus maecenas."
+    },
+     {
+      "type": "select",
+      "id": "text_size",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "small"
+       },
+       {
+          "value": "medium",
+          "label": "Medium"
+       },
+       {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "label": "Text size"
+    },
+    {
+            "type": "select",
+            "id": "text_transform",
+            "default": "none",
+            "options": [
+             {
+                "value": "none",
+                "label": "None"
+             },
+             {
+                "value": "capitalize",
+                "label": "Capitalize"
+             },
+             {
+                "value": "lowercase",
+                "label": "Lowercase"
+             },
+             {
+                "value": "uppercase",
+                "label": "Uppercase"
+              }
+            ],
+            "label": "Text transform:"
+          },
+    {
+       "type": "select",
+       "id": "d_position",
+       "label": "Display position",
+       "options": [
+         {
+           "value": "left",
+           "label": "Left"
+         },
+         {
+           "value": "center",
+           "label": "Center"
+         },
+         {
+           "value": "right",
+           "label": "Right"
+         }
+       ],
+       "default": "center"
+     },
+       {
+           "type": "range",
+           "id": "max_count",
+           "min": 2,
+           "max": 50,
+           "step": 1,
+           "unit": "pds",
+           "label": "Max product",
+           "default": 6
+       },
+	  {
+        "type": "header",
+        "content": "---- Slider Show Collection ----",
+        "info": "Refer to the attribute values [here](httpss://kenwheeler.github.io/slick)"
+    },
+    {
+        "type": "checkbox",
+        "id": "use-slider",
+        "label": "Use slider?",
+        "default": true
+    },
+    {
+        "type": "range",
+        "id": "slides-To-Scroll",
+        "label": "Slide to scroll",
+        "info": "The number of items slide to scroll",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 1
+    },
+    {
+        "type": "range",
+        "id": "visible",
+        "label": "Columns in Visible",
+		"info": "Item(s) in screen ( Size >= 1920 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 5
+    },
+    {
+        "type": "range",
+        "id": "widescreen",
+        "label": "Columns in Widescreen",
+		"info": "Item(s) in screen ( 1366 <= Size < 1920 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 4
+    },
+    {
+        "type": "range",
+        "id": "desktop",
+        "label": "Columns in Desktop",
+		"info":  "Item(s) in screen ( 1200 <= Size < 1480 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 4
+    },
+    {
+        "type": "range",
+        "id": "laptop",
+        "label": "Columns in Laptop",
+		"info": "Item(s) in screen ( 992 <= Size < 1200 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 4
+    },
+    {
+        "type": "range",
+        "id": "notebook",
+        "label": "Columns in Notebook",
+		"info": "Item(s) in screen ( 768 <= Size < 992 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 3
+    },
+    {
+        "type": "range",
+        "id": "tablet",
+        "label": "Columns in Tablet",
+		"info": "Item(s) in screen ( 576 <= Size < 768 )",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "unit": "col",
+        "default": 3
+    },
+    {
+        "type": "range",
+        "id": "landscape",
+        "label": "Columns in Landscape",
+		"info": "Item(s) in screen ( 480 <= Size < 576 )",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "unit": "col",
+        "default": 2
+    },
+    {
+        "type": "range",
+        "id": "portrait",
+        "label": "Columns in Portrait",
+		"info": "Item(s) in screen ( 360 < Size < 480 )",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "unit": "col",
+        "default": 2
+    },
+    {
+        "type": "range",
+        "id": "mobile",
+        "label": "Columns in Mobile",
+		"info": "Item(s) in screen ( Size < = 360 )",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "unit": "col",
+        "default": 1
+    },
+    {
+        "type": "range",
+        "id": "rows",
+        "label": "Rows Slider",
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "unit": "col",
+        "default": 1
+    },
+    {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Autoplay",
+        "default": true
+    },
+    {
+        "type": "text",
+        "id": "speed",
+        "label": "Speed",
+        "default": "300",
+        "info": "Autoplay Speed in milliseconds"
+    },
+    {
+        "type": "text",
+        "id": "autoplay-Speed",
+        "label": "Auto Play Speed",
+        "default": "3000",
+        "info": "Autoplay Speed in milliseconds"
+    },
+    {
+        "type": "checkbox",
+        "id": "arrows",
+        "label": "Arrows",
+        "default": true
+    },
+    {
+        "type": "checkbox",
+        "id": "fade",
+        "label": "Fade",
+        "default": false,
+        "info": "Only use for 1 column"
+    },
+    {
+        "type": "checkbox",
+        "id": "center-Mode",
+        "label": "Center Mode",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "adaptive-Height",
+        "label": "Adaptive Height",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "dots",
+        "label": "Dots",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "infinite",
+        "label": "Infinite",
+        "default": false
+    },
+    {
+        "type": "range",
+        "id": "padding",
+        "label": "padding",
+		"info": "Distance between items",
+        "min": 0,
+        "max": 15,
+        "step": 0.5,
+        "unit": "px",
+        "default": 10
+    },
+    {
+        "type": "checkbox",
+        "id": "vertical",
+        "label": "Vertical",
+        "default": false
+    },
+        {
+        "type": "header",
+        "content": "== Design Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "layout",
+        "label": "Full Width",
+        "default": true
+    },
+
+      {
+        "type": "color",
+        "id": "cl_bg",
+        "label": "Background color",
+        "default": "#fff"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_border",
+        "label": "Show Border",
+        "default": false
+      },
+     {
+        "type": "color",
+        "id": "cl_line",
+        "label": "Color line",
+        "default": "#fff"
+      },
+      {
+        "type": "text",
+        "id": "mg",
+        "label": "Margin",
+        "info":"Margin top, margin right, margin bottom, margin left. If you not use to blank"
+      },
+      {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+      },
+     {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "text",
+        "id": "mg_mb",
+        "label": "Margin"
+      },
+      {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding"
+      }
+
+	]
+  }
+{% endschema %}

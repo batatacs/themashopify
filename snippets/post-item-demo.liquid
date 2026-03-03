@@ -1,0 +1,58 @@
+<article class="post-item post_laber_loop">
+  <div class="item">
+    {% if aspect_ratio != blank %}
+      {%- assign ratio = 1 | divided_by: aspect_ratio | times: 100 -%}
+    {% else %}
+      {%- assign ratio = 100 -%}
+    {% endif %}
+    <div class="image-card__img image-blog img-demo overflow-hidden ratio" style="--ratio-percent: {{ ratio }}%;">
+      {% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}
+      {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg w-full h-full' }}
+    </div>
+    <div class="post-info">
+
+      <div class="head head-article">
+        {% if section.settings.show-cate-blog %}
+          <div class="blog">
+            <a href="#">Blog category
+            </a>
+          </div>
+        {% endif %}
+
+
+        {% if section.settings.show-name-blog %}
+          <div class="title_blog">
+            <h3>
+              <a href="{{ routes.root_url }}" class="post-title">Avocado Grilled Salmon, Rich In Nutrients For The Body</a>
+            </h3>
+          </div>
+        {% endif %}
+        {% if section.settings.show-post-info %}
+          <div class="meta-post">
+            <div class="item-meta author">Post by
+              <span>Jc</span>
+            </div>
+          </div>
+        {% endif %}
+        {% if section.settings.show-description %}
+          <div class="main-info-post">
+            <div class="des">Consuetudium lectorum mirum us gothica quam putamus...</div>
+          </div>
+        {% endif %}
+
+      </div>
+      {% if section.settings.show-read_more %}
+        <div class="read_more">
+          <a href="#" title="read more">
+            read more
+          </a>
+          <div class="item-meta inner-date">
+            <span class="month">2022</span>,
+            <span class="day">05</span>
+            <span class="year">Feb</span>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</article>

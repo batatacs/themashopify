@@ -1,0 +1,27 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ article.url }}"
+    },
+    "headline": "{{ article.title }}",
+    "description": "{{ article.excerpt }}",
+    "image": "{{ article.image.src }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ article.author }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ shop.name }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn.shopify.com/s/files/1/0780/8257/2610/files/Discounted-Cables.jpg"
+      }
+    },
+    "datePublished": "{{ article.published_at | date: '%Y-%m-%d' }}",
+    "dateModified": "{{ article.updated_at | date: '%Y-%m-%d' }}"
+  }
+</script>

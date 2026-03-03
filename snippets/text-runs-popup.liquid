@@ -1,0 +1,32 @@
+{% liquid
+  assign sid = section.id
+%}
+<section
+  id="laber_{{sid}}"
+  class="display_{{ section.settings.location }} {% if section.settings.hidden_mobile %}md:hidden{% endif %}"
+  style="--alo-healing-speed:{{ section.settings.healing_speed }}s;--alo-width:{{ section.settings.width }}px;--color-bg:{{ section.settings.cl_bg }};--color-text:{{ section.settings.cl_text }};"
+>
+  <div id="open-store" data-container="" data-slow-appear="2000" class="show">
+    <div class="text-horizontal-running">
+      {%- if section.blocks.size > 0 -%}
+        <p>
+          {%- for block in section.blocks -%}
+            <a
+              href="{{ block.settings.url | default:"https://shopify.pxf.io/q4yPK5" }}"
+              title=" "
+              target="{{ block.settings.open_link }}"
+              aria-label="link"
+            >
+              {% if block.settings.text != blank -%}
+                <span class="flex">{{ block.settings.text }}</span>
+              {%- endif %}
+            </a>
+          {%- endfor -%}
+        </p>
+      {%- endif -%}
+    </div>
+    <button class="close-button close-rotate" onclick="ClosePopup()">
+      <i class="icon-x"></i>
+    </button>
+  </div>
+</section>

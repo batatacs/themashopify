@@ -1,0 +1,132 @@
+<!-- Created by Andy 06/08/2017 -->
+{% section 'breadcrumb' %}
+<div class="main-content shop-page login-page">
+  <div class="container">
+    <div class="login-register-form pr_center content-form row">
+      <div class="note form-success hide" id="ResetSuccess" style="display:none;">
+        {{ 'customer.recover_password.success' | t }}
+      </div>
+
+      <div class="cms-right col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        {% form 'create_customer', class: 'register' %}
+          <div id="register-form">
+            <h3 class="main-title">{{ 'customer.register.title' | t }}</h3>
+            {{ form.errors | default_errors }}
+            <div class="box-label">
+              <label>
+                {{- 'customer.register.first_name' | t }}
+                <span>*</span></label
+              >
+              <p>
+                <input
+                  required
+                  class="required input-info {% if form.errors contains 'first_name' %} input--error{% endif %}"
+                  type="text"
+                  name="customer[first_name]"
+                  id="RegisterForm-FirstName"
+                  {% if form.first_name %}
+                    value="{{ form.first_name }}"
+                  {% endif %}
+                  autocomplete="given-name"
+                  placeholder="{{ 'customer.register.first_name' | t }}"
+                >
+              </p>
+            </div>
+            <div class="box-label">
+              <label>
+                {{- 'customer.register.last_name' | t }}
+                <span>*</span></label
+              >
+              <p>
+                <input
+                  required
+                  class="required input-info {% if form.errors contains 'last_name' %} input--error{% endif %}"
+                  type="text"
+                  name="customer[last_name]"
+                  id="RegisterForm-LastName"
+                  {% if form.last_name %}
+                    value="{{ form.last_name }}"
+                  {% endif %}
+                  autocomplete="family-name"
+                  placeholder="{{ 'customer.register.last_name' | t }}"
+                >
+              </p>
+            </div>
+            <div class="box-label">
+              <label>
+                {{- 'customer.register.email' | t }}
+                <span>*</span></label
+              >
+              <p>
+                <input
+                  required
+                  class="required email input-info {% if form.errors contains 'email' %} input--error{% endif %}"
+                  type="email"
+                  name="customer[email]"
+                  id="RegisterForm-email"
+                  {% if form.email %}
+                    value="{{ form.email }}"
+                  {% endif %}
+                  spellcheck="false"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  aria-required="true"
+                  {% if form.errors contains 'email' %}
+                    aria-invalid="true"
+                    aria-describedby="RegisterForm-email-error"
+                  {% endif %}
+                  placeholder="{{ 'customer.register.email' | t }}"
+                >
+              </p>
+            </div>
+
+            <div class="box-label">
+              <label>
+                {{- 'customer.register.password' | t }}
+                <span>*</span></label
+              >
+              <p>
+                <input
+                  required
+                  placeholder="{{ 'customer.register.password' | t }}"
+                  type="password"
+                  name="customer[password]"
+                  autocomplete="on"
+                  id="CreatePassword"
+                  class="required password input-info{% if form.errors contains 'password' %} input--error{% endif %}"
+                >
+              </p>
+            </div>
+            <div class="box-label">
+              <label>
+                {{- 'customer.reset_password.password_confirm' | t }}
+                <span>*</span></label
+              >
+              <p>
+                <input
+                  required
+                  placeholder="{{ 'customer.reset_password.password_confirm' | t }}"
+                  type="password"
+                  value=""
+                  name="customer[password_confirmation]"
+                  id="PasswordConfirmation"
+                  autocomplete="on"
+                  class="required password_confirm input-info {% if form.errors contains 'password_confirmation' %} input--error{% endif %}"
+                >
+              </p>
+            </div>
+
+            <div class="group-button">
+              <input type="submit" class="btn button submit" value="{{ 'customer.register.submit' | t }}">
+            </div>
+            <div class="register_submit">
+              <a href="{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}/account/login">
+                {{ 'customer.login.sign_in' | t }}
+              </a>
+            </div>
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div>

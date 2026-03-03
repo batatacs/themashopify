@@ -1,0 +1,20 @@
+{%- assign title = block.settings.title -%}
+{%- assign menu = block.settings.menu -%}
+{%- if title != blank -%}
+<h3>{{ title }}</h3>
+{%- endif -%}
+{%- if menu != blank -%}
+<ul class="menu">
+  {%- for link in linklists[menu].links -%}
+   <li class="menu-item{% if link.active %}active{% endif %}">
+     <a href="{{ link.url }}">{{ link.title | split: '[' | first }}
+     {% if link.object.all_products_count %}
+         <span class="n_products">({{ link.object.all_products_count }})</span>
+     {%endif%}
+     </a>
+    </li>
+   {%- endfor -%}
+</ul>
+{%- else -%}
+  You have not selected the footer menu
+{%- endif -%}

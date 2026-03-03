@@ -1,0 +1,53 @@
+{% assign image = article.image %}
+{% assign url = article.url %}
+<article class="post-item post_laber_loop ">  
+  <div class="item">
+  {% if image != blank %} 
+  <div  class="images-card w-full overflow-hidden" >
+      {% render 'responsive-image', image: image ,aspect_ratio:aspect_ratio, image_class: 'w-full h-full',url: url %}
+  </div>
+  {% endif %} 
+  <div class="post-info">
+       {%if section.settings.show-cate-blog%} <div class="blog"><a href="{{blog.url}}">{{blog.title}}</a></div>{% endif %}  
+      {%if section.settings.show-name-blog%}
+      <div class="head head-article">
+        {%if section.settings.show-name-blog%}
+        <div class="title_blog">
+          <h3>
+            <a href="{{url}}" class="post-title">{{ article.title }}</a>
+          </h3>  
+        </div>
+        {%endif%} 
+        {%if section.settings.show-post-info%}	
+        <div class="meta-post">
+          <div class="item-meta author">{{'blogs.article.by_author' | t}} <span>{{article.author}}</span></div>
+        </div>
+        {%endif%}
+        {%if section.settings.show-description%}
+        <div class="main-info-post">
+            {% if article.excerpt.size > 0 %}
+            {{ article.excerpt | strip_html | truncatewords: 12}}         
+            {% else %}
+            <div class="des"><p>{{ article.content | strip_html | truncatewords: 12}}</p></div>
+            {% endif %}   
+        </div>
+        {%endif%}
+         
+      </div>
+      {%endif%}
+      
+      {%if section.settings.show-read_more%}
+      <div class="read_more">
+        <a href="{{ article.url }}" title="{{ article.title }}">
+          {{'blogs.article.read_more' | t}}
+        </a>
+        <div class="item-meta inner-date">
+            <span class="month">{{ article.created_at | date: "%b" }}</span>,
+            <span class="day">{{ article.created_at | date: "%d" }}</span>
+            <span class="year">{{ article.created_at | date: "%Y" }}</span>
+          </div> 
+      </div>
+      {%endif%}
+    </div>
+  </div>
+</article>	

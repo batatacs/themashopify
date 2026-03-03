@@ -1,0 +1,135 @@
+  {%- if section.settings.hidden %}{% break %}{% endif -%}
+{%- render 'text-runs-popup' -%} 
+<script>
+    function ClosePopup() {
+        var element = document.getElementById("open-store");
+        element.classList.remove("show");
+    }
+</script>
+{%- schema -%}
+  {
+    "name": "Text runs popup",
+    "class": "type_text_runs_popup",
+	"max_blocks": 30,
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Design Options"
+      },
+      {
+        "type": "select",
+        "id": "location",
+        "label": "Display location",
+        "default": "bottom",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "hidden",
+        "label": "Hidden Section?",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "hidden_mobile",
+        "label": "Hidden Mobile",
+        "default": false
+      },
+      {  
+        "type": "range",  
+        "id": "width",  
+        "label": "Width",
+        "min": 400,
+        "max": 1200,
+        "step": 10,
+        "unit": "px",
+        "default": 630 
+      },
+      {  
+        "type": "range",  
+        "id": "healing_speed",  
+        "label": "Healing speed",
+        "min": 10,
+        "max": 30,
+        "step": 1,
+        "unit": "s",
+        "default": 10 
+      }, 
+      {
+        "type": "color",
+        "id": "cl_bg",
+        "label": "Background color",
+        "default": "#B3E359"
+      },
+      {
+        "type": "color",
+        "id": "cl_text",
+        "label": "Color text",
+        "default": "#212529"
+      }
+    ],
+	"blocks": [
+    {
+    "type": "text",
+    "name": "Text",
+    "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "😍 &nbsp; Special offer: enjoy 3 months of shopify for $1/month"
+        },
+       {
+        "label": "Link to (Optional)",
+        "id": "url",
+        "type": "url"
+      },
+      {
+        "type": "select",
+        "id": "open_link",
+        "options": [
+          {
+            "value": "_self",
+            "label": "Current window (_self)"
+          },
+         {
+            "value": "_blank",
+            "label": "New window (_blank)"
+          }
+        ],
+        "label": "Open link in",
+        "default": "_blank"
+      }
+      ]
+    }],
+    "presets": [
+      {
+        "name": "Text runs popup",
+        "category": "Text",
+		"blocks": [
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" },
+          { "type": "text" }
+        ]
+      }
+    ]
+  }
+{% endschema %}

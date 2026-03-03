@@ -1,0 +1,33 @@
+<head>
+ {{ content_for_header }}
+</head>
+{%- capture htmlContent -%}
+    {% if template contains 'product' %} 
+    	{% section 'breadcrumb' %}
+        <div class="page-container clearfix {%if settings.show_product_sidebar%}sidebar-product{%endif%}" id="PageContainer">
+          <div class="container {%if settings.product_page_layout == 'full-width' %}{{settings.product_page_layout}}{%endif%}">
+          <div class="row row-15">
+            {%if settings.show_product_sidebar%}
+            <div class="hide-mobile col-lg-auto col-xs-12  col-sm-4 col-md-3 col-lg-3 sidebar sidebar-{{settings.product_info_layout}}">
+              {% section 'product_sidebar' %}
+            </div>
+            {%endif%}
+            <main id="MainContent " class="col">
+              {{ content_for_layout }}
+            </main>
+          </div>
+          </div>
+        </div>
+
+    	{% section 'related-product-carousel' %}
+    	{% section 'products-recently-viewed' %}
+
+   	{%else%}
+      <div class="page-container clearfix" id="PageContainer">
+        <main id="MainContent">
+          {{ content_for_layout }}
+        </main>
+      </div>
+    {%endif%}
+{%- endcapture -%}
+{%- render 'minify-code', htmlContent: htmlContent -%}

@@ -1,0 +1,25 @@
+{%assign bd_google_font = settings.bd_google_font | replace: " ", "+"%}
+  {%- assign bd_font_size = settings.bd_font_size -%}
+{%- assign bd_font_weight = settings.bd_font_weight -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family={{bd_google_font}}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+{%- assign h1_font_weight = settings.h1_font_weight -%}
+{%- assign h2_font_weight = settings.h2_font_weight -%}
+{%- assign h3_font_weight = settings.h3_font_weight -%}
+{%- assign h4_font_weight = settings.h4_font_weight -%}
+{%- assign h5_font_weight = settings.h5_font_weight -%}
+{%- assign h6_font_weight = settings.h6_font_weight -%}
+{%style%}
+  :root {
+    --font-family:{{settings.bd_google_font}}, sans-serif;
+    --font-size: {{bd_font_size}};
+	--font-weight: {{bd_font_weight}};
+    --h1-font-weight:{{h1_font_weight}};
+    --h2-font-weight:{{h2_font_weight}};
+    --h3-font-weight:{{h3_font_weight}};
+    --h4-font-weight:{{h4_font_weight}};
+    --h5-font-weight:{{h5_font_weight}};
+    --h6-font-weight:{{h6_font_weight}};
+  }
+{%endstyle%}

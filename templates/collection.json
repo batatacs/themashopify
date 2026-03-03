@@ -1,0 +1,230 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "show_title_page": false,
+        "h_position": "left",
+        "v_position": "middle",
+        "txt_align": "left",
+        "bg": "#ffffff",
+        "cl_border": "#f2f2f6",
+        "b_height": 60,
+        "mg_bottom": 40,
+        "mobile_bg": "#ffffff",
+        "mobile_ht": 60,
+        "mobile_mg_bottom": 20
+      }
+    },
+    "main-collection-banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_full_width": false,
+        "show_collection_description": true,
+        "cl_title": "#ffffff",
+        "cl_desc": "#ffffff",
+        "show_collection_image": true,
+        "cl_title_on": "#222222",
+        "cl_desc_on": "#222222",
+        "h_des": "200px",
+        "h_tb": "200px",
+        "h_mb": "150px",
+        "cl_bg": "rgba(0,0,0,0)",
+        "mg": ",,20px,",
+        "pd": "",
+        "mg_mb": ",,20px,",
+        "pd_mb": ""
+      }
+    },
+    "sub-collection": {
+      "type": "sub-collection",
+      "blocks": {
+        "3cd706a4-cc1b-4e7a-94d4-44e18ea4f701": {
+          "type": "collection",
+          "settings": {
+            "collection": "phones-tablets",
+            "image": "shopify:\/\/shop_images\/products_34_4.jpg",
+            "title": "Smartphone"
+          }
+        },
+        "e0dc387f-2eaf-40fb-a356-7325019fe15e": {
+          "type": "collection",
+          "settings": {
+            "collection": "phones-accessories",
+            "image": "shopify:\/\/shop_images\/products_31_1_9617e01f-65e8-464c-8e92-1f17c1002192.jpg",
+            "title": "Smartwatch"
+          }
+        },
+        "2e238be5-2b74-455b-b748-7d8d75eeb0c0": {
+          "type": "collection",
+          "settings": {
+            "collection": "computers-technologies",
+            "image": "shopify:\/\/shop_images\/products_4_4.jpg",
+            "title": "Ipad Pro"
+          }
+        },
+        "7b9e49b8-a51b-4f33-9d8a-1d09ee99212d": {
+          "type": "collection",
+          "settings": {
+            "collection": "phones-accessories",
+            "image": "shopify:\/\/shop_images\/products_23_3.jpg",
+            "title": "AirPods"
+          }
+        },
+        "abad2968-9ce0-4684-a404-4691f689d856": {
+          "type": "collection",
+          "settings": {
+            "collection": "computer-laptop",
+            "image": "shopify:\/\/shop_images\/products_13_1.jpg",
+            "title": "Speaker"
+          }
+        },
+        "15eb3ecc-1367-44ec-a0a4-c8d2efb55a27": {
+          "type": "collection",
+          "settings": {
+            "collection": "computers-technologies",
+            "image": "shopify:\/\/shop_images\/products_28_3.jpg",
+            "title": "Gamepad"
+          }
+        },
+        "9caac341-666e-42c4-8b2e-a30b8e063379": {
+          "type": "collection",
+          "settings": {
+            "collection": "phones-tablets",
+            "image": "shopify:\/\/shop_images\/products_3_6_8b177e91-c23c-478c-837f-141f57a7e41b.jpg",
+            "title": "Hard Drives"
+          }
+        }
+      },
+      "block_order": [
+        "3cd706a4-cc1b-4e7a-94d4-44e18ea4f701",
+        "e0dc387f-2eaf-40fb-a356-7325019fe15e",
+        "2e238be5-2b74-455b-b748-7d8d75eeb0c0",
+        "7b9e49b8-a51b-4f33-9d8a-1d09ee99212d",
+        "abad2968-9ce0-4684-a404-4691f689d856",
+        "15eb3ecc-1367-44ec-a0a4-c8d2efb55a27",
+        "9caac341-666e-42c4-8b2e-a30b8e063379"
+      ],
+      "settings": {
+        "title": "",
+        "text_size": "small",
+        "text_transform": "capitalize",
+        "border": 3,
+        "show_all_collection": true,
+        "icon_svg_all_collection": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!-- Created with Inkscape (http:\/\/www.inkscape.org\/) -->\n\n<svg version=\"1.1\" id=\"svg285\" width=\"682.66669\" height=\"682.66669\" viewbox=\"0 0 682.66669 682.66669\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:svg=\"http:\/\/www.w3.org\/2000\/svg\"><defs id=\"defs289\"><clippath clippathunits=\"userSpaceOnUse\" id=\"clipPath299\"><path d=\"M 0,512 H 512 V 0 H 0 Z\" id=\"path297\"><\/path><\/clippath><\/defs><g id=\"g291\" transform=\"matrix(1.3333333,0,0,-1.3333333,0,682.66667)\"><g id=\"g293\"><g id=\"g295\" clip-path=\"url(#clipPath299)\"><g id=\"g301\" transform=\"translate(255.999,89.5879)\"><path d=\"M 0,0 V -74.16\" style=\"fill:none;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.926;stroke-dasharray:none;stroke-opacity:1\" id=\"path303\"><\/path><\/g><path d=\"m 135.999,10.019 h 240 v 60 h -240 z\" style=\"fill:none;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.926;stroke-dasharray:none;stroke-opacity:1\" id=\"path305\"><\/path><g id=\"g307\" transform=\"translate(221.9463,152.7495)\"><path d=\"m 0,0 c 17.191,-14.793 31.165,-32.996 34.053,-63.162 6.082,63.516 61.296,74.006 92.255,111.267 5.61,6.753 38.828,48.507 44.438,55.26 5.856,7.047 16.578,7.826 23.828,1.732 7.251,-6.094 5.925,-15.334 2.538,-23.894 -8.883,-22.447 -20.008,-45.401 -30.944,-63.051 m -264.23,0 c -10.936,17.65 -22.061,40.604 -30.944,63.051 -3.387,8.56 -4.713,17.8 2.538,23.894 7.25,6.094 17.973,5.315 23.827,-1.732 4.141,-4.983 23.313,-29.024 35.333,-43.997 m 266.087,39.983 46.855,76.682 c 14.654,23.037 42.127,5.356 32.372,-15.44 C 271.177,146.421 244.109,79.006 223.78,34.288 209.157,2.123 203.255,-6.125 177.443,-29.586 l -39.239,-35.667 v -11.88 m -268.877,176.484 -46.854,76.682 c -14.656,23.037 -42.127,5.356 -32.372,-15.44 6.829,-14.172 33.896,-81.587 54.225,-126.305 14.623,-32.165 20.526,-40.413 46.337,-63.874 l 39.239,-35.667 v -11.88\" style=\"fill:none;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.926;stroke-dasharray:none;stroke-opacity:1\" id=\"path309\"><\/path><\/g><g id=\"g311\" transform=\"translate(252.75,443.5513)\"><path d=\"m 0,0 -32.107,32.107 c -34.961,34.961 -92.314,34.962 -127.276,0 -34.962,-34.962 -34.963,-92.314 0,-127.276 34.961,-34.961 92.314,-34.962 127.276,-0.001 L 66.888,3.825 c 19.578,19.578 51.14,19.574 70.714,0 19.419,-19.42 19.419,-51.292 0,-70.713 -19.574,-19.573 -51.136,-19.578 -70.714,0 L 33.531,-33.531 M 5.375,-61.938 38.606,-95.169 c 35.09,-35.09 92.172,-35.106 127.277,0 34.962,34.962 34.962,92.313 0,127.276 -35.106,35.106 -92.187,35.089 -127.277,0 l -98.995,-98.995 c -19.42,-19.42 -51.293,-19.421 -70.713,-10e-4 -19.42,19.422 -19.421,51.293 0,70.714 19.42,19.42 51.292,19.421 70.713,10e-4 l 32.608,-32.607\" style=\"fill:none;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.926;stroke-dasharray:none;stroke-opacity:1\" id=\"path313\"><\/path><\/g><g id=\"g315\" transform=\"translate(186.0859,179.9385)\"><path d=\"M 0,0 H 0.007\" style=\"fill:none;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-dasharray:none;stroke-opacity:1\" id=\"path317\"><\/path><\/g><\/g><\/g><\/g><\/svg>",
+        "use_eq_height": true,
+        "image_ratio": "ratio1_1",
+        "use-slider": true,
+        "slides-To-Scroll": 1,
+        "visible": 7,
+        "widescreen": 7,
+        "desktop": 6,
+        "laptop": 5,
+        "notebook": 4,
+        "tablet": 3,
+        "landscape": 2,
+        "portrait": 2,
+        "mobile": 1,
+        "rows": 1,
+        "autoplay": false,
+        "speed": "300",
+        "autoplay-Speed": "3000",
+        "arrows": true,
+        "fade": false,
+        "center-Mode": false,
+        "adaptive-Height": true,
+        "dots": false,
+        "infinite": false,
+        "padding": 10,
+        "vertical": false,
+        "layout": false,
+        "cl_bg": "rgba(0,0,0,0)",
+        "cl_border": "#ebebeb",
+        "mg": ",,30px,",
+        "pd": "",
+        "mg_mb": "",
+        "pd_mb": ",,20px,"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "932fc3a4-132b-4a34-b5d0-91df6362734c": {
+          "type": "menu",
+          "settings": {
+            "enable_menu_categories": true,
+            "title_categories": "Product Categories",
+            "menu": "product-categories"
+          }
+        },
+        "93183049-0d4f-4993-8f01-1a4d4cfb7d55": {
+          "type": "product",
+          "settings": {
+            "title": "Featured product",
+            "product_list": [
+              "proenza-schouler-white-label-5",
+              "apple-bluetooth-airpods-max-mgyh3",
+              "proenza-schouler-white-label-24",
+              "proenza-schouler-white-label-23"
+            ]
+          }
+        },
+        "d1f87686-4bdb-47c4-a938-983ce2683a19": {
+          "type": "banner_img",
+          "settings": {
+            "image_promobox": "shopify:\/\/shop_images\/menu_2.png",
+            "url": "shopify:\/\/collections\/womens-cosmetics",
+            "use_eq_height": false,
+            "image_ratio": "ratio3_4"
+          }
+        }
+      },
+      "block_order": [
+        "932fc3a4-132b-4a34-b5d0-91df6362734c",
+        "93183049-0d4f-4993-8f01-1a4d4cfb7d55",
+        "d1f87686-4bdb-47c4-a938-983ce2683a19"
+      ],
+      "settings": {
+        "full-width": false,
+        "cl_bg": "rgba(0,0,0,0)",
+        "cl_border": "#ffffff",
+        "border": 5,
+        "products_per_page": 20,
+        "grid_list": "5",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "filter_right": false,
+        "enable_sorting": true,
+        "visible": 5,
+        "widescreen": 5,
+        "desktop": 4,
+        "laptop": 4,
+        "notebook": 3,
+        "tablet": 2,
+        "landscape": 2,
+        "portrait": 2,
+        "mobile": 1,
+        "padding_lr": 10,
+        "mg": ",,100px,",
+        "pd": ",,,",
+        "mg_mb": ",,50px,",
+        "pd_mb": ",,,"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main-collection-banner",
+    "sub-collection",
+    "product-grid"
+  ]
+}

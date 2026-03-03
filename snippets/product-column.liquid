@@ -1,0 +1,78 @@
+{% assign show_secondary_image = settings.product_collection_show_secondary_image %}
+{%- assign show_reviews = settings.product_collection_show_reviews -%}
+  {%- liquid
+   assign sett_equal = settings.use_eq_height_product
+  assign image_ratio = settings.image_ratio_product
+  if sett_equal 
+     case image_ratio   
+        when 'ratio3_2'
+            assign aspect_ratio = 1.5
+        when 'ratio4_3'
+            assign aspect_ratio = 1.333
+        when 'ratio1_1'
+            assign aspect_ratio = 1
+        when 'ratio3_4'
+            assign aspect_ratio = 0.75
+        when 'ratio2_3'
+            assign aspect_ratio = 0.66667
+        when 'ratio1_2'
+            assign aspect_ratio = 0.5
+     endcase 
+  endif
+  -%}
+  {%- capture style -%}
+  {% assign ratio = aspect_ratio | default:product.featured_media.aspect_ratio %}
+  --ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;
+{%- endcapture -%}
+<div class="product-item">
+  <div class="product-collection" >
+  <div class="product-inner">
+    <div class="row">
+    <div class="product-collection__image col">
+    <div class="card__media"> 
+        <div class="media {% if show_secondary_image %} secondary_image_hover{% endif %}">
+           <a href="{{ product.url | within: collection }}" 
+            class="d-block image_product cursor-default  ratio" 
+            style="{{ style }}"
+            data-js-product-image >
+              {% render 'product-image' with card_product: product show_secondary_image: show_secondary_image %}
+            </a>
+        </div>
+        {%- if product.compare_at_price > product.price -%}
+        {%- assign sale_percent = product.price | times: 100 | divided_by: product.compare_at_price | minus: 100 | times: -1 -%}
+          <div class="product-image__overlay-top-left ">
+          <div class="label label--sale" data-js-product-label-sale>
+            {{ 'products.product.label.sale' | t: percent: sale_percent }}
+          </div>
+          </div>
+        {%- endif -%}
+     </div>
+      </div>
+      <div class="info col"> 
+            <div class="product-collection__title">
+            <h2>
+              <a href="{{ product.url }}">{{ product.title}}</a>
+            </h2>
+            </div>
+            {%- if show_reviews -%}
+              <!-- Start of Judge.me code --> 
+              <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge'  data-id='{{ product.id }}'>
+              {{- product.metafields.judgeme.badge -}}
+              </div>  
+              <!-- End of Judge.me code -->  
+            {%- endif -%} 
+            <div class="frm-price-color">
+                <div class="product-collection__price ">
+                    {%- if product.price_varies -%}
+                      <span class="price"><span>{{ product.price_min | money }} – {{ product.price_max | money }}</span></span>
+                    {%- else -%}
+                      {% render 'product-get-price' with price: product.price compare_at_price: product.compare_at_price %}
+                    {%- endif -%}
+                </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

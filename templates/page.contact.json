@@ -1,0 +1,108 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "show_title_page": false,
+        "h_position": "left",
+        "v_position": "middle",
+        "txt_align": "left",
+        "bg": "#ffffff",
+        "cl_border": "#ebebeb",
+        "b_height": 60,
+        "mg_bottom": 0,
+        "mobile_bg": "#ffffff",
+        "mobile_ht": 60,
+        "mobile_mg_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-contact",
+      "blocks": {
+        "1988c65b-ab60-4d1a-9087-bd70c51bd227": {
+          "type": "form_contact",
+          "settings": {
+            "right_title_block": "Get in Touch",
+            "content": "Your email address will not be published. Required fields are marked *"
+          }
+        },
+        "c30d9271-76e1-4b33-8e2c-4eb91a939fa7": {
+          "type": "Contact",
+          "settings": {
+            "title": "Contact Information",
+            "content": "Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos pretium.",
+            "address": "268 St, South New York\/NY 98944, United States.",
+            "work_time": "Monday – Friday: 9:00-20:00 <br> Saturady: 11:00 – 15:00",
+            "phone": "(+100) 666-456-7890",
+            "email": "aloshopify@Jc.com",
+            "header_use_social": true,
+            "type_social": "1"
+          }
+        }
+      },
+      "block_order": [
+        "1988c65b-ab60-4d1a-9087-bd70c51bd227",
+        "c30d9271-76e1-4b33-8e2c-4eb91a939fa7"
+      ],
+      "settings": {
+        "use_contact_map": true,
+        "map_iframe": "<iframe width=\"960\" height=\"500\" style=\"border:0\" src=\"https:\/\/www.google.com\/maps\/embed\/v1\/search?q=1200+Beverly+Street,+Mountain+View,+CA,+United+States&key=AIzaSyCeVrTUW_JTL2UKUT0-85wiwusOJZ48yMM\" allowfullscreen=\"\"><\/iframe>",
+        "layout": "container",
+        "cl_bg": "#ffffff",
+        "mg": "",
+        "pd": "30px,,80px,",
+        "mg_mb": "",
+        "pd_mb": "20px,,40px,"
+      }
+    },
+    "9c8d5148-af29-47c5-b1e5-df8cdd31ae08": {
+      "type": "collection-carousel-product",
+      "disabled": true,
+      "settings": {
+        "title": "New arrivals",
+        "text_size": "medium",
+        "text_transform": "none",
+        "display_type": "coll",
+        "collection": "backpacks",
+        "use-all-product": false,
+        "max_count": 8,
+        "use-slider": true,
+        "slides-To-Scroll": 1,
+        "visible": 5,
+        "widescreen": 5,
+        "desktop": 4,
+        "laptop": 4,
+        "notebook": 3,
+        "tablet": 3,
+        "landscape": 2,
+        "portrait": 2,
+        "mobile": 1,
+        "rows": 1,
+        "autoplay": false,
+        "speed": "300",
+        "autoplay-Speed": "3000",
+        "arrows": true,
+        "fade": false,
+        "center-Mode": false,
+        "adaptive-Height": false,
+        "dots": false,
+        "infinite": false,
+        "padding": 10,
+        "vertical": false,
+        "layout_des": false,
+        "cl_bg": "#ffffff",
+        "use_lines": false,
+        "cl_line": "#ffffff",
+        "mg": "",
+        "pd": "100px,,80px,",
+        "mg_mb": "",
+        "pd_mb": "50px,,30px,"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main",
+    "9c8d5148-af29-47c5-b1e5-df8cdd31ae08"
+  ]
+}

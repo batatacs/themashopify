@@ -1,0 +1,574 @@
+{%- unless product.has_only_default_variant -%}
+  {%- liquid
+    assign variants_available_arr = product.variants | map: 'available'
+    assign variants_option1_arr = product.variants | map: 'option1'
+    assign variants_option2_arr = product.variants | map: 'option2'
+    assign variants_option3_arr = product.variants | map: 'option3'
+
+    assign product_form_id = 'product-form-' | append: section.id
+  -%}
+  {%- assign style_product = settings.content_style_product -%}
+  {%- assign options_type_circle_color = settings.product_options_type_circle_color | escape | downcase | split: '|' -%}
+  {%- assign options_type_circle_image = settings.product_options_type_circle_image | escape | downcase | split: '|' -%}
+  {%- assign options_type_square_image = settings.product_options_type_square_image | escape | downcase | split: '|' -%}
+  {%- assign options_type_square_color = settings.product_options_type_square_color | escape | downcase | split: '|' -%}
+  {%- assign options_type_select = settings.product_options_type_select | escape | downcase | split: '|' -%}
+  {%- assign options_type_large_text = settings.product_options_type_large_text | escape | downcase | split: '|' -%}
+  {%- assign auto_selected_options = settings.product_auto_selected_options | escape | downcase | split: '|' -%}
+  {%- assign checked = true -%}
+  {%- assign options_type = 1 -%}
+  {% assign options_type_class = 'product-options--type-collection' %}
+
+  <product-options
+    class="product-options {{ options_type_class }} js-product-options {%if options_type_select!=blank%}type_select{%endif%}"
+  >
+    <script class="data-json-options" type="application/json">
+      {{product.options_with_values | json}}
+    </script>
+    {%- assign options_limit = 3 -%}
+    {%- if options_type == 1 and settings.product_options_listing_visibility != 'all' -%}
+      {%- assign enable_select_options_button = false -%}
+      {%- assign options_with_values_size = product.options_with_values | size -%}
+      {%- if options_with_values_size > options_limit -%}
+        {%- assign enable_select_options_button = true -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- for option in product.options_with_values -%}
+      {%- assign option_index0 = forloop.index0 -%}
+      <div
+        data-position="{{ option.position }}"
+        {% if forloop.index > options_limit %}
+          class="d-none"
+        {% else %}
+          class="cms-option-item"
+        {% endif %}
+      >
+        {% if show_title_variant %}
+          <div class="title-options">
+            {{- option.name }}:
+            <span class="label-selected">
+              {{- product.selected_or_first_available_variant.options[option_index0] -}}
+            </span>
+          </div>
+        {% endif %}
+        {%- assign clear_name = option.name | escape | downcase -%}
+        {%- if product.selected_or_first_available_variant.id == blank
+          and settings.product_variant_auto_select != 'enable'
+        -%}
+          {%- assign disable_auto_select = false -%}
+          {%- if settings.product_variant_auto_select == 'disable' -%}
+            {%- assign disable_auto_select = true -%}
+          {%- elsif settings.product_variant_auto_select == 'first' and forloop.index != 1 -%}
+            {%- assign disable_auto_select = true -%}
+          {%- elsif settings.product_variant_auto_select == 'first_n_second'
+            and forloop.index != 1
+            and forloop.index != 2
+          -%}
+            {%- assign disable_auto_select = true -%}
+          {%- endif -%}
+          {%- if auto_selected_options contains clear_name -%}
+            {%- assign disable_auto_select = false -%}
+          {%- endif -%}
+        {%- endif -%}
+        {%- if disable_auto_select -%}
+          {%- assign enable_select_variant_button = true -%}
+        {%- endif -%}
+        {%- if options_type_circle_color contains clear_name -%}
+          <div
+            class="product-options__section style_{{style_product}}  laber-{{ option.name }} d-flex flex-wrap px-2"
+            data-style="color"
+            {% if disable_auto_select %}
+              data-disable-auto-select
+            {% endif %}
+          >
+            {%- for value in option.values -%}
+              {% assign checked = false %}
+              {% if option.selected_value == value %}
+                {% assign checked = true %}
+              {% endif %}
+              {%- liquid
+                assign option_disabled = true
+
+                for option1_name in variants_option1_arr
+                  case option.position
+                    when 1
+                      if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 2
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 3
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                  endcase
+                endfor
+              -%}
+              <div
+                data-index="{{ forloop.index }}"
+                class="alo_tooltip product-options__value product-options__value--circle standard-color-{{ value | handleize }} {{ value | handleize }} rounded-circle text-hide cursor-pointer{% if checked %} active{% endif %} {% if option_disabled %} disabled{% endif %}"
+                style="background-color:{{ value }};"
+                data-bg="none"
+                data-scale="2"
+              >
+                <i class="las la-check"></i>
+                {%- capture input_id -%}
+                {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+              {%- endcapture -%}
+                <input
+                  type="radio"
+                  id="{{ input_id }}"
+                  name="{{ option.name }}"
+                  value="{{ value | escape }}"
+                  form="{{ product_form_id }}"
+                  class="swatch-input__input{% if disabled %} disabled{% endif %}"
+                  {% if checked %}
+                    checked
+                  {% endif %}
+                >
+                <label class="alo_tooltip-content" for="{{ input_id }}">
+                  {{ value -}}
+                  {{ label_unavailable }}
+                </label>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- elsif options_type_circle_image contains clear_name -%}
+          <div
+            class="product-options__section style_{{style_product}} laber-{{ option.name }} circle-image d-flex flex-wrap px-2"
+            data-style="circle-image"
+            {% if disable_auto_select %}
+              data-disable-auto-select
+            {% endif %}
+          >
+            {%- for value in option.values -%}
+              {% assign checked = false %}
+              {% if option.selected_value == value %}
+                {% assign checked = true %}
+              {% endif %}
+              {%- liquid
+                assign option_disabled = true
+
+                for option1_name in variants_option1_arr
+                  case option.position
+                    when 1
+                      if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 2
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 3
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                  endcase
+                endfor
+              -%}
+              {%- assign option_image = null -%}
+              {%- for variant in product.variants -%}
+                {%- if value == variant.option1 or value == variant.option2 or value == variant.option3 -%}
+                  {%- if variant.image != blank -%}
+                    {%- assign option_image = variant.image -%}
+                    {%- break -%}
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if option_image == null -%}
+                {%- assign option_image = image -%}
+              {%- endif -%}
+              <div
+                data-index="{{ forloop.index }}"
+                class="alo_tooltip lazyload product-options__value product-options__value--circle rounded-circle text-hide cursor-pointer {% if checked %} active{% endif %} {% if option_disabled %} disabled{% endif %}"
+                {%- if settings.product_format_pjpg -%}
+                  data-master="{{ option_image | img_url: '1x1', format: 'pjpg' | replace: '_1x1.', '_[width]x.' }}"
+                  data-bgset="{{ option_image | img_url: '48x', format: 'pjpg' }}"
+                {%- else -%}
+                  data-master="{{ option_image | img_url: '1x1' | replace: '_1x1.', '_[width]x.' }}"
+                  data-bgset="{{ option_image | img_url: '48x' }}"
+                {%- endif -%}
+                data-scale="2"
+              >
+                {%- capture input_id -%}
+                {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+              {%- endcapture -%}
+                <input
+                  type="radio"
+                  id="{{ input_id }}"
+                  name="{{ option.name }}"
+                  value="{{ value | escape }}"
+                  form="{{ product_form_id }}"
+                  class="swatch-input__input{% if disabled %} disabled{% endif %}"
+                  {% if checked %}
+                    checked
+                  {% endif %}
+                >
+                <label
+                  class="alo_tooltip-content"
+                  for="{{ input_id }}"
+                >
+                  {{ value -}}
+                  {{ label_unavailable }}
+                </label>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- elsif options_type_square_color contains clear_name -%}
+          <div
+            class="product-options__section style_{{style_product}} laber-{{ option.name }}  d-flex flex-wrap"
+            data-style="image"
+            {% if disable_auto_select %}
+              data-disable-auto-select
+            {% endif %}
+          >
+            {%- for value in option.values -%}
+              {% assign checked = false %}
+              {% if option.selected_value == value %}
+                {% assign checked = true %}
+              {% endif %}
+              {%- liquid
+                assign option_disabled = true
+
+                for option1_name in variants_option1_arr
+                  case option.position
+                    when 1
+                      if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 2
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 3
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                  endcase
+                endfor
+              -%}
+              <div
+                data-index="{{ forloop.index }}"
+                class="alo_tooltip product-options__value product-options__value--square standard-color-{{ value | handleize }} text-hide cursor-pointer {% if checked %} active{% endif %} {% if option_disabled %} disabled{% endif %}"
+                style="background-color:{{ value }};"
+                data-bg="none"
+                data-scale="2"
+              >
+                {%- capture input_id -%}
+                {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+              {%- endcapture -%}
+                <input
+                  type="radio"
+                  id="{{ input_id }}"
+                  name="{{ option.name }}"
+                  value="{{ value | escape }}"
+                  form="{{ product_form_id }}"
+                  class="swatch-input__input{% if disabled %} disabled{% endif %}"
+                  {% if checked %}
+                    checked
+                  {% endif %}
+                >
+                <label class="alo_tooltip-content" for="{{ input_id }}">
+                  {{ value -}}
+                  {{ label_unavailable }}
+                </label>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- elsif options_type_square_image contains clear_name -%}
+          <div
+            class="product-options__section style_{{style_product}} laber-{{ option.name }} d-flex flex-wrap"
+            data-style="image"
+            {% if disable_auto_select %}
+              data-disable-auto-select
+            {% endif %}
+          >
+            {%- for value in option.values -%}
+              {% assign checked = false %}
+              {% if option.selected_value == value %}
+                {% assign checked = true %}
+              {% endif %}
+              {%- liquid
+                assign option_disabled = true
+
+                for option1_name in variants_option1_arr
+                  case option.position
+                    when 1
+                      if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 2
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 3
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                  endcase
+                endfor
+              -%}
+              {%- assign option_image = null -%}
+              {%- for variant in product.variants -%}
+                {%- if value == variant.option1 or value == variant.option2 or value == variant.option3 -%}
+                  {%- if variant.image != blank -%}
+                    {%- assign option_image = variant.image -%}
+                    {%- break -%}
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if option_image == null -%}
+                {%- assign option_image = image -%}
+              {%- endif -%}
+
+              {% assign checked = false %}
+              {% if option.selected_value == value %}
+                {% assign checked = true %}
+              {% endif %}
+              {%- liquid
+                assign option_disabled = true
+
+                for option1_name in variants_option1_arr
+                  case option.position
+                    when 1
+                      if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 2
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 3
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                  endcase
+                endfor
+              -%}
+              <div
+                data-index="{{ forloop.index }}"
+                class="alo_tooltip lazyload product-options__value product-options__value--square text-hide cursor-pointer {% if checked %} active{% endif %} {% if option_disabled %} disabled{% endif %}"
+                {%- if settings.product_format_pjpg -%}
+                  data-master="{{ option_image | img_url: '1x1', format: 'pjpg' | replace: '_1x1.', '_[width]x.' }}"
+                  data-bgset="{{ option_image | img_url: '92x', format: 'pjpg' }})"
+                {%- else -%}
+                  data-master="{{ option_image | img_url: '1x1' | replace: '_1x1.', '_[width]x.' }}"
+                  data-bgset="{{ option_image | img_url: '92x' }}"
+                {%- endif -%}
+                data-scale="2"
+              >
+                {%- capture input_id -%}
+                {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+              {%- endcapture -%}
+                <input
+                  type="radio"
+                  id="{{ input_id }}"
+                  name="{{ option.name }}"
+                  value="{{ value | escape }}"
+                  form="{{ product_form_id }}"
+                  class="swatch-input__input{% if disabled %} disabled{% endif %}"
+                  {% if checked %}
+                    checked
+                  {% endif %}
+                >
+                <label
+                  class="alo_tooltip-content"
+                  for="{{ input_id }}"
+                >
+                  {{ value -}}
+                  {{ label_unavailable }}
+                </label>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- elsif options_type_large_text contains clear_name -%}
+          <div
+            class="product-options__section style_{{style_product}} laber-{{ option.name }} d-flex flex-wrap"
+            data-style="large-text"
+            {% if disable_auto_select %}
+              data-disable-auto-select
+            {% endif %}
+          >
+            {%- for value in option.values -%}
+              {% assign checked = false %}
+              {% if option.selected_value == value %}
+                {% assign checked = true %}
+              {% endif %}
+              {%- liquid
+                assign option_disabled = true
+
+                for option1_name in variants_option1_arr
+                  case option.position
+                    when 1
+                      if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 2
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 3
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                  endcase
+                endfor
+              -%}
+              <div
+                data-index="{{ forloop.index }}"
+                class="product-options__value product-options__value--large-text d-flex flex-center border cursor-pointer {% if checked %} active{% endif %} {% if option_disabled %} disabled{% endif %}"
+                data-bg="none"
+                data-scale="2"
+              >
+                {%- capture input_id -%}
+                {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+              {%- endcapture -%}
+                <input
+                  type="radio"
+                  id="{{ input_id }}"
+                  name="{{ option.name }}"
+                  value="{{ value | escape }}"
+                  form="{{ product_form_id }}"
+                  class="swatch-input__input{% if disabled %} disabled{% endif %}"
+                  {% if checked %}
+                    checked
+                  {% endif %}
+                >
+                <label for="{{ input_id }}">
+                  {{ value -}}
+                  {{ label_unavailable }}
+                </label>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- elsif options_type_select contains clear_name -%}
+          <div class="select position-relative js-dropdown js-select">
+            <div class="dropdown-button" data-js-dropdown-button>
+              <select
+                class="product-options__section style_{{style_product}} laber-{{ option.name }}"
+                data-style="select"
+                data-js-option-select
+                {% if disable_auto_select %}
+                  data-disable-auto-select
+                {% endif %}
+              >
+                {%- for value in option.values -%}
+                  {% assign checked = false %}
+                  {% if option.selected_value == value %}
+                    {% assign checked = true %}
+                  {% endif %}
+                  {%- liquid
+                    assign option_disabled = true
+
+                    for option1_name in variants_option1_arr
+                      case option.position
+                        when 1
+                          if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                            assign option_disabled = false
+                          endif
+                        when 2
+                          if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                            assign option_disabled = false
+                          endif
+                        when 3
+                          if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                            assign option_disabled = false
+                          endif
+                      endcase
+                    endfor
+                  -%}
+                  <option
+                    class="product-options__value {% if checked %}active{% endif %}"
+                    data-index="{{ forloop.index }}"
+                    {% if checked %}
+                      selected="selected"
+                    {% endif %}
+                    value="{{ value | escape}}"
+                    {% if disabled_value %}
+                      disabled="disabled"
+                    {% endif %}
+                  >
+                    {{ value }}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </div>
+          </div>
+        {%- else -%}
+          <div
+            class="product-options__section style_{{style_product}} laber-{{ option.name }} d-flex flex-wrap"
+            data-style="text"
+            {% if disable_auto_select %}
+              data-disable-auto-select
+            {% endif %}
+          >
+            {%- for value in option.values -%}
+              {% assign checked = false %}
+              {% if option.selected_value == value %}
+                {% assign checked = true %}
+              {% endif %}
+              {%- liquid
+                assign option_disabled = true
+
+                for option1_name in variants_option1_arr
+                  case option.position
+                    when 1
+                      if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 2
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 3
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                  endcase
+                endfor
+              -%}
+              <div
+                data-index="{{ forloop.index }}"
+                class="alo-{{ value | handleize }} product-options__value product-options__value--text  border{% if checked %} active{% endif %} {% if option_disabled %} disabled{% endif %}"
+                data-bg="none"
+                data-scale="2"
+              >
+                {%- capture input_id -%}
+                {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+              {%- endcapture -%}
+                <input
+                  type="radio"
+                  id="{{ input_id }}"
+                  name="{{ option.name }}"
+                  value="{{ value | escape }}"
+                  form="{{ product_form_id }}"
+                  class="swatch-input__input{% if disabled %} disabled{% endif %}"
+                  {% if checked %}
+                    checked
+                  {% endif %}
+                >
+                <label for="{{ input_id }}">
+                  {{ value -}}
+                  {{ label_unavailable }}
+                </label>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </product-options>
+{%- endunless -%}
+{% comment %}
+  {%- style -%}
+    product-options input[type=radio] {
+        clip: rect(0, 0, 0, 0);
+        overflow: hidden;
+        position: absolute;
+        height: 1px;
+        width: 1px;
+    }
+  {%- endstyle -%}
+{% endcomment %}

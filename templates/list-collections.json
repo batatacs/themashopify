@@ -1,0 +1,199 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "show_title_page": true,
+        "h_position": "center",
+        "v_position": "middle",
+        "txt_align": "center",
+        "bg": "#ffffff",
+        "cl_border": "#ffffff",
+        "b_height": 150,
+        "mg_bottom": 30,
+        "mobile_bg": "#f2f2f6",
+        "mobile_ht": 100,
+        "mobile_mg_bottom": 20
+      }
+    },
+    "main": {
+      "type": "main-list-collections",
+      "blocks": {
+        "917067d8-e6b5-414d-815a-7b8d6c57f53c": {
+          "type": "collection",
+          "settings": {
+            "collection": "babies-moms"
+          }
+        },
+        "4e6270a2-b22e-493c-8310-9c317898a33d": {
+          "type": "collection",
+          "settings": {
+            "collection": "books-office"
+          }
+        },
+        "0ea78a7d-5ff3-43f5-8dc4-1fe18e88c0bc": {
+          "type": "collection",
+          "settings": {
+            "collection": "chairs-stools",
+            "image": "shopify:\/\/shop_images\/furniture_products_11_2.jpg"
+          }
+        },
+        "18cb8370-51c0-4302-8ea0-cd552536dc90": {
+          "type": "collection",
+          "settings": {
+            "collection": "clothing-apparel"
+          }
+        },
+        "bc330fdd-0bd5-4422-b2f4-b672dbbea2a4": {
+          "type": "collection",
+          "settings": {
+            "collection": "computers-technologies",
+            "image": "shopify:\/\/shop_images\/products_19_1.jpg"
+          }
+        },
+        "e17f4f3e-627e-4cca-9f27-c9b29bf35bca": {
+          "type": "collection",
+          "settings": {
+            "collection": "consumer-electrics"
+          }
+        },
+        "ed0dab0d-765c-4c18-85fe-12d385e297c1": {
+          "type": "collection",
+          "settings": {
+            "collection": "decor-furniture",
+            "image": "shopify:\/\/shop_images\/furniture_products_3_8.jpg"
+          }
+        },
+        "fef32501-3514-4efb-b3c4-8cae7d0d192d": {
+          "type": "collection",
+          "settings": {
+            "collection": "furniture-acessories"
+          }
+        },
+        "e35fe0aa-640c-426c-8cd8-7ad5cec60820": {
+          "type": "collection",
+          "settings": {
+            "collection": "kitchen-tableware"
+          }
+        },
+        "3c0c7ba6-d7f1-4ae6-9d8e-d009eb8bd509": {
+          "type": "collection",
+          "settings": {
+            "collection": "phones-accessories"
+          }
+        },
+        "32ef9563-679c-4231-b791-662478c01729": {
+          "type": "collection",
+          "settings": {
+            "collection": "sport-outdoo"
+          }
+        },
+        "e580add1-bcde-47d1-8ba4-897ce807fdfb": {
+          "type": "collection",
+          "settings": {
+            "collection": "smart-phones-tablets",
+            "image": "shopify:\/\/shop_images\/products_34_4.jpg"
+          }
+        },
+        "66aed635-233d-4279-8f1e-9491833a599e": {
+          "type": "collection",
+          "settings": {
+            "collection": "tv-audios"
+          }
+        },
+        "53c40cd7-e420-4e45-bf08-31082906c862": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "8d381faa-64fe-4d38-8094-988b788b43d1": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "35d316e5-0df3-4f20-a663-96ced7a6c587": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "0f341fba-68b6-4797-bfd8-6185761f5f51": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "0ddbdb48-1d95-481e-81b2-c8f86b7bfe43": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "43a1da90-eec3-4b52-b0e4-a824b7a4cd2f": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "b249b471-4085-4b39-a279-4caae51be850": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "917067d8-e6b5-414d-815a-7b8d6c57f53c",
+        "4e6270a2-b22e-493c-8310-9c317898a33d",
+        "0ea78a7d-5ff3-43f5-8dc4-1fe18e88c0bc",
+        "18cb8370-51c0-4302-8ea0-cd552536dc90",
+        "bc330fdd-0bd5-4422-b2f4-b672dbbea2a4",
+        "e17f4f3e-627e-4cca-9f27-c9b29bf35bca",
+        "ed0dab0d-765c-4c18-85fe-12d385e297c1",
+        "fef32501-3514-4efb-b3c4-8cae7d0d192d",
+        "e35fe0aa-640c-426c-8cd8-7ad5cec60820",
+        "3c0c7ba6-d7f1-4ae6-9d8e-d009eb8bd509",
+        "32ef9563-679c-4231-b791-662478c01729",
+        "e580add1-bcde-47d1-8ba4-897ce807fdfb",
+        "66aed635-233d-4279-8f1e-9491833a599e",
+        "53c40cd7-e420-4e45-bf08-31082906c862",
+        "8d381faa-64fe-4d38-8094-988b788b43d1",
+        "35d316e5-0df3-4f20-a663-96ced7a6c587",
+        "0f341fba-68b6-4797-bfd8-6185761f5f51",
+        "0ddbdb48-1d95-481e-81b2-c8f86b7bfe43",
+        "43a1da90-eec3-4b52-b0e4-a824b7a4cd2f",
+        "b249b471-4085-4b39-a279-4caae51be850"
+      ],
+      "settings": {
+        "pagination_limit": 16,
+        "hoverz": true,
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "use_eq_height": true,
+        "image_ratio": "ratio1_1",
+        "cl_bg": "rgba(0,0,0,0)",
+        "visible": 5,
+        "widescreen": 5,
+        "desktop": 4,
+        "laptop": 4,
+        "notebook": 3,
+        "tablet": 3,
+        "landscape": 2,
+        "portrait": 2,
+        "mobile": 1,
+        "padding_lr": 10,
+        "border": 5,
+        "mg": "0,0,100px,0",
+        "pd": "",
+        "mg_mb": "0,0,50px,0",
+        "pd_mb": ""
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main"
+  ]
+}

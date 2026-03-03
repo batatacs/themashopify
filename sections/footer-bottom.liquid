@@ -1,0 +1,664 @@
+{% render 'footer-bottom' %}
+{%- render 'section_style' -%} 
+{%- schema -%}
+  {
+    "name": "Footer bottom",
+    "class": "footer-bottom",
+    "max_blocks": 10,
+    "settings": [ 
+      
+      {
+        "type": "header",
+        "content": "== Footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "hidden",
+        "label": "Hidden Section?",
+        "default": false
+      },
+        {
+          "type": "checkbox",
+          "id": "full_width",
+          "label": "Full width",
+          "default": false
+        },
+
+      {
+        "type": "color",
+        "id": "cl_bg",
+        "label": "Background color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "cl_border",
+        "label": "Border color",
+        "default": "#fff"
+      },
+      {
+        "type": "header",
+        "content": "Advanced settings"
+      },
+      {
+        "type": "text",
+        "id": "pd",
+        "label": "Padding",
+        "info":"Padding top, padding right, padding bottom, padding left. If you not use to blank"
+      },
+     {
+        "type": "header",
+        "content": "== Design Mobile Options"
+      },
+      {
+        "type": "text",
+        "id": "pd_mb",
+        "label": "Padding"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "copyright",
+        "name": "Copyright",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "copyright",
+            "label": "Copyright"
+          },
+		  {
+            "type": "color", 
+            "id": "cl_text",
+            "label": "Color Text",
+            "default": "#888"
+            },
+          {
+            "type": "color", 
+            "id": "cl_link",
+            "label": "Color link",
+            "default": "#222"
+            },
+          {
+            "type": "select",
+            "id": "pos_block",
+            "default": "flex-start",
+            "options": [
+              
+             {
+                "value": "flex-start",
+                "label": "Left"
+             },
+            {
+                "value": "center",
+                "label": "Center"
+             },
+             {
+                "value": "flex-end",
+                "label": "Right"
+              }
+            ],
+            "label": "Position"
+          },
+          {
+        "type": "select",
+        "id": "col",
+        "default": "33%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        },
+        {
+             "type": "range",
+             "id": "mb",
+             "label": "Margin bottom",
+             "min": 0,
+             "max": 100,
+             "step": 5,
+             "unit": "px",
+             "default": 0
+          }
+        ]
+      },	
+      {
+        "type": "menu",
+        "name": "Menu",
+        "settings": [
+          {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Add menu"
+          },
+          {
+            "type": "color",
+            "id": "cl_link",
+            "label": "Color Link",
+            "default": "#fff"
+          },
+          {
+            "type": "color",
+            "id": "cl_link_hover",
+            "label": "Color Link (hover)",
+            "default": "#fff"
+          },
+          {
+            "type": "select",
+            "id": "pos_block",
+            "default": "flex-start",
+            "options": [
+              
+             {
+                "value": "flex-start",
+                "label": "Left"
+             },
+            {
+                "value": "center",
+                "label": "Center"
+             },
+             {
+                "value": "flex-end",
+                "label": "Right"
+              }
+            ],
+            "label": "Position"
+          },
+          {
+        "type": "select",
+        "id": "col",
+        "default": "33%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        },
+        {
+             "type": "range",
+             "id": "mb",
+             "label": "Margin bottom",
+             "min": 0,
+             "max": 100,
+             "step": 5,
+             "unit": "px",
+             "default": 0
+          }
+          
+        ]
+      },
+      
+      {
+        "type": "payment_svg",
+        "name": "payment SVG",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "color", 
+            "id": "cl_text",
+            "label": "Color Text",
+            "default": "#888"
+            },
+          {
+             "type": "html",
+             "id": "svg_custom",
+             "label": "Payment type (SVG)",
+             "default":"amazon_payments,american_express,apple_pay,bitcoin,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,google_pay,jcb,klarna,klarna-pay-later,litecoin,maestro,master,paypal,shopify_pay,sofort,visa",
+             "info": "amazon_payments,american_express,apple_pay,bitcoin,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,google_pay,jcb,klarna,klarna-pay-later,litecoin,maestro,master,paypal,shopify_pay,sofort,visa"
+          },
+          {
+            "type": "select",
+            "id": "pos_block",
+            "default": "flex-start",
+            "options": [
+              
+             {
+                "value": "flex-start",
+                "label": "Left"
+             },
+            {
+                "value": "center",
+                "label": "Center"
+             },
+             {
+                "value": "flex-end",
+                "label": "Right"
+              }
+            ],
+            "label": "Position"
+          },
+          {
+        "type": "select",
+        "id": "col",
+        "default": "33%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        },
+        {
+             "type": "range",
+             "id": "mb",
+             "label": "Margin bottom",
+             "min": 0,
+             "max": 100,
+             "step": 5,
+             "unit": "px",
+             "default": 0
+          }
+        ]
+      },
+      {
+        "type": "payment_img",
+        "name": "Payment Img",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "color", 
+            "id": "cl_text",
+            "label": "Color Text",
+            "default": "#888"
+            },
+          {
+          "type": "image_picker",
+          "id": "img_payment",
+          "label": "image Payment"
+          },
+          {
+             "type": "range",
+             "id": "width_img",
+             "label": "Width img",
+             "min": 300,
+             "max": 500,
+             "step": 5,
+             "unit": "px",
+             "default": 395
+          },
+          {
+            "type": "select",
+            "id": "pos_block",
+            "default": "flex-start",
+            "options": [
+              
+             {
+                "value": "flex-start",
+                "label": "Left"
+             },
+            {
+                "value": "center",
+                "label": "Center"
+             },
+             {
+                "value": "flex-end",
+                "label": "Right"
+              }
+            ],
+            "label": "Position"
+          },
+          {
+        "type": "select",
+        "id": "col",
+        "default": "33%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        },
+        {
+             "type": "range",
+             "id": "mb",
+             "label": "Margin bottom",
+             "min": 0,
+             "max": 100,
+             "step": 5,
+             "unit": "px",
+             "default": 0
+          }
+        ]
+      },
+      
+      {
+      "type": "socia",
+      "name": "Socia",
+      "settings": [
+          {
+            "type": "select",
+            "id": "f_social",
+            "default": "2",
+            "options": [
+              {
+                "value": "1",
+                "label": "Social sharing"
+             },
+             {
+                "value": "2",
+                "label": "Social Link"
+             }
+            ],
+            "label": "Social network"
+          },
+          {
+            "type": "select",
+            "id": "pos_block",
+            "default": "flex-start",
+            "options": [
+              
+             {
+                "value": "flex-start",
+                "label": "Left"
+             },
+            {
+                "value": "center",
+                "label": "Center"
+             },
+             {
+                "value": "flex-end",
+                "label": "Right"
+              }
+            ],
+            "label": "Position"
+          },
+          {
+        "type": "select",
+        "id": "col",
+        "default": "33%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        },
+        {
+             "type": "range",
+             "id": "mb",
+             "label": "Margin bottom",
+             "min": 0,
+             "max": 100,
+             "step": 5,
+             "unit": "px",
+             "default": 0
+          }
+      ]
+      },
+      {
+      "type": "policy",
+      "name": "Policy links",
+      "settings": [
+          {
+          "type": "paragraph",
+          "content": "To add store policies, go to your [policy settings](\/admin\/settings\/legal)."
+        },
+        {
+            "type": "color",
+            "id": "cl_link",
+            "label": "Color Link",
+            "default": "#fff"
+          },
+          {
+            "type": "color",
+            "id": "cl_link_hover",
+            "label": "Color Link (hover)",
+            "default": "#fff"
+          },
+          {
+            "type": "select",
+            "id": "pos_block",
+            "default": "flex-start",
+            "options": [
+              
+             {
+                "value": "flex-start",
+                "label": "Left"
+             },
+            {
+                "value": "center",
+                "label": "Center"
+             },
+             {
+                "value": "flex-end",
+                "label": "Right"
+              }
+            ],
+            "label": "Position"
+          },
+          {
+        "type": "select",
+        "id": "col",
+        "default": "33%",
+        "options": [
+        {
+        "value": "16%",
+        "label": "16%"
+        },  
+        {
+        "value": "25%",
+        "label": "25%"
+        },
+        {
+        "value": "33%",
+        "label": "33%"
+        },
+         {
+        "value": "42%",
+        "label": "42%"
+        }, 
+        {
+        "value": "50%",
+        "label": "50%"
+        },
+        {
+        "value": "58%",
+        "label": "58%"
+        }, 
+        {
+        "value": "66%",
+        "label": "66%"
+        },
+        {
+        "value": "75%",
+        "label": "75%"
+        },
+        {
+        "value": "100%",
+        "label": "100%"
+        }
+        ],
+        "label": "Container width:"
+        },
+        {
+             "type": "range",
+             "id": "mb",
+             "label": "Margin bottom",
+             "min": 0,
+             "max": 100,
+             "step": 5,
+             "unit": "px",
+             "default": 0
+          }
+      ]
+      }
+    ]
+  }
+{% endschema %}

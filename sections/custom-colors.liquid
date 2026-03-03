@@ -1,0 +1,47 @@
+{% capture colors %}
+    <style>
+        {%- for block in section.blocks -%}
+            {%- if block.settings.title != blank -%}
+                {%- assign color_name = block.settings.title | downcase | replace: ' ', '-' -%}
+                .alo-color-{{ color_name | handleize }},
+                .standard-color-{{ color_name | handleize }}{
+                    {% if block.settings.color_image == blank %}
+                        background-color:{{block.settings.color_code}} !important;
+                        background-image: initial !important;
+                    {% else  %}
+                        background:{{block.settings.color_code}} url({{block.settings.color_image | img_url: '80x'}}) no-repeat 50% 50%/cover !important;
+                    {% endif %}
+                }
+            {%- endif -%}
+        {%- endfor -%} 
+    </style>
+{% endcapture %}
+{{ colors | strip_newlines | remove: '  ' | remove: '	' }}
+{% schema %}
+{
+  "name": "Custom Color Variants",
+  "blocks": [
+    {
+      "type": "color",
+      "name": "Color",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Color Name"
+        },
+        {
+          "type": "color",
+          "id": "color_code",
+          "label": "Color code"
+        },
+        {
+          "type": "image_picker",
+          "id": "color_image",
+          "label": "Color Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
