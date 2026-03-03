@@ -3162,6 +3162,7 @@
           },
           "bfb74f7d-6e29-40f9-981f-348230c74bf7": {
             "type": "menu",
+            "disabled": true,
             "settings": {
               "menu": "",
               "cl_link": "#999999",
@@ -3169,17 +3170,6 @@
               "pos_block": "center",
               "col": "100%",
               "mb": 30
-            }
-          },
-          "a556a61e-2595-483e-9365-487a9c52b0ca": {
-            "type": "payment_img",
-            "settings": {
-              "title": "",
-              "cl_text": "#888888",
-              "width_img": 330,
-              "pos_block": "center",
-              "col": "100%",
-              "mb": 25
             }
           },
           "024abc77-3ea5-4b33-965b-47f77bcfcc45": {
@@ -3197,7 +3187,6 @@
         "block_order": [
           "ad9550a7-5500-4d01-b37d-9689d518bd43",
           "bfb74f7d-6e29-40f9-981f-348230c74bf7",
-          "a556a61e-2595-483e-9365-487a9c52b0ca",
           "024abc77-3ea5-4b33-965b-47f77bcfcc45"
         ],
         "settings": {
