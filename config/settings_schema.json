@@ -120,6 +120,33 @@
         "info": "Cole a URL de um vídeo .mp4. Suba o vídeo em 'Conteúdo > Arquivos' no seu admin Shopify e cole o link aqui. Isso substituirá a imagem/animação do preloader."
       },
       {
+        "type": "text",
+        "id": "loader_video_mobile_url",
+        "label": "URL do Vídeo Mobile (MP4) - Opcional",
+        "info": "Cole a URL de um vídeo vertical para celulares. Se deixado em branco, o vídeo de desktop será usado."
+      },
+      {
+        "type": "select",
+        "id": "loader_strategy",
+        "label": "Duração do Preloader",
+        "options": [
+          { "value": "fixed", "label": "Tempo Fixo (Configurável)" },
+          { "value": "video", "label": "Tempo do Vídeo (Tocar 1 vez)" }
+        ],
+        "default": "fixed",
+        "info": "Se escolher 'Tempo do Vídeo', o vídeo tocará até o fim e o site abrirá. Se 'Tempo Fixo', ele ficará em loop pelo tempo definido abaixo."
+      },
+      {
+        "type": "range",
+        "id": "loader_duration",
+        "label": "Tempo de Exibição (Segundos)",
+        "min": 1,
+        "max": 15,
+        "step": 1,
+        "default": 2,
+        "info": "Apenas se a duração for 'Tempo Fixo'."
+      },
+      {
         "type": "color",
         "id": "loader_bg",
         "label": "Cor de Fundo do Preloader",

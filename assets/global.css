@@ -50,6 +50,14 @@ html {
   align-items: center;
   justify-content: center;
 }
+
+/* Controle de exibição de vídeo Desktop/Mobile */
+.preloader-video.mobile-only { display: none; }
+@media (max-width: 767px) {
+  .preloader-video.desktop-only { display: none; }
+  .preloader-video.mobile-only { display: block; }
+}
+
 * {
   box-sizing: border-box;
 }

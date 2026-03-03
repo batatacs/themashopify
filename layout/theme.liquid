@@ -45,11 +45,45 @@
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     const type_name = "{{request.page_type}}", t_cartCount = {{ cart.item_count }}, t_shop_currency = "{{ shop.currency }}", t_moneyFormat = {{ shop.money_format | json }}, t_cart_url = "{{ routes.cart_url }}", pr_re_url = "{{ routes.product_recommendations_url }}"; 
     document.addEventListener("DOMContentLoaded", function() {
-          function fadeOut(el){if(!el) return; el.style.opacity=1;(function fade(){if((el.style.opacity-=.1)<0){el.style.display="none";}else{requestAnimationFrame(fade);}})();}
-          setTimeout(function() {
-            fadeOut(document.querySelector('.page-load'));
-            document.body.classList.remove('skeleton-page');
-          }, 2000);
+          var loaderStrategy = "{{ settings.loader_strategy | default: 'fixed' }}";
+          var loaderDuration = {{ settings.loader_duration | default: 2 }} * 1000;
+          var hasVideo = {% if settings.loader_video_url != blank or settings.loader_video_mobile_url != blank %}true{% else %}false{% endif %};
+          var pageLoadEl = document.querySelector('.page-load');
+
+          function finishLoader() {
+            if(!pageLoadEl) return;
+            pageLoadEl.style.transition = "opacity 0.5s ease";
+            pageLoadEl.style.opacity = 0;
+            setTimeout(function(){
+                pageLoadEl.style.display = "none";
+                document.body.classList.remove('skeleton-page');
+            }, 500);
+          }
+
+          if (hasVideo && loaderStrategy === 'video') {
+              // Estratégia: Esperar o vídeo terminar
+              var activeVideo = window.innerWidth <= 767 
+                                ? document.querySelector('[data-mobile-video]') 
+                                : document.querySelector('[data-desktop-video]');
+              
+              // Fallback se não tiver vídeo mobile específico
+              if (!activeVideo) activeVideo = document.querySelector('.preloader-video');
+
+              if (activeVideo) {
+                  activeVideo.play().catch(function(){}); // Tenta forçar o play
+                  // Se o vídeo travar ou for muito longo, fecha em 15s por segurança
+                  var safetyTimer = setTimeout(finishLoader, 15000); 
+                  activeVideo.addEventListener('ended', function() {
+                      clearTimeout(safetyTimer);
+                      finishLoader();
+                  });
+              } else {
+                  setTimeout(finishLoader, loaderDuration);
+              }
+          } else {
+              // Estratégia: Tempo Fixo
+              setTimeout(finishLoader, loaderDuration);
+          }
     });   
   </script>
   {% if settings.hide_shopify_add_to_cart %}
@@ -163,9 +197,19 @@
   {% endif %}
 
   {%if settings.show_load_page%}
-  <div class="page-load {% if settings.loader_video_url == blank and settings.loader_image == blank %}circle-loadding{% endif %}" style="background-color: {{ settings.loader_bg | default: '#ffffff' }};">
-    {%- if settings.loader_video_url != blank -%}
-      <video class="preloader-video" src="{{ settings.loader_video_url }}" autoplay muted loop playsinline></video>
+  <div class="page-load {% if settings.loader_video_url == blank and settings.loader_video_mobile_url == blank and settings.loader_image == blank %}circle-loadding{% endif %}" style="background-color: {{ settings.loader_bg | default: '#ffffff' }};">
+    {%- if settings.loader_video_url != blank or settings.loader_video_mobile_url != blank -%}
+      {%- assign loop_video = true -%}
+      {%- if settings.loader_strategy == 'video' -%}{%- assign loop_video = false -%}{%- endif -%}
+      
+      {%- if settings.loader_video_url != blank -%}
+        <video class="preloader-video {% if settings.loader_video_mobile_url != blank %}desktop-only{% endif %}" src="{{ settings.loader_video_url }}" autoplay muted playsinline {% if loop_video %}loop{% endif %} data-desktop-video></video>
+      {%- endif -%}
+
+      {%- if settings.loader_video_mobile_url != blank -%}
+        <video class="preloader-video mobile-only" src="{{ settings.loader_video_mobile_url }}" autoplay muted playsinline {% if loop_video %}loop{% endif %} data-mobile-video></video>
+      {%- endif -%}
+
     {%- else -%}
       <div class="preloader-content">
         {%- if settings.loader_image != blank -%}
