@@ -16,7 +16,7 @@
     "show_load_page": true,
     "show_load_page_mobile": false,
     "loader_video_url": "https://cdn.shopify.com/videos/c/o/v/be0c6e647cc74730a928529a3e8f1a7e.mp4",
-    "loader_duration": 8,
+    "loader_duration": 5,
     "cusotm_width": 1730,
     "gap": 10,
     "gap_mobile": 5,
