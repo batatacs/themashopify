@@ -12,25 +12,25 @@
     "settings": [
       {
         "type": "header",
-        "content": "== Meta keywords(SEO)"
+        "content": "== Meta Palavras-chave (SEO)"
       },
       {
         "type": "textarea",
         "id": "home_keywords",
-        "label": "Keywords for homepage",
+        "label": "Palavras-chave para página inicial",
         "default": "Uminex theme, Fastest, Ajax Shop, Minimal, Lazyload",
-        "info": "Define keywords for search engines."
+        "info": "Defina palavras-chave para motores de busca."
       },
       {
         "type": "text",
         "id": "shop_author",
-        "label": "Author for Shop",
+        "label": "Autor da Loja",
         "default": "Uminex theme",
-        "info": "Define the author of a Shop."
+        "info": "Defina o autor da loja."
       },
       {
         "type": "header",
-        "content": "== Shop settings"
+        "content": "== Configurações da Loja"
       },
       {
         "type": "header",
@@ -77,19 +77,19 @@
       {
         "type": "checkbox",
         "id": "rtl",
-        "label": "Enable Right To Left ",
+        "label": "Habilitar Da Direita para Esquerda (RTL)",
         "default": false
       },
       {
         "type": "text",
         "id": "rtl_code",
-        "label": "Enabled RTL in list code countries",
+        "label": "Ativar RTL na lista de códigos de países",
         "default": "AR BH EG IL IQ JO KW LB PS SY"
       },
       {
         "type": "checkbox",
         "id": "show_button_rtl",
-        "label": "Show Button RTL ",
+        "label": "Mostrar Botão RTL",
         "default": true
       },
       {
@@ -161,7 +161,7 @@
       {
         "type": "range",
         "id": "cusotm_width",
-        "label": "Container width",
+        "label": "Largura do Container",
         "min": 1170,
         "max": 1920,
         "step": 10,
@@ -171,7 +171,7 @@
       {
         "type": "range",
         "id": "gap",
-        "label": "Gap",
+        "label": "Espaçamento (Gap)",
         "min": 0,
         "max": 15,
         "step": 1,
@@ -181,7 +181,7 @@
       {
         "type": "range",
         "id": "gap_mobile",
-        "label": "Gap (mobile)",
+        "label": "Espaçamento (mobile)",
         "min": 0,
         "max": 15,
         "step": 0.5,
@@ -191,7 +191,7 @@
       {
         "type": "range",
         "id": "border",
-        "label": "Border radius",
+        "label": "Raio da Borda (Border Radius)",
         "min": 0,
         "max": 15,
         "step": 1,
@@ -201,29 +201,29 @@
       {
         "type": "select",
         "id": "select_header",
-        "label": "Choose layout for header",
+        "label": "Escolher layout do cabeçalho",
         "default": "1",
         "options": [
           {
             "value": "1",
-            "label": "Header style 1"
+            "label": "Cabeçalho estilo 1"
           }
         ]
       },
       {
         "type": "header",
-        "content": " Vertical menu"
+        "content": "Menu Vertical"
       },
       {
         "type": "checkbox",
         "id": "use_vertical_menu",
-        "label": "Use vertical menu",
+        "label": "Usar menu vertical",
         "default": true
       },
       {
         "type": "text",
         "id": "title_vertical",
-        "label": "Heading",
+        "label": "Título",
         "default": "Todas as Categorias"
       },
       {
@@ -233,28 +233,28 @@
         "options": [
           {
             "value": "1",
-            "label": "Beside main menu"
+            "label": "Ao lado do menu principal"
           },
           {
             "value": "2",
-            "label": "Beside the slideshow"
+            "label": "Ao lado do slideshow"
           },
           {
             "value": "3",
-            "label": "Beside the Search"
+            "label": "Ao lado da Busca"
           }
         ],
-        "label": "Display Position (Vertical menu)"
+        "label": "Posição de Exibição (Menu Vertical)"
       },
       {
         "type": "select",
         "id": "select_footer",
-        "label": "Choose layout for footer",
+        "label": "Escolher layout do rodapé",
         "default": "1",
         "options": [
           {
             "value": "1",
-            "label": "Footer style 1"
+            "label": "Rodapé estilo 1"
           }
         ]
       }
@@ -266,20 +266,20 @@
       {
         "type": "checkbox",
         "id": "show_policy_terms_of_service_page",
-        "label": "Show Privacy Policy and Terms of Service",
+        "label": "Mostrar Política de Privacidade e Termos de Serviço",
         "default": true
       },
       {
         "type": "page",
         "id": "privacy_policy_page_content",
-        "label": "Content for 'Privacy Policy'",
-        "info": "Default page: 'Privacy Policy'"
+        "label": "Conteúdo para 'Política de Privacidade'",
+        "info": "Página padrão: 'Política de Privacidade'"
       },
       {
         "type": "page",
         "id": "terms_of_service_content",
-        "label": "Content for 'Terms of Service'",
-        "info": "Default page: 'Terms of Service'"
+        "label": "Conteúdo para 'Termos de Serviço'",
+        "info": "Página padrão: 'Termos de Serviço'"
       }
     ]
   },
@@ -289,27 +289,27 @@
       {
         "type": "checkbox",
         "id": "show_all_categories",
-        "label": "All Categories",
+        "label": "Todas as Categorias",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "show_key_word",
-        "label": "Show Popular Searches",
+        "label": "Mostrar Pesquisas Populares",
         "default": false
       },
       {
         "type": "text",
         "id": "title_key_word",
-        "label": "Title",
+        "label": "Título",
         "default": "Pesquisas Populares:"
       },
       {
         "type": "text",
         "id": "key_word",
-        "label": "Popular Searches:",
+        "label": "Pesquisas Populares:",
         "default": "Legumes, Carne, Sucos",
-        "info": "Common keywords are separated by a ','"
+        "info": "Palavras-chave comuns são separadas por ','"
       }
     ]
   },
@@ -319,28 +319,28 @@
       {
         "type": "text",
         "id": "logo_text",
-        "label": "logo Text",
+        "label": "Texto do Logo",
         "default": "Jc Digital"
       },
       {
         "type": "image_picker",
         "id": "logo",
-        "label": "Logo image at homepage"
+        "label": "Imagem do Logo na página inicial"
       },
       {
         "type": "image_picker",
         "id": "logo_page",
-        "label": "Logo image at other page"
+        "label": "Imagem do Logo em outras páginas"
       },
       {
         "type": "image_picker",
         "id": "logo_page_mobile",
-        "label": "Logo image (mobile)"
+        "label": "Imagem do Logo (mobile)"
       },
       {
         "type": "range",
         "id": "logo_max_width",
-        "label": "Custom logo width",
+        "label": "Largura personalizada do logo",
         "min": 50,
         "max": 250,
         "step": 5,
@@ -399,65 +399,65 @@
       {
         "type": "checkbox",
         "id": "ajaxcart_enabled",
-        "label": "Enable Ajax Cart",
+        "label": "Habilitar Carrinho Ajax",
         "default": true
       },
       {
         "type": "select",
         "id": "ajaxcart_after",
         "default": "sidebar_cart",
-        "info": "After add to cart action",
+        "info": "Ação após adicionar ao carrinho",
         "options": [
           {
             "value": "",
-            "label": "Do Nothing"
+            "label": "Não fazer nada"
           },
           {
             "value": "sidebar_cart",
-            "label": "Display Sidebar Cart"
+            "label": "Exibir Carrinho Lateral"
           },
           {
             "value": "cart",
-            "label": "Go to Cart Page"
+            "label": "Ir para Página do Carrinho"
           },
           {
             "value": "checkout",
-            "label": "Go to Checkout Page"
+            "label": "Ir para Página de Checkout"
           },
           {
             "value": "reload",
-            "label": "Reload current page"
+            "label": "Recarregar página atual"
           }
         ],
-        "label": "After Ajax Cart Action"
+        "label": "Ação Após Adicionar ao Carrinho"
       },
       {
         "type": "checkbox",
         "id": "show_note",
-        "label": "Show Note",
+        "label": "Mostrar Nota",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "show_gift",
-        "label": "Show Gift",
+        "label": "Mostrar Presente",
         "default": true
       },
       {
         "type": "product",
         "id": "product_gift",
-        "label": "Product gift"
+        "label": "Produto de presente"
       },
       {
         "type": "checkbox",
         "id": "show_estimate",
-        "label": "Show Estimate",
+        "label": "Mostrar Estimativa",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "show_coupon",
-        "label": "Show Coupon",
+        "label": "Mostrar Cupom",
         "default": true
       },
       {
@@ -467,32 +467,32 @@
       {
         "type": "checkbox",
         "id": "show_free_shipping",
-        "label": "Show free shipping",
+        "label": "Mostrar frete grátis",
         "default": true
       },
       {
         "type": "number",
         "id": "free_shipping",
-        "label": "Free shipping value",
+        "label": "Valor para frete grátis",
         "default": 200,
-        "info": "If you offer free shipping on orders more than $200, set $1000 here."
+        "info": "Se você oferece frete grátis em pedidos acima de R$200, coloque 200 aqui."
       },
       {
         "type": "checkbox",
         "id": "custom_color_free_shipping",
-        "label": "Custom color",
+        "label": "Cor personalizada",
         "default": false
       },
       {
         "type": "color",
         "id": "bg_free_shipping",
-        "label": "Background free-shipping",
+        "label": "Fundo frete grátis",
         "default": "#e60023"
       },
       {
         "type": "color",
         "id": "bg_free_shipping_progress",
-        "label": "Background free shipping progress",
+        "label": "Fundo progresso frete grátis",
         "default": "#4ad295"
       }
     ]
@@ -507,251 +507,251 @@
       {
         "type": "color",
         "id": "color_body_bg",
-        "label": "Body background color",
+        "label": "Cor de fundo do corpo",
         "default": "#fff"
       },
       {
         "type": "color",
         "id": "color_body_text",
-        "label": "Body Text Color",
+        "label": "Cor do texto do corpo",
         "default": "#444"
       },
       {
         "type": "color",
         "id": "color_main",
-        "label": "Main color",
+        "label": "Cor principal",
         "default": "#1a1a1a"
       },
       {
         "type": "color",
         "id": "color_secondary",
-        "label": "Secondary color",
+        "label": "Cor secundária",
         "default": "#1a1a1a"
       },
       {
         "type": "color",
         "id": "color_link",
-        "label": "Link Color",
+        "label": "Cor do link",
         "default": "#343E45"
       },
       {
         "type": "color",
         "id": "color_link_hover",
-        "label": "Link Color (Hover)",
+        "label": "Cor do link (Ao passar o mouse)",
         "default": "#343E45"
       },
       {
         "type": "color",
         "id": "color_scrollbar",
-        "label": "Color Scrollbar",
+        "label": "Cor da barra de rolagem",
         "default": "#1A73E8"
       },
       {
         "type": "color",
         "id": "color_border",
-        "label": "Color border",
+        "label": "Cor da borda",
         "default": "#ebebeb"
       },
       {
         "type": "header",
-        "content": "== Mega menu"
+        "content": "== Mega Menu"
       },
       {
         "type": "color",
         "id": "color_link_menu",
-        "label": "Link Color menu",
+        "label": "Cor do link do menu",
         "default": "#343E45"
       },
       {
         "type": "color",
         "id": "color_menu_heading",
-        "label": "Color menu heading",
+        "label": "Cor do título do menu",
         "default": "#1A73E8"
       },
       {
         "type": "color",
         "id": "color_link_menu_sub",
-        "label": "Link Color menu sub",
+        "label": "Cor do link do submenu",
         "default": "#777"
       },
       {
         "type": "color",
         "id": "color_link_menu_hover",
-        "label": "Link Color menu (Hover)",
+        "label": "Cor do link do menu (Ao passar o mouse)",
         "default": "#1A73E8"
       },
       {
         "type": "header",
-        "content": "== Product"
+        "content": "== Produto"
       },
       {
         "type": "color",
         "id": "color_name_product",
-        "label": "Color (name prduct)",
+        "label": "Cor (nome do produto)",
         "default": "#343e45"
       },
       {
         "type": "color",
         "id": "color_name_product_hover",
-        "label": "Color (name prduct hover)",
+        "label": "Cor (nome do produto ao passar o mouse)",
         "default": "#343e45"
       },
       {
         "type": "color",
         "id": "color_star_product",
-        "label": "Color (star prduct)",
+        "label": "Cor (estrela do produto)",
         "default": "#f5b301"
       },
       {
         "type": "color",
         "id": "color_compare_price_product",
-        "label": "Color (Compare at price)",
+        "label": "Cor (Preço comparativo)",
         "default": "#888"
       },
       {
         "type": "color",
         "id": "color_price_product",
-        "label": "Color (price product)",
+        "label": "Cor (preço do produto)",
         "default": "#343e45"
       },
       {
         "type": "color",
         "id": "color_price_current_product",
-        "label": "Color (price current product)",
+        "label": "Cor (preço atual do produto)",
         "default": "#e60023"
       },
       {
         "type": "color",
         "id": "color_cart_product",
-        "label": "Color btn Cart product",
+        "label": "Cor botão Carrinho produto",
         "default": "#0a2748"
       },
       {
         "type": "color",
         "id": "color_out_product",
-        "label": "Color btn Out of Stock",
+        "label": "Cor botão Sem Estoque",
         "default": "#0a2748"
       },
       {
         "type": "color",
         "id": "color_btn_product",
-        "label": "Color btn product",
+        "label": "Cor botão produto",
         "default": "#0a2748"
       },
       {
         "type": "color",
         "id": "color_btn_product_hover",
-        "label": "Color btn product hover",
+        "label": "Cor botão produto (Ao passar o mouse)",
         "default": "#1a73e8"
       },
       {
         "type": "color",
         "id": "bg_btn_product",
-        "label": "Background btn product",
+        "label": "Fundo botão produto",
         "default": "#0a2748"
       },
       {
         "type": "color",
         "id": "bg_btn_product_hover",
-        "label": "Background btn product hover",
+        "label": "Fundo botão produto (Ao passar o mouse)",
         "default": "#1a73e8"
       },
       {
         "type": "color",
         "id": "color_label_hot",
-        "label": "Background label Hot",
+        "label": "Fundo etiqueta Quente",
         "default": "#ff7143"
       },
       {
         "type": "color",
         "id": "color_label_new",
-        "label": "Background label New",
+        "label": "Fundo etiqueta Novo",
         "default": "#4ad295"
       },
       {
         "type": "color",
         "id": "color_label_sale",
-        "label": "Background label Sale",
+        "label": "Fundo etiqueta Oferta",
         "default": "#e60023"
       },
       {
         "type": "color",
         "id": "color_label_in",
-        "label": "Background In stock",
+        "label": "Fundo Em estoque",
         "default": "#25a799"
       },
       {
         "type": "color",
         "id": "color_label_out",
-        "label": "Background Out stock",
+        "label": "Fundo Sem estoque",
         "default": "#858585"
       },
       {
         "type": "header",
-        "content": "==Color Butoom"
+        "content": "== Cor Botão"
       },
       {
         "type": "color",
         "id": "color_btn_text",
-        "label": "color text Butoom",
+        "label": "Cor texto Botão",
         "default": "#fff"
       },
       {
         "type": "color",
         "id": "color_btn",
-        "label": "Background Butoom",
+        "label": "Fundo Botão",
         "default": "#4ad295"
       },
       {
         "type": "color",
         "id": "color_border_btn",
-        "label": "Border Butoom",
+        "label": "Borda Botão",
         "default": "#4ad295"
       },
       {
         "type": "color",
         "id": "color_btn_text_hover",
-        "label": "color (text Butoom hover)",
+        "label": "Cor (texto Botão ao passar o mouse)",
         "default": "#fff"
       },
       {
         "type": "color",
         "id": "color_btn_hover",
-        "label": "Background (Butoom hover)",
+        "label": "Fundo (Botão ao passar o mouse)",
         "default": "#1a73e8"
       },
       {
         "type": "color",
         "id": "color_border_btn_hover",
-        "label": "Border (Butoom hover)",
+        "label": "Borda (Botão ao passar o mouse)",
         "default": "#1a73e8"
       },
       {
         "type": "header",
-        "content": "== Butoom Previous & Next"
+        "content": "== Botão Anterior & Próximo"
       },
       {
         "type": "color",
         "id": "cl_btn_p_n",
-        "label": "Color",
+        "label": "Cor",
         "default": "#96AE00"
       },
       {
         "type": "color",
         "id": "bg_btn_p_n",
-        "label": "Background",
+        "label": "Fundo",
         "default": "#96AE00"
       },
       {
         "type": "color",
         "id": "cl_btn_p_n_hover",
-        "label": "Color (hover)",
+        "label": "Cor (ao passar o mouse)",
         "default": "#96AE00"
       },
       {
         "type": "color",
         "id": "bg_btn_p_n_hover",
-        "label": "Background (hover)",
+        "label": "Fundo (ao passar o mouse)",
         "default": "#96AE00"
       }
     ]
@@ -761,21 +761,21 @@
     "settings": [
       {
         "type": "header",
-        "content": "Google font"
+        "content": "Fonte Google"
       },
       {
         "type": "text",
         "id": "bd_google_font",
-        "label": "Google Font",
+        "label": "Fonte Google",
         "default": "Jost",
-        "info": "Ex:user [Google font](https:\/\/fonts.google.com\/), Spacing words with spaces"
+        "info": "Ex: use [Google font](https:\/\/fonts.google.com\/), Separe palavras com espaços"
       },
       {
         "type": "textarea",
         "id": "link_google_font",
-        "label": "Link google font",
+        "label": "Link da fonte Google",
         "default": "<p>Link google font<\/p>",
-        "info": "Ex:user [Google font](https:\/\/fonts.google.com\/), Copy link google font"
+        "info": "Ex: use [Google font](https:\/\/fonts.google.com\/), Copie o link da fonte google"
       },
       {
         "type": "range",
@@ -783,7 +783,7 @@
         "min": 10,
         "max": 20,
         "step": 1,
-        "label": "Font Size",
+        "label": "Tamanho da Fonte",
         "default": 14
       },
       {
@@ -792,7 +792,7 @@
         "min": 300,
         "max": 900,
         "step": 100,
-        "label": "Font weight",
+        "label": "Peso da Fonte",
         "default": 400
       },
       {
@@ -805,7 +805,7 @@
         "min": 300,
         "max": 900,
         "step": 100,
-        "label": "Font weight",
+        "label": "Peso da Fonte",
         "default": 700
       },
       {
@@ -818,7 +818,7 @@
         "min": 300,
         "max": 900,
         "step": 100,
-        "label": "Font weight",
+        "label": "Peso da Fonte",
         "default": 700
       },
       {
@@ -831,7 +831,7 @@
         "min": 300,
         "max": 900,
         "step": 100,
-        "label": "Font weight",
+        "label": "Peso da Fonte",
         "default": 700
       },
       {
@@ -844,7 +844,7 @@
         "min": 300,
         "max": 900,
         "step": 100,
-        "label": "Font weight",
+        "label": "Peso da Fonte",
         "default": 700
       },
       {
@@ -857,7 +857,7 @@
         "min": 300,
         "max": 900,
         "step": 100,
-        "label": "Font weight",
+        "label": "Peso da Fonte",
         "default": 700
       },
       {
@@ -870,13 +870,13 @@
         "min": 300,
         "max": 900,
         "step": 100,
-        "label": "Font weight",
+        "label": "Peso da Fonte",
         "default": 700
       }
     ]
   },
   {
-    "name": "Product page",
+    "name": "Página de Produto",
     "settings": [
       {
         "type": "select",
@@ -889,7 +889,7 @@
           },
           {
             "value": "full-width",
-            "label": "Full Width"
+            "label": "Largura Total"
           }
         ],
         "label": "Layout"
@@ -897,45 +897,45 @@
       {
         "type": "checkbox",
         "id": "show_product_sidebar",
-        "label": "Show sidebar",
+        "label": "Mostrar barra lateral",
         "default": true
       },
       {
         "type": "select",
         "id": "product_info_layout",
-        "label": "Product Sidebar",
+        "label": "Barra Lateral do Produto",
         "default": "right",
         "options": [
           {
             "value": "left",
-            "label": "Left column"
+            "label": "Coluna Esquerda"
           },
           {
             "value": "right",
-            "label": "Right column"
+            "label": "Coluna Direita"
           }
         ]
       },
       {
         "type": "header",
-        "content": "Gallery"
+        "content": "Galeria"
       },
       {
         "type": "checkbox",
         "id": "product_info_show_arrows",
-        "label": "Arrows",
+        "label": "Setas",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_info_show_btn_fullscreen",
-        "label": "Show button 'Zoom'",
+        "label": "Mostrar botão 'Zoom'",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_info_enable_zoom",
-        "label": "Enable zoom",
+        "label": "Habilitar zoom",
         "default": true
       },
       {
@@ -945,22 +945,22 @@
         "options": [
           {
             "value": "1",
-            "label": "Basic"
+            "label": "Básico"
           },
           {
             "value": "2",
-            "label": "Inner zoom"
+            "label": "Zoom Interno"
           },
           {
             "value": "3",
-            "label": "Lens Zoom"
+            "label": "Zoom Lente"
           },
           {
             "value": "4",
-            "label": "Mousewheel Zoom"
+            "label": "Zoom Roda do Mouse"
           }
         ],
-        "label": "Select style for zoom"
+        "label": "Selecionar estilo para zoom"
       },
       {
         "type": "select",
@@ -969,26 +969,26 @@
         "options": [
           {
             "value": "",
-            "label": "Don't use Effect"
+            "label": "Não usar Efeito"
           },
           {
             "value": "flyOutWindow",
-            "label": "Fly Out Window"
+            "label": "Voar para Fora da Janela"
           },
           {
             "value": "flyOutImageToWindow",
-            "label": "Fly Out Image To Window"
+            "label": "Voar Imagem para Janela"
           },
           {
             "value": "flySpinningWindow",
-            "label": "Fly Spinning Window"
+            "label": "Voar Girando Janela"
           },
           {
             "value": "flySpinningImageToWindow",
-            "label": "Fly Spinning Image To Window"
+            "label": "Voar Girando Imagem para Janela"
           }
         ],
-        "label": "Select Effect for zoom"
+        "label": "Selecionar Efeito para zoom"
       },
       {
         "type": "range",
@@ -996,9 +996,9 @@
         "min": 100,
         "max": 1000,
         "step": 10,
-        "label": "Effect duration",
+        "label": "Duração do efeito",
         "default": 500,
-        "info": "Effect Timing"
+        "info": "Tempo do Efeito"
       },
       {
         "type": "range",
@@ -1006,23 +1006,23 @@
         "min": 0.5,
         "max": 1.5,
         "step": 0.1,
-        "label": "Level Zoom",
+        "label": "Nível de Zoom",
         "default": 0.8,
-        "info": "Level < 1 product will bigger"
+        "info": "Nível < 1 produto ficará maior"
       },
       {
         "type": "text",
         "id": "width_zoom",
-        "label": "width zoom",
+        "label": "Largura do zoom",
         "default": "0",
-        "info": "Use only for Zoom Window, enter 0 => auto"
+        "info": "Use apenas para Janela de Zoom, digite 0 => auto"
       },
       {
         "type": "text",
         "id": "height_zoom",
-        "label": "Height zoom",
+        "label": "Altura do zoom",
         "default": "0",
-        "info": "Use only for Zoom Window, enter 0 => auto"
+        "info": "Use apenas para Janela de Zoom, digite 0 => auto"
       },
       {
         "type": "select",
@@ -1031,30 +1031,30 @@
         "options": [
           {
             "value": "thumb_left",
-            "label": "Product with thumb at left"
+            "label": "Produto com miniatura à esquerda"
           },
           {
             "value": "thumb_right",
-            "label": "Product with thumb at right"
+            "label": "Produto com miniatura à direita"
           },
           {
             "value": "thumb_bottom",
-            "label": "Product with thumb at bottom"
+            "label": "Produto com miniatura abaixo"
           },
           {
             "value": "thumb_without",
-            "label": "Product Layout without thumbnail"
+            "label": "Layout do Produto sem miniatura"
           },
           {
             "value": "grid_1_column",
-            "label": "Grid 1 column"
+            "label": "Grade 1 coluna"
           },
           {
             "value": "grid_2_column",
-            "label": "Grid 2 column"
+            "label": "Grade 2 colunas"
           }
         ],
-        "label": "Product page design"
+        "label": "Design da página do produto"
       },
       {
         "type": "range",
@@ -1062,86 +1062,86 @@
         "min": 1,
         "max": 10,
         "step": 1,
-        "label": "Number thumbnail",
+        "label": "Número de miniaturas",
         "default": 5
       },
       {
         "type": "header",
-        "content": "Product page only"
+        "content": "Apenas página do produto"
       },
       {
         "type": "checkbox",
         "id": "sticky_atc",
-        "label": "Show 'Footbar' section ?",
+        "label": "Mostrar seção 'Footbar'?",
         "default": true,
-        "info": "Display a footbar when scrolling passed the add-to-cart button."
+        "info": "Exibe uma barra inferior ao rolar além do botão adicionar ao carrinho."
       }
     ]
   },
   {
-    "name": "Product -> Section",
+    "name": "Produto -> Seção",
     "settings": [
       {
         "type": "header",
-        "content": "Content Style"
+        "content": "Estilo de Conteúdo"
       },
       {
         "type": "select",
         "id": "content_style_product",
-        "label": "Horizontal Position",
+        "label": "Posição Horizontal",
         "default": "center",
         "options": [
           {
             "value": "left",
-            "label": "Left"
+            "label": "Esquerda"
           },
           {
             "value": "center",
-            "label": "Center"
+            "label": "Centro"
           },
           {
             "value": "right",
-            "label": "Right"
+            "label": "Direita"
           }
         ]
       },
       {
         "type": "header",
-        "content": "Labels"
+        "content": "Etiquetas"
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_label_sale",
-        "label": "Show label 'Sale'",
+        "label": "Mostrar etiqueta 'Oferta'",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_label_new",
-        "label": "Show label 'New'",
+        "label": "Mostrar etiqueta 'Novo'",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_label_hot",
-        "label": "Show label 'Hot'",
-        "info": "In product tags you can enter (label_host)",
+        "label": "Mostrar etiqueta 'Quente'",
+        "info": "Nas tags do produto você pode inserir (label_host)",
         "default": false
       },
       {
         "type": "text",
         "id": "product_page_new_product",
-        "label": "Setup days to be 'New' product",
+        "label": "Dias para ser produto 'Novo'",
         "default": "7"
       },
       {
         "type": "header",
-        "content": "Elements"
+        "content": "Elementos"
       },
       {
         "type": "range",
         "id": "image_border_product",
-        "label": "Border radius",
+        "label": "Raio da borda",
         "min": 0,
         "max": 50,
         "step": 1,
@@ -1151,15 +1151,15 @@
       {
         "type": "checkbox",
         "id": "use_eq_height_product",
-        "label": "Use equal height images?",
+        "label": "Usar imagens de altura igual?",
         "default": false
       },
       {
         "type": "select",
         "id": "image_ratio_product",
-        "label": "Aspect Ratio",
+        "label": "Proporção da Imagem",
         "default": "ratio3_2",
-        "info": "Aspect Ratio Custom will settings in General panel.",
+        "info": "Proporção Personalizada será configurada no painel Geral.",
         "options": [
           {
             "group": "Landscape",
@@ -1201,7 +1201,7 @@
       {
         "type": "checkbox",
         "id": "product_collection_show_title",
-        "label": "Show the product title",
+        "label": "Mostrar o título do produto",
         "default": true
       },
       {
@@ -1211,289 +1211,289 @@
         "options": [
           {
             "value": "none",
-            "label": "None"
+            "label": "Nenhum"
           },
           {
             "value": "capitalize",
-            "label": "Capitalize"
+            "label": "Capitalizar"
           },
           {
             "value": "lowercase",
-            "label": "Lowercase"
+            "label": "Minúsculas"
           },
           {
             "value": "uppercase",
-            "label": "Uppercase"
+            "label": "Maiúsculas"
           }
         ],
-        "label": "Text transform:"
+        "label": "Transformação de texto:"
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_label_in_stock",
-        "label": "Show  'In stock' or 'Out of Stock' ",
+        "label": "Mostrar 'Em estoque' ou 'Sem Estoque'",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_price",
-        "label": "Show the product price",
+        "label": "Mostrar o preço do produto",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_reviews",
-        "label": "Show product reviews",
-        "info": "You have to install product reviews app. At our demo, we use a free [Product Reviews](https:\/\/apps.shopify.com\/product-reviews) app",
+        "label": "Mostrar avaliações do produto",
+        "info": "Você precisa instalar um app de avaliações.",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_collection_hide_reviews_counter",
-        "label": "Hide reviews counter",
+        "label": "Ocultar contador de avaliações",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_secondary_image",
-        "label": "Show secondary image",
+        "label": "Mostrar imagem secundária",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_options",
-        "label": "Show options (variants)",
+        "label": "Mostrar opções (variantes)",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_button_add_to_cart",
-        "label": "Show button 'Add to cart'",
+        "label": "Mostrar botão 'Adicionar ao carrinho'",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_quantity_box",
-        "label": "Show quantity box",
+        "label": "Mostrar caixa de quantidade",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_button_add_to_wishlist",
-        "label": "Show button 'Add to wishlist'",
+        "label": "Mostrar botão 'Adicionar aos favoritos'",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_button_add_to_compare",
-        "label": "Show button 'Add to compare'",
+        "label": "Mostrar botão 'Adicionar para comparar'",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_button_quick_view",
-        "label": "Show button 'Quickview'",
+        "label": "Mostrar botão 'Espiar'",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_collection_show_countdown_timer",
-        "label": "Show Countdown timer'",
+        "label": "Mostrar contador regressivo",
         "default": true
       },
       {
         "type": "header",
-        "content": "Only list style"
+        "content": "Apenas estilo lista"
       },
       {
         "type": "checkbox",
         "id": "collection_info_show_description",
-        "label": "Show the description",
+        "label": "Mostrar a descrição",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "collection_info_show_options",
-        "label": "Show options (variants)",
+        "label": "Mostrar opções (variantes)",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "collection_info_show_sku",
-        "label": "Show product SKU",
+        "label": "Mostrar SKU do produto",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "collection_info_show_barcode",
-        "label": "Show product barcode",
+        "label": "Mostrar código de barras do produto",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "collection_info_show_availability",
-        "label": "Show 'In stock' or 'Out of Stock'",
+        "label": "Mostrar 'Em estoque' ou 'Sem Estoque'",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "collection_info_show_type",
-        "label": "Show product type",
+        "label": "Mostrar tipo de produto",
         "default": false
       },
       {
         "type": "checkbox",
         "id": "collection_info_show_vendor",
-        "label": "Show product vendor",
+        "label": "Mostrar fornecedor do produto",
         "default": false
       }
     ]
   },
   {
-    "name": "Product -> Variants",
+    "name": "Produto -> Variantes",
     "settings": [
       {
         "type": "paragraph",
-        "content": "Configure the product variant design. You can show product options as 'Text', 'Large Text', 'Circle color', 'Circle image', 'Square color', 'Square image', or 'Select' - a dropdown list."
+        "content": "Configure o design da variante do produto."
       },
       {
         "type": "header",
-        "content": "General"
+        "content": "Geral"
       },
       {
         "type": "checkbox",
         "id": "product_show_custom_options",
-        "label": "Enable advanced design for variants",
+        "label": "Habilitar design avançado para variantes",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "product_hide_options_without_availability_variants",
-        "label": "Hide options without availability variants",
-        "info": "Hide out of stock variants. Or show product option as unavailable.",
+        "label": "Ocultar opções sem variantes disponíveis",
+        "info": "Ocultar variantes sem estoque.",
         "default": true
       },
       {
         "type": "select",
         "id": "product_variant_auto_select",
-        "label": "Auto select variant",
+        "label": "Selecionar variante automaticamente",
         "default": "enable",
         "options": [
           {
             "value": "enable",
-            "label": "Enable"
+            "label": "Habilitar"
           },
           {
             "value": "first",
-            "label": "Only first option selected"
+            "label": "Apenas primeira opção selecionada"
           },
           {
             "value": "first_n_second",
-            "label": "First and second options selected"
+            "label": "Primeira e segunda opções selecionadas"
           },
           {
             "value": "disable",
-            "label": "Disable"
+            "label": "Desabilitar"
           }
         ]
       },
       {
         "type": "text",
         "id": "product_auto_selected_options",
-        "label": "Auto selected options",
-        "info": "Separator is '|'. Example: Color|Size"
+        "label": "Opções selecionadas automaticamente",
+        "info": "Separador é '|'. Exemplo: Cor|Tamanho"
       },
       {
         "type": "select",
         "id": "product_options_listing_visibility",
-        "label": "Visibility on listing",
-        "info": "Set number of options to show on collection page. 'Add to cart' button transforms to 'select options' button.",
+        "label": "Visibilidade na listagem",
+        "info": "Defina o número de opções para mostrar na página de coleção.",
         "default": "all",
         "options": [
           {
             "value": "all",
-            "label": "Show all options"
+            "label": "Mostrar todas as opções"
           },
           {
             "value": "1",
-            "label": "Show only first option"
+            "label": "Mostrar apenas a primeira opção"
           },
           {
             "value": "2",
-            "label": "Show first and second options"
+            "label": "Mostrar primeira e segunda opções"
           }
         ]
       },
       {
         "type": "header",
-        "content": "Option types"
+        "content": "Tipos de opção"
       },
       {
         "type": "paragraph",
-        "content": "Default custom options type is 'Text'"
+        "content": "O tipo de opção personalizada padrão é 'Texto'"
       },
       {
         "type": "text",
         "id": "product_options_type_circle_color",
-        "label": "Options type 'Circle color'",
-        "info": "Separator is '|'. Show product option as circle with color background. Option name should have a [CSS color value](https:\/\/www.w3schools.com\/cssref\/css_colors.asp). ",
+        "label": "Tipo de opção 'Círculo de cor'",
+        "info": "Separador é '|'. Mostra a opção do produto como círculo com fundo colorido.",
         "default": "Color|Colour"
       },
       {
         "type": "text",
         "id": "product_options_type_circle_image",
-        "label": "Options type 'Circle image'",
-        "info": "Separator is '|'. Show product option as circle with image. You should configure images per each product variant."
+        "label": "Tipo de opção 'Imagem circular'",
+        "info": "Separador é '|'. Mostra a opção do produto como círculo com imagem."
       },
       {
         "type": "text",
         "id": "product_options_type_square_color",
-        "label": "Options type 'Square color'",
-        "info": "Separator is '|'. Show product option as square with color background."
+        "label": "Tipo de opção 'Quadrado de cor'",
+        "info": "Separador é '|'. Mostra a opção do produto como quadrado com fundo colorido."
       },
       {
         "type": "text",
         "id": "product_options_type_square_image",
-        "label": "Options type 'Square image'",
-        "info": "Separator is '|'. Show product option as square with image."
+        "label": "Tipo de opção 'Imagem quadrada'",
+        "info": "Separador é '|'. Mostra a opção do produto como quadrado com imagem."
       },
       {
         "type": "text",
         "id": "product_options_type_select",
-        "label": "Options type 'Select'",
-        "info": "Separator is '|'. Show product option as drop-down list."
+        "label": "Tipo de opção 'Seleção'",
+        "info": "Separador é '|'. Mostra a opção do produto como lista suspensa."
       },
       {
         "type": "text",
         "id": "product_options_type_large_text",
-        "label": "Options type 'Large text'",
-        "info": "Separator is '|'. Show option as bigger text."
+        "label": "Tipo de opção 'Texto grande'",
+        "info": "Separador é '|'. Mostra a opção como texto maior."
       },
       {
         "type": "header",
-        "content": "User manual"
+        "content": "Manual do usuário"
       },
       {
         "type": "paragraph",
-        "content": "Fill 'Color|Colour' to input box which you want to active the type."
+        "content": "Preencha 'Cor|Tamanho' na caixa de entrada que você deseja ativar o tipo."
       }
     ]
   },
   {
-    "name": "Shipping Rates Calculator",
+    "name": "Calculadora de Taxas de Envio",
     "settings": [
       {
         "type": "select",
         "id": "shipping_calculator",
-        "label": "Show the shipping calculator?",
+        "label": "Mostrar a calculadora de frete?",
         "options": [
           {
             "value": "Disabled",
-            "label": "No"
+            "label": "Não"
           },
           {
             "value": "Enabled",
-            "label": "Yes"
+            "label": "Sim"
           }
         ],
         "default": "Enabled"
@@ -1501,46 +1501,46 @@
       {
         "type": "text",
         "id": "shipping_calculator_heading",
-        "label": "Heading text",
+        "label": "Texto do título",
         "default": "Estimativa de Frete"
       },
       {
         "type": "text",
         "id": "shipping_process_checkout_heading",
-        "label": "Process checkout text",
+        "label": "Texto de finalizar compra",
         "default": "FINALIZAR COMPRA"
       },
       {
         "type": "text",
         "id": "shipping_grand_total_title",
-        "label": "Grand total title",
+        "label": "Título do total geral",
         "default": "Total Geral"
       },
       {
         "type": "text",
         "id": "shipping_calculator_default_country",
-        "label": "Default country selection",
+        "label": "Seleção de país padrão",
         "default": "Brazil"
       },
       {
         "type": "paragraph",
-        "content": "If your customer is logged-in, the country in his default shipping address will be selected. If you are not sure about the  spelling to use here, refer to the first checkout page."
+        "content": "Se o seu cliente estiver logado, o país em seu endereço de entrega padrão será selecionado."
       },
       {
         "type": "text",
         "id": "shipping_calculator_submit_button_label",
-        "label": "Submit button label",
+        "label": "Rótulo do botão enviar",
         "default": "Calcular Frete"
       },
       {
         "type": "text",
         "id": "shipping_calculator_submit_button_label_disabled",
-        "label": "Submit button label when calculating",
+        "label": "Rótulo do botão ao calcular",
         "default": "Calculando..."
       },
       {
         "type": "paragraph",
-        "content": "Do not forget to include the snippet shipping-calculator in your cart.liquid template where you want the shipping  calculator to appear. You can get the snippet here: [shipping-calculator.liquid](https:\/\/github.com\/carolineschnapp\/shipping-calculator\/blob\/master\/shipping-calculator.liquid) ."
+        "content": "Não se esqueça de incluir o snippet shipping-calculator no seu template cart.liquid."
       }
     ]
   },
@@ -1549,168 +1549,168 @@
     "settings": [
       {
         "type": "header",
-        "content": "== General Settings"
+        "content": "== Configurações Gerais"
       },
       {
         "type": "text",
         "id": "newsletter_form_action",
-        "label": "MailChimp form action URL",
+        "label": "URL de ação do formulário MailChimp",
         "default": "https:\/\/myshopify.us1.list-manage.com\/subscribe?u=95ad0059b8584d1288d9196cc&id=bf0c692fb4",
-        "info": "[How to create form builder with mail chimp](https:\/\/mailchimp.com\/help\/how-the-form-builder-works\/#About_the_form_builder)."
+        "info": "[Como criar construtor de formulário com mail chimp](https:\/\/mailchimp.com\/help\/how-the-form-builder-works\/#About_the_form_builder)."
       }
     ]
   },
   {
-    "name": "Social media",
+    "name": "Redes Sociais",
     "settings": [
       {
         "type": "header",
-        "content": "== Social Sharing"
+        "content": "== Compartilhamento Social"
       },
       {
         "type": "checkbox",
         "id": "share_linkedin",
-        "label": "Share on linkedin",
+        "label": "Compartilhar no linkedin",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "share_facebook",
-        "label": "Share on Facebook",
+        "label": "Compartilhar no Facebook",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "share_twitter",
-        "label": "Share on twitter",
+        "label": "Compartilhar no twitter",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "share_email",
-        "label": "Share on email",
+        "label": "Compartilhar no email",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "share_pinterest",
-        "label": "Share on pinterest",
+        "label": "Compartilhar no pinterest",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "share_tumblr",
-        "label": "Share on tumblr",
+        "label": "Compartilhar no tumblr",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "share_telegram",
-        "label": "Share on telegram",
+        "label": "Compartilhar no telegram",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "share_whatsapp",
-        "label": "Share on whatsapp",
+        "label": "Compartilhar no whatsapp",
         "default": true
       },
       {
         "type": "header",
-        "content": "== Social Link"
+        "content": "== Links Sociais"
       },
       {
         "type": "checkbox",
         "id": "footer_social_facebook_enable",
-        "label": "Show social media facebook",
+        "label": "Mostrar rede social facebook",
         "default": true
       },
       {
         "type": "text",
         "id": "footer_social_facebook_link",
-        "label": "Your facebook",
+        "label": "Seu facebook",
         "info": "https:\/\/facebook.com\/shopify"
       },
       {
         "type": "text",
         "id": "footer_social_facebook_text",
-        "label": "Title of facebook",
+        "label": "Título do facebook",
         "default": "Facebook"
       },
       {
         "type": "checkbox",
         "id": "footer_social_twitter_enable",
-        "label": "Show social media twitter",
+        "label": "Mostrar rede social twitter",
         "default": true
       },
       {
         "type": "text",
         "id": "footer_social_twitter_link",
-        "label": "Your twitter",
+        "label": "Seu twitter",
         "info": "https:\/\/twitter.com\/shopify"
       },
       {
         "type": "text",
         "id": "footer_social_twitter_text",
-        "label": "Title of twitter",
+        "label": "Título do twitter",
         "default": "Twitter"
       },
       {
         "type": "checkbox",
         "id": "footer_social_google_enable",
-        "label": "Show social media google+"
+        "label": "Mostrar rede social google+"
       },
       {
         "type": "text",
         "id": "footer_social_google_link",
-        "label": "Your google+"
+        "label": "Seu google+"
       },
       {
         "type": "text",
         "id": "footer_social_google_text",
-        "label": "Title of google",
+        "label": "Título do google",
         "default": "Google"
       },
       {
         "type": "checkbox",
         "id": "footer_social_instargram_enable",
-        "label": "Show social media instargram",
+        "label": "Mostrar rede social instagram",
         "default": true
       },
       {
         "type": "text",
         "id": "footer_social_instargram_link",
-        "label": "Your instargram",
+        "label": "Seu instagram",
         "info": "http:\/\/instagram.com\/shopify"
       },
       {
         "type": "text",
         "id": "footer_social_instargram_text",
-        "label": "Title of instargram",
+        "label": "Título do instagram",
         "default": "Instagram"
       },
       {
         "type": "checkbox",
         "id": "footer_social_pinterest_enable",
-        "label": "Show social media pinterest",
+        "label": "Mostrar rede social pinterest",
         "default": true
       },
       {
         "type": "text",
         "id": "footer_social_pinterest_link",
-        "label": "Your pinterest",
+        "label": "Seu pinterest",
         "info": "https:\/\/pinterest.com\/shopify"
       },
       {
         "type": "text",
         "id": "footer_social_pinterest_text",
-        "label": "Title of pinterest",
+        "label": "Título do pinterest",
         "default": "Pinterest"
       },
       {
         "type": "checkbox",
         "id": "footer_social_tumblr_enable",
-        "label": "Show social media tumblr"
+        "label": "Mostrar rede social tumblr"
       },
       {
         "type": "text",
@@ -1721,13 +1721,13 @@
       {
         "type": "text",
         "id": "footer_social_tumblr_text",
-        "label": "Title of tumblr",
+        "label": "Título do tumblr",
         "default": "Tumblr"
       },
       {
         "type": "checkbox",
         "id": "footer_social_snapchat_enable",
-        "label": "Show social media snapchat"
+        "label": "Mostrar rede social snapchat"
       },
       {
         "type": "text",
@@ -1738,13 +1738,13 @@
       {
         "type": "text",
         "id": "footer_social_snapchat_text",
-        "label": "Title of snapchat",
+        "label": "Título do snapchat",
         "default": "Snapchat"
       },
       {
         "type": "checkbox",
         "id": "footer_social_youtube_enable",
-        "label": "Show social media youtube"
+        "label": "Mostrar rede social youtube"
       },
       {
         "type": "text",
@@ -1755,13 +1755,13 @@
       {
         "type": "text",
         "id": "footer_social_youtube_text",
-        "label": "Title of youtube",
+        "label": "Título do youtube",
         "default": "Youtube"
       },
       {
         "type": "checkbox",
         "id": "footer_social_vimeo_enable",
-        "label": "Show social media vimeo"
+        "label": "Mostrar rede social vimeo"
       },
       {
         "type": "text",
@@ -1772,13 +1772,13 @@
       {
         "type": "text",
         "id": "footer_social_vimeo_text",
-        "label": "Title of vimeo",
+        "label": "Título do vimeo",
         "default": "Vimeo"
       },
       {
         "type": "checkbox",
         "id": "footer_social_tiktok_enable",
-        "label": "Show social media tiktok"
+        "label": "Mostrar rede social tiktok"
       },
       {
         "type": "text",
@@ -1788,7 +1788,7 @@
       {
         "type": "text",
         "id": "footer_social_tiktok_text",
-        "label": "Title of tiktok",
+        "label": "Título do tiktok",
         "default": "TikTok"
       }
     ]
@@ -1828,43 +1828,43 @@
     ]
   },
   {
-    "name": "Custom CSS",
+    "name": "CSS Personalizado",
     "settings": [
       {
         "type": "checkbox",
         "id": "custom_css",
-        "label": "Enable Custom CSS",
+        "label": "Habilitar CSS Personalizado",
         "default": false
       },
       {
         "type": "textarea",
         "id": "global_css",
-        "label": "Global Custom CSS",
-        "placeholder": "Enter Global CSS code"
+        "label": "CSS Personalizado Global",
+        "placeholder": "Insira código CSS Global"
       },
       {
         "type": "textarea",
         "id": "desktop_css",
-        "label": "Custom CSS for only desktop",
-        "placeholder": "Enter CSS code for only desktop"
+        "label": "CSS Personalizado apenas para desktop",
+        "placeholder": "Insira código CSS para desktop"
       },
       {
         "type": "textarea",
         "id": "tablet_mobile_css",
-        "label": "Custom CSS for tablet, mobile",
-        "placeholder": "Enter CSS code for tablet, mobile"
+        "label": "CSS Personalizado para tablet, mobile",
+        "placeholder": "Insira código CSS para tablet, mobile"
       },
       {
         "type": "textarea",
         "id": "tablet_css",
-        "label": "Custom CSS for only tablet",
-        "placeholder": "Enter CSS code for only tablet"
+        "label": "CSS Personalizado apenas para tablet",
+        "placeholder": "Insira código CSS para tablet"
       },
       {
         "type": "textarea",
         "id": "mobile_css",
-        "label": "Custom CSS for only mobile",
-        "placeholder": "Enter CSS code for only mobile"
+        "label": "CSS Personalizado apenas para mobile",
+        "placeholder": "Insira código CSS para mobile"
       }
     ]
   },
@@ -1874,18 +1874,18 @@
       {
         "type": "image_picker",
         "id": "favicon",
-        "label": "Favicon image",
-        "info": "Will be scaled down to 32 x 32px"
+        "label": "Imagem do Favicon",
+        "info": "Será redimensionado para 32 x 32px"
       },
       {
         "type": "header",
-        "content": "== Favicon retina image"
+        "content": "== Imagem do Favicon retina"
       },
       {
         "type": "image_picker",
         "id": "favicon_apple",
-        "label": "Favicon retina image",
-        "info": "Upload image: png, ico, Will be scaled down to 152 x 152px"
+        "label": "Imagem do Favicon retina",
+        "info": "Envie imagem: png, ico, Será redimensionado para 152 x 152px"
       }
     ]
   },
