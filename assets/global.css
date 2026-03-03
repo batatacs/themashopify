@@ -58,6 +58,14 @@ html {
   .preloader-video.mobile-only { display: block; }
 }
 
+/* Controle de Liga/Desliga Preloader por dispositivo */
+@media (min-width: 768px) {
+  .page-load.desktop-disabled { display: none !important; }
+}
+@media (max-width: 767px) {
+  .page-load.mobile-disabled { display: none !important; }
+}
+
 * {
   box-sizing: border-box;
 }

@@ -233,8 +233,11 @@
   </script>
   {% endif %}
 
-  {%if settings.show_load_page%}
-  <div class="page-load {% if settings.loader_video_url == blank and settings.loader_video_mobile_url == blank and settings.loader_image == blank %}circle-loadding{% endif %}" style="background-color: {{ settings.loader_bg | default: '#ffffff' }};">
+  {%- assign show_desktop = settings.show_load_page -%}
+  {%- assign show_mobile = settings.show_load_page_mobile | default: false -%}
+
+  {% if show_desktop or show_mobile %}
+  <div class="page-load {% unless show_desktop %}desktop-disabled{% endunless %} {% unless show_mobile %}mobile-disabled{% endunless %} {% if settings.loader_video_url == blank and settings.loader_video_mobile_url == blank and settings.loader_image == blank %}circle-loadding{% endif %}" style="background-color: {{ settings.loader_bg | default: '#ffffff' }};">
     {%- if settings.loader_video_url != blank or settings.loader_video_mobile_url != blank -%}
       {%- assign loop_video = true -%}
       {%- if settings.loader_strategy == 'video' -%}{%- assign loop_video = false -%}{%- endif -%}
@@ -261,7 +264,7 @@
       </div>
     {%- endif -%}
   </div>
-  {%endif%}
+  {% endif %}
   <div class="main {{class_sidebar}}" style="transform: none;">
   <header id="header">
         {% assign import_header = settings.select_header | plus: 0%}
