@@ -994,12 +994,13 @@
         "blocks": {
           "4af54431-fa84-424c-b39d-ab98c975cc38": {
             "type": "lang_curr",
+            "disabled": true,
             "settings": {
               "header_use_currency": true,
               "header_use_language": true,
               "show_flag": true,
               "show_phone": true,
-              "text_phone": "Need Help? +001 123 456 789",
+              "text_phone": "Precisa de Ajuda ? Entre em Contato (19)9999-9999",
               "text_align": "topbar-left",
               "col": "50%"
             }
@@ -1035,12 +1036,12 @@
           "403aae08-a22b-4816-8ca6-535e824b3775"
         ],
         "settings": {
-          "header_use_top_header": true,
+          "header_use_top_header": false,
           "hide_top_header_mobile": true,
           "home_page_only": false,
           "custom_width": false,
           "container_width": 1800,
-          "layout": "container",
+          "layout": "full-width",
           "bg_top_header": "#263c97",
           "cl_border_top": "#3b50a3",
           "cl_text": "#ffffff",
