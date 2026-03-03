@@ -42,7 +42,7 @@
     data-include="{%- if routes.root_url != '/' -%}{{routes.root_url}}{%- endif -%}/search/?view=login">
     <div class="loading_bg"></div>
   </div>
-{% include 'modal-quickview' %}
+{% render 'modal-quickview' %}
   {% comment %}
     {% include 'modal-compare' %}
   {% endcomment %}
@@ -60,7 +60,7 @@
       data-effect="mfp-move-horizontal"
       data-popup-right
       data-js-popup-ajax>
-      {% include 'popup-wishlist' %}
+      {% render 'popup-wishlist' %}
     </div>
   {%- endif -%}
   {%- if compare_enable -%}
@@ -69,12 +69,12 @@
       data-js-popup-name="compare-full"
       data-effect="mfp-move-horizontal"
       data-popup-center>
-      {% include 'popup-compare-full' %}
+      {% render 'popup-compare-full' %}
     </div>
   {%- endif -%}
 </div>
 {% if request.page_type != 'cart' %}
   <div id="js_cart_popup" class="hero_canvas">
-    {% include 'minicart' %}
+    {% render 'minicart' %}
   </div>
 {% endif %}
