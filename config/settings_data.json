@@ -14,6 +14,7 @@
     "rtl": false,
     "show_button_rtl": false,
     "show_load_page": true,
+    "show_load_page_mobile": false,
     "loader_video_url": "https://cdn.shopify.com/videos/c/o/v/be0c6e647cc74730a928529a3e8f1a7e.mp4",
     "loader_duration": 8,
     "cusotm_width": 1730,
@@ -36,7 +37,7 @@
     "logo_max_width": 250,
     "logo_padding_left": 30,
     "logo_padding_top": 7,
-    "logo_width_mobile": 150,
+    "logo_width_mobile": 190,
     "ajaxcart_enabled": true,
     "ajaxcart_after": "sidebar_cart",
     "product_gift": "gift-wrap",
@@ -3148,6 +3149,17 @@
       "footer-bottom": {
         "type": "footer-bottom",
         "blocks": {
+          "payment_svg_DEa4dW": {
+            "type": "payment_svg",
+            "settings": {
+              "title": "Heading",
+              "cl_text": "#888888",
+              "svg_custom": "amazon_payments,american_express,apple_pay,bitcoin,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,google_pay,jcb,klarna,klarna-pay-later,litecoin,maestro,master,paypal,shopify_pay,sofort,visa",
+              "pos_block": "flex-start",
+              "col": "33%",
+              "mb": 0
+            }
+          },
           "ad9550a7-5500-4d01-b37d-9689d518bd43": {
             "type": "policy",
             "disabled": true,
@@ -3161,6 +3173,7 @@
           },
           "bfb74f7d-6e29-40f9-981f-348230c74bf7": {
             "type": "menu",
+            "disabled": true,
             "settings": {
               "menu": "",
               "cl_link": "#999999",
@@ -3170,21 +3183,10 @@
               "mb": 30
             }
           },
-          "a556a61e-2595-483e-9365-487a9c52b0ca": {
-            "type": "payment_img",
-            "settings": {
-              "title": "",
-              "cl_text": "#888888",
-              "width_img": 330,
-              "pos_block": "center",
-              "col": "100%",
-              "mb": 25
-            }
-          },
           "024abc77-3ea5-4b33-965b-47f77bcfcc45": {
             "type": "copyright",
             "settings": {
-              "copyright": "<p>Copyright © <a href=\"/\" title=\"/\">Jc Digital</a>. All Rights Reserved. Powered by <a href=\"#\" title=\"#\">JcThemes</a>.</p>",
+              "copyright": "<p>Copyright © <a href=\"https://www.camillostore.com.br\" title=\"https://www.camillostore.com.br\">CamilloStore</a> . All Rights Reserved. Powered by <a href=\"https://www.instagram.com/andersondcamilo/\" title=\"https://www.instagram.com/andersondcamilo/\">Anderson Camilo</a>.</p>",
               "cl_text": "#999999",
               "cl_link": "#16bcdc",
               "pos_block": "center",
@@ -3194,9 +3196,9 @@
           }
         },
         "block_order": [
+          "payment_svg_DEa4dW",
           "ad9550a7-5500-4d01-b37d-9689d518bd43",
           "bfb74f7d-6e29-40f9-981f-348230c74bf7",
-          "a556a61e-2595-483e-9365-487a9c52b0ca",
           "024abc77-3ea5-4b33-965b-47f77bcfcc45"
         ],
         "settings": {
