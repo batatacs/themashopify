@@ -175,14 +175,18 @@ document.addEventListener("DOMContentLoaded", function() {
       // --- Tenta encontrar o preço "De" (Compare Price) para o Desconto ---
       var comparePrice = 0;
       var compareElement = null;
-      // Procura o container de preço mais próximo para limitar a busca
-      var priceWrapper = el.closest('.price, .price-container, .product-price, .product__price, [data-price-wrapper], .product-single__meta, .product-info, .detail-price');
+      // Procura o container de preço/produto mais próximo para limitar a busca
+      var priceWrapper = el.closest('.product-info, .price, .price-container, .product-price, .product__price, [data-price-wrapper], .product-single__meta, .detail-price, .grid-view-item, .product-card, .product-item');
 
       if (priceWrapper) {
-        // Procura por elementos de preço de comparação DENTRO do wrapper, garantindo que não seja o próprio elemento de preço de venda.
-        compareElement = Array.from(priceWrapper.querySelectorAll('s, del, .price-item--regular, .compare-price, .price--compare')).find(e => e !== el && !e.contains(el));
+        // Procura por elementos de preço de comparação DENTRO do wrapper.
+        // Adicionados mais seletores como .old-price e .price--was
+        var compareSelectors = 's, del, .price-item--regular, .compare-price, .price--compare, .old-price, .price--was';
+        compareElement = Array.from(priceWrapper.querySelectorAll(compareSelectors)).find(function(e) {
+          // Garante que o elemento encontrado não é o próprio elemento de preço de venda ou um de seus filhos.
+          return e !== el && !el.contains(e);
+        });
       }
-      
       if (compareElement) {
           comparePrice = parsePrice(compareElement.innerText);
       }
@@ -224,8 +228,8 @@ document.addEventListener("DOMContentLoaded", function() {
       // --- PIX ---
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
-        // SVG do PIX atualizado para melhor visualização (logo branco em fundo verde)
-        var pixSVG = '<svg class="pix-icon" width="24" height="24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="#32BCAD" d="M50,0A50,50,0,1,0,50,100A50,50,0,0,0,50,0Z"/><path fill="#FFF" d="M57.42,49.3,68.54,27.47H56.89L50,41.2,43.11,27.47H31.46L42.58,49.3,31.46,71.13H43.11L50,57.39l6.89,13.74H68.54Z"/></svg>';
+        // Utiliza o arquivo 'pix.svg' da pasta assets. Requer que o arquivo JS seja .js.liquid
+        var pixSVG = '<img class="pix-icon" src="{{ \'pix.svg\' | asset_url }}" alt="PIX" />';
         html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
