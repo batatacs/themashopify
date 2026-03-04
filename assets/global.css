@@ -7608,7 +7608,7 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 }
 
 /* --- Parcelamento Inteligente --- */
-.installment-link .installment-wrapper {
+.installment-wrapper {
   margin-top: 8px;
   font-size: 13px;
   line-height: 1.4;
@@ -7641,7 +7641,7 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
   opacity: 0.8;
   transition: opacity 0.3s;
 }
-.installment-link:hover .price-card {
+.installment-wrapper:hover .price-card {
   opacity: 1;
   color: var(--color-hover);
 }
