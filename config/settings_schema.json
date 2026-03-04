@@ -2032,6 +2032,31 @@
         "id": "installments_color",
         "label": "Cor do Texto",
         "default": "#878787"
+      },
+      {
+        "type": "header",
+        "content": "Configurações do PIX"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_pix",
+        "label": "Mostrar Desconto no PIX",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "pix_discount",
+        "label": "Desconto no PIX (%)",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 5
+      },
+      {
+        "type": "text",
+        "id": "pix_text",
+        "label": "Texto do PIX",
+        "default": "no PIX com desconto"
       }
     ]
   }
