@@ -418,7 +418,7 @@
   </div>
 
   <!-- Script de Parcelamento Inteligente -->
-  {% if settings.show_installments and ('product,collection,index' | contains: template.name) %}
+  {% if settings.show_installments and request.page_type == 'product' %}
   <script>
     // Configurações globais para o script externo ler
     window.installmentSettings = {
@@ -434,7 +434,7 @@
       modal_title: "Ver opções de parcelamento"
     };
   </script>
-  <script src="{{ 'installments.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'installments.js.liquid' | asset_url }}" defer="defer"></script>
   {% endif %}
 </body>
 </html>
