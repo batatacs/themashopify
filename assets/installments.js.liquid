@@ -74,14 +74,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const rateDecimal = rate / 100;
             installmentValue = priceValue * ( (rateDecimal * Math.pow(1 + rateDecimal, i)) / (Math.pow(1 + rateDecimal, i) - 1) );
             totalValue = installmentValue * i;
-            label = `(${rate}% a.m.)`;
+            label = '(' + rate + '% a.m.)';
         }
         
         html += `<tr>
                     <td><strong>${i}x</strong> ${label}</td>
                     <td>${formatMoney(installmentValue)}</td>
                     <td>${formatMoney(totalValue)}</td>
-                 </tr>`;
+                </tr>`;
     }
     html += '</tbody></table>';
     
