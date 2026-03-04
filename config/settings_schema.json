@@ -2028,6 +2028,15 @@
         "info": "Texto exibido quando a parcela tiver juros."
       },
       {
+        "type": "range",
+        "id": "pix_discount",
+        "label": "Desconto no Pix (%)",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "default": 5
+      },
+      {
         "type": "color",
         "id": "installments_color",
         "label": "Cor do Texto",
