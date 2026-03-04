@@ -229,8 +229,8 @@ document.addEventListener("DOMContentLoaded", function() {
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
         // Utiliza o arquivo 'pix.svg' da pasta assets. Requer que o arquivo JS seja .js.liquid
-        var pixSVG = '<img class="pix-icon" src="{{ \'pix.svg\' | asset_url }}" alt="PIX" />';
-        html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
+        var pixPNG = '<img class="pix-icon" src="{{ \'pix.png\' | asset_url }}" alt="PIX" />';
+        html += '<div class="price-pix">' + pixPNG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
       // --- Parcelamento ---
