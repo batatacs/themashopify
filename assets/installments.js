@@ -183,10 +183,6 @@ document.addEventListener("DOMContentLoaded", function() {
         var installmentValue;
         var text;
 
-        // Prioriza mostrar a maior parcela sem juros na frase de destaque
-        if (free > 1) {
-            installmentValue = price / free;
-            text = 'ou ' + free + 'x de ' + formatMoney(installmentValue) + ' sem juros';
         // Verifica se a parcela MAX tem juros na tabela personalizada
         var maxRate = getInterestRateForInstallment(max);
         
@@ -201,9 +197,6 @@ document.addEventListener("DOMContentLoaded", function() {
              installmentValue = price / free;
              text = 'ou ' + free + 'x de ' + formatMoney(installmentValue) + ' sem juros';
         } else {
-            // Se tudo tem juros, mostra em max vezes (cálculo simples para display rápido)
-            installmentValue = price / max; 
-            text = 'ou ' + max + 'x de ' + formatMoney(installmentValue);
              // Mostra com juros
              const rateDecimal = maxRate / 100;
              installmentValue = price * ( (rateDecimal * Math.pow(1 + rateDecimal, max)) / (Math.pow(1 + rateDecimal, max) - 1) );
