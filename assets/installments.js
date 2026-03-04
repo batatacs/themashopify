@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
+  // --- MODO DEBUG ---
+  // Mude para true para ver mensagens de depuração no console do navegador (F12)
+  var debugMode = false;
+
   // 1. Tenta ler as configurações globais do theme.liquid
   // Se não encontrar, usa valores padrão de segurança
   var config = window.installmentSettings || {
@@ -101,26 +105,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // --- Renderização na Página ---
   function renderInstallments() {
+    if (debugMode) console.log('[Installments] Executando renderInstallments...');
+
     // Seletores ESPECÍFICOS para evitar duplicidade (focando no container principal do produto)
     var selectors = [
         '.product-info .price',          
         '.detail-price .price',
         '.product-single__meta .price',
         '.product-group-price .price',
-        '.product-single__price'
+        '.product-single__price',
+        '[data-product-price]', // Seletor moderno comum
+        '.product-price'        // Outro seletor comum
     ];
 
     // Tenta encontrar pelos seletores específicos primeiro
     var priceElements = document.querySelectorAll(selectors.join(', '));
+    if (debugMode && priceElements.length === 0) console.log('[Installments] Nenhum elemento de preço encontrado com seletores específicos.');
     
     // Se não achar nada (fallback), usa um seletor mais genérico mas tenta filtrar
     if(priceElements.length === 0) {
          priceElements = document.querySelectorAll('.price:not(.price--compare)');
+         if (debugMode) console.log('[Installments] Usando seletor de fallback. Encontrados:', priceElements.length);
     }
     
     priceElements.forEach(function(el) {
-      // 1. Evita duplicidade (se já tiver o wrapper logo depois, pula)
-      if (el.nextElementSibling && el.nextElementSibling.classList.contains('installment-wrapper')) return;
+      // 0. Otimização: Verifica se o elemento está visível na página
+      if (el.offsetParent === null) {
+        if (debugMode) console.log('[Installments] Elemento de preço pulado pois está invisível:', el);
+        return;
+      }
+
+      // 1. Evita duplicidade e re-renderização desnecessária (anti-flicker)
+      var existingWrapper = el.nextElementSibling;
+      if (existingWrapper && existingWrapper.classList.contains('installment-wrapper')) {
+          var oldPrice = existingWrapper.getAttribute('data-price');
+          var currentPriceText = (el.querySelector('.current, .price-item--sale, .special-price, ins') || el).innerText;
+          var currentPriceValue = parsePrice(currentPriceText);
+          // Se o preço não mudou, não faz nada.
+          if (oldPrice && parseFloat(oldPrice) === currentPriceValue) {
+              return; 
+          }
+          // Se o preço mudou, remove o wrapper antigo para recriar.
+          existingWrapper.remove();
+      }
       if (el.closest('.installment-wrapper')) return;
 
       // 2. Evita locais indesejados (cards de coleção, carrinho lateral, etc)
@@ -136,7 +163,12 @@ document.addEventListener("DOMContentLoaded", function() {
       if (currentPrice) priceText = currentPrice.innerText;
 
       var price = parsePrice(priceText);
-      
+
+      if (debugMode) {
+        console.log('[Installments] Elemento encontrado:', el);
+        console.log('[Installments] Texto do preço:', priceText, 'Preço parseado:', price);
+      }
+
       if (isNaN(price) || price <= 0) return;
 
       // --- Tenta encontrar o preço "De" (Compare Price) para o Desconto ---
@@ -160,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
       // 4. Monta o HTML
-      var html = '<div class="installment-wrapper">';
+      var html = '<div class="installment-wrapper" data-price="' + price + '">';
 
       // --- Desconto Personalizado (agora ao lado do preço) ---
       // Primeiro, remove qualquer span de desconto existente para evitar duplicação
@@ -229,5 +261,8 @@ document.addEventListener("DOMContentLoaded", function() {
   renderInstallments();
   
   // Executa periodicamente para pegar mudanças de variante (quando o preço muda via AJAX)
-  setInterval(renderInstallments, 1000);
+  // Idealmente, isso seria substituído por um MutationObserver ou eventos de tema para melhor performance.
+  setInterval(function() {
+    renderInstallments();
+  }, 1500); // Aumentado para 1.5s para reduzir a carga
 });
