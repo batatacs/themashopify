@@ -200,19 +200,26 @@ document.addEventListener("DOMContentLoaded", function() {
           var discountPercent = Math.round((discountValue / comparePrice) * 100);
 
           if (discountPercent > 0) {
+              if (debugMode) console.log('[Installments] Desconto de ' + discountPercent + '% encontrado. Criando badge.');
               var discountSpan = document.createElement('span');
               discountSpan.className = 'premium-discount-badge';
               discountSpan.innerText = discountPercent + '% OFF';
               // Tenta inserir dentro do elemento de preço de venda para ficar na mesma linha
               var targetForBadge = el.querySelector('.current, .price-item--sale, .special-price, ins') || el;
+              if (debugMode) console.log('[Installments] Alvo para o badge:', targetForBadge);
               targetForBadge.insertAdjacentElement('beforeend', discountSpan);
+          } else {
+              if (debugMode) console.log('[Installments] Desconto percentual é 0 ou menor, não criando badge.');
           }
+      } else {
+        if (debugMode) console.log('[Installments] Condições para badge de desconto não atendidas.', { show: config.show_custom_discount, compare: comparePrice, price: price });
       }
 
       // --- PIX ---
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
-        var pixSVG = '<svg class="pix-icon" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M10.3382 8.87287L11.9193 6.18181H10.2731L9.00001 8.23635L7.72692 6.18181H6.08073L7.66183 8.87287L6.08073 11.5639H7.72692L9.00001 9.50935L10.2731 11.5639H11.9193L10.3382 8.87287Z" fill="#32BCAD"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18ZM9 16.2C12.9823 16.2 16.2 12.9823 16.2 9C16.2 5.01769 12.9823 1.8 9 1.8C5.01769 1.8 1.8 5.01769 1.8 9C1.8 12.9823 5.01769 16.2 9 16.2Z" fill="#32BCAD"/></svg>';
+        // SVG do PIX atualizado para melhor visualização (logo branco em fundo verde)
+        var pixSVG = '<svg class="pix-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#32BCAD"/><path d="M13.7844 11.8305L15.8925 8.24243H13.6975L12 10.9818L10.3025 8.24243H8.10748L10.2156 11.8305L8.10748 15.4186H10.3025L12 12.6792L13.6975 15.4186H15.8925L13.7844 11.8305Z" fill="white"/></svg>';
         html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
@@ -255,12 +262,51 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Executa ao carregar
+  // --- Lógica de Execução e Observação de Mudanças ---
+
+  // Função Debounce para evitar execuções excessivas e repetidas do renderInstallments
+  // durante uma única atualização de variante, que pode disparar múltiplas mutações no DOM.
+  let debounceTimer;
+  const debounce = (func, delay) => {
+    return function(...args) {
+      const context = this;
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => func.apply(context, args), delay);
+    }
+  };
+  const debouncedRender = debounce(renderInstallments, 200);
+
+  // Observador de Mutações (MutationObserver) para performance.
+  // Esta é a forma moderna e eficiente de detectar mudanças na página (como troca de variantes)
+  // sem usar o `setInterval`, que executa constantemente e pode ser pesado.
+  function setupObserver() {
+    if (debugMode) console.log('[Installments] Configurando MutationObserver...');
+
+    // O alvo da observação. Pode ser o body, ou um container mais específico do produto.
+    // Usar 'main' ou um seletor de produto principal é mais performático que 'body'.
+    const targetNode = document.querySelector('main.main-content') || document.body;
+
+    const observerConfig = { childList: true, subtree: true };
+
+    const observer = new MutationObserver((mutationsList, observer) => {
+      // Para cada mutação, chamamos a renderização com debounce.
+      // O debounce garante que, mesmo com muitas pequenas mudanças rápidas,
+      // a função de renderização só execute uma vez após as mudanças pararem.
+      for(const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          debouncedRender();
+          break; // Sai do loop após a primeira detecção para evitar chamadas redundantes.
+        }
+      }
+    });
+
+    observer.observe(targetNode, observerConfig);
+    if (debugMode) console.log('[Installments] MutationObserver está ativo no elemento:', targetNode);
+  }
+
+  // Execução inicial ao carregar a página
   renderInstallments();
-  
-  // Executa periodicamente para pegar mudanças de variante (quando o preço muda via AJAX)
-  // Idealmente, isso seria substituído por um MutationObserver ou eventos de tema para melhor performance.
-  setInterval(function() {
-    renderInstallments();
-  }, 1500); // Aumentado para 1.5s para reduzir a carga
+
+  // Configura o observador para atualizações dinâmicas (troca de variantes, etc.)
+  setupObserver();
 });

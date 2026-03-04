@@ -7719,6 +7719,13 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 
 /* Estilos para o Desconto Premium e PIX */
 
+/*
+  Se o selo de desconto não aparecer, pode ser um conflito de CSS com o tema.
+  Para testar, você pode tentar aumentar a "especificidade" do seletor, por exemplo:
+  .price .premium-discount-badge { ... }
+  Ou adicionar !important às propriedades 'display' e 'opacity' para forçar a exibição.
+  Ex: display: inline-block !important;
+*/
 .premium-discount-badge {
   background-color: var(--color-secondary, #16bcdc);
   color: #fff;
@@ -7731,6 +7738,8 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
   vertical-align: middle;
   line-height: 1.2;
   animation: pulse-badge 2.5s infinite ease-in-out;
+  position: relative; /* Garante que z-index funcione se necessário */
+  z-index: 5; /* Coloca o selo acima de outros elementos na mesma camada */
 }
 
 @keyframes pulse-badge {
