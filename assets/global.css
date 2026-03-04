@@ -7433,7 +7433,7 @@ a.btn:hover,
 
 /* --- JC Location Banner (Geolocalização) --- */
 .location-banner {
-  background-color: var(--color-main);
+  background-color: #263c97;
   border-bottom: none;
   color: #ffffff;
   font-family: var(--font-family);
