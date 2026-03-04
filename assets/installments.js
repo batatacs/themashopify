@@ -228,8 +228,8 @@ document.addEventListener("DOMContentLoaded", function() {
       // --- PIX ---
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
-        // Utiliza o arquivo 'pix.svg' da pasta assets. Requer que o arquivo JS seja .js.liquid
-        var pixSVG = '<img class="pix-icon" src="{{ \'pix.svg\' | asset_url }}" alt="PIX" />';
+        // SVG do PIX corrigido e embutido diretamente para evitar erros de carregamento.
+        var pixSVG = '<svg class="pix-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="#32BCAD" d="M50,0A50,50,0,1,0,50,100A50,50,0,0,0,50,0Z"/><path fill="#FFF" d="M57.42,49.3,68.54,27.47H56.89L50,41.2,43.11,27.47H31.46L42.58,49.3,31.46,71.13H43.11L50,57.39l6.89,13.74H68.54Z"/></svg>';
         html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
