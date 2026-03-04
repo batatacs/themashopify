@@ -162,13 +162,21 @@ document.addEventListener("DOMContentLoaded", function() {
       // 4. Monta o HTML
       var html = '<div class="installment-wrapper">';
 
-      // --- Desconto Personalizado ---
+      // --- Desconto Personalizado (agora ao lado do preço) ---
+      // Primeiro, remove qualquer span de desconto existente para evitar duplicação
+      var existingDiscountSpan = el.querySelector('.appended-discount-percent');
+      if (existingDiscountSpan) {
+        existingDiscountSpan.remove();
+      }
       if (config.show_custom_discount && comparePrice > price) {
           var discountValue = comparePrice - price;
           var discountPercent = Math.round((discountValue / comparePrice) * 100);
           
           if (discountPercent > 0) {
-              html += '<div class="custom-discount-badge"><i class="fa fa-arrow-down"></i> <span>' + discountPercent + '% OFF</span> - Economize ' + formatMoney(discountValue) + '</div>';
+              var discountSpan = document.createElement('span');
+              discountSpan.className = 'appended-discount-percent';
+              discountSpan.innerText = ' (' + discountPercent + '% OFF)';
+              el.appendChild(discountSpan);
           }
       }
 
