@@ -427,8 +427,8 @@
         rate: {{ settings.interest_rate | default: 0 }},
         pixDiscount: {{ settings.pix_discount | default: 0 }},
         modalTitle: "Ver opções de parcelamento",
-        // Seletor otimizado para evitar duplicidade e aparecer apenas no local correto
-        selector: '.product-info .price, .detail-price .price, .product-single__price' 
+        // Seletor mais abrangente para garantir exibição
+        selector: '.price, .product-price, .product__price, .detail-price .price, .product-info .price' 
       };
 
       function formatMoney(value) {
@@ -499,6 +499,11 @@
         const prices = document.querySelectorAll(config.selector);
         
         prices.forEach(el => {
+          // --- Filtros de Segurança: Ignora locais indesejados ---
+          if (el.closest('.product-item')) return; // Ignora produtos relacionados/vitrine
+          if (el.closest('.mini_cart_content') || el.closest('.cart-item')) return; // Ignora carrinho
+          if (el.closest('.sticky_atc_content')) return; // Ignora barra fixa inferior
+
           // Evita duplicar ou aplicar em elementos errados
           if (el.querySelector('.installment-wrapper') || el.closest('.installment-wrapper')) return;
           
