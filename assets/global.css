@@ -7606,3 +7606,13 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 .section-title {
   letter-spacing: 0.05em; /* Títulos de seção em caixa alta mais espaçados */
 }
+
+/* --- Parcelamento Inteligente --- */
+.installment-text {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 2px;
+  color: {{ settings.installments_color | default: '#878787' }};
+  line-height: 1.3;
+}

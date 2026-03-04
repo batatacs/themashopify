@@ -407,6 +407,68 @@
       });
     </script>
   {%- endif -%}
+
+  <!-- Script de Parcelamento Inteligente -->
+  {% if settings.show_installments %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const config = {
+        max: {{ settings.max_installments | default: 12 }},
+        textTemplate: "{{ settings.installments_text | default: 'ou {installments}x de {amount} sem juros' }}",
+        selector: '.price, .product-price, .product-item .price, .detail-price .price' 
+      };
+
+      function formatMoney(value) {
+        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      }
+
+      function parsePrice(str) {
+        // Remove tudo que não é dígito, ponto ou vírgula
+        let clean = str.replace(/[^0-9.,]/g, '');
+        if (!clean) return 0;
+        // Assume formato BR (1.000,00) se tiver vírgula
+        if (clean.indexOf(',') > -1) {
+          clean = clean.replace(/\./g, '').replace(',', '.');
+        }
+        return parseFloat(clean);
+      }
+
+      function updateInstallments() {
+        const prices = document.querySelectorAll(config.selector);
+        
+        prices.forEach(el => {
+          // Evita duplicar ou aplicar em elementos errados
+          if (el.querySelector('.installment-text') || el.closest('.installment-text')) return;
+          
+          // Pega o texto do preço (tenta pegar o preço atual se tiver promoção)
+          let priceText = el.innerText;
+          const currentPrice = el.querySelector('.current, .price-item--sale, .special-price');
+          if (currentPrice) priceText = currentPrice.innerText;
+
+          const value = parsePrice(priceText);
+          
+          if (value > 0) {
+            const installmentValue = value / config.max;
+            const formattedValue = formatMoney(installmentValue);
+            const html = config.textTemplate
+              .replace('{installments}', config.max)
+              .replace('{amount}', formattedValue);
+            
+            const span = document.createElement('div');
+            span.className = 'installment-text';
+            span.innerHTML = html;
+            el.appendChild(span);
+          }
+        });
+      }
+
+      // Executa ao carregar e observa mudanças na página (para filtros/ajax)
+      updateInstallments();
+      const observer = new MutationObserver(updateInstallments);
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  </script>
+  {% endif %}
 </body>
 </html>
 {%- endcapture -%}

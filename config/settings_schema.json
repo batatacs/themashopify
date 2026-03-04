@@ -1977,5 +1977,38 @@
         "default": "https://www.reclameaqui.com.br/detector-site-confiavel/"
       }
     ]
+  },
+  {
+    "name": "Parcelamento",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_installments",
+        "label": "Habilitar Parcelamento Automático",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "max_installments",
+        "label": "Máximo de Parcelas",
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "default": 12
+      },
+      {
+        "type": "text",
+        "id": "installments_text",
+        "label": "Texto (Use {installments} e {amount})",
+        "default": "ou {installments}x de {amount} sem juros",
+        "info": "Ex: 'ou 12x de R$ 10,00 sem juros'"
+      },
+      {
+        "type": "color",
+        "id": "installments_color",
+        "label": "Cor do Texto",
+        "default": "#878787"
+      }
+    ]
   }
 ]
