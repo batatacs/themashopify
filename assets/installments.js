@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>${formatMoney(installmentValue)}</td>
                     <td>${formatMoney(totalValue)}</td>
                  </tr>`;
+    }
     html += '</tbody></table>';
     
     tableDiv.innerHTML = html;
