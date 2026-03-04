@@ -174,14 +174,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // --- Tenta encontrar o preço "De" (Compare Price) para o Desconto ---
       var comparePrice = 0;
-      var compareElement = el.closest('.product-info, .detail-price, .product-group-price')?.querySelector('.price-item--regular, .compare-price, s, del');
+      var compareElement = el.closest('.product-info, .detail-price, .product-group-price, .product-single__meta, [data-price-wrapper]')?.querySelector('.price-item--regular, .compare-price, .price--compare, s, del');
       
       if (compareElement) {
           comparePrice = parsePrice(compareElement.innerText);
       }
 
       // --- Ocultar texto nativo de desconto (Discount: ...) ---
-      /* --- REMOVIDO A PEDIDO DO USUÁRIO ---
+      /* --- REMOVIDO A PEDIDO DO USUÁRIO --- 
       var parent = el.parentElement;
       if(parent) { ... }
       */
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
         // SVG do PIX atualizado para melhor visualização (logo branco em fundo verde)
-        var pixSVG = '<svg class="pix-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#32BCAD"/><path d="M13.7844 11.8305L15.8925 8.24243H13.6975L12 10.9818L10.3025 8.24243H8.10748L10.2156 11.8305L8.10748 15.4186H10.3025L12 12.6792L13.6975 15.4186H15.8925L13.7844 11.8305Z" fill="white"/></svg>';
+        var pixSVG = '<svg class="pix-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#32BCAD"/><path d="M13.7143 11.8304L16.0545 7.24219H13.6508L12 10.3918L10.3492 7.24219H7.94554L10.2857 11.8304L7.94554 16.4186H10.3492L12 13.2689L13.6508 16.4186H16.0545L13.7143 11.8304Z" fill="white"/></svg>';
         html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
