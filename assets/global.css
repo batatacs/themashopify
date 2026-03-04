@@ -7608,8 +7608,7 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 }
 
 /* --- Parcelamento Inteligente --- */
-.installment-link {
-.installment-wrapper {
+.installment-link .installment-wrapper {
   margin-top: 8px;
   font-size: 13px;
   line-height: 1.4;
@@ -7642,8 +7641,7 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
   opacity: 0.8;
   transition: opacity 0.3s;
 }
-.installment-link:hover {
-.price-card:hover {
+.installment-link:hover .price-card {
   opacity: 1;
   color: var(--color-hover);
 }
@@ -7689,5 +7687,3 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 .installments-table td { padding: 10px; border-bottom: 1px solid #eee; }
 .installments-table tr:last-child td { border-bottom: none; }
 .installments-table tr:nth-child(even) { background-color: #f9f9f9; }
-  line-height: 1.3;
-}
