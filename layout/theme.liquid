@@ -408,14 +408,26 @@
     </script>
   {%- endif -%}
 
+  <!-- Estrutura do Modal de Parcelamento -->
+  <div id="jc-installments-modal" class="installments-modal-overlay" style="display:none;">
+    <div class="installments-modal-content">
+      <span class="installments-close">&times;</span>
+      <h3 class="installments-title">Opções de Parcelamento</h3>
+      <div id="jc-installments-table"></div>
+    </div>
+  </div>
+
   <!-- Script de Parcelamento Inteligente -->
   {% if settings.show_installments %}
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const config = {
         max: {{ settings.max_installments | default: 12 }},
-        textTemplate: "{{ settings.installments_text | default: 'ou {installments}x de {amount} sem juros' }}",
-        selector: '.price, .product-price, .product-item .price, .detail-price .price' 
+        maxFree: {{ settings.max_installments_free | default: 6 }},
+        rate: {{ settings.interest_rate | default: 0 }},
+        modalTitle: "Ver opções de parcelamento",
+        // Adicionei mais seletores para garantir que encontre o preço
+        selector: '.price, .product-price, .product-item .price, .detail-price .price, .product__price, .price__container, .product-info .price' 
       };
 
       function formatMoney(value) {
@@ -433,12 +445,61 @@
         return parseFloat(clean);
       }
 
+      // Função para abrir o modal
+      window.openInstallmentsModal = function(priceValue) {
+        const modal = document.getElementById('jc-installments-modal');
+        const tableDiv = document.getElementById('jc-installments-table');
+        if (!modal || !tableDiv) return;
+
+        let html = '<table class="installments-table"><thead><tr><th>Parcelas</th><th>Valor</th><th>Total</th></tr></thead><tbody>';
+        
+        for (let i = 1; i <= config.max; i++) {
+            let installmentValue, totalValue, label;
+            
+            if (i <= config.maxFree || config.rate === 0) {
+                // Sem juros
+                installmentValue = priceValue / i;
+                totalValue = priceValue;
+                label = 'Sem Juros';
+            } else {
+                // Com juros (Price)
+                const rate = config.rate / 100;
+                installmentValue = priceValue * ( (rate * Math.pow(1 + rate, i)) / (Math.pow(1 + rate, i) - 1) );
+                totalValue = installmentValue * i;
+                label = `(${config.rate}% a.m.)`;
+            }
+            
+            html += `<tr>
+                        <td><strong>${i}x</strong> ${label}</td>
+                        <td>${formatMoney(installmentValue)}</td>
+                        <td>${formatMoney(totalValue)}</td>
+                     </tr>`;
+        }
+        html += '</tbody></table>';
+        
+        tableDiv.innerHTML = html;
+        modal.style.display = 'flex';
+      };
+
+      // Fechar modal
+      document.querySelector('.installments-close').addEventListener('click', function() {
+        document.getElementById('jc-installments-modal').style.display = 'none';
+      });
+      
+      // Fechar ao clicar fora
+      window.addEventListener('click', function(event) {
+        const modal = document.getElementById('jc-installments-modal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+      });
+
       function updateInstallments() {
         const prices = document.querySelectorAll(config.selector);
         
         prices.forEach(el => {
           // Evita duplicar ou aplicar em elementos errados
-          if (el.querySelector('.installment-text') || el.closest('.installment-text')) return;
+          if (el.querySelector('.installment-link') || el.closest('.installment-link')) return;
           
           // Pega o texto do preço (tenta pegar o preço atual se tiver promoção)
           let priceText = el.innerText;
@@ -448,16 +509,19 @@
           const value = parsePrice(priceText);
           
           if (value > 0) {
-            const installmentValue = value / config.max;
-            const formattedValue = formatMoney(installmentValue);
-            const html = config.textTemplate
-              .replace('{installments}', config.max)
-              .replace('{amount}', formattedValue);
+            // Cria o link "Ver parcelas"
+            const link = document.createElement('a');
+            link.className = 'installment-link';
+            link.href = 'javascript:void(0)';
+            link.innerHTML = `<i class="fa fa-credit-card"></i> ${config.modalTitle}`;
+            link.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.openInstallmentsModal(value);
+            };
             
-            const span = document.createElement('div');
-            span.className = 'installment-text';
-            span.innerHTML = html;
-            el.appendChild(span);
+            // Insere logo após o preço
+            el.appendChild(link);
           }
         });
       }
