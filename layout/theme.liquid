@@ -426,8 +426,10 @@
       max_installments: {{ settings.max_installments | default: 12 }},
       max_installments_free: {{ settings.max_installments_free | default: 6 }},
       interest_rate: {{ settings.interest_rate | default: 0 }},
+      interest_table: "{{ settings.interest_table | default: '' }}",
       show_pix: {{ settings.show_pix | default: true }},
       pix_discount: {{ settings.pix_discount | default: 5 }},
+      show_custom_discount: {{ settings.show_custom_discount | default: true }},
       pix_text: "{{ settings.pix_text | default: 'no PIX com desconto' }}",
       modal_title: "Ver opções de parcelamento"
     };

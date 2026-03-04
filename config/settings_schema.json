@@ -2014,6 +2014,36 @@
         "info": "Use ponto para decimais. Ex: 1.99. Deixe 0 para desativar juros."
       },
       {
+        "type": "textarea",
+        "id": "interest_table",
+        "label": "Tabela de Juros Personalizada (Separado por vírgula)",
+        "info": "Digite a taxa para cada parcela (1x, 2x, 3x...) separada por vírgula. Ex: 0, 0, 0, 2.5, 3.0, 3.5. Se preenchido, ignora a 'Taxa de Juros Mensal' acima.a
+      }rea",
+      {
+        "type": "text",
+        "id": "interest_table",
+        "label": "Tabela de Juros Personalizada (Separado por vírgula)",
+        "info": "Digite a taxa para cada parcela (1x, 2x, 3x...) separada por vírgula. Ex: 0, 0, 0, 2.5, 3.0, 3.5. Se preenchido, ignora a 'Taxa de Juros Mensal' acima.a
+      }rea",
+      {
+        "type": "text",
+        "id": "interest_table",
+        "label": "Tabela de Juros Personalizada (Separado por vírgula)",
+        "info": "Digite a taxa para cada parcela (1x, 2x, 3x...) separada por vírgula. Ex: 0, 0, 0, 2.5, 3.0, 3.5. Se preenchido, ignora a 'Taxa de Juros Mensal' acima.a
+      }rea",
+      {
+        "type": "text",
+        "id": "interest_table",
+        "label": "Tabela de Juros Personalizada (Separado por vírgula)",
+        "info": "Digite a taxa para cada parcela (1x, 2x, 3x...) separada por vírgula. Ex: 0, 0, 0, 2.5, 3.0, 3.5. Se preenchido, ignora a 'Taxa de Juros Mensal' acima.a
+      }rea",
+      {
+        "type": "text",
+        "id": "interest_table",
+        "label": "Tabela de Juros Personalizada (Separado por vírgula)",
+        "info": "Digite a taxa para cada parcela (1x, 2x, 3x...) separada por vírgula. Ex: 0, 0, 0, 2.5, 3.0, 3.5. Se preenchido, ignora a 'Taxa de Juros Mensal' acima."
+      },
+      {
         "type": "text",
         "id": "installments_text",
         "label": "Texto (Use {installments} e {amount})",
@@ -2027,30 +2057,60 @@
         "default": "ou {installments}x de {amount}",
         "info": "Texto exibido quando a parcela tiver juros."
       },
+      },
+      {
+        "type": "checkbox",
+        "id": "show_custom_discount",
+        "label": "Mostrar Etiqueta de Desconto Personalizada",
+        "default": true
       {
         "type": "color",
         "id": "installments_color",
         "label": "Cor do Texto",
         "default": "#878787"
       },
+      },
+      {
+        "type": "checkbox",
+        "id": "show_custom_discount",
+        "label": "Mostrar Etiqueta de Desconto Personalizada",
+        "default": true
       {
         "type": "header",
         "content": "Configurações do PIX"
       },
       {
+        "type": "che
+      },
+      {
         "type": "checkbox",
+        "id": "show_custom_discount",
+        "label": "Mostrar Etiqueta de Desconto Personalizada",
+        "default": trueckbox",
         "id": "show_pix",
         "label": "Mostrar Desconto no PIX",
         "default": true
       },
       {
-        "type": "range",
+        "type": "ran
+      },
+      {
+        "type": "checkbox",
+        "id": "show_custom_discount",
+        "label": "Mostrar Etiqueta de Desconto Personalizada",
+        "default": truege",
         "id": "pix_discount",
         "label": "Desconto no PIX (%)",
         "min": 0,
         "max": 50,
         "step": 1,
         "default": 5
+      },
+      {
+        "type": "checkbox",
+        "id": "show_custom_discount",
+        "label": "Mostrar Etiqueta de Desconto Personalizada",
+        "default": true
       },
       {
         "type": "text",

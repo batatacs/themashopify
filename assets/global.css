@@ -7611,6 +7611,7 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 .installment-wrapper {
   margin-top: 8px;
   font-size: 13px;
+  font-size: 15px; /* Aumentado de 13px */
   line-height: 1.4;
   width: 100%;
   display: block;
@@ -7622,9 +7623,11 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 .price-pix {
   color: #1e882f; /* Verde sucesso */
   margin-bottom: 2px;
+  font-size: 16px; /* Aumentado */
 }
 .price-pix strong {
   font-weight: 700;
+  font-size: 18px; /* Preço PIX maior */
 }
 .price-pix span {
   font-size: 11px;
@@ -7633,6 +7636,10 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
   border-radius: 3px;
   color: #1e882f;
 }
+.installment-text {
+  font-size: 15px; /* Texto das parcelas maior */
+  color: #555;
+}
 .price-card {
   display: inline-block;
   color: #555;
@@ -7640,10 +7647,32 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.3s;
+  font-size: 14px;
+  margin-top: 2px;
 }
 .installment-wrapper:hover .price-card {
   opacity: 1;
   color: var(--color-hover);
+}
+
+/* --- Badge de Desconto Personalizado --- */
+.custom-discount-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffebe6; /* Fundo avermelhado suave */
+  color: #d32f2f; /* Texto vermelho */
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  gap: 6px;
+}
+.custom-discount-badge i {
+  font-size: 12px;
+}
+.custom-discount-badge span {
+  font-weight: 800;
 }
 
 /* Modal Styles */

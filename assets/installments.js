@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
     max_installments: 12,
     max_installments_free: 6,
     interest_rate: 0,
+    interest_table: "", // String: "0, 0, 2.5, 3.0"
     show_pix: true,
     pix_discount: 5,
+    show_custom_discount: true,
     pix_text: "no PIX com desconto",
     modal_title: "Ver opções de parcelamento"
   };
@@ -29,6 +31,23 @@ document.addEventListener("DOMContentLoaded", function() {
     return parseFloat(clean);
   }
 
+  // Função para pegar a taxa de juros de uma parcela específica
+  function getInterestRateForInstallment(installmentNumber) {
+    // Se tiver tabela personalizada
+    if (config.interest_table && config.interest_table.trim() !== "") {
+        var rates = config.interest_table.split(',').map(function(r) { return parseFloat(r.trim()); });
+        // O array começa em 0 (que seria 1x), então index = installmentNumber - 1
+        var index = installmentNumber - 1;
+        if (index < rates.length && !isNaN(rates[index])) {
+            return rates[index];
+        }
+    }
+    
+    // Fallback para lógica simples
+    if (installmentNumber <= config.max_installments_free) return 0;
+    return config.interest_rate;
+  }
+
   // --- Lógica do Modal (Tabela de Parcelas) ---
   window.openInstallmentsModal = function(priceValue) {
     const modal = document.getElementById('jc-installments-modal');
@@ -40,9 +59,11 @@ document.addEventListener("DOMContentLoaded", function() {
     
     for (let i = 1; i <= config.max_installments; i++) {
         let installmentValue, totalValue, label;
+        let rate = getInterestRateForInstallment(i);
         
         // Regra: Sem juros até X parcelas OU se a taxa for 0
         if (i <= config.max_installments_free || config.interest_rate === 0) {
+        if (rate === 0) {
             installmentValue = priceValue / i;
             totalValue = priceValue;
             label = 'Sem Juros';
@@ -50,8 +71,11 @@ document.addEventListener("DOMContentLoaded", function() {
             // Cálculo Price (Juros Compostos)
             const rate = config.interest_rate / 100;
             installmentValue = priceValue * ( (rate * Math.pow(1 + rate, i)) / (Math.pow(1 + rate, i) - 1) );
+            const rateDecimal = rate / 100;
+            installmentValue = priceValue * ( (rateDecimal * Math.pow(1 + rateDecimal, i)) / (Math.pow(1 + rateDecimal, i) - 1) );
             totalValue = installmentValue * i;
             label = `(${config.interest_rate}% a.m.)`;
+            label = `(${rate}% a.m.)`;
         }
         
         html += `<tr>
@@ -119,8 +143,38 @@ document.addEventListener("DOMContentLoaded", function() {
       
       if (isNaN(price) || price <= 0) return;
 
+      // --- Tenta encontrar o preço "De" (Compare Price) para o Desconto ---
+      var comparePrice = 0;
+      var compareElement = el.closest('.product-info, .detail-price, .product-group-price')?.querySelector('.price-item--regular, .compare-price, s, del');
+      
+      if (compareElement) {
+          comparePrice = parsePrice(compareElement.innerText);
+      }
+
+      // --- Ocultar texto nativo de desconto (Discount: ...) ---
+      // Procura por elementos irmãos ou próximos que contenham "Discount:" ou "%"
+      var parent = el.parentElement;
+      if(parent) {
+          var siblings = parent.querySelectorAll('*');
+          siblings.forEach(function(sib) {
+              if(sib.innerText.includes('Discount:') || sib.innerText.includes('Economize:')) {
+                  sib.style.display = 'none';
+              }
+          });
+      }
+
       // 4. Monta o HTML
       var html = '<div class="installment-wrapper">';
+
+      // --- Desconto Personalizado ---
+      if (config.show_custom_discount && comparePrice > price) {
+          var discountValue = comparePrice - price;
+          var discountPercent = Math.round((discountValue / comparePrice) * 100);
+          
+          if (discountPercent > 0) {
+              html += '<div class="custom-discount-badge"><i class="fa fa-arrow-down"></i> <span>' + discountPercent + '% OFF</span> - Economize ' + formatMoney(discountValue) + '</div>';
+          }
+      }
 
       // --- PIX ---
       if (config.show_pix) {
@@ -139,10 +193,27 @@ document.addEventListener("DOMContentLoaded", function() {
         if (free > 1) {
             installmentValue = price / free;
             text = 'ou ' + free + 'x de ' + formatMoney(installmentValue) + ' sem juros';
+        // Verifica se a parcela MAX tem juros na tabela personalizada
+        var maxRate = getInterestRateForInstallment(max);
+        
+        // Se a maior parcela (max) for sem juros, mostra ela.
+        // Se tiver juros, tentamos mostrar a maior parcela SEM juros (free).
+        // Se free for 1, então mostra a max com juros mesmo.
+        
+        if (maxRate === 0) {
+             installmentValue = price / max;
+             text = 'ou ' + max + 'x de ' + formatMoney(installmentValue) + ' sem juros';
+        } else if (free > 1) {
+             installmentValue = price / free;
+             text = 'ou ' + free + 'x de ' + formatMoney(installmentValue) + ' sem juros';
         } else {
             // Se tudo tem juros, mostra em max vezes (cálculo simples para display rápido)
             installmentValue = price / max; 
             text = 'ou ' + max + 'x de ' + formatMoney(installmentValue);
+             // Mostra com juros
+             const rateDecimal = maxRate / 100;
+             installmentValue = price * ( (rateDecimal * Math.pow(1 + rateDecimal, max)) / (Math.pow(1 + rateDecimal, max) - 1) );
+             text = 'ou ' + max + 'x de ' + formatMoney(installmentValue);
         }
         
         html += '<div class="installment-text">' + text + '</div>';
