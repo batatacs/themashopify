@@ -105,7 +105,8 @@ document.addEventListener("DOMContentLoaded", function() {
         '.product-info .price',          
         '.detail-price .price',
         '.product-single__meta .price',
-        '.product-group-price .price'
+        '.product-group-price .price',
+        '.product-single__price'
     ];
 
     // Tenta encontrar pelos seletores específicos primeiro
@@ -122,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (el.closest('.installment-wrapper')) return;
 
       // 2. Evita locais indesejados (cards de coleção, carrinho lateral, etc)
-      if (el.closest('.product-item')) return; 
+      // if (el.closest('.product-item')) return; 
       if (el.closest('.mini_cart_content')) return;
       if (el.closest('.cart-item')) return;
 
