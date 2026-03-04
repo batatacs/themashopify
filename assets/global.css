@@ -7717,3 +7717,44 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 .installments-table tr:last-child td { border-bottom: none; }
 .installments-table tr:nth-child(even) { background-color: #f9f9f9; }
 
+/* Estilos para o Desconto Premium e PIX */
+
+.premium-discount-badge {
+  background-color: var(--color-secondary, #16bcdc);
+  color: #fff;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
+  animation: pulse-badge 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-badge {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 188, 220, 0.4); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(22, 188, 220, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 188, 220, 0); }
+}
+
+.price-pix {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaçamento entre o ícone e o texto */
+  margin-top: 8px;
+  color: #00B2A6; /* Cor oficial do PIX */
+  font-size: 16px;
+}
+
+.price-pix .pix-icon {
+  width: 24px; /* Tamanho do ícone */
+  height: 24px;
+  flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+.price-pix strong {
+  font-weight: 700;
+  color: #008276; /* Tom mais escuro para o preço */
+}

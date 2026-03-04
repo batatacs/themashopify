@@ -148,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
           // Se o preço mudou, remove o wrapper antigo para recriar.
           existingWrapper.remove();
       }
+      // Adicionado para evitar re-renderização dentro de si mesmo
       if (el.closest('.installment-wrapper')) return;
 
       // 2. Evita locais indesejados (cards de coleção, carrinho lateral, etc)
@@ -180,42 +181,39 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
       // --- Ocultar texto nativo de desconto (Discount: ...) ---
-      // Procura por elementos irmãos ou próximos que contenham "Discount:" ou "%"
+      /* --- REMOVIDO A PEDIDO DO USUÁRIO ---
       var parent = el.parentElement;
-      if(parent) {
-          var siblings = parent.querySelectorAll('*');
-          siblings.forEach(function(sib) {
-              if(sib.innerText.includes('Discount:') || sib.innerText.includes('Economize:')) {
-                  sib.style.display = 'none';
-              }
-          });
-      }
+      if(parent) { ... }
+      */
 
       // 4. Monta o HTML
       var html = '<div class="installment-wrapper" data-price="' + price + '">';
 
       // --- Desconto Personalizado (agora ao lado do preço) ---
       // Primeiro, remove qualquer span de desconto existente para evitar duplicação
-      var existingDiscountSpan = el.querySelector('.appended-discount-percent');
+      var existingDiscountSpan = el.querySelector('.premium-discount-badge');
       if (existingDiscountSpan) {
         existingDiscountSpan.remove();
       }
       if (config.show_custom_discount && comparePrice > price) {
           var discountValue = comparePrice - price;
           var discountPercent = Math.round((discountValue / comparePrice) * 100);
-          
+
           if (discountPercent > 0) {
               var discountSpan = document.createElement('span');
-              discountSpan.className = 'appended-discount-percent';
-              discountSpan.innerText = ' (' + discountPercent + '% OFF)';
-              el.appendChild(discountSpan);
+              discountSpan.className = 'premium-discount-badge';
+              discountSpan.innerText = discountPercent + '% OFF';
+              // Tenta inserir dentro do elemento de preço de venda para ficar na mesma linha
+              var targetForBadge = el.querySelector('.current, .price-item--sale, .special-price, ins') || el;
+              targetForBadge.insertAdjacentElement('beforeend', discountSpan);
           }
       }
 
       // --- PIX ---
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
-        html += '<div class="price-pix"><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</div>';
+        var pixSVG = '<svg class="pix-icon" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M10.3382 8.87287L11.9193 6.18181H10.2731L9.00001 8.23635L7.72692 6.18181H6.08073L7.66183 8.87287L6.08073 11.5639H7.72692L9.00001 9.50935L10.2731 11.5639H11.9193L10.3382 8.87287Z" fill="#32BCAD"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18ZM9 16.2C12.9823 16.2 16.2 12.9823 16.2 9C16.2 5.01769 12.9823 1.8 9 1.8C5.01769 1.8 1.8 5.01769 1.8 9C1.8 12.9823 5.01769 16.2 9 16.2Z" fill="#32BCAD"/></svg>';
+        html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
       // --- Parcelamento ---
