@@ -61,20 +61,15 @@ document.addEventListener("DOMContentLoaded", function() {
         let installmentValue, totalValue, label;
         let rate = getInterestRateForInstallment(i);
         
-        // Regra: Sem juros até X parcelas OU se a taxa for 0
-        if (i <= config.max_installments_free || config.interest_rate === 0) {
         if (rate === 0) {
             installmentValue = priceValue / i;
             totalValue = priceValue;
             label = 'Sem Juros';
         } else {
             // Cálculo Price (Juros Compostos)
-            const rate = config.interest_rate / 100;
-            installmentValue = priceValue * ( (rate * Math.pow(1 + rate, i)) / (Math.pow(1 + rate, i) - 1) );
             const rateDecimal = rate / 100;
             installmentValue = priceValue * ( (rateDecimal * Math.pow(1 + rateDecimal, i)) / (Math.pow(1 + rateDecimal, i) - 1) );
             totalValue = installmentValue * i;
-            label = `(${config.interest_rate}% a.m.)`;
             label = `(${rate}% a.m.)`;
         }
         
@@ -83,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>${formatMoney(installmentValue)}</td>
                     <td>${formatMoney(totalValue)}</td>
                  </tr>`;
-    }
     html += '</tbody></table>';
     
     tableDiv.innerHTML = html;
