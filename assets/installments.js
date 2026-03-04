@@ -174,12 +174,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // --- Tenta encontrar o preço "De" (Compare Price) para o Desconto ---
       var comparePrice = 0;
-      var compareElement = el.closest('.product-info, .detail-price, .product-group-price, .product-single__meta, [data-price-wrapper]')?.querySelector('.price-item--regular, .compare-price, .price--compare, s, del');
+      var compareElement = null;
+      // Procura o container de preço mais próximo para limitar a busca
+      var priceWrapper = el.closest('.price, .price-container, .product-price, .product__price, [data-price-wrapper], .product-single__meta, .product-info, .detail-price');
+
+      if (priceWrapper) {
+        // Procura por elementos de preço de comparação DENTRO do wrapper, garantindo que não seja o próprio elemento de preço de venda.
+        compareElement = Array.from(priceWrapper.querySelectorAll('s, del, .price-item--regular, .compare-price, .price--compare')).find(e => e !== el && !e.contains(el));
+      }
       
       if (compareElement) {
           comparePrice = parsePrice(compareElement.innerText);
       }
-
       // --- Ocultar texto nativo de desconto (Discount: ...) ---
       /* --- REMOVIDO A PEDIDO DO USUÁRIO --- 
       var parent = el.parentElement;
@@ -219,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
         // SVG do PIX atualizado para melhor visualização (logo branco em fundo verde)
-        var pixSVG = '<svg class="pix-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#32BCAD"/><path d="M13.7143 11.8304L16.0545 7.24219H13.6508L12 10.3918L10.3492 7.24219H7.94554L10.2857 11.8304L7.94554 16.4186H10.3492L12 13.2689L13.6508 16.4186H16.0545L13.7143 11.8304Z" fill="white"/></svg>';
+        var pixSVG = '<svg class="pix-icon" width="24" height="24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="#32BCAD" d="M50,0A50,50,0,1,0,50,100A50,50,0,0,0,50,0Z"/><path fill="#FFF" d="M57.42,49.3,68.54,27.47H56.89L50,41.2,43.11,27.47H31.46L42.58,49.3,31.46,71.13H43.11L50,57.39l6.89,13.74H68.54Z"/></svg>';
         html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
