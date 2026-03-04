@@ -7609,17 +7609,41 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 
 /* --- Parcelamento Inteligente --- */
 .installment-link {
+.installment-wrapper {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  width: 100%;
   display: block;
   font-size: 12px;
   font-weight: 500;
   margin-top: 5px;
   color: var(--color-main);
+}
+.price-pix {
+  color: #1e882f; /* Verde sucesso */
+  margin-bottom: 2px;
+}
+.price-pix strong {
+  font-weight: 700;
+}
+.price-pix span {
+  font-size: 11px;
+  background: #e6f9e9;
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: #1e882f;
+}
+.price-card {
+  display: inline-block;
+  color: #555;
   text-decoration: underline;
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.3s;
 }
 .installment-link:hover {
+.price-card:hover {
   opacity: 1;
   color: var(--color-hover);
 }

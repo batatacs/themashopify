@@ -426,8 +426,8 @@
         maxFree: {{ settings.max_installments_free | default: 6 }},
         rate: {{ settings.interest_rate | default: 0 }},
         modalTitle: "Ver opções de parcelamento",
-        // Seletor mais abrangente para garantir exibição
-        selector: '.price, .product-price, .product__price, .detail-price .price, .product-info .price' 
+        // Seletor específico para evitar duplicidade e pegar o local correto (abaixo do preço)
+        selector: '.product-info .price, .detail-price .price, .product-single__meta .price' 
       };
 
       function formatMoney(value) {
@@ -496,12 +496,17 @@
 
       function updateInstallments() {
         const prices = document.querySelectorAll(config.selector);
+        let mainProductInserted = false; // Trava para evitar duplicidade no produto principal
         
         prices.forEach(el => {
           // --- Filtros de Segurança: Ignora locais indesejados ---
           if (el.closest('.product-item')) return; // Ignora produtos relacionados/vitrine
           if (el.closest('.mini_cart_content') || el.closest('.cart-item')) return; // Ignora carrinho
           if (el.closest('.sticky_atc_content')) return; // Ignora barra fixa inferior
+          if (el.closest('h1, h2, h3')) return; // Ignora preços dentro de títulos (evita o "enorme")
+
+          // Se já inserimos no produto principal, pula (Garante apenas 1 exibição)
+          if (mainProductInserted) return;
 
           // Evita duplicar ou aplicar em elementos errados
           if (el.querySelector('.installment-link') || el.closest('.installment-link')) return;
@@ -527,6 +532,7 @@
             
             // Insere logo após o preço
             el.appendChild(link);
+            mainProductInserted = true; // Marca como inserido para não repetir
           }
         });
       }
