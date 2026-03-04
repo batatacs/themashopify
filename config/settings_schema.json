@@ -1997,11 +1997,35 @@
         "default": 12
       },
       {
+        "type": "range",
+        "id": "max_installments_free",
+        "label": "Parcelas Sem Juros (Até)",
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "default": 6,
+        "info": "Até quantas parcelas o cliente não paga juros."
+      },
+      {
+        "type": "text",
+        "id": "interest_rate",
+        "label": "Taxa de Juros Mensal (%)",
+        "default": "1.99",
+        "info": "Use ponto para decimais. Ex: 1.99. Deixe 0 para desativar juros."
+      },
+      {
         "type": "text",
         "id": "installments_text",
         "label": "Texto (Use {installments} e {amount})",
         "default": "ou {installments}x de {amount} sem juros",
         "info": "Ex: 'ou 12x de R$ 10,00 sem juros'"
+      },
+      {
+        "type": "text",
+        "id": "installments_text_with_interest",
+        "label": "Texto COM Juros",
+        "default": "ou {installments}x de {amount}",
+        "info": "Texto exibido quando a parcela tiver juros."
       },
       {
         "type": "color",

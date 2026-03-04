@@ -418,7 +418,7 @@
   </div>
 
   <!-- Script de Parcelamento Inteligente -->
-  {% if settings.show_installments %}
+  {% if settings.show_installments and request.page_type == 'product' %}
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const config = {
@@ -426,8 +426,8 @@
         maxFree: {{ settings.max_installments_free | default: 6 }},
         rate: {{ settings.interest_rate | default: 0 }},
         modalTitle: "Ver opções de parcelamento",
-        // Adicionei mais seletores para garantir que encontre o preço
-        selector: '.price, .product-price, .product-item .price, .detail-price .price, .product__price, .price__container, .product-info .price' 
+        // Seletor otimizado para evitar duplicidade e aparecer apenas no local correto
+        selector: '.product-info .price, .detail-price .price, .product-single__price' 
       };
 
       function formatMoney(value) {
