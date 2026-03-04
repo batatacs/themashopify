@@ -144,9 +144,24 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 15px;
+  position: relative;
+  text-decoration: none;
+}
+.topbar .topbar-menu li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
 }
 .topbar .topbar-menu li a:hover {
   color: var(--color-text-hover);
+}
+.topbar .topbar-menu li a:hover::after {
+  width: 100%;
 }
 .cms-top-header .topbar .announcement-bar .topbar-right {
   justify-content: flex-end;
@@ -164,9 +179,11 @@
 .cms-top-header .topbar .announcement-bar .list-socials li a {
   font-size: 18px;
   color: var(--color-text-top-header);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 .cms-top-header .topbar .announcement-bar .list-socials li a:hover {
   color: var(--color-text-top-header-hover);
+  transform: translateY(-3px);
 }
 .cms-top-header .topbar .announcement-bar .list-socials li:first-child {
   margin-left: 0;
@@ -353,6 +370,7 @@
   color: var(--color-icon-header);
   justify-content: center;
   gap:10px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .header .header-icon svg {
   color: var(--color-icon-header);
@@ -360,6 +378,9 @@
 .header .header-icon path,
 .header .header-icon svg {
   fill: var(--color-icon-header);
+}
+.header .header-control li:hover .header-icon {
+  transform: scale(1.15);
 }
 .header .header-icon .box {
   display: flex;
