@@ -658,7 +658,7 @@
       "sku": "SKU",
       "tags": "Tags",
       "from": "from",
-      "price_sale_details_html": "{{ price }} ({{ procent }}%)",
+      "price_sale_details_html": "({{ procent }}%)",
       "Categories": "Categories",
       "barcode": "Barcode",
       "only_left_in_stock_html": "Only {{ count }} left in stock",
