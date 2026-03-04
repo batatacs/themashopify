@@ -418,7 +418,7 @@
   </div>
 
   <!-- Script de Parcelamento Inteligente -->
-  {% if settings.show_installments and request.page_type == 'product' %}
+  {% if settings.show_installments %}
   <script>
     // Configurações globais para o script externo ler
     window.installmentSettings = {
