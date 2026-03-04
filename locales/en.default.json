@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin language editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "top_header": {
@@ -58,7 +58,7 @@
       "login_form_password_placeholder": "Your password",
       "login_form_error": "Wrong password!",
       "login_form_submit": "Enter",
-      "admin_link_html": "Are you the store owner? <a href=\"\/admin\" class=\"link underlined-link\">Log in here<\/a>",
+      "admin_link_html": "Are you the store owner? <a href=\"/admin\" class=\"link underlined-link\">Log in here</a>",
       "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
     },
     "social": {
@@ -114,7 +114,7 @@
       "title": "My Wishlist",
       "view": "View wishlist",
       "empty": "Wishlist is empty.",
-      "empty_html": "You don't have any products in the wishlist yet.<br \/> You will find a lot of interesting products on our \"Shop\" page."
+      "empty_html": "You don't have any products in the wishlist yet.<br /> You will find a lot of interesting products on our \"Shop\" page."
     },
     "wishlist-full": {
       "title": "Wishlist",
@@ -143,10 +143,10 @@
     }
   },
   "localization": {
-    "country_label": "Country\/region",
+    "country_label": "Country/region",
     "language_label": "Language",
     "update_language": "Update language",
-    "update_country": "Update country\/region"
+    "update_country": "Update country/region"
   },
   "templates": {
     "search": {
@@ -184,7 +184,7 @@
       "total": "Total price:",
       "Add_selected_item": "Add selected item(s)",
       "You_are_saving": "You are saving:",
-      "discount_announcement_html": "Buy <span class=\"qty_item\">{{qty_item }}<\/span> products get <span class=\"value\">{{value}}<\/span> discount",
+      "discount_announcement_html": "Buy <span class=\"qty_item\">{{qty_item }}</span> products get <span class=\"value\">{{value}}</span> discount",
       "announcement": "Discount will be calculated when added to cart"
     },
     "image-comparison-slider": {
@@ -203,8 +203,8 @@
       "get_directions": "Get directions",
       "address_error": "Error looking up that address",
       "address_no_results": "No results for that address",
-      "address_query_limit_html": "You have exceeded the Google API usage limit. Consider upgrading to a <a href=\"https:\/\/developers.google.com\/maps\/premium\/usage-limits\">Premium Plan<\/a>.",
-      "auth_error_html": "There was a problem authenticating your Google Maps account. Create and enable the <a href=\"https:\/\/developers.google.com\/maps\/documentation\/javascript\/get-api-key\">JavaScript API<\/a> and <a href=\"https:\/\/developers.google.com\/maps\/documentation\/geocoding\/get-api-key\">Geocoding API<\/a> permissions of your app."
+      "address_query_limit_html": "You have exceeded the Google API usage limit. Consider upgrading to a <a href=\"https://developers.google.com/maps/premium/usage-limits\">Premium Plan</a>.",
+      "auth_error_html": "There was a problem authenticating your Google Maps account. Create and enable the <a href=\"https://developers.google.com/maps/documentation/javascript/get-api-key\">JavaScript API</a> and <a href=\"https://developers.google.com/maps/documentation/geocoding/get-api-key\">Geocoding API</a> permissions of your app."
     },
     "tab": {
       "you_are_in": "You are in:"
@@ -240,7 +240,7 @@
       "sort_by_label": "Sort by",
       "title": "Collection",
       "to": "To",
-      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">clear all<\/a>"
+      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">clear all</a>"
     }
   },
   "accessibility": {
@@ -284,7 +284,7 @@
       "view_all": "See All Post",
       "load_more": "Load More Posts",
       "read_more": "READ MORE",
-      "bar_with_count_html": "You've viewed <span class=\"js_current_bar\">{{current_count}}<\/span> of {{total_count}} posts"
+      "bar_with_count_html": "You've viewed <span class=\"js_current_bar\">{{current_count}}</span> of {{total_count}} posts"
     },
     "portfolio": {
       "filter_all": "All",
@@ -321,14 +321,14 @@
       "totaldiscount": "Total Discount",
       "total": "Order Totals",
       "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
-      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\" target=\"_blank\">shipping<\/a> calculated at checkout",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\" target=\"_blank\">shipping</a> calculated at checkout",
       "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
-      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\" target=\"_blank\">Shipping<\/a> calculated at checkout.",
+      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\" target=\"_blank\">Shipping</a> calculated at checkout.",
       "taxes_discounts_and_shipping_at_checkout": "Taxes, shipping and discounts codes calculated at checkout",
-      "taxes_discounts_and_shipping_policy_at_checkout_html": "Taxes, <a href=\"{{ link }}\" target=\"_blank\">shipping<\/a> and discounts codes calculated at checkout",
+      "taxes_discounts_and_shipping_policy_at_checkout_html": "Taxes, <a href=\"{{ link }}\" target=\"_blank\">shipping</a> and discounts codes calculated at checkout",
       "taxes_included_discounts_but_shipping_at_checkout": "Tax included. Shipping and discounts codes calculated at checkout",
-      "taxes_included_discounts_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\" target=\"_blank\">Shipping<\/a> and discounts codes calculated at checkout.",
-      "terms_and_conditions_html": "I agree with the <a href=\"{{link}}\" target=\"_blank\">terms and conditions<\/a>.",
+      "taxes_included_discounts_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\" target=\"_blank\">Shipping</a> and discounts codes calculated at checkout.",
+      "terms_and_conditions_html": "I agree with the <a href=\"{{link}}\" target=\"_blank\">terms and conditions</a>.",
       "terms_and_conditions": "I agree with the terms and conditions.",
       "remove": "Remove",
       "savings": "You're saving",
@@ -359,14 +359,14 @@
       "order_note_text": "How can we help you?",
       "add_gift": "Add Gift",
       "estimate": "Estimate",
-      "gift_wrap_html": "<span class=\"cd\">Do you want a gift wrap?<\/span> Only {{ money }}",
+      "gift_wrap_html": "<span class=\"cd\">Do you want a gift wrap?</span> Only {{ money }}",
       "add_gift_wrap": "Add A Gift Wrap",
       "countdown_text": "Due To HIGH Demand, Cart Expires In:",
       "continue_shopping": "Continue shopping",
-      "free_shipping_html": "Spend {{ value }} more and get <span class=\"free\">Free Shipping !<\/span>",
-      "free_shipping_complete_html": "Congratulations! You've got <span class=\"free\">Free Shipping!<\/span>",
+      "free_shipping_html": "Spend {{ value }} more and get <span class=\"free\">Free Shipping !</span>",
+      "free_shipping_complete_html": "Congratulations! You've got <span class=\"free\">Free Shipping!</span>",
       "total_save": "You save in total",
-      "text_checkmark_html": "I agree with <a href=\" {{ url_page }} \" title=\"Terms &amp; Conditions\">Terms &amp; Conditions <\/a>"
+      "text_checkmark_html": "I agree with <a href=\" {{ url_page }} \" title=\"Terms &amp; Conditions\">Terms &amp; Conditions </a>"
     },
     "label": {
       "product": "Product",
@@ -377,7 +377,7 @@
     "shipping_rates": {
       "title": "Estimate shipping rates:",
       "country": "Country",
-      "zip_Code": "Zip\/Postal Code",
+      "zip_Code": "Zip/Postal Code",
       "note_rates": {
         "note_rates1": "There are",
         "note_rates2": "shipping rates available for",
@@ -399,9 +399,9 @@
       "no_pro_count": "Sorry, You have not added any products that are discounted from time to time",
       "clear_filter": "Clear All Filter",
       "results_with_count_html": {
-        "zero": "<span class=\"cp\">0<\/span> Product Found",
-        "one": "<span class=\"cp\">1<\/span> Product Found",
-        "other": "<span class=\"cp\">{{count}}<\/span> Products Found"
+        "zero": "<span class=\"cp\">0</span> Product Found",
+        "one": "<span class=\"cp\">1</span> Product Found",
+        "other": "<span class=\"cp\">{{count}}</span> Products Found"
       },
       "items_with_count": {
         "one": "{{ count }} product",
@@ -501,7 +501,7 @@
       "city": "City",
       "country": "Country",
       "province": "Province",
-      "zip": "Postal\/Zip Code",
+      "zip": "Postal/Zip Code",
       "phone": "Phone",
       "set_default": "Set as default address",
       "add": "Add Address",
@@ -523,7 +523,7 @@
       "guest_title": "Continue as a guest",
       "guest_continue": "Continue",
       "account": "Account",
-      "text_html": "New user discount applies only to full price items. <br>By providing your email address, you agree to our<br> <a href=\"{{value1}}\">Privacy Policy<\/a> and <a href=\"{{value2}}\">Terms of Service<\/a>."
+      "text_html": "New user discount applies only to full price items. <br>By providing your email address, you agree to our<br> <a href=\"{{value1}}\">Privacy Policy</a> and <a href=\"{{value2}}\">Terms of Service</a>."
     },
     "logout": {
       "not": "not",
@@ -579,7 +579,7 @@
       "title": "Create an account",
       "information": "Personal information",
       "first_name": "First Name",
-      "middle_name": "Middle Name\/Initial",
+      "middle_name": "Middle Name/Initial",
       "last_name": "Last Name",
       "email": "Email Address",
       "password": "Password",
@@ -614,7 +614,7 @@
   "layout": {
     "navigation": {
       "search": "Search",
-      "toggle": "expand\/collapse",
+      "toggle": "expand/collapse",
       "expand": "expand",
       "collapse": "collapse"
     },
@@ -637,7 +637,7 @@
     "customer": {
       "account": "Wellcome to your account.",
       "log_out": "Logout",
-      "log_in": "Register \/ Sign in",
+      "log_in": "Register / Sign in",
       "create_account": "Create an account"
     },
     "footer": {
@@ -658,11 +658,11 @@
       "sku": "SKU",
       "tags": "Tags",
       "from": "from",
-      "price_sale_details_html": "Discount: {{ price }} ({{ procent }}%)",
+      "price_sale_details_html": "{{ price }} ({{ procent }}%)",
       "Categories": "Categories",
       "barcode": "Barcode",
       "only_left_in_stock_html": "Only {{ count }} left in stock",
-      "value_in_stock_html": "<span><b>{{ count }}<\/b> Products<\/span>",
+      "value_in_stock_html": "<span><b>{{ count }}</b> Products</span>",
       "availability_value_in_stock": "In stock",
       "availability_value_out_stock": "Out of Stock",
       "type": "Type",
@@ -680,8 +680,8 @@
       "out_stock": "Out Stock",
       "text_countdown_html": "Please, hurry! Someone has placed an order on one of the items you have in the cart. Products are limited, checkout within  {{ minutes }}",
       "text_countdown_time_up": "You're out of time! Checkout now to avoid losing your order!",
-      "visitors_html": "<p>{{ counter }} people are viewing this right now<\/p>",
-      "same_day_sales_html": "<p>{{ counter }} sold in last {{ time }}<\/p>",
+      "visitors_html": "<p>{{ counter }} people are viewing this right now</p>",
+      "same_day_sales_html": "<p>{{ counter }} sold in last {{ time }}</p>",
       "size_guide": "Size guide",
       "delivery_return": "Delivery & return",
       "notify_guide": "You have not selected and created a post 'size guide'",
@@ -756,7 +756,7 @@
       "filter_selected_accessibility": "{{ type }} ({{ count }} filters selected)",
       "show_more": "Show more",
       "show_less": "Show less",
-      "max_price_html": "The highest price is <b>{{ price }}<\/b>",
+      "max_price_html": "The highest price is <b>{{ price }}</b>",
       "product_count": {
         "one": "{{ product_count }} of {{ count }} product",
         "other": "{{ product_count }} of {{ count }} products"
