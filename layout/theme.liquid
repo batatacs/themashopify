@@ -43,6 +43,12 @@
     var theme = { currency :'{{ shop.currency }}', moneyFormat: {{ shop.money_format | json }},moneyFormatWithCurrency: {{ shop.money_with_currency_format | json }}, {% if customer %}customer: {id : {{customer.id}}, name: '{{customer.name}}'}{% endif %}},
         shopCurrency = '{{ shop.currency }}';
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    
+    // --- Otimização: Verificar cache imediatamente para evitar "piscar" ---
+    if (sessionStorage.getItem('jc_preloader_viewed')) {
+      document.documentElement.classList.add('visited-session');
+    }
+
     const type_name = "{{request.page_type}}", t_cartCount = {{ cart.item_count }}, t_shop_currency = "{{ shop.currency }}", t_moneyFormat = {{ shop.money_format | json }}, t_cart_url = "{{ routes.cart_url }}", pr_re_url = "{{ routes.product_recommendations_url }}"; 
     document.addEventListener("DOMContentLoaded", function() {
           var loaderStrategy = "{{ settings.loader_strategy | default: 'fixed' }}";

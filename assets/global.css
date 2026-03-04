@@ -66,6 +66,16 @@ html {
   .page-load.mobile-disabled { display: none !important; }
 }
 
+/* --- Fix: Mostrar Preloader apenas na Home --- */
+body:not(.template-index) .page-load {
+  display: none !important;
+}
+
+/* --- Fix: Ocultar Preloader se já visitado na sessão (Controlado por JS) --- */
+html.visited-session .page-load {
+  display: none !important;
+}
+
 * {
   box-sizing: border-box;
 }
