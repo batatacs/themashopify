@@ -74,14 +74,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const rateDecimal = rate / 100;
             installmentValue = priceValue * ( (rateDecimal * Math.pow(1 + rateDecimal, i)) / (Math.pow(1 + rateDecimal, i) - 1) );
             totalValue = installmentValue * i;
-            label = '(' + rate + '% a.m.)';
+            label = `(${rate}% a.m.)`;
         }
         
         html += `<tr>
                     <td><strong>${i}x</strong> ${label}</td>
                     <td>${formatMoney(installmentValue)}</td>
                     <td>${formatMoney(totalValue)}</td>
-                </tr>`;
+                 </tr>`;
     }
     html += '</tbody></table>';
     
@@ -228,9 +228,9 @@ document.addEventListener("DOMContentLoaded", function() {
       // --- PIX ---
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
-        // Utiliza o arquivo 'pix.png' da pasta assets. Requer que o arquivo JS seja .js.liquid
-        var pixImage = '<img class="pix-icon" src="{{ \'pix.png\' | asset_url }}" alt="PIX" />';
-        html += '<div class="price-pix">' + pixImage + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
+        // SVG do PIX correto embutido diretamente no código para máxima compatibilidade e estabilidade.
+        var pixSVG = '<svg class="pix-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="#32BCAD" d="M50,0A50,50,0,1,0,50,100A50,50,0,0,0,50,0Z"/><path fill="#FFF" d="M57.42,49.3,68.54,27.47H56.89L50,41.2,43.11,27.47H31.46L42.58,49.3,31.46,71.13H43.11L50,57.39l6.89,13.74H68.54Z"/></svg>';
+        html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
       // --- Parcelamento ---
