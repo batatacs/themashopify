@@ -175,13 +175,13 @@ document.addEventListener("DOMContentLoaded", function() {
       // --- Tenta encontrar o preço "De" (Compare Price) para o Desconto ---
       var comparePrice = 0;
       var compareElement = null;
-      // Procura o container de preço/produto mais próximo para limitar a busca
-      var priceWrapper = el.closest('.product-info, .price, .price-container, .product-price, .product__price, [data-price-wrapper], .product-single__meta, .detail-price, .grid-view-item, .product-card, .product-item');
+      // Procura o container de preço/produto mais próximo para limitar a busca. Adicionados mais seletores.
+      var priceWrapper = el.closest('.product-info, .price, .price-container, .product-price, .product__price, [data-price-wrapper], .product-single__meta, .detail-price, .grid-view-item, .product-card, .product-item, .product-block, .product-card__info, .product-item-info');
 
       if (priceWrapper) {
         // Procura por elementos de preço de comparação DENTRO do wrapper.
-        // Adicionados mais seletores como .old-price e .price--was
-        var compareSelectors = 's, del, .price-item--regular, .compare-price, .price--compare, .old-price, .price--was';
+        // Adicionados mais seletores como .old-price, .price--was, .price--line-through
+        var compareSelectors = 's, del, .price-item--regular, .compare-price, .price--compare, .old-price, .price--was, .price--line-through';
         compareElement = Array.from(priceWrapper.querySelectorAll(compareSelectors)).find(function(e) {
           // Garante que o elemento encontrado não é o próprio elemento de preço de venda ou um de seus filhos.
           return e !== el && !el.contains(e);
@@ -228,8 +228,8 @@ document.addEventListener("DOMContentLoaded", function() {
       // --- PIX ---
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
-        // SVG do PIX corrigido e embutido diretamente para evitar erros de carregamento.
-        var pixSVG = '<svg class="pix-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="#32BCAD" d="M50,0A50,50,0,1,0,50,100A50,50,0,0,0,50,0Z"/><path fill="#FFF" d="M57.42,49.3,68.54,27.47H56.89L50,41.2,43.11,27.47H31.46L42.58,49.3,31.46,71.13H43.11L50,57.39l6.89,13.74H68.54Z"/></svg>';
+        // Utiliza o arquivo 'pix.svg' da pasta assets. Requer que o arquivo JS seja .js.liquid
+        var pixSVG = '<img class="pix-icon" src="{{ \'pix.svg\' | asset_url }}" alt="PIX" />';
         html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
