@@ -425,7 +425,6 @@
         max: {{ settings.max_installments | default: 12 }},
         maxFree: {{ settings.max_installments_free | default: 6 }},
         rate: {{ settings.interest_rate | default: 0 }},
-        pixDiscount: {{ settings.pix_discount | default: 0 }},
         modalTitle: "Ver opções de parcelamento",
         // Seletor mais abrangente para garantir exibição
         selector: '.price, .product-price, .product__price, .detail-price .price, .product-info .price' 
@@ -505,7 +504,7 @@
           if (el.closest('.sticky_atc_content')) return; // Ignora barra fixa inferior
 
           // Evita duplicar ou aplicar em elementos errados
-          if (el.querySelector('.installment-wrapper') || el.closest('.installment-wrapper')) return;
+          if (el.querySelector('.installment-link') || el.closest('.installment-link')) return;
           
           // Pega o texto do preço (tenta pegar o preço atual se tiver promoção)
           let priceText = el.innerText;
@@ -515,43 +514,19 @@
           const value = parsePrice(priceText);
           
           if (value > 0) {
-            const wrapper = document.createElement('div');
-            wrapper.className = 'installment-wrapper';
-
-            // 1. Preço no Pix (se tiver desconto configurado)
-            if (config.pixDiscount > 0) {
-                const pixValue = value * (1 - (config.pixDiscount / 100));
-                const pixEl = document.createElement('div');
-                pixEl.className = 'price-pix';
-                pixEl.innerHTML = `<strong>${formatMoney(pixValue)}</strong> no Pix <span>(${config.pixDiscount}% off)</span>`;
-                wrapper.appendChild(pixEl);
-            }
-
-            // 2. Melhor Parcela (Link para Modal)
-            let installmentValue;
-            // Calcula a última parcela (max)
-            if (config.max <= config.maxFree || config.rate === 0) {
-                installmentValue = value / config.max;
-            } else {
-                const rate = config.rate / 100;
-                installmentValue = value * ( (rate * Math.pow(1 + rate, config.max)) / (Math.pow(1 + rate, config.max) - 1) );
-            }
-
-            const cardEl = document.createElement('a');
-            cardEl.className = 'price-card installment-link';
-            cardEl.href = 'javascript:void(0)';
-            cardEl.innerHTML = `ou ${config.max}x de <strong>${formatMoney(installmentValue)}</strong> <i class="fa fa-info-circle"></i>`;
-            
-            // Evento para abrir modal
-            cardEl.onclick = function(e) {
+            // Cria o link "Ver parcelas"
+            const link = document.createElement('a');
+            link.className = 'installment-link';
+            link.href = 'javascript:void(0)';
+            link.innerHTML = `<i class="fa fa-credit-card"></i> ${config.modalTitle}`;
+            link.onclick = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 window.openInstallmentsModal(value);
             };
-            wrapper.appendChild(cardEl);
             
             // Insere logo após o preço
-            el.appendChild(wrapper);
+            el.appendChild(link);
           }
         });
       }
