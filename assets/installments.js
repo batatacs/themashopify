@@ -228,8 +228,11 @@ document.addEventListener("DOMContentLoaded", function() {
       // --- PIX ---
       if (config.show_pix) {
         var pixPrice = price * (1 - config.pix_discount / 100);
-        // SVG removido a pedido
-        html += '<div class="price-pix"><span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
+        var iconHtml = '';
+        if (config.pix_icon_url) {
+             iconHtml = '<img src="' + config.pix_icon_url + '" alt="PIX" class="pix-icon" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 5px;">';
+        }
+        html += '<div class="price-pix">' + iconHtml + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
       }
 
       // --- Parcelamento ---
