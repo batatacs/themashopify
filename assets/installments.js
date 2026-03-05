@@ -213,6 +213,8 @@ document.addEventListener("DOMContentLoaded", function() {
               if (debugMode) console.log('[Installments] Desconto de ' + discountPercent + '% encontrado. Criando badge.');
               var discountSpan = document.createElement('span');
               discountSpan.className = 'premium-discount-badge';
+              // Estilo de destaque similar ao "Envio Prioritário" (Vermelho para desconto)
+              discountSpan.style.cssText = 'background: #FF3B30; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 6px; vertical-align: middle; display: inline-block; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);';
               discountSpan.innerText = discountPercent + '% OFF';
               // Tenta inserir dentro do elemento de preço de venda para ficar na mesma linha
               var targetForBadge = el.querySelector('.current, .price-item--sale, .special-price, ins') || el;
