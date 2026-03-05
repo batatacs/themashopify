@@ -227,12 +227,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // --- PIX ---
       if (config.show_pix) {
-        var pixPrice = price * (1 - config.pix_discount / 100);
         var iconHtml = '';
         if (config.pix_icon_url) {
              iconHtml = '<img src="' + config.pix_icon_url + '" alt="PIX" class="pix-icon" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 5px;">';
         }
-        html += '<div class="price-pix">' + iconHtml + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
+        // Badge de destaque para Envio Prioritário
+        var highlightStyle = 'background: #25D366; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 4px; vertical-align: middle; display: inline-block; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);';
+        html += '<div class="price-pix">' + iconHtml + '<span><strong>' + config.pix_discount + '% OFF</strong> no PIX + <span style="' + highlightStyle + '">ENVIO PRIORITÁRIO</span></span></div>';
       }
 
       // --- Parcelamento ---
