@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Se tiver vírgula, assume formato BR (milhar.centena,centavos)
     if (clean.indexOf(',') > -1) {
       clean = clean.replace(/\./g, '').replace(',', '.');
+    } else {
+      // Se só tem ponto (ex: 1.200), remove se parecer milhar (mais de 3 digitos ou seguido de 3 digitos)
+      // Mas por segurança, vamos assumir que se não tem virgula, o parseFloat resolve.
     }
     return parseFloat(clean);
   }
@@ -179,22 +182,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // --- Tenta encontrar o preço "De" (Compare Price) para o Desconto ---
       var comparePrice = 0;
-      var compareElement = null;
-      // Procura o container de preço/produto mais próximo para limitar a busca. Adicionados mais seletores.
-      var priceWrapper = el.closest('.product-info, .price, .price-container, .product-price, .product__price, [data-price-wrapper], .product-single__meta, .detail-price, .grid-view-item, .product-card, .product-item, .product-block, .product-card__info, .product-item-info');
+      // Procura o container de preço/produto mais próximo
+      var priceWrapper = el.closest('.product-info, .price, .price-container, .product-price, .product__price, [data-price-wrapper], .product-single__meta, .detail-price, .grid-view-item, .product-card, .product-item, .product-block, .product-card__info, .product-item-info') || el.parentElement;
 
       if (priceWrapper) {
-        // Procura por elementos de preço de comparação DENTRO do wrapper.
-        // Adicionados mais seletores como .old-price, .price--was, .price--line-through
+        // Busca mais agressiva por qualquer elemento que pareça um preço antigo
         var compareSelectors = 's, del, .price-item--regular, .compare-price, .price--compare, .old-price, .price--was, .price--line-through, [data-compare-price]';
-        compareElement = Array.from(priceWrapper.querySelectorAll(compareSelectors)).find(function(e) {
-          // Garante que o elemento encontrado não é o próprio elemento de preço de venda ou um de seus filhos.
-          var isCurrent = (currentPrice && (e === currentPrice || currentPrice.contains(e)));
-          return e !== el && !isCurrent;
+        var potentialElements = priceWrapper.querySelectorAll(compareSelectors);
+        
+        potentialElements.forEach(function(compEl) {
+            // Ignora o próprio elemento de preço atual
+            if (compEl === el || el.contains(compEl)) return;
+            
+            var text = compEl.innerText || compEl.textContent;
+            // Verifica se tem números
+            if (!/[0-9]/.test(text)) return;
+            
+            var val = parsePrice(text);
+            // Se o valor encontrado for MAIOR que o preço atual, é o preço "De"
+            if (val > price) {
+                comparePrice = val;
+            }
         });
-      }
-      if (compareElement) {
-          comparePrice = parsePrice(compareElement.textContent || compareElement.innerText);
       }
 
       // 4. Monta o HTML
@@ -215,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function() {
               var discountSpan = document.createElement('span');
               discountSpan.className = 'premium-discount-badge';
               // Estilo de destaque similar ao "Envio Prioritário" (Vermelho para desconto)
-              discountSpan.style.cssText = 'background: #FF3B30; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 6px; vertical-align: middle; display: inline-block; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);';
+              discountSpan.style.cssText = 'background: #FF3B30; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 6px; vertical-align: middle; display: inline-block; visibility: visible; opacity: 1; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);';
               discountSpan.innerText = discountPercent + '% OFF';
               // Tenta inserir dentro do elemento de preço de venda para ficar na mesma linha
               var targetForBadge = currentPrice || el;
