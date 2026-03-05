@@ -165,11 +165,14 @@ document.addEventListener("DOMContentLoaded", function() {
       if (el.closest('.cart-item')) return;
 
       // 3. Pega o preço
-      var priceText = el.innerText;
+      // Tenta isolar o preço atual para evitar pegar o preço antigo junto
+      var currentPrice = el.querySelector('.current, .price-item--sale, .special-price, ins, .product-price, [data-product-price]');
+      var priceText = currentPrice ? currentPrice.innerText : el.innerText;
       
-      // Se tiver preço promocional ("De R$ 100 Por R$ 80"), pega o "Por"
-      var currentPrice = el.querySelector('.current, .price-item--sale, .special-price, ins');
-      if (currentPrice) priceText = currentPrice.innerText;
+      // Limpa o texto para garantir que pegamos apenas o primeiro valor monetário encontrado
+      // Isso ajuda se o texto for "R$ 100,00 R$ 150,00"
+      var priceMatch = priceText.match(/[\d.,]+/);
+      if (priceMatch) priceText = priceMatch[0];
 
       var price = parsePrice(priceText);
 
@@ -193,6 +196,8 @@ document.addEventListener("DOMContentLoaded", function() {
         potentialElements.forEach(function(compEl) {
             // Ignora o próprio elemento de preço atual
             if (compEl === el || el.contains(compEl)) return;
+            // Ignora se for o currentPrice detectado
+            if (currentPrice && (compEl === currentPrice || currentPrice.contains(compEl))) return;
             
             var text = compEl.innerText || compEl.textContent;
             // Verifica se tem números
@@ -204,6 +209,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 comparePrice = val;
             }
         });
+        
+        // Fallback: Se ainda não achou, procura por qualquer tag <s> ou <del> ou .price-item--regular
+        if (comparePrice === 0) {
+             var fallbackCompare = priceWrapper.querySelectorAll('s, del, .price-item--regular');
+             fallbackCompare.forEach(function(fc) {
+                 var val = parsePrice(fc.innerText);
+                 if (val > price) comparePrice = val;
+             });
+        }
       }
 
       // 4. Monta o HTML
@@ -228,8 +242,12 @@ document.addEventListener("DOMContentLoaded", function() {
               discountSpan.innerText = discountPercent + '% OFF';
               // Tenta inserir dentro do elemento de preço de venda para ficar na mesma linha
               var targetForBadge = currentPrice || el;
-              if (debugMode) console.log('[Installments] Alvo para o badge:', targetForBadge);
-              targetForBadge.insertAdjacentElement('afterend', discountSpan);
+              // Se o elemento alvo for um bloco (div/p), tenta inserir dentro dele ao final, senão logo após
+              if (targetForBadge.tagName.toLowerCase() === 'div' || targetForBadge.tagName.toLowerCase() === 'p') {
+                  targetForBadge.appendChild(discountSpan);
+              } else {
+                  targetForBadge.insertAdjacentElement('afterend', discountSpan);
+              }
           } else {
               if (debugMode) console.log('[Installments] Desconto percentual é 0 ou menor, não criando badge.');
           }
