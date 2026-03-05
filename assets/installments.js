@@ -195,54 +195,6 @@ document.addEventListener("DOMContentLoaded", function() {
       if (compareElement) {
           comparePrice = parsePrice(compareElement.innerText);
       }
-      // --- Ocultar texto nativo de desconto (Discount: ...--- c:\Users\Batata\Desktop\Tema\assets\installments.js
-      +++ c:\Users\Batata\Desktop\Tema\assets\installments.js
-      @@ -75,7 +75,9 @@
-               '.product-single__meta .price',
-               '.product-group-price .price',
-               '.product-single__price',
-               '[data-product-price]', // Seletor moderno comum
-      -        '.product-price'        // Outro seletor comum
-      +        '.product-price',       // Outro seletor comum
-      +        '.price__container .price',
-      +        '.product__price'
-           ];
-       
-           // Tenta encontrar pelos seletores específicos primeiro
-      @@ -89,10 +91,12 @@
-           
-           priceElements.forEach(function(el) {
-             // 0. Otimização: Verifica se o elemento está visível na página
-      -      if (el.offsetParent === null) {
-      -        if (debugMode) console.log('[Installments] Elemento de preço pulado pois está invisível:', el);
-      -        return;
-      -      }
-      +      // REMOVIDO: A verificação abaixo impedia a exibição em temas com Preloader ativo.
-      +      /*
-      +      if (el.offsetParent === null) {
-      +        if (debugMode) console.log('[Installments] Elemento de preço pulado pois está invisível:', el);
-      +        return;
-      +      }
-      +      */
-       
-             // 1. Evita duplicidade e re-renderização desnecessária (anti-flicker)
-             var existingWrapper = el.nextElementSibling;
-      @@ -158,8 +162,8 @@
-             // --- PIX ---
-             if (config.show_pix) {
-               var pixPrice = price * (1 - config.pix_discount / 100);
-      -        // Utiliza o arquivo 'pix.svg' da pasta assets. Requer que o arquivo JS seja .js.liquid
-      -        var pixSVG = '<img class="pix-icon" src="{{ \'pix.svg\' | asset_url }}" alt="PIX" />';
-      +        // Ícone PIX SVG Inline para garantir exibição sem depender de asset_url
-      +        var pixSVG = '<svg class="pix-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" style="vertical-align: middle;"><path fill="#32BCAD" d="M242.4 29.6C249.6 12 262.4 12 269.6 29.6L360 248C362.4 253.6 362.4 258.4 360 264L269.6 482.4C262.4 500 249.6 500 242.4 482.4L152 264C149.6 258.4 149.6 253.6 152 248L242.4 29.6ZM256 368C317.9 368 368 317.9 368 256C368 194.1 317.9 144 256 144C194.1 144 144 194.1 144 256C144 317.9 194.1 368 256 368Z"/></svg>';
-               html += '<div class="price-pix">' + pixSVG + '<span><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</span></div>';
-             }
-       
-      ) ---
-      /* --- REMOVIDO A PEDIDO DO USUÁRIO --- 
-      var parent = el.parentElement;
-      if(parent) { ... }
-      */
 
       // 4. Monta o HTML
       var html = '<div class="installment-wrapper" data-price="' + price + '">';
