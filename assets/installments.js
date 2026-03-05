@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
       var priceText = el.innerText;
       
       // Se tiver preço promocional ("De R$ 100 Por R$ 80"), pega o "Por"
-      const currentPrice = el.querySelector('.current, .price-item--sale, .special-price, ins');
+      var currentPrice = el.querySelector('.current, .price-item--sale, .special-price, ins');
       if (currentPrice) priceText = currentPrice.innerText;
 
       var price = parsePrice(priceText);
@@ -186,14 +186,15 @@ document.addEventListener("DOMContentLoaded", function() {
       if (priceWrapper) {
         // Procura por elementos de preço de comparação DENTRO do wrapper.
         // Adicionados mais seletores como .old-price, .price--was, .price--line-through
-        var compareSelectors = 's, del, .price-item--regular, .compare-price, .price--compare, .old-price, .price--was, .price--line-through';
+        var compareSelectors = 's, del, .price-item--regular, .compare-price, .price--compare, .old-price, .price--was, .price--line-through, [data-compare-price]';
         compareElement = Array.from(priceWrapper.querySelectorAll(compareSelectors)).find(function(e) {
           // Garante que o elemento encontrado não é o próprio elemento de preço de venda ou um de seus filhos.
-          return e !== el && !el.contains(e);
+          var isCurrent = (currentPrice && (e === currentPrice || currentPrice.contains(e)));
+          return e !== el && !isCurrent;
         });
       }
       if (compareElement) {
-          comparePrice = parsePrice(compareElement.innerText);
+          comparePrice = parsePrice(compareElement.textContent || compareElement.innerText);
       }
 
       // 4. Monta o HTML
@@ -201,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // --- Desconto Personalizado (agora ao lado do preço) ---
       // Primeiro, remove qualquer span de desconto existente para evitar duplicação
-      var existingDiscountSpan = el.querySelector('.premium-discount-badge');
+      var existingDiscountSpan = (el.parentNode || el).querySelector('.premium-discount-badge');
       if (existingDiscountSpan) {
         existingDiscountSpan.remove();
       }
@@ -217,9 +218,9 @@ document.addEventListener("DOMContentLoaded", function() {
               discountSpan.style.cssText = 'background: #FF3B30; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 6px; vertical-align: middle; display: inline-block; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);';
               discountSpan.innerText = discountPercent + '% OFF';
               // Tenta inserir dentro do elemento de preço de venda para ficar na mesma linha
-              var targetForBadge = el.querySelector('.current, .price-item--sale, .special-price, ins') || el;
+              var targetForBadge = currentPrice || el;
               if (debugMode) console.log('[Installments] Alvo para o badge:', targetForBadge);
-              targetForBadge.insertAdjacentElement('beforeend', discountSpan);
+              targetForBadge.insertAdjacentElement('afterend', discountSpan);
           } else {
               if (debugMode) console.log('[Installments] Desconto percentual é 0 ou menor, não criando badge.');
           }
