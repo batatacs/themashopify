@@ -2064,6 +2064,12 @@
         "step": 1,
         "default": 5
       },
+      {
+        "type": "text",
+        "id": "pix_text",
+        "label": "Texto do PIX",
+        "default": "no PIX com desconto"
+      }
     ]
   }
 ]

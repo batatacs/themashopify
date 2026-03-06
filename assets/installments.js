@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // --- MODO DEBUG ---
-  // Mude para true para ver mensagens de depuração no console do navegador (F12)
-  var debugMode = false;
-
   // 1. Tenta ler as configurações globais do theme.liquid
   // Se não encontrar, usa valores padrão de segurança
   var config = window.installmentSettings || {
@@ -31,9 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Se tiver vírgula, assume formato BR (milhar.centena,centavos)
     if (clean.indexOf(',') > -1) {
       clean = clean.replace(/\./g, '').replace(',', '.');
-    } else {
-      // Se só tem ponto (ex: 1.200), remove se parecer milhar (mais de 3 digitos ou seguido de 3 digitos)
-      // Mas por segurança, vamos assumir que se não tem virgula, o parseFloat resolve.
     }
     return parseFloat(clean);
   }
@@ -85,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>${formatMoney(installmentValue)}</td>
                     <td>${formatMoney(totalValue)}</td>
                  </tr>`;
-    }
     html += '</tbody></table>';
     
     tableDiv.innerHTML = html;
@@ -108,55 +100,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // --- Renderização na Página ---
   function renderInstallments() {
-    if (debugMode) console.log('[Installments] Executando renderInstallments...');
-
     // Seletores ESPECÍFICOS para evitar duplicidade (focando no container principal do produto)
     var selectors = [
         '.product-info .price',          
         '.detail-price .price',
         '.product-single__meta .price',
         '.product-group-price .price',
-        '.product-single__price',
-        '[data-product-price]', // Seletor moderno comum
-        '.product-price',       // Outro seletor comum
-        '.price__container .price',
-        '.product__price'
+        '.product-single__price'
     ];
 
     // Tenta encontrar pelos seletores específicos primeiro
     var priceElements = document.querySelectorAll(selectors.join(', '));
-    if (debugMode && priceElements.length === 0) console.log('[Installments] Nenhum elemento de preço encontrado com seletores específicos.');
     
     // Se não achar nada (fallback), usa um seletor mais genérico mas tenta filtrar
     if(priceElements.length === 0) {
          priceElements = document.querySelectorAll('.price:not(.price--compare)');
-         if (debugMode) console.log('[Installments] Usando seletor de fallback. Encontrados:', priceElements.length);
     }
     
     priceElements.forEach(function(el) {
-      // 0. Otimização: Verifica se o elemento está visível na página
-      // REMOVIDO: A verificação abaixo impedia a exibição em temas com Preloader ativo.
-      /*
-      if (el.offsetParent === null) {
-        if (debugMode) console.log('[Installments] Elemento de preço pulado pois está invisível:', el);
-        return;
-      }
-      */
-
-      // 1. Evita duplicidade e re-renderização desnecessária (anti-flicker)
-      var existingWrapper = el.nextElementSibling;
-      if (existingWrapper && existingWrapper.classList.contains('installment-wrapper')) {
-          var oldPrice = existingWrapper.getAttribute('data-price');
-          var currentPriceText = (el.querySelector('.current, .price-item--sale, .special-price, ins') || el).innerText;
-          var currentPriceValue = parsePrice(currentPriceText);
-          // Se o preço não mudou, não faz nada.
-          if (oldPrice && parseFloat(oldPrice) === currentPriceValue) {
-              return; 
-          }
-          // Se o preço mudou, remove o wrapper antigo para recriar.
-          existingWrapper.remove();
-      }
-      // Adicionado para evitar re-renderização dentro de si mesmo
+      // 1. Evita duplicidade (se já tiver o wrapper logo depois, pula)
+      if (el.nextElementSibling && el.nextElementSibling.classList.contains('installment-wrapper')) return;
       if (el.closest('.installment-wrapper')) return;
 
       // 2. Evita locais indesejados (cards de coleção, carrinho lateral, etc)
@@ -165,105 +128,53 @@ document.addEventListener("DOMContentLoaded", function() {
       if (el.closest('.cart-item')) return;
 
       // 3. Pega o preço
-      // Tenta isolar o preço atual para evitar pegar o preço antigo junto
-      var currentPrice = el.querySelector('.current, .price-item--sale, .special-price, ins, .product-price, [data-product-price]');
-      var priceText = currentPrice ? currentPrice.innerText : el.innerText;
+      var priceText = el.innerText;
       
-      // Limpa o texto para garantir que pegamos apenas o primeiro valor monetário encontrado
-      // Isso ajuda se o texto for "R$ 100,00 R$ 150,00"
-      var priceMatch = priceText.match(/[\d.,]+/);
-      if (priceMatch) priceText = priceMatch[0];
+      // Se tiver preço promocional ("De R$ 100 Por R$ 80"), pega o "Por"
+      const currentPrice = el.querySelector('.current, .price-item--sale, .special-price, ins');
+      if (currentPrice) priceText = currentPrice.innerText;
 
       var price = parsePrice(priceText);
-
-      if (debugMode) {
-        console.log('[Installments] Elemento encontrado:', el);
-        console.log('[Installments] Texto do preço:', priceText, 'Preço parseado:', price);
-      }
-
+      
       if (isNaN(price) || price <= 0) return;
 
       // --- Tenta encontrar o preço "De" (Compare Price) para o Desconto ---
       var comparePrice = 0;
-      // Procura o container de preço/produto mais próximo
-      var priceWrapper = el.closest('.product-info, .price, .price-container, .product-price, .product__price, [data-price-wrapper], .product-single__meta, .detail-price, .grid-view-item, .product-card, .product-item, .product-block, .product-card__info, .product-item-info') || el.parentElement;
+      var compareElement = el.closest('.product-info, .detail-price, .product-group-price')?.querySelector('.price-item--regular, .compare-price, s, del');
+      
+      if (compareElement) {
+          comparePrice = parsePrice(compareElement.innerText);
+      }
 
-      if (priceWrapper) {
-        // Busca mais agressiva por qualquer elemento que pareça um preço antigo
-        var compareSelectors = 's, del, .price-item--regular, .compare-price, .price--compare, .old-price, .price--was, .price--line-through, [data-compare-price]';
-        var potentialElements = priceWrapper.querySelectorAll(compareSelectors);
-        
-        potentialElements.forEach(function(compEl) {
-            // Ignora o próprio elemento de preço atual
-            if (compEl === el || el.contains(compEl)) return;
-            // Ignora se for o currentPrice detectado
-            if (currentPrice && (compEl === currentPrice || currentPrice.contains(compEl))) return;
-            
-            var text = compEl.innerText || compEl.textContent;
-            // Verifica se tem números
-            if (!/[0-9]/.test(text)) return;
-            
-            var val = parsePrice(text);
-            // Se o valor encontrado for MAIOR que o preço atual, é o preço "De"
-            if (val > price) {
-                comparePrice = val;
-            }
-        });
-        
-        // Fallback: Se ainda não achou, procura por qualquer tag <s> ou <del> ou .price-item--regular
-        if (comparePrice === 0) {
-             var fallbackCompare = priceWrapper.querySelectorAll('s, del, .price-item--regular');
-             fallbackCompare.forEach(function(fc) {
-                 var val = parsePrice(fc.innerText);
-                 if (val > price) comparePrice = val;
-             });
-        }
+      // --- Ocultar texto nativo de desconto (Discount: ...) ---
+      // Procura por elementos irmãos ou próximos que contenham "Discount:" ou "%"
+      var parent = el.parentElement;
+      if(parent) {
+          var siblings = parent.querySelectorAll('*');
+          siblings.forEach(function(sib) {
+              if(sib.innerText.includes('Discount:') || sib.innerText.includes('Economize:')) {
+                  sib.style.display = 'none';
+              }
+          });
       }
 
       // 4. Monta o HTML
-      var html = '<div class="installment-wrapper" data-price="' + price + '">';
+      var html = '<div class="installment-wrapper">';
 
-      // --- Desconto Personalizado (agora ao lado do preço) ---
-      // Primeiro, remove qualquer span de desconto existente para evitar duplicação
-      var existingDiscountSpan = (el.parentNode || el).querySelector('.premium-discount-badge');
-      if (existingDiscountSpan) {
-        existingDiscountSpan.remove();
-      }
+      // --- Desconto Personalizado ---
       if (config.show_custom_discount && comparePrice > price) {
           var discountValue = comparePrice - price;
           var discountPercent = Math.round((discountValue / comparePrice) * 100);
-
+          
           if (discountPercent > 0) {
-              if (debugMode) console.log('[Installments] Desconto de ' + discountPercent + '% encontrado. Criando badge.');
-              var discountSpan = document.createElement('span');
-              discountSpan.className = 'premium-discount-badge';
-              // Estilo de destaque similar ao "Envio Prioritário" (Vermelho para desconto)
-              discountSpan.style.cssText = 'background: #FF3B30; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 6px; vertical-align: middle; display: inline-block; visibility: visible; opacity: 1; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);';
-              discountSpan.innerText = discountPercent + '% OFF';
-              // Tenta inserir dentro do elemento de preço de venda para ficar na mesma linha
-              var targetForBadge = currentPrice || el;
-              // Se o elemento alvo for um bloco (div/p), tenta inserir dentro dele ao final, senão logo após
-              if (targetForBadge.tagName.toLowerCase() === 'div' || targetForBadge.tagName.toLowerCase() === 'p') {
-                  targetForBadge.appendChild(discountSpan);
-              } else {
-                  targetForBadge.insertAdjacentElement('afterend', discountSpan);
-              }
-          } else {
-              if (debugMode) console.log('[Installments] Desconto percentual é 0 ou menor, não criando badge.');
+              html += '<div class="custom-discount-badge"><i class="fa fa-arrow-down"></i> <span>' + discountPercent + '% OFF</span> - Economize ' + formatMoney(discountValue) + '</div>';
           }
-      } else {
-        if (debugMode) console.log('[Installments] Condições para badge de desconto não atendidas.', { show: config.show_custom_discount, compare: comparePrice, price: price });
       }
 
       // --- PIX ---
       if (config.show_pix) {
-        var iconHtml = '';
-        if (config.pix_icon_url) {
-             iconHtml = '<img src="' + config.pix_icon_url + '" alt="PIX" class="pix-icon" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 5px;">';
-        }
-        // Badge de destaque para Envio Prioritário
-        var highlightStyle = 'background: #25D366; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 4px; vertical-align: middle; display: inline-block; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);';
-        html += '<div class="price-pix">' + iconHtml + '<span><strong>' + config.pix_discount + '% OFF</strong> no PIX + <span style="' + highlightStyle + '">ENVIO PRIORITÁRIO</span></span></div>';
+        var pixPrice = price * (1 - config.pix_discount / 100);
+        html += '<div class="price-pix"><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</div>';
       }
 
       // --- Parcelamento ---
@@ -305,51 +216,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // --- Lógica de Execução e Observação de Mudanças ---
-
-  // Função Debounce para evitar execuções excessivas e repetidas do renderInstallments
-  // durante uma única atualização de variante, que pode disparar múltiplas mutações no DOM.
-  let debounceTimer;
-  const debounce = (func, delay) => {
-    return function(...args) {
-      const context = this;
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => func.apply(context, args), delay);
-    }
-  };
-  const debouncedRender = debounce(renderInstallments, 200);
-
-  // Observador de Mutações (MutationObserver) para performance.
-  // Esta é a forma moderna e eficiente de detectar mudanças na página (como troca de variantes)
-  // sem usar o `setInterval`, que executa constantemente e pode ser pesado.
-  function setupObserver() {
-    if (debugMode) console.log('[Installments] Configurando MutationObserver...');
-
-    // O alvo da observação. Pode ser o body, ou um container mais específico do produto.
-    // Usar 'main' ou um seletor de produto principal é mais performático que 'body'.
-    const targetNode = document.querySelector('main.main-content') || document.body;
-
-    const observerConfig = { childList: true, subtree: true };
-
-    const observer = new MutationObserver((mutationsList, observer) => {
-      // Para cada mutação, chamamos a renderização com debounce.
-      // O debounce garante que, mesmo com muitas pequenas mudanças rápidas,
-      // a função de renderização só execute uma vez após as mudanças pararem.
-      for(const mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-          debouncedRender();
-          break; // Sai do loop após a primeira detecção para evitar chamadas redundantes.
-        }
-      }
-    });
-
-    observer.observe(targetNode, observerConfig);
-    if (debugMode) console.log('[Installments] MutationObserver está ativo no elemento:', targetNode);
-  }
-
-  // Execução inicial ao carregar a página
+  // Executa ao carregar
   renderInstallments();
-
-  // Configura o observador para atualizações dinâmicas (troca de variantes, etc.)
-  setupObserver();
+  
+  // Executa periodicamente para pegar mudanças de variante (quando o preço muda via AJAX)
+  setInterval(renderInstallments, 1000);
 });
