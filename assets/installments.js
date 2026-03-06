@@ -78,8 +78,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>${formatMoney(installmentValue)}</td>
                     <td>${formatMoney(totalValue)}</td>
                  </tr>`;
+    }
     html += '</tbody></table>';
-    
+
     tableDiv.innerHTML = html;
     modal.style.display = 'flex';
   };
@@ -100,6 +101,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // --- Renderização na Página ---
   function renderInstallments() {
+    // Só executa se estiver na página do produto
+    if (!document.body.classList.contains('template-product')) return;
+
     // Seletores ESPECÍFICOS para evitar duplicidade (focando no container principal do produto)
     var selectors = [
     '#js-product-price',           // ID exato do seu arquivo main-product.liquid
@@ -122,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (el.closest('.installment-wrapper')) return;
 
       // 2. Evita locais indesejados (cards de coleção, carrinho lateral, etc)
-      // if (el.closest('.product-item')) return; 
+      if (el.closest('.product-item')) return; 
       if (el.closest('.mini_cart_content')) return;
       if (el.closest('.cart-item')) return;
 
@@ -215,55 +219,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // --- Renderização de Badges Especiais (Tags) ---
-  function renderProductBadges() {
-    try {
-      // Verifica se temos tags disponíveis
-      if (!window.productTags || !Array.isArray(window.productTags)) return;
-      
-      // Tenta encontrar o título do produto (seletores comuns)
-      var titleSelectors = [
-          'h1.product_title', 
-          '.product-single__title', 
-          'h1.title', 
-          '.product-details h1',
-          '.product-info h1',
-          '.product-single__meta h1',
-          '.product_title',
-          'h1.h2'
-      ];
-      var titleElement = document.querySelector(titleSelectors.join(', '));
-      
-      // Se não achar o título ou já tiver os badges, para
-      if (!titleElement || titleElement.parentNode.querySelector('.special-badges-container')) return;
-
-      var tags = window.productTags;
-      var html = '';
-      
-      if (tags.includes('Exclusividade')) {
-          html += '<span class="special-badge badge-exclusividade">Exclusividade</span>';
-      }
-      if (tags.includes('Mais Vendidos')) {
-          html += '<span class="special-badge badge-mais-vendidos">Mais Vendidos</span>';
-      }
-      if (tags.includes('Novidade')) {
-          html += '<span class="special-badge badge-novidade">Novidade</span>';
-      }
-      
-      if (html) {
-          var div = document.createElement('div');
-          div.className = 'special-badges-container';
-          div.innerHTML = html;
-          titleElement.parentNode.insertBefore(div, titleElement);
-      }
-    } catch (e) {
-      console.warn('Erro ao renderizar badges:', e);
-    }
-  }
-
   // Executa ao carregar
   renderInstallments();
-  renderProductBadges();
   
   // Executa periodicamente para pegar mudanças de variante (quando o preço muda via AJAX)
   setInterval(renderInstallments, 1000);
