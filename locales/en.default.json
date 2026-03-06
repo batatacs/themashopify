@@ -658,7 +658,7 @@
       "sku": "SKU",
       "tags": "Tags",
       "from": "from",
-      "price_sale_details_html": "<style>.badge-desconto{display:inline-flex;align-items:center;background-color:#e6f4ea;color:#137333;padding:4px 10px;border-radius:6px;font-size:13px;font-weight:600;margin-top:5px;margin-bottom:12px;border:1px solid #ceead6}.badge-desconto svg{width:14px;height:14px;margin-right:5px;animation:pulsar 1.5s infinite ease-in-out}@keyframes pulsar{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}</style><div class=\"badge-desconto\"><svg xmlns=\"[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z\"></path><line x1=\"7\" y1=\"7\" x2=\"7.01\" y2=\"7\"></line></svg>Economize {{ price }} ({{ procent }}%)</div>",
+      "price_sale_details_html": "",
       "Categories": "Categories",
       "barcode": "Barcode",
       "only_left_in_stock_html": "Only {{ count }} left in stock",
