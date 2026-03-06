@@ -7717,4 +7717,22 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 .installments-table tr:last-child td { border-bottom: none; }
 .installments-table tr:nth-child(even) { background-color: #f9f9f9; }
 
+/* Correção de visibilidade para o parcelamento do Anderson */
+.product-price {
+    height: auto !important;
+    display: block !important;
+    overflow: visible !important; /* Garante que o parcelamento injetado não seja cortado */
+}
 
+.installment-wrapper {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 10px !important;
+    clear: both !important;
+}
+
+.price-pix, .installment-text {
+    display: block !important;
+    line-height: 1.4 !important;
+}

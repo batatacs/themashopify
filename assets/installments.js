@@ -102,12 +102,11 @@ document.addEventListener("DOMContentLoaded", function() {
   function renderInstallments() {
     // Seletores ESPECÍFICOS para evitar duplicidade (focando no container principal do produto)
     var selectors = [
-        '.product-info .price',          
-        '.detail-price .price',
-        '.product-single__meta .price',
-        '.product-group-price .price',
-        '.product-single__price'
-    ];
+    '#js-product-price',           // ID exato do seu arquivo main-product.liquid
+    '.product-price .current',     // Classe de fallback para preço promocional
+    '.product-single__price',      // Fallback para temas Vinova
+    '.price:not(.price--compare)'  // Seletor genérico de segurança
+];
 
     // Tenta encontrar pelos seletores específicos primeiro
     var priceElements = document.querySelectorAll(selectors.join(', '));
@@ -216,8 +215,55 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  // --- Renderização de Badges Especiais (Tags) ---
+  function renderProductBadges() {
+    try {
+      // Verifica se temos tags disponíveis
+      if (!window.productTags || !Array.isArray(window.productTags)) return;
+      
+      // Tenta encontrar o título do produto (seletores comuns)
+      var titleSelectors = [
+          'h1.product_title', 
+          '.product-single__title', 
+          'h1.title', 
+          '.product-details h1',
+          '.product-info h1',
+          '.product-single__meta h1',
+          '.product_title',
+          'h1.h2'
+      ];
+      var titleElement = document.querySelector(titleSelectors.join(', '));
+      
+      // Se não achar o título ou já tiver os badges, para
+      if (!titleElement || titleElement.parentNode.querySelector('.special-badges-container')) return;
+
+      var tags = window.productTags;
+      var html = '';
+      
+      if (tags.includes('Exclusividade')) {
+          html += '<span class="special-badge badge-exclusividade">Exclusividade</span>';
+      }
+      if (tags.includes('Mais Vendidos')) {
+          html += '<span class="special-badge badge-mais-vendidos">Mais Vendidos</span>';
+      }
+      if (tags.includes('Novidade')) {
+          html += '<span class="special-badge badge-novidade">Novidade</span>';
+      }
+      
+      if (html) {
+          var div = document.createElement('div');
+          div.className = 'special-badges-container';
+          div.innerHTML = html;
+          titleElement.parentNode.insertBefore(div, titleElement);
+      }
+    } catch (e) {
+      console.warn('Erro ao renderizar badges:', e);
+    }
+  }
+
   // Executa ao carregar
   renderInstallments();
+  renderProductBadges();
   
   // Executa periodicamente para pegar mudanças de variante (quando o preço muda via AJAX)
   setInterval(renderInstallments, 1000);

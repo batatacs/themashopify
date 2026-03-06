@@ -471,9 +471,8 @@
   </div>
 
   <!-- Script de Parcelamento Inteligente -->
-  {% if settings.show_installments and request.page_type == 'product' %}
+  {% if settings.show_installments %}
   <script>
-    // Configurações globais para o script externo ler
     window.installmentSettings = {
       show_installments: {{ settings.show_installments | default: true }},
       max_installments: {{ settings.max_installments | default: 12 }},
@@ -489,6 +488,7 @@
   </script>
   <script src="{{ 'installments.js' | asset_url }}" defer="defer"></script>
   {% endif %}
+
 </body>
 </html>
 {%- endcapture -%}
