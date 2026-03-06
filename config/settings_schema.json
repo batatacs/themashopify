@@ -1975,6 +1975,46 @@
         "id": "reclameaqui_badge_link",
         "label": "Link Reclame Aqui",
         "default": "https://www.reclameaqui.com.br/detector-site-confiavel/"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_ssl_badge",
+        "label": "Mostrar Selo SSL",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ssl_badge_link",
+        "label": "Link Selo SSL (Deixe vazio para automático)",
+        "info": "Se vazio, usa: https://www.sslshopper.com/ssl-checker.html?hostname=SEUDOMINIO"
+      },
+      {
+        "type": "header",
+        "content": "Selos de Envio (Assets)"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_shipping_badges",
+        "label": "Mostrar Selos de Envio",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_correios_badge",
+        "label": "Mostrar Selo Correios",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_sedex_badge",
+        "label": "Mostrar Selo Sedex",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_pac_badge",
+        "label": "Mostrar Selo PAC",
+        "default": true
       }
     ]
   },

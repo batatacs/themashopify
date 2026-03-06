@@ -372,28 +372,81 @@
   {%- endif -%}
 
   {%- if settings.enable_footer_badges -%}
+    <style>
+      @media (max-width: 767px) {
+        #footer-badges-container > div {
+          justify-content: center !important;
+          gap: 25px !important;
+        }
+        .shipping-badges-block, 
+        .security-badges-block {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .shipping-badges-block > div, 
+        .security-badges-block > div,
+        .footer-badges {
+          text-align: center !important;
+          justify-content: center !important;
+        }
+      }
+    </style>
     <div id="footer-badges-container" style="display: none;">
-      <div class="footer-badges" style="display: flex; justify-content: center; align-items: center; gap: 15px; width: 100%; margin-bottom: 15px;">
-        {%- if settings.enable_google_badge -%}
-          <a href="{{ settings.google_badge_link | default: 'https://transparencyreport.google.com/safe-browsing/search' }}" target="_blank" style="display: block; line-height: 0;">
-            <img src="{{ 'google-site-seguro-pt.svg' | asset_url }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Google Site Seguro" loading="lazy">
-          </a>
-        {%- endif -%}
-        {%- if settings.enable_reclameaqui_badge -%}
-          <a href="{{ settings.reclameaqui_badge_link | default: 'https://www.reclameaqui.com.br/detector-site-confiavel/' }}" target="_blank" style="display: block; line-height: 0;">
-            <img src="{{ 'Reclameaqui.svg' | asset_url }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Reclame Aqui" loading="lazy">
-          </a>
-        {%- endif -%}
-        {%- if settings.footer_badge_1 != blank -%}
-          <a href="{{ settings.footer_badge_1_link | default: '#' }}" target="_blank" style="display: block; line-height: 0;">
-            <img src="{{ settings.footer_badge_1 | image_url: width: settings.footer_badge_width }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Selo 1" loading="lazy">
-          </a>
-        {%- endif -%}
-        {%- if settings.footer_badge_2 != blank -%}
-          <a href="{{ settings.footer_badge_2_link | default: '#' }}" target="_blank" style="display: block; line-height: 0;">
-            <img src="{{ settings.footer_badge_2 | image_url: width: settings.footer_badge_width }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Selo 2" loading="lazy">
-          </a>
-        {%- endif -%}
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; flex-wrap: wrap; gap: 20px; margin-bottom: 15px;">
+
+        {% if settings.enable_shipping_badges %}
+        <div class="shipping-badges-block">
+          <div style="margin-bottom: 10px; text-align: left;">
+            <span style="font-weight: 800; font-size: 16px; text-transform: none; color: #FFF;">Formas de envio</span>
+          </div>
+          <div style="display: flex; justify-content: flex-start; align-items: center; gap: 15px;">
+            {%- if settings.enable_correios_badge -%}
+              <img src="{{ 'correio.png' | asset_url }}" style="height: 30px; width: auto;" alt="Correios" loading="lazy">
+            {%- endif -%}
+            {%- if settings.enable_sedex_badge -%}
+              <img src="{{ 'sedex.png' | asset_url }}" style="height: 30px; width: auto;" alt="Sedex" loading="lazy">
+            {%- endif -%}
+            {%- if settings.enable_pac_badge -%}
+              <img src="{{ 'pac-correio.png' | asset_url }}" style="height: 30px; width: auto;" alt="PAC" loading="lazy">
+            {%- endif -%}
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="security-badges-block">
+          <div style="margin-bottom: 10px; text-align: right;">
+            <span style="font-weight: 800; font-size: 16px; text-transform: none; color: #FFF;">Qualidade e Segurança</span>
+          </div>
+          <div class="footer-badges" style="display: flex; justify-content: flex-end; align-items: center; gap: 15px;">
+            {%- if settings.enable_google_badge -%}
+              <a href="{{ settings.google_badge_link | default: 'https://transparencyreport.google.com/safe-browsing/search' }}" target="_blank" style="display: block; line-height: 0;">
+                <img src="{{ 'google-site-seguro-pt.svg' | asset_url }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Google Site Seguro" loading="lazy">
+              </a>
+            {%- endif -%}
+            {%- if settings.enable_reclameaqui_badge -%}
+              <a href="{{ settings.reclameaqui_badge_link | default: 'https://www.reclameaqui.com.br/detector-site-confiavel/' }}" target="_blank" style="display: block; line-height: 0;">
+                <img src="{{ 'Reclameaqui.svg' | asset_url }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Reclame Aqui" loading="lazy">
+              </a>
+            {%- endif -%}
+            {%- if settings.enable_ssl_badge -%}
+              <a href="{% if settings.ssl_badge_link != blank %}{{ settings.ssl_badge_link }}{% else %}https://www.sslshopper.com/ssl-checker.html?hostname={{ shop.domain }}{% endif %}" target="_blank" style="display: block; line-height: 0;">
+                <img src="{{ 'ssl.png' | asset_url }}" width="{{ settings.footer_badge_width }}" height="auto" alt="SSL Seguro" loading="lazy">
+              </a>
+            {%- endif -%}
+            {%- if settings.footer_badge_1 != blank -%}
+              <a href="{{ settings.footer_badge_1_link | default: '#' }}" target="_blank" style="display: block; line-height: 0;">
+                <img src="{{ settings.footer_badge_1 | image_url: width: settings.footer_badge_width }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Selo 1" loading="lazy">
+              </a>
+            {%- endif -%}
+            {%- if settings.footer_badge_2 != blank -%}
+              <a href="{{ settings.footer_badge_2_link | default: '#' }}" target="_blank" style="display: block; line-height: 0;">
+                <img src="{{ settings.footer_badge_2 | image_url: width: settings.footer_badge_width }}" width="{{ settings.footer_badge_width }}" height="auto" alt="Selo 2" loading="lazy">
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
       </div>
     </div>
     <script>
