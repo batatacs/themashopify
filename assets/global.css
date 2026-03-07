@@ -7739,7 +7739,41 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
   border-radius: 4px;
   letter-spacing: 0.05em;
   color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+/* Efeito de Brilho (Shine) */
+.product-tag-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-20deg);
+  animation: badge-shine 4s infinite;
+}
+
+@keyframes badge-shine {
+  0% { left: -150%; }
+  20% { left: 150%; }
+  100% { left: 150%; }
+}
+
 .badge-novidade { background-color: var(--color-label-new, #16bcdc); }
 .badge-mais-vendidos { background-color: var(--color-label-hot, #cc1414); }
-.badge-exclusividade { background-color: var(--color-secondary, #222); }
+.badge-exclusividade { background-color: #000000; }
+
+/* Opcional: Leve pulsação na etiqueta de Novidade */
+.badge-novidade {
+  animation: badge-pulse 2s infinite ease-in-out;
+}
+
+@keyframes badge-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
