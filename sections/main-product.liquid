@@ -572,11 +572,37 @@
                           {%- assign bg_1 = block.settings.bg_1 -%}
                           {%- assign bg_2 = block.settings.bg_2 -%}
                           {%- assign h_stock = block.settings.h_stock -%}
-                          {%- assign quantity = product.variants.first.inventory_quantity -%}
+                          
+                          {%- assign use_fake = false -%}
+                          {%- if block.settings.use_fake_stock or product.metafields.custom.ativar_estoque_fake -%}
+                            {%- assign use_fake = true -%}
+                          {%- endif -%}
+
+                          {%- if use_fake -%}
+                            {%- assign min = block.settings.min_fake | default: 3 -%}
+                            {%- assign max = block.settings.max_fake | default: 15 -%}
+                            {%- if product.metafields.custom.quantidade_estoque_fake != blank -%}
+                              {%- assign quantity = product.metafields.custom.quantidade_estoque_fake -%}
+                            {%- else -%}
+                              {%- assign diff = max | minus: min | plus: 1 -%}
+                              {%- assign day_of_year = "now" | date: "%j" | plus: 0 -%}
+                              {%- assign seed = current_variant.id | plus: day_of_year -%}
+                              {%- assign daily_offset = seed | modulo: diff -%}
+                              {%- assign quantity = max | minus: daily_offset -%}
+                            {%- endif -%}
+                            {%- assign show_stock_countdown = true -%}
+                          {%- else -%}
+                            {%- assign quantity = product.variants.first.inventory_quantity -%}
+                            {%- assign show_stock_countdown = false -%}
+                            {%- if quantity > 0 and quantity <= total_items -%}
+                              {%- assign show_stock_countdown = true -%}
+                            {%- endif -%}
+                          {%- endif -%}
+
                           <div class="inventory_qty">
                             <div class="product_page_info_stock">
                               <div
-                                class="stock-countdown {% unless quantity > 0 and quantity <= total_items %} d-none-important{% endunless %}"
+                                class="stock-countdown {% unless show_stock_countdown %} d-none-important{% endunless %}"
                                 data-js-product-info-stock
                                 data-min="{{total_items}}"
                               >
@@ -1370,6 +1396,31 @@
          "name": "Inventory Quantity",
          "limit": 1,
 	  "settings": [
+             {
+               "type": "checkbox",
+               "id": "use_fake_stock",
+               "label": "Ativar Estoque Fake",
+               "default": false,
+               "info": "Se marcado, mostrará um número aleatório mesmo se o produto estiver configurado para vender sem estoque."
+             },
+             {
+               "type": "range",
+               "id": "min_fake",
+               "min": 1,
+               "max": 10,
+               "step": 1,
+               "label": "Quantidade Mínima (Fake)",
+               "default": 3
+             },
+             {
+               "type": "range",
+               "id": "max_fake",
+               "min": 11,
+               "max": 40,
+               "step": 1,
+               "label": "Quantidade Máxima (Fake)",
+               "default": 12
+             },
              {
                "type": "range",
                "id": "total_items",
