@@ -483,7 +483,8 @@
       pix_discount: {{ settings.pix_discount | default: 5 }},
       show_custom_discount: {{ settings.show_custom_discount | default: true }},
       pix_text: "{{ settings.pix_text | default: 'no PIX com desconto' }}",
-      modal_title: "Ver opções de parcelamento"
+      modal_title: "Ver opções de parcelamento",
+      pix_icon_url: "{{ 'pix.png' | asset_url }}"
     };
   </script>
   <script src="{{ 'installments.js' | asset_url }}" defer="defer"></script>

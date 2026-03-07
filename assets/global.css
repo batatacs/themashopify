@@ -7608,16 +7608,22 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 }
 
 /* --- Parcelamento Inteligente --- */
+/* Garantir que o container de preço não esconda o desconto ou o parcelamento */
+.price, .product-price, .product-single__price, .product-single__meta {
+  overflow: visible !important;
+  height: auto !important;
+}
+
 .installment-wrapper {
-  margin-top: 8px;
-  font-size: 13px;
-  font-size: 15px; /* Aumentado de 13px */
-  line-height: 1.4;
-  width: 100%;
-  display: block;
-  font-size: 12px;
-  font-weight: 500;
-  margin-top: 5px;
+  display: block !important;
+  width: 100% !important;
+  flex: 0 0 100% !important;
+  clear: both !important;
+  margin-top: 30px !important; /* Aumentado para dar mais espaço ao desconto do tema */
+  margin-top: 10px !important; /* Reduzido para não empurrar demais os elementos */
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--color-main);
 }
 .price-pix {
@@ -7716,23 +7722,3 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 .installments-table td { padding: 10px; border-bottom: 1px solid #eee; }
 .installments-table tr:last-child td { border-bottom: none; }
 .installments-table tr:nth-child(even) { background-color: #f9f9f9; }
-
-/* Correção de visibilidade para o parcelamento do Anderson */
-.product-price {
-    height: auto !important;
-    display: block !important;
-    overflow: visible !important; /* Garante que o parcelamento injetado não seja cortado */
-}
-
-.installment-wrapper {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    margin-top: 10px !important;
-    clear: both !important;
-}
-
-.price-pix, .installment-text {
-    display: block !important;
-    line-height: 1.4 !important;
-}

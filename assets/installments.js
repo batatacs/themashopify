@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
     pix_discount: 5,
     show_custom_discount: true,
     pix_text: "no PIX com desconto",
-    modal_title: "Ver opções de parcelamento"
+    modal_title: "Ver opções de parcelamento",
+    pix_icon_url: ""
   };
 
   // Função para formatar dinheiro (BRL)
@@ -101,83 +102,65 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // --- Renderização na Página ---
   function renderInstallments() {
-    // Só executa se estiver na página do produto
+    // 1. Só executa se estiver na página do produto
     if (!document.body.classList.contains('template-product')) return;
 
-    // Seletores ESPECÍFICOS para evitar duplicidade (focando no container principal do produto)
+    // 2. Seletores de preço
+    // Removi seletores genéricos para focar apenas no preço principal do produto
     var selectors = [
     '#js-product-price',           // ID exato do seu arquivo main-product.liquid
-    '.product-price .current',     // Classe de fallback para preço promocional
-    '.product-single__price',      // Fallback para temas Vinova
-    '.price:not(.price--compare)'  // Seletor genérico de segurança
+    '.product-info .price .current',
+    '.product-single__meta .price'
 ];
 
-    // Tenta encontrar pelos seletores específicos primeiro
     var priceElements = document.querySelectorAll(selectors.join(', '));
     
-    // Se não achar nada (fallback), usa um seletor mais genérico mas tenta filtrar
-    if(priceElements.length === 0) {
-         priceElements = document.querySelectorAll('.price:not(.price--compare)');
-    }
-    
     priceElements.forEach(function(el) {
-      // 1. Evita duplicidade (se já tiver o wrapper logo depois, pula)
-      if (el.nextElementSibling && el.nextElementSibling.classList.contains('installment-wrapper')) return;
-      if (el.closest('.installment-wrapper')) return;
+      // 3. Evita locais indesejados (relacionados, carrinho, etc)
+      if (el.closest('.product-item') || el.closest('.mini_cart_content') || el.closest('.cart-item')) return;
 
-      // 2. Evita locais indesejados (cards de coleção, carrinho lateral, etc)
-      if (el.closest('.product-item')) return; 
-      if (el.closest('.mini_cart_content')) return;
-      if (el.closest('.cart-item')) return;
-
-      // 3. Pega o preço
+      // Determina o container real do preço para inserção (evita quebrar a linha do preço + badge nativo)
+      var targetEl = el;
+      if (el.classList.contains('current') || el.tagName === 'SPAN' || el.classList.contains('price-item')) {
+          targetEl = el.parentElement;
+      }
+      if (targetEl.classList.contains('price')) targetEl = targetEl.parentElement;
+      
+      // 4. Pega o preço atual e limpa
       var priceText = el.innerText;
-      
-      // Se tiver preço promocional ("De R$ 100 Por R$ 80"), pega o "Por"
-      const currentPrice = el.querySelector('.current, .price-item--sale, .special-price, ins');
-      if (currentPrice) priceText = currentPrice.innerText;
-
+      const currentPriceEl = el.querySelector('.current, .price-item--sale, .special-price, ins');
+      if (currentPriceEl) priceText = currentPriceEl.innerText;
       var price = parsePrice(priceText);
-      
       if (isNaN(price) || price <= 0) return;
+
+      // 5. Lógica Anti-Duplicação e Atualização de Variante
+      // Verificamos no targetEl para ser consistente com a inserção
+      if (targetEl.getAttribute('data-last-price') == price && targetEl.nextElementSibling?.classList.contains('installment-wrapper')) {
+          return;
+      }
+      
+      if (targetEl.nextElementSibling?.classList.contains('installment-wrapper')) {
+          targetEl.nextElementSibling.remove();
+      }
+      targetEl.setAttribute('data-last-price', price);
 
       // --- Tenta encontrar o preço "De" (Compare Price) para o Desconto ---
       var comparePrice = 0;
-      var compareElement = el.closest('.product-info, .detail-price, .product-group-price')?.querySelector('.price-item--regular, .compare-price, s, del');
+      // Busca o preço "De" no mesmo container ou no pai para garantir que o badge de % apareça
+      var compareElement = el.parentElement.querySelector('.price-item--regular, .compare-price, s, del, .old-price') || 
+                           el.closest('.product-info, .detail-price, .product-group-price')?.querySelector('.price-item--regular, .compare-price, s, del');
       
       if (compareElement) {
           comparePrice = parsePrice(compareElement.innerText);
       }
 
-      // --- Ocultar texto nativo de desconto (Discount: ...) ---
-      // Procura por elementos irmãos ou próximos que contenham "Discount:" ou "%"
-      var parent = el.parentElement;
-      if(parent) {
-          var siblings = parent.querySelectorAll('*');
-          siblings.forEach(function(sib) {
-              if(sib.innerText.includes('Discount:') || sib.innerText.includes('Economize:')) {
-                  sib.style.display = 'none';
-              }
-          });
-      }
-
-      // 4. Monta o HTML
+      // 7. Monta o HTML
       var html = '<div class="installment-wrapper">';
-
-      // --- Desconto Personalizado ---
-      if (config.show_custom_discount && comparePrice > price) {
-          var discountValue = comparePrice - price;
-          var discountPercent = Math.round((discountValue / comparePrice) * 100);
-          
-          if (discountPercent > 0) {
-              html += '<div class="custom-discount-badge"><i class="fa fa-arrow-down"></i> <span>' + discountPercent + '% OFF</span> - Economize ' + formatMoney(discountValue) + '</div>';
-          }
-      }
 
       // --- PIX ---
       if (config.show_pix) {
-        var pixPrice = price * (1 - config.pix_discount / 100);
-        html += '<div class="price-pix"><strong>' + formatMoney(pixPrice) + '</strong> ' + config.pix_text + '</div>';
+        var pixIcon = config.pix_icon_url ? '<img src="' + config.pix_icon_url + '" class="pix-icon" style="width:18px; height:18px; vertical-align:middle; margin-right:5px; margin-top:-2px;">' : '';
+        html += '<div class="price-pix">' + pixIcon + '<strong>' + config.pix_discount + '% de Desconto</strong> ' + config.pix_text + '</div>';
       }
 
       // --- Parcelamento ---
@@ -214,8 +197,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
       html += '</div>';
       
-      // 5. Insere logo após o preço encontrado
-      el.insertAdjacentHTML('afterend', html);
+      // 8. Insere logo após o preço encontrado
+      targetEl.insertAdjacentHTML('afterend', html);
     });
   }
 
