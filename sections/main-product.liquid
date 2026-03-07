@@ -90,6 +90,18 @@
                         {%- when '@app' -%}
                           {% render block %}
                         {%- when 'name_product' -%}
+                          {%- if product.tags.size > 0 -%}
+                            <div class="product-tag-badges">
+                              {%- for tag in product.tags -%}
+                                {%- assign tag_handle = tag | handle -%}
+                                {%- if tag_handle == 'novidade' or tag_handle == 'mais-vendidos' or tag_handle == 'exclusividade' -%}
+                                  <span class="product-tag-badge badge-{{ tag_handle }}">
+                                    {{ tag }}
+                                  </span>
+                                {%- endif -%}
+                              {%- endfor -%}
+                            </div>
+                          {%- endif -%}
                           <h1 class="product-name">{{ product.title }}</h1>
                           {% style %}
                             .details-info .product-name{

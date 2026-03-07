@@ -7722,3 +7722,24 @@ h1, h2, h3, .h1, .h2, .h3, .section-title {
 .installments-table td { padding: 10px; border-bottom: 1px solid #eee; }
 .installments-table tr:last-child td { border-bottom: none; }
 .installments-table tr:nth-child(even) { background-color: #f9f9f9; }
+
+/* --- Badges de Produto via Tag --- */
+.product-tag-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.product-tag-badge {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+.badge-novidade { background-color: var(--color-label-new, #16bcdc); }
+.badge-mais-vendidos { background-color: var(--color-label-hot, #cc1414); }
+.badge-exclusividade { background-color: var(--color-secondary, #222); }
