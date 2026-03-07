@@ -7,7 +7,11 @@ html {
   scroll-behavior: smooth;
 }
 ::selection {
-  background: var(--color-hover);
+  background: #0088ff; /* Azul padrão de seleção */
+  color: #fff;
+}
+::-moz-selection {
+  background: #0088ff;
   color: #fff;
 }
 .loader-logo {
