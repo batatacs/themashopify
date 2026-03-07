@@ -678,7 +678,7 @@
       "add_to_cart": "Add to cart",
       "pre_order": "Pre-order",
       "out_stock": "Out Stock",
-      "text_countdown_html": "Please, hurry! Someone has placed an order on one of the items you have in the cart. Products are limited, checkout within  {{ counter }}",
+      "text_countdown_html": "Please, hurry! Someone has placed an order on one of the items you have in the cart. Products are limited, checkout within  {{ minutes }}",
       "text_countdown_time_up": "You're out of time! Checkout now to avoid losing your order!",
       "visitors_html": "<p>{{ counter }} people are viewing this right now</p>",
       "same_day_sales_html": "<p>{{ counter }} sold in last {{ time }}</p>",
