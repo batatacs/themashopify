@@ -31,7 +31,7 @@
                 class="d-block image_product cursor-default {% if product.featured_media %} ratio{% endif %}" 
                 style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
                 data-js-product-image >
-                  {% render 'product-image' with card_product: product show_secondary_image: show_secondary_image %}
+                  {% render 'product-image' with card_product, card_product: product, show_secondary_image: show_secondary_image %}
             	</a>
             </div>
          </div>
@@ -43,7 +43,7 @@
           {%- endif -%}
             {%- if label_present -%}
             <div class="product-image__overlay-top-left ">
-              {% include 'product-get-label' with product: product %}
+              {% include 'product-get-label' with product, product: product %}
             </div>
             {%- endif -%}
 
@@ -73,7 +73,7 @@
           <div class="product-collection__info">
             <div class="product-collection__more-info">
               {%- if product.collections.size > 0 -%}
-              {% render 'product-get-collections' with product: product %}
+              {% render 'product-get-collections' with product, product: product %}
               {%- endif -%}   
             </div>
           </div>
@@ -98,7 +98,7 @@
                   {%- if product.price_varies -%}
                     <span class="price"><span>{{ product.price_min | money }} – {{ product.price_max | money }}</span></span>
                   {%- else -%}
-                    {% render 'product-get-price' with price: price compare_at_price: product.compare_at_price %}
+                    {% render 'product-get-price' with price, price: price, compare_at_price: product.compare_at_price %}
                   {%- endif -%}
               </div>
           {%- endif -%}
@@ -142,4 +142,26 @@
     </div>  
     {% endform %}
   </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-image' with card_product: product show_secondary_image:
+    show_secondary_image %}"
+  to: "{% render 'product-image' with card_product, card_product: product, show_secondary_image:
+    show_secondary_image %}"
+  position: 1852..1965
+- from: "{% include 'product-get-label' with product: product %}"
+  to: "{% include 'product-get-label' with product, product: product %}"
+  position: 2357..2421
+- from: "{% render 'product-get-collections' with product: product %}"
+  to: "{% render 'product-get-collections' with product, product: product %}"
+  position: 3608..3677
+- from: "{% render 'product-get-price' with price: price compare_at_price: product.compare_at_price
+    %}"
+  to: "{% render 'product-get-price' with price, price: price, compare_at_price: product.compare_at_price
+    %}"
+  position: 4687..4788
+{%- endcomment -%}

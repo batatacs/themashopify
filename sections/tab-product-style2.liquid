@@ -120,7 +120,7 @@
               </div>
         </div>
       {%- else -%}
-      		{% render 'no-blocks' with message: 'homepage.onboarding.no_content' %}        
+      		{% render 'no-blocks' with message, message: 'homepage.onboarding.no_content' %}        
       {%- endif -%}
     
   </div>
@@ -521,3 +521,14 @@
     ]
   }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'no-blocks' with message: 'homepage.onboarding.no_content' %}"
+  to: "{% render 'no-blocks' with message, message: 'homepage.onboarding.no_content'
+    %}"
+  position: 5977..6057
+{% endcomment %}

@@ -80,7 +80,7 @@
           
           <div class="product-collection__more-info">
             {%- if product.collections.size > 0 -%}
-            {% render 'product-get-collections' with product: product %}
+            {% render 'product-get-collections' with product, product: product %}
             {%- endif -%}   
           </div>
          
@@ -95,13 +95,13 @@
         {%- endif -%}
       {%- if show_reviews -%}
         <div class="product-collection__reviews">
-          {% render 'product-get-review' with id: id hide_counter: hide_reviews_counter %}
+          {% render 'product-get-review' with id, id: id, hide_counter: hide_reviews_counter %}
         </div>
       {%- endif -%}
       <div class="frm-price-color">
         {%- if show_price -%}
         <div class="product-collection__price ">
-          {% render 'product-get-price' with price: price compare_at_price: compare_at_price %}
+          {% render 'product-get-price' with price, price: price, compare_at_price: compare_at_price %}
         </div>
         {%- endif -%}
       </div>
@@ -111,4 +111,23 @@
         {%- endif -%}
     </div>
 </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-collections' with product: product %}"
+  to: "{% render 'product-get-collections' with product, product: product %}"
+  position: 5456..5525
+- from: "{% render 'product-get-review' with id: id hide_counter: hide_reviews_counter
+    %}"
+  to: "{% render 'product-get-review' with id, id: id, hide_counter: hide_reviews_counter
+    %}"
+  position: 5927..6012
+- from: "{% render 'product-get-price' with price: price compare_at_price: compare_at_price
+    %}"
+  to: "{% render 'product-get-price' with price, price: price, compare_at_price: compare_at_price
+    %}"
+  position: 6173..6266
+{%- endcomment -%}

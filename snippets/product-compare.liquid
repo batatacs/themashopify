@@ -33,13 +33,13 @@
         {%- endif -%}
         {%- if show_price -%}
             <div class="product-compare__price">
-                {% render 'product-get-price' with price: price compare_at_price: compare_at_price %}
+                {% render 'product-get-price' with price, price: price, compare_at_price: compare_at_price %}
             </div>
         {%- endif -%}
         {% form "product", product, id: null, class: "frm_product", data-js-product-form: '' %}
             {%- if show_button_add_to_cart -%}
                 <div class="product-compare__variants d-none">
-                    {% render 'product-get-variants' with product: product current_variant: current_variant show_options: show_options show_custom_options: show_custom_options %}
+                    {% render 'product-get-variants' with product, product: product, current_variant: current_variant, show_options: show_options, show_custom_options: show_custom_options %}
                 </div>
             {%- endif -%}
             {%- if show_button_add_to_cart or show_button_quick_view -%}
@@ -54,4 +54,21 @@
         {% endform %}
         
     </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-price' with price: price compare_at_price: compare_at_price
+    %}"
+  to: "{% render 'product-get-price' with price, price: price, compare_at_price: compare_at_price
+    %}"
+  position: 2329..2422
+- from: "{% render 'product-get-variants' with product: product current_variant: current_variant
+    show_options: show_options show_custom_options: show_custom_options %}"
+  to: "{% render 'product-get-variants' with product, product: product, current_variant:
+    current_variant, show_options: show_options, show_custom_options: show_custom_options
+    %}"
+  position: 2690..2860
+{%- endcomment -%}

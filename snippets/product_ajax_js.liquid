@@ -8,7 +8,7 @@
   <div class="product-item">
       <div class="product-image">
         <a href="{{product.url | within: c}}" class="image_product">
-            {% render 'product-image' with card_product: product show_secondary_image: false %}
+            {% render 'product-image' with card_product, card_product: product, show_secondary_image: false %}
         </a>
         {%comment%}
         {%if product.compare_at_price > product.price %}
@@ -42,4 +42,15 @@
         </div>
       </div>
     </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-image' with card_product: product show_secondary_image:
+    false %}"
+  to: "{% render 'product-image' with card_product, card_product: product, show_secondary_image:
+    false %}"
+  position: 295..393
+{%- endcomment -%}

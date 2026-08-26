@@ -23,7 +23,7 @@
                     {%- assign current_variant_id = item[1] | abs -%}
                     {%- assign product = all_products[current_handle] -%}
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-15">
-                        {% include 'product-wishlist' with select_current_variant_by_id: current_variant_id %}
+                        {% include 'product-wishlist' with select_current_variant_by_id, select_current_variant_by_id: current_variant_id %}
                     </div>
                 {%- endfor -%}
             {%- else -%}
@@ -32,7 +32,7 @@
                     {%- assign current_variant_id = item[0] | abs -%}
                     {%- assign product = all_products[current_handle] -%}
                     <div class="col-6 col-md-4 col-lg-3 col-xl-3">
-                        {% include 'product-wishlist' with select_current_variant_by_id: current_variant_id %}
+                        {% include 'product-wishlist' with select_current_variant_by_id, select_current_variant_by_id: current_variant_id %}
                     </div>
                 {%- endfor -%}
             {%- endif -%}
@@ -44,3 +44,20 @@
         </div>
     </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-wishlist' with select_current_variant_by_id: current_variant_id
+    %}"
+  to: "{% include 'product-wishlist' with select_current_variant_by_id, select_current_variant_by_id:
+    current_variant_id %}"
+  position: 1450..1566
+- from: "{% include 'product-wishlist' with select_current_variant_by_id: current_variant_id
+    %}"
+  to: "{% include 'product-wishlist' with select_current_variant_by_id, select_current_variant_by_id:
+    current_variant_id %}"
+  position: 1987..2103
+{% endcomment %}

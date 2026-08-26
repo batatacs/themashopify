@@ -86,7 +86,7 @@
                 <span class="popup_variant">
                   <i class="icon-tune"></i>
                 </span>
-                {% include 'product-get-options' with options_type: 3 select_dropdown_position: 'top' options_show_title: true trigger: 'footbar' %}
+                {% include 'product-get-options' with options_type, options_type: 3, select_dropdown_position: 'top', options_show_title: true, trigger: 'footbar' %}
               </div>
               <div class="select-sticky">
                 <select
@@ -202,4 +202,15 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-get-options' with options_type: 3 select_dropdown_position:
+    'top' options_show_title: true trigger: 'footbar' %}"
+  to: "{% include 'product-get-options' with options_type, options_type: 3, select_dropdown_position:
+    'top', options_show_title: true, trigger: 'footbar' %}"
+  position: 4109..4258
+{%- endcomment -%}

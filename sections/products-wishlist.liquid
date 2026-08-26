@@ -17,7 +17,7 @@
         </h3>
       </div>
       <div class="product-store-lists__price">
-        {% render 'product-get-price' with price: price compare_at_price: compare_at_price %}
+        {% render 'product-get-price' with price, price: price, compare_at_price: compare_at_price %}
       </div>
       <span
         class="product-store-lists__remove btn-link js-store-lists-remove-{{ namespace }}"
@@ -40,4 +40,15 @@
 {% endstylesheet %}
 
 {% javascript %}
-{% endjavascript %}
+{% endjavascript %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-price' with price: price compare_at_price: compare_at_price
+    %}"
+  to: "{% render 'product-get-price' with price, price: price, compare_at_price: compare_at_price
+    %}"
+  position: 644..737
+{%- endcomment -%}

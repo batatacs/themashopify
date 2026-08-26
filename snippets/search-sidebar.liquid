@@ -244,7 +244,7 @@
           {% capture no_content_message %}{{ 'collections.sidebar.no_content' | t }}{% endcapture %}
           {%- capture navigation_content -%}
               {% capture custom_html %}
-                {% include 'parse-page-html-content' with default_page: 'include-collections-sidebar' page_content: block.settings.page_content %}
+                {% include 'parse-page-html-content' with default_page, default_page: 'include-collections-sidebar', page_content: block.settings.page_content %}
               {% endcapture %}
               {%- if custom_html != blank -%}
                   <div class="rte">
@@ -371,4 +371,15 @@
       $(".js-sidebar-mobile-content").removeClass('active');
     });
   })
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'parse-page-html-content' with default_page: 'include-collections-sidebar'
+    page_content: block.settings.page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-collections-sidebar',
+    page_content: block.settings.page_content %}"
+  position: 17345..17490
+{%- endcomment -%}

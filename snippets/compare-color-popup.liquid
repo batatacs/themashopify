@@ -49,7 +49,7 @@
                     {% endif %}
                   >
                     {%- for value in option.values -%}
-                      {% render 'product-get-options-res-status' with option_index0: option_index0 %}
+                      {% render 'product-get-options-res-status' with option_index0, option_index0: option_index0 %}
                       <div
                         data-index="{{ forloop.index }}"
                         class="label index_{{ forloop.index }} {% if active_value %} active{% endif %} {% if disabled_value %} d-none{% endif %}"
@@ -79,7 +79,7 @@
                     {% endif %}
                   >
                     {%- for value in option.values -%}
-                      {% render 'product-get-options-res-status' with option_index0: option_index0 %}
+                      {% render 'product-get-options-res-status' with option_index0, option_index0: option_index0 %}
                       {%- assign option_image = null -%}
                       {%- for variant in product.variants -%}
                         {%- if value == variant.option1 or value == variant.option2 or value == variant.option3 -%}
@@ -121,7 +121,7 @@
                     {% endif %}
                   >
                     {%- for value in option.values -%}
-                      {% render 'product-get-options-res-status' with option_index0: option_index0 %}
+                      {% render 'product-get-options-res-status' with option_index0, option_index0: option_index0 %}
                       <div
                         data-index="{{ forloop.index }}"
                         class="compoare-color-value alo_tooltip product-options__value product-options__value--square standard-color-{{ value | handleize }} text-hide cursor-pointer{% if disabled_value %} disabled{% endif %}{% if active_value %} active{% endif %} "
@@ -164,7 +164,7 @@
                       {%- if option_image == null -%}
                         {%- assign option_image = image -%}
                       {%- endif -%}
-                      {% render 'product-get-options-res-status' with option_index0: option_index0 %}
+                      {% render 'product-get-options-res-status' with option_index0, option_index0: option_index0 %}
                       <div
                         data-index="{{ forloop.index }}"
                         class="compoare-color-value alo_tooltip lazyload product-options__value product-options__value--square text-hide cursor-pointer{% if disabled_value %} disabled{% endif %}{% if active_value %} active{% endif %} "
@@ -203,3 +203,30 @@
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-options-res-status' with option_index0: option_index0
+    %}"
+  to: "{% render 'product-get-options-res-status' with option_index0, option_index0:
+    option_index0 %}"
+  position: 3605..3699
+- from: "{% render 'product-get-options-res-status' with option_index0: option_index0
+    %}"
+  to: "{% render 'product-get-options-res-status' with option_index0, option_index0:
+    option_index0 %}"
+  position: 5430..5524
+- from: "{% render 'product-get-options-res-status' with option_index0: option_index0
+    %}"
+  to: "{% render 'product-get-options-res-status' with option_index0, option_index0:
+    option_index0 %}"
+  position: 7987..8081
+- from: "{% render 'product-get-options-res-status' with option_index0: option_index0
+    %}"
+  to: "{% render 'product-get-options-res-status' with option_index0, option_index0:
+    option_index0 %}"
+  position: 10421..10515
+{% endcomment %}

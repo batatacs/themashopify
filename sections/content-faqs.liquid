@@ -167,7 +167,7 @@
           		{% assign desc6 = "Click on a Product Photo or Product Name to see more detailed information. To place your order, choose the specification you want and enter the quantity, and click ‘Buy Now’. Please enter the required information such as Delivery Address, Quantity Type etc. Before clicking /“Place Order/”, please check your Order Details carefully. If you want to add a new Delivery Address, click /” Add a new address/”. If you want to edit a current Delivery Address, click ‘Edit this address’. After confirming your Order, you will be automatically taken to the Payment page." %}
           
           		{%- capture current_title -%}{%- cycle "How do I place an order?", "What payment methods are accepted?", "What do you do with my information?", "What happen if there is a pricing error?","Do you ship internationally?","How to track my order?" -%}{%- endcapture -%}
-                {%- capture current_desc -%}{%- cycle desc1, desc2, desc3, desc4, desc5,desc6  -%}{%- endcapture -%}
+                {%- capture current_desc -%}{%- cycle desc1, desc2, desc3, desc4, desc5, desc6 -%}{%- endcapture -%}
                 <div class="js-item-faq item {% if forloop.first %} active {% endif %}" id="block_{{i}}">
                   <div class="heading">
 					<div class="heading-title">
@@ -433,3 +433,13 @@ body {
 
 {% javascript %}
 {% endjavascript %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- cycle desc1, desc2, desc3, desc4, desc5,desc6  -%}"
+  to: "{%- cycle desc1, desc2, desc3, desc4, desc5, desc6 -%}"
+  position: 9669..9723
+{% endcomment %}

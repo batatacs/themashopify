@@ -35,7 +35,7 @@
             class="d-block image_product cursor-default  ratio" 
             style="{{ style }}"
             data-js-product-image >
-              {% render 'product-image' with card_product: product show_secondary_image: show_secondary_image %}
+              {% render 'product-image' with card_product, card_product: product, show_secondary_image: show_secondary_image %}
             </a>
         </div>
         {%- if product.compare_at_price > product.price -%}
@@ -66,7 +66,7 @@
                     {%- if product.price_varies -%}
                       <span class="price"><span>{{ product.price_min | money }} – {{ product.price_max | money }}</span></span>
                     {%- else -%}
-                      {% render 'product-get-price' with price: product.price compare_at_price: product.compare_at_price %}
+                      {% render 'product-get-price' with price, price: product.price, compare_at_price: product.compare_at_price %}
                     {%- endif -%}
                 </div>
           </div>
@@ -75,4 +75,20 @@
     </div>
   </div>
   </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-image' with card_product: product show_secondary_image:
+    show_secondary_image %}"
+  to: "{% render 'product-image' with card_product, card_product: product, show_secondary_image:
+    show_secondary_image %}"
+  position: 1402..1515
+- from: "{% render 'product-get-price' with price: product.price compare_at_price:
+    product.compare_at_price %}"
+  to: "{% render 'product-get-price' with price, price: product.price, compare_at_price:
+    product.compare_at_price %}"
+  position: 2898..3007
+{%- endcomment -%}

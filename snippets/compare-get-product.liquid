@@ -1,14 +1,14 @@
 {%- assign product = all_products[current_handle] -%}
 {% assign current_variant = product.selected_or_first_available_variant %}
 <div class="compare__item col">
-    {% include 'product-compare' with select_current_variant_by_id: current_variant_id %}
+    {% include 'product-compare' with select_current_variant_by_id, select_current_variant_by_id: current_variant_id %}
 </div>
 {% capture handles %}{{ handles }}{% if handles %}|||{% endif %}{{ product.handle }}{% endcapture %}
 
 {% capture compare_descriptions %}{{ compare_descriptions }}{% if compare_descriptions %}|||{% endif %}{% if product.description != blank %}{{ product.description | strip_html | truncate: 100 }}{% else %}{{ 'compare_page.empty_section' | t }}{% endif %}{% endcapture %}
 
 
-{% capture compare_collections %}{{ compare_collections }}{% if compare_collections %}|||{% endif %}{% if product.collections.size > 0 %}{% render 'product-get-collections' with product: product %}{% else %}{{ 'compare_page.empty_section' | t }}{% endif %}{% endcapture %}
+{% capture compare_collections %}{{ compare_collections }}{% if compare_collections %}|||{% endif %}{% if product.collections.size > 0 %}{% render 'product-get-collections' with product, product: product %}{% else %}{{ 'compare_page.empty_section' | t }}{% endif %}{% endcapture %}
 
 {% capture compare_availabilities %}{{ compare_availabilities }}{% if compare_availabilities %}|||{% endif %}{% if current_variant.available %}<span class="in-stock">{{ 'compare_page.in_stock' | t }}</span>{% else %}<span class="out-stock">{{ 'compare_page.out_stock' | t }}</span>{% endif %}{% endcapture %}
 
@@ -36,3 +36,18 @@
 {%- endunless -%}
 {%- endif -%}
 {% capture compare_variants %}{{ compare_variants }}{% if compare_variants %}|||{% endif %}{{ product.options[0] }}={{ current_variant.option1 }}+{{ product.options[1] }}={{ current_variant.option2 }}+{{ product.options[2] }}={{ current_variant.option3 }}{% endcapture %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-compare' with select_current_variant_by_id: current_variant_id
+    %}"
+  to: "{% include 'product-compare' with select_current_variant_by_id, select_current_variant_by_id:
+    current_variant_id %}"
+  position: 165..280
+- from: "{% render 'product-get-collections' with product: product %}"
+  to: "{% render 'product-get-collections' with product, product: product %}"
+  position: 799..868
+{% endcomment %}

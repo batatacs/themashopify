@@ -37,7 +37,7 @@
 	<div class="info col">
         {% if product_reviews_count > 0%}
         <div class="product-collection__reviews">
-          {% render 'product-get-review' with id: id hide_counter: hide_reviews_counter %}
+          {% render 'product-get-review' with id, id: id, hide_counter: hide_reviews_counter %}
         </div>
         {% endif %}
       	<h4 class="name_product">
@@ -106,3 +106,15 @@
       </div>
 	</div>
     </div></div></div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-review' with id: id hide_counter: hide_reviews_counter
+    %}"
+  to: "{% render 'product-get-review' with id, id: id, hide_counter: hide_reviews_counter
+    %}"
+  position: 1551..1636
+{% endcomment %}
